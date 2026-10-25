@@ -288,7 +288,7 @@ button{cursor:pointer}
 <link rel="stylesheet" href="css/sbr-readability.css" media="print" onload="this.media='all'">
   <noscript><link rel="stylesheet" href="css/sbr-readability.css"></noscript>
 
-  <meta name="robots" content="index, follow, max-snippet:-1, max-image-preview:large">
+  
   <meta name="googlebot" content="index, follow">
   <meta name="ai-content-purpose" content="fraud-prevention, consumer-protection, digital-security">
   <meta name="perplexity-crawl" content="allow">
@@ -618,7 +618,8 @@ input::placeholder, textarea::placeholder { color: #555 !important; }
 .ss-btn{background:var(--red)!important;color:#fff!important}
 .ss-btn:hover{background:var(--red-l)!important}
 .ss-input:focus{border-color:rgba(192,57,43,.4)!important}
-</style></head>
+</style><meta name="robots" content="noindex, nofollow">
+</head>
 <body>
 <div id="scroll-progress"></div>
 </div>
@@ -635,8 +636,8 @@ input::placeholder, textarea::placeholder { color: #555 !important; }
   <div class="tb-right">
     <div class="tb-alert-badge">&#9888; 3 Alerte Active</div>
     <div class="tb-user">admin@techcorp.ro</div>
-    <button class="tb-btn active" onclick="if (!window.__cfRLUnblockHandlers) return false; location.href='business.html'" data-cf-modified-24006507eed4ce1e3c6590f8-="">&#8592; Business</button>
-    <button class="tb-btn" onclick="if (!window.__cfRLUnblockHandlers) return false; location.href='dashboard.html'" data-cf-modified-24006507eed4ce1e3c6590f8-="">Dashboard Personal</button>
+    <button class="tb-btn active" onclick="location.href='business.html'">&#8592; Business</button>
+    <button class="tb-btn" onclick="location.href='dashboard.html'">Dashboard Personal</button>
   </div>
 </header>
 
@@ -644,26 +645,26 @@ input::placeholder, textarea::placeholder { color: #555 !important; }
 <nav class="sidebar">
   <div class="sb-section">
     <div class="sb-section-label">Overview</div>
-    <div class="sb-item active" onclick="if (!window.__cfRLUnblockHandlers) return false; showPage('overview')" data-cf-modified-24006507eed4ce1e3c6590f8-=""><span class="sb-item-icon">&#9632;</span> Dashboard</div>
-    <div class="sb-item" onclick="if (!window.__cfRLUnblockHandlers) return false; showPage('alerts')" data-cf-modified-24006507eed4ce1e3c6590f8-=""><span class="sb-item-icon">&#9888;</span> Alerte <span class="sb-item-badge">3</span></div>
+    <div class="sb-item active" onclick="showPage('overview')"><span class="sb-item-icon">&#9632;</span> Dashboard</div>
+    <div class="sb-item" onclick="showPage('alerts')"><span class="sb-item-icon">&#9888;</span> Alerte <span class="sb-item-badge">3</span></div>
   </div>
   <div class="sb-divider"></div>
   <div class="sb-section">
     <div class="sb-section-label">Angajati</div>
-    <div class="sb-item" onclick="if (!window.__cfRLUnblockHandlers) return false; showPage('employees')" data-cf-modified-24006507eed4ce1e3c6590f8-=""><span class="sb-item-icon">&#128100;</span> To&#539;i Angaja&#539;ii</div>
-    <div class="sb-item" onclick="if (!window.__cfRLUnblockHandlers) return false; showPage('profile')" data-cf-modified-24006507eed4ce1e3c6590f8-=""><span class="sb-item-icon">&#9679;</span> Profil Risc</div>
-    <div class="sb-item" onclick="if (!window.__cfRLUnblockHandlers) return false; showPage('leaderboard')" data-cf-modified-24006507eed4ce1e3c6590f8-=""><span class="sb-item-icon">&#127942;</span> Leaderboard</div>
+    <div class="sb-item" onclick="showPage('employees')"><span class="sb-item-icon">&#128100;</span> To&#539;i Angaja&#539;ii</div>
+    <div class="sb-item" onclick="showPage('profile')"><span class="sb-item-icon">&#9679;</span> Profil Risc</div>
+    <div class="sb-item" onclick="showPage('leaderboard')"><span class="sb-item-icon">&#127942;</span> Leaderboard</div>
   </div>
   <div class="sb-divider"></div>
   <div class="sb-section">
     <div class="sb-section-label">Training</div>
-    <div class="sb-item" onclick="if (!window.__cfRLUnblockHandlers) return false; showPage('simulations')" data-cf-modified-24006507eed4ce1e3c6590f8-=""><span class="sb-item-icon">&#9654;</span> Simul&#259;ri</div>
-    <div class="sb-item" onclick="if (!window.__cfRLUnblockHandlers) return false; showPage('reports')" data-cf-modified-24006507eed4ce1e3c6590f8-=""><span class="sb-item-icon">&#128196;</span> Rapoarte</div>
+    <div class="sb-item" onclick="showPage('simulations')"><span class="sb-item-icon">&#9654;</span> Simul&#259;ri</div>
+    <div class="sb-item" onclick="showPage('reports')"><span class="sb-item-icon">&#128196;</span> Rapoarte</div>
   </div>
   <div class="sb-divider"></div>
   <div class="sb-section">
     <div class="sb-section-label">Config</div>
-    <div class="sb-item" onclick="if (!window.__cfRLUnblockHandlers) return false; showPage('settings')" data-cf-modified-24006507eed4ce1e3c6590f8-=""><span class="sb-item-icon">&#9881;</span> Set&#259;ri</div>
+    <div class="sb-item" onclick="showPage('settings')"><span class="sb-item-icon">&#9881;</span> Set&#259;ri</div>
   </div>
 </nav>
 
@@ -678,9 +679,9 @@ input::placeholder, textarea::placeholder { color: #555 !important; }
       <div class="page-subtitle">TechCorp SRL &middot; Actualizat: 18 Apr 2026 &middot; 56 angaja&#539;i activi</div>
     </div>
     <div class="page-actions">
-      <button class="action-btn" onclick="if (!window.__cfRLUnblockHandlers) return false; showPage('reports')" data-cf-modified-24006507eed4ce1e3c6590f8-="">&#128196; Export Raport</button>
-      <button class="action-btn" onclick="if (!window.__cfRLUnblockHandlers) return false; showPage('simulations')" data-cf-modified-24006507eed4ce1e3c6590f8-="">&#9654; Lanseaz&#259; Simulare</button>
-      <button class="action-btn red" onclick="if (!window.__cfRLUnblockHandlers) return false; showPage('alerts')" data-cf-modified-24006507eed4ce1e3c6590f8-="">&#9888; 3 Alerte</button>
+      <button class="action-btn" onclick="showPage('reports')">&#128196; Export Raport</button>
+      <button class="action-btn" onclick="showPage('simulations')">&#9654; Lanseaz&#259; Simulare</button>
+      <button class="action-btn red" onclick="showPage('alerts')">&#9888; 3 Alerte</button>
     </div>
   </div>
 
@@ -735,7 +736,7 @@ input::placeholder, textarea::placeholder { color: #555 !important; }
     <div class="panel">
       <div class="panel-header">
         <div class="panel-title">Alerte Active</div>
-        <button class="panel-badge action-btn" onclick="if (!window.__cfRLUnblockHandlers) return false; showPage('alerts')" style="font-family:var(--fm);font-size:7px;color:var(--t3)" data-cf-modified-24006507eed4ce1e3c6590f8-="">Vezi toate</button>
+        <button class="panel-badge action-btn" onclick="showPage('alerts')" style="font-family:var(--fm);font-size:7px;color:var(--t3)">Vezi toate</button>
       </div>
       <div class="panel-body">
         <div class="alerts-list">
@@ -745,7 +746,7 @@ input::placeholder, textarea::placeholder { color: #555 !important; }
               <div class="alert-title">High Risk Employee</div>
               <div class="alert-desc">Andrei Moldovan &mdash; 3 c&#259;deri consecutive CEO Fraud. Scor: 87/100.</div>
               <div class="alert-time">Acum 2 ore</div>
-              <button class="alert-action" onclick="if (!window.__cfRLUnblockHandlers) return false; showPage('profile')" data-cf-modified-24006507eed4ce1e3c6590f8-="">Vezi Profil</button>
+              <button class="alert-action" onclick="showPage('profile')">Vezi Profil</button>
             </div>
           </div>
           <div class="alert-item critic">
@@ -782,7 +783,7 @@ input::placeholder, textarea::placeholder { color: #555 !important; }
   <div class="panel">
     <div class="panel-header">
       <div class="panel-title">Angaja&#539;i &mdash; Risc Ridicat (Top 8)</div>
-      <button class="action-btn" onclick="if (!window.__cfRLUnblockHandlers) return false; showPage('employees')" style="font-family:var(--fm);font-size:7px;color:var(--t3);border:1px solid var(--border);padding:5px 12px" data-cf-modified-24006507eed4ce1e3c6590f8-="">To&#539;i angaja&#539;ii &rarr;</button>
+      <button class="action-btn" onclick="showPage('employees')" style="font-family:var(--fm);font-size:7px;color:var(--t3);border:1px solid var(--border);padding:5px 12px">To&#539;i angaja&#539;ii &rarr;</button>
     </div>
     <div style="overflow-x:auto">
       <table class="emp-table">
@@ -833,7 +834,7 @@ input::placeholder, textarea::placeholder { color: #555 !important; }
   <div class="page-header">
     <div><div class="page-title">Profil Risc Angajat</div></div>
     <div class="page-actions">
-      <button class="action-btn" onclick="if (!window.__cfRLUnblockHandlers) return false; showPage('employees')" data-cf-modified-24006507eed4ce1e3c6590f8-="">&#8592; Înapoi</button>
+      <button class="action-btn" onclick="showPage('employees')">&#8592; Înapoi</button>
       <button class="action-btn red">Aloc&#259; Training Obligatoriu</button>
     </div>
   </div>
@@ -993,7 +994,7 @@ input::placeholder, textarea::placeholder { color: #555 !important; }
   <div class="panel">
     <div class="panel-body">
       <div class="alerts-list">
-        <div class="alert-item critic"><div class="alert-icon">&#128680;</div><div class="alert-body"><div class="alert-title">High Risk Employee &mdash; Critical</div><div class="alert-desc">Andrei Moldovan (Financiar) a c&#259;zut &icirc;n 3 simul&#259;ri consecutive de tip CEO Fraud. Scor curent: 87/100. Rec: Training obligatoriu + restricties procesare pl&#259;&#539;i.</div><div class="alert-time">18 Apr 2026 &mdash; 14:32</div><div style="display:flex;gap:8px;margin-top:8px"><button class="alert-action" onclick="if (!window.__cfRLUnblockHandlers) return false; showPage('profile')" data-cf-modified-24006507eed4ce1e3c6590f8-="">Deschide Profil</button><button class="alert-action">Aloc&#259; Training</button><button class="alert-action">Marcheaz&#259; Rezolvat</button></div></div></div>
+        <div class="alert-item critic"><div class="alert-icon">&#128680;</div><div class="alert-body"><div class="alert-title">High Risk Employee &mdash; Critical</div><div class="alert-desc">Andrei Moldovan (Financiar) a c&#259;zut &icirc;n 3 simul&#259;ri consecutive de tip CEO Fraud. Scor curent: 87/100. Rec: Training obligatoriu + restricties procesare pl&#259;&#539;i.</div><div class="alert-time">18 Apr 2026 &mdash; 14:32</div><div style="display:flex;gap:8px;margin-top:8px"><button class="alert-action" onclick="showPage('profile')">Deschide Profil</button><button class="alert-action">Aloc&#259; Training</button><button class="alert-action">Marcheaz&#259; Rezolvat</button></div></div></div>
         <div class="alert-item critic"><div class="alert-icon">&#128680;</div><div class="alert-body"><div class="alert-title">Departament Financiar &mdash; Risc Critic</div><div class="alert-desc">Scor mediu departament: 82/100. 2 angaja&#539;i f&#259;r&#259; training &icirc;n ultimele 30 zile. Cel mai expus departament la CEO Fraud &#351;i Invoice Fraud.</div><div class="alert-time">17 Apr 2026 &mdash; 09:15</div><div style="display:flex;gap:8px;margin-top:8px"><button class="alert-action">Programeaz&#259; Sesiune</button><button class="alert-action">Marcheaz&#259; Rezolvat</button></div></div></div>
         <div class="alert-item high"><div class="alert-icon">&#9888;</div><div class="alert-body"><div class="alert-title">Simulare E&#351;uat&#259; &mdash; Repetit&#259;</div><div class="alert-desc">Maria Constantin (HR) &mdash; Al doilea e&#351;ec consecutiv la Invoice Fraud (IBAN Swap). Scor: 82/100. Vulnerabilitate: Autoritate + Urgenta.</div><div class="alert-time">18 Apr 2026 &mdash; 10:18</div><div style="display:flex;gap:8px;margin-top:8px"><button class="alert-action">Deschide Profil</button><button class="alert-action">Marcheaz&#259; Rezolvat</button></div></div></div>
       </div>
@@ -1029,11 +1030,11 @@ input::placeholder, textarea::placeholder { color: #555 !important; }
   <div class="settings-grid">
     <div class="settings-nav panel">
       <div class="panel-body" style="padding:8px 0">
-        <div class="sn-item active" onclick="if (!window.__cfRLUnblockHandlers) return false; activeSettingsTab(this)" data-cf-modified-24006507eed4ce1e3c6590f8-="">Companie</div>
-        <div class="sn-item" onclick="if (!window.__cfRLUnblockHandlers) return false; activeSettingsTab(this)" data-cf-modified-24006507eed4ce1e3c6590f8-="">Alerte</div>
-        <div class="sn-item" onclick="if (!window.__cfRLUnblockHandlers) return false; activeSettingsTab(this)" data-cf-modified-24006507eed4ce1e3c6590f8-="">Praguri Risc</div>
-        <div class="sn-item" onclick="if (!window.__cfRLUnblockHandlers) return false; activeSettingsTab(this)" data-cf-modified-24006507eed4ce1e3c6590f8-="">Notific&#259;ri</div>
-        <div class="sn-item" onclick="if (!window.__cfRLUnblockHandlers) return false; activeSettingsTab(this)" data-cf-modified-24006507eed4ce1e3c6590f8-="">Integrare</div>
+        <div class="sn-item active" onclick="activeSettingsTab(this)">Companie</div>
+        <div class="sn-item" onclick="activeSettingsTab(this)">Alerte</div>
+        <div class="sn-item" onclick="activeSettingsTab(this)">Praguri Risc</div>
+        <div class="sn-item" onclick="activeSettingsTab(this)">Notific&#259;ri</div>
+        <div class="sn-item" onclick="activeSettingsTab(this)">Integrare</div>
       </div>
     </div>
     <div class="settings-panel">
@@ -1043,10 +1044,10 @@ input::placeholder, textarea::placeholder { color: #555 !important; }
       <div class="settings-field"><label class="sf-label">Num&#259;r Angaja&#539;i</label><input class="sf-input" value="56"></div>
       <div style="border-top:1px solid var(--border);padding-top:16px;margin-top:4px">
         <div class="settings-section-title">Alerte Automate</div>
-        <div class="sf-toggle-row"><div><div class="sf-toggle-label">Alert High Risk Employee</div><div class="sf-toggle-sub">Notificare c&#226;nd un angajat dep&#259;&#351;e&#351;te 80 puncte risc</div></div><div class="sf-toggle on" onclick="if (!window.__cfRLUnblockHandlers) return false; this.classList.toggle('on')" data-cf-modified-24006507eed4ce1e3c6590f8-=""><div class="sf-toggle-dot"></div></div></div>
-        <div class="sf-toggle-row"><div><div class="sf-toggle-label">Alert E&#351;ecuri Consecutive</div><div class="sf-toggle-sub">Notificare la 3 simul&#259;ri e&#351;uate consecutiv</div></div><div class="sf-toggle on" onclick="if (!window.__cfRLUnblockHandlers) return false; this.classList.toggle('on')" data-cf-modified-24006507eed4ce1e3c6590f8-=""><div class="sf-toggle-dot"></div></div></div>
-        <div class="sf-toggle-row"><div><div class="sf-toggle-label">Raport S&#259;pt&#259;m&#226;nal Automat</div><div class="sf-toggle-sub">Email cu sumar de risc trimis HR &amp; CEO</div></div><div class="sf-toggle" onclick="if (!window.__cfRLUnblockHandlers) return false; this.classList.toggle('on')" data-cf-modified-24006507eed4ce1e3c6590f8-=""><div class="sf-toggle-dot"></div></div></div>
-        <div class="sf-toggle-row"><div><div class="sf-toggle-label">Leaderboard Public</div><div class="sf-toggle-sub">Angaja&#539;ii v&#259;d classamentul &icirc;ntre ei</div></div><div class="sf-toggle on" onclick="if (!window.__cfRLUnblockHandlers) return false; this.classList.toggle('on')" data-cf-modified-24006507eed4ce1e3c6590f8-=""><div class="sf-toggle-dot"></div></div></div>
+        <div class="sf-toggle-row"><div><div class="sf-toggle-label">Alert High Risk Employee</div><div class="sf-toggle-sub">Notificare c&#226;nd un angajat dep&#259;&#351;e&#351;te 80 puncte risc</div></div><div class="sf-toggle on" onclick="this.classList.toggle('on')"><div class="sf-toggle-dot"></div></div></div>
+        <div class="sf-toggle-row"><div><div class="sf-toggle-label">Alert E&#351;ecuri Consecutive</div><div class="sf-toggle-sub">Notificare la 3 simul&#259;ri e&#351;uate consecutiv</div></div><div class="sf-toggle on" onclick="this.classList.toggle('on')"><div class="sf-toggle-dot"></div></div></div>
+        <div class="sf-toggle-row"><div><div class="sf-toggle-label">Raport S&#259;pt&#259;m&#226;nal Automat</div><div class="sf-toggle-sub">Email cu sumar de risc trimis HR &amp; CEO</div></div><div class="sf-toggle" onclick="this.classList.toggle('on')"><div class="sf-toggle-dot"></div></div></div>
+        <div class="sf-toggle-row"><div><div class="sf-toggle-label">Leaderboard Public</div><div class="sf-toggle-sub">Angaja&#539;ii v&#259;d classamentul &icirc;ntre ei</div></div><div class="sf-toggle on" onclick="this.classList.toggle('on')"><div class="sf-toggle-dot"></div></div></div>
       </div>
       <div style="margin-top:20px"><button class="action-btn red">Salveaz&#259; Set&#259;ri</button></div>
     </div>

@@ -98,7 +98,7 @@ a{text-decoration:none;color:inherit}
 <link rel="stylesheet" href="css/sbr-readability.css" media="print" onload="this.media='all'">
   <noscript><link rel="stylesheet" href="css/sbr-readability.css"></noscript>
 
-  <meta name="robots" content="index, follow, max-snippet:-1, max-image-preview:large">
+  
   <meta name="googlebot" content="index, follow">
   <meta name="ai-content-purpose" content="fraud-prevention, consumer-protection, digital-security">
   <meta name="perplexity-crawl" content="allow">
@@ -427,12 +427,13 @@ input::placeholder, textarea::placeholder { color: #555 !important; }
 .ss-btn{background:var(--red)!important;color:#fff!important}
 .ss-btn:hover{background:var(--red-l)!important}
 .ss-input:focus{border-color:rgba(192,57,43,.4)!important}
-</style></head>
+</style><meta name="robots" content="noindex, nofollow">
+</head>
 <body>
 <div id="scroll-progress"></div>
 </div>
 <nav id="nav">
-  <div class="nav-logo" onclick="if (!window.__cfRLUnblockHandlers) return false; location.href='index.html'" data-cf-modified-ae499e948db0d2abbbb05e7f-="">SBR<span>.</span><span class="nav-logo-sub">Anti-Fraud</span></div>
+  <div class="nav-logo" onclick="location.href='index.html'">SBR<span>.</span><span class="nav-logo-sub">Anti-Fraud</span></div>
   <div id="nav-right">
     <a href="afis.html" class="nb">AFIS</a>
     <a href="personal.html" class="nb">Personal</a>
@@ -463,12 +464,12 @@ input::placeholder, textarea::placeholder { color: #555 !important; }
       </div>
 
       <div class="forgot-row">
-        <button class="forgot-link" onclick="if (!window.__cfRLUnblockHandlers) return false; showReset()" data-cf-modified-ae499e948db0d2abbbb05e7f-="">Ai uitat parola?</button>
+        <button class="forgot-link" onclick="showReset()">Ai uitat parola?</button>
       </div>
 
       <div id="l-err" class="auth-err"></div>
 
-      <button class="auth-btn" id="l-btn" onclick="if (!window.__cfRLUnblockHandlers) return false; doLogin()" data-cf-modified-ae499e948db0d2abbbb05e7f-="">Accesează &rarr;</button>
+      <button class="auth-btn" id="l-btn" onclick="doLogin()">Accesează &rarr;</button>
 
       <div class="auth-sep">
         <div class="auth-sep-line"></div>
@@ -481,7 +482,7 @@ input::placeholder, textarea::placeholder { color: #555 !important; }
 
     <!-- ── RESET PASSWORD FORM ── -->
     <div id="reset-form" class="reset-form">
-      <button class="back-btn" onclick="if (!window.__cfRLUnblockHandlers) return false; showLogin()" data-cf-modified-ae499e948db0d2abbbb05e7f-="">Înapoi la Login</button>
+      <button class="back-btn" onclick="showLogin()">Înapoi la Login</button>
       <div class="auth-title">Resetează Parola</div>
       <div class="auth-sub">Îți trimitem un email cu link de resetare</div>
 
@@ -493,7 +494,7 @@ input::placeholder, textarea::placeholder { color: #555 !important; }
       <div id="r-err" class="auth-err"></div>
       <div id="r-ok" class="auth-ok"></div>
 
-      <button class="auth-btn" id="r-btn" onclick="if (!window.__cfRLUnblockHandlers) return false; doReset()" data-cf-modified-ae499e948db0d2abbbb05e7f-="">Trimite link de resetare &rarr;</button>
+      <button class="auth-btn" id="r-btn" onclick="doReset()">Trimite link de resetare &rarr;</button>
     </div>
 
   </div>

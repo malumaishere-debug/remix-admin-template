@@ -590,19 +590,19 @@ input::placeholder, textarea::placeholder { color: #555 !important; }
   <div class="ad-logo">SBR<b>.</b></div>
   <div class="ad-title">Acces restricționat</div>
   <div class="ad-sub">Sesiunea ta a expirat</div>
-  <button class="ad-btn" onclick="if (!window.__cfRLUnblockHandlers) return false; location.href='login.html'" data-cf-modified-afa12ff8f98189e3b82fbfba-="">Login &rarr;</button>
+  <button class="ad-btn" onclick="location.href='login.html'">Login &rarr;</button>
 </div>
 
 <!-- TOPBAR -->
 <div id="topbar">
   <div class="tb-l">
-    <div class="tb-logo" onclick="if (!window.__cfRLUnblockHandlers) return false; location.href='index.html'" data-cf-modified-afa12ff8f98189e3b82fbfba-="">SBR<b>.</b></div>
+    <div class="tb-logo" onclick="location.href='index.html'">SBR<b>.</b></div>
     <div class="tb-badge" id="plan-badge">FREE</div>
   </div>
   <div class="tb-r" id="tb-right">
     <div class="tb-user"><div class="tb-dot"></div><span id="user-email">—</span></div>
-    <button class="tb-btn tb-btn-red" id="upgrade-topbar-btn" onclick="if (!window.__cfRLUnblockHandlers) return false; openEarlyAccess('professional')" style="display:none" data-cf-modified-afa12ff8f98189e3b82fbfba-="">Upgrade &rarr;</button>
-    <button class="tb-btn" onclick="if (!window.__cfRLUnblockHandlers) return false; doLogout()" data-cf-modified-afa12ff8f98189e3b82fbfba-="">Ieșire</button>
+    <button class="tb-btn tb-btn-red" id="upgrade-topbar-btn" onclick="openEarlyAccess('professional')" style="display:none">Upgrade &rarr;</button>
+    <button class="tb-btn" onclick="doLogout()">Ieșire</button>
   </div>
 </div>
 
@@ -643,13 +643,13 @@ input::placeholder, textarea::placeholder { color: #555 !important; }
 
     <div class="sb-section-label">Cont</div>
     <a href="index.html" class="sb-link">&rarr; Homepage</a>
-    <a href="#" class="sb-link" onclick="if (!window.__cfRLUnblockHandlers) return false; doLogout();return false" data-cf-modified-afa12ff8f98189e3b82fbfba-="">&rarr; Ieșire</a>
+    <a href="#" class="sb-link" onclick="doLogout();return false">&rarr; Ieșire</a>
 
     <!-- Upgrade box — hidden for max plan -->
     <div class="sb-upgrade" id="sb-upgrade-box">
       <div class="sb-upgrade-label">Disponibil</div>
       <div class="sb-upgrade-title" id="sb-upgrade-title">Upgrade plan</div>
-      <button class="sb-upgrade-btn" id="sb-upgrade-btn" onclick="if (!window.__cfRLUnblockHandlers) return false; openEarlyAccess('professional')" data-cf-modified-afa12ff8f98189e3b82fbfba-="">Early Access &rarr;</button>
+      <button class="sb-upgrade-btn" id="sb-upgrade-btn" onclick="openEarlyAccess('professional')">Early Access &rarr;</button>
     </div>
   </aside>
 
@@ -733,7 +733,7 @@ input::placeholder, textarea::placeholder { color: #555 !important; }
       <div class="acct-row"><span class="acct-key">Categorie</span><span class="acct-val" id="acct-cat">Personal</span></div>
       <div class="acct-row">
         <span class="acct-key">Parolă</span>
-        <button class="tb-btn" style="padding:4px 10px;font-size:8px" onclick="if (!window.__cfRLUnblockHandlers) return false; changePassword()" data-cf-modified-afa12ff8f98189e3b82fbfba-="">Schimbă &rarr;</button>
+        <button class="tb-btn" style="padding:4px 10px;font-size:8px" onclick="changePassword()">Schimbă &rarr;</button>
       </div>
     </div>
 

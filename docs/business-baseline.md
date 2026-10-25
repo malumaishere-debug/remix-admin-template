@@ -76,3 +76,23 @@ Nu am avut acces la Stripe, Google Analytics, Supabase (ca administrator), Hosti
 ## 8. Date care lipsesc
 
 Vânzări, venit, abonamente, rambursări, trafic real (cele „~200 vizitatori/zi” nu sunt verificate), rată de conversie, listă de e-mailuri, tichete de suport. Toate necesită accesele din `decisions-and-blockers.md`.
+
+## 9. Primele date măsurate (2026-10-25, din Supabase, prin n8n)
+
+Sursă: fluxul n8n `SBR Daily Metrics (read-only)`, care citește doar planul, datele și eticheta quiz-ului, fără nume sau e-mailuri. **Nu am verificat încă în Stripe dacă planurile plătite corespund unor plăți reale.**
+
+| Indicator | Valoare |
+|---|---|
+| Conturi în total | 15 |
+| Conturi noi în ultimele 30 de zile | **0**. Ultimul cont nou: 2026-07-07 |
+| Conturi cu plan plătit | 5 (1 Essential, 2 Professional, 2 Premium; niciun plan Business) |
+| Lead-uri din quiz (tabela `leads`) | 1 în total, din 2026-04-11 |
+
+**Interpretare:** dacă site-ul are cu adevărat ~200 de vizitatori pe zi, 0 înregistrări în peste 3 luni înseamnă că drumul spre cont e blocat, traficul e în mare parte boți, sau ambele. Prima prioritate este aflarea cauzei (R13).
+
+## 10. Alte constatări (2026-10-25, după-amiază)
+
+- Site-ul a fost actualizat azi la 14:24. Acum există imaginile de previzualizare (`og-image.*`), adresele inexistente răspund cu un 404 corect, iar `/en/*` redirecționează spre paginile RO. R11 (în afară de `codex-interactive.css`) și R12 sunt rezolvate.
+- **Quiz-urile tematice `quiz-v1/v2/v3` sunt stricate:** la pasul 3 cer telefonul și un cod SMS, dar funcțiile `send-otp` și `verify-otp` nu există pe server (404). Vizitatorul primește „Eroare SMS.” și nu își vede rezultatul. Paginile au fost scoase din sitemap, dar sunt încă live și pot veni vizitatori din Google.
+- `quiz.html` (quiz-ul principal) folosește `submit_lead` și funcția `send-score-email`; funcția există pe server.
+- Înregistrarea cere confirmare pe e-mail (`mailer_autoconfirm: false`). Dacă Supabase folosește serverul de e-mail implicit (fără SMTP propriu), e-mailurile de confirmare pot să nu ajungă la vizitatori. **De testat** (R13).

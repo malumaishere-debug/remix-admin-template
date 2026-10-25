@@ -1,6 +1,6 @@
 # Ciclul zilnic de operare
 
-**Stare: proiectat, NU programat.** Scriptul de verificare există și a rulat cu succes manual pe 2026-10-25. Nu rulează automat până nu aprobi programarea (decizia D2).
+**Stare (2026-10-25):** colectarea zilnică a datelor din Supabase rulează în n8n (fluxul `SBR Daily Metrics (read-only)`, zilnic la 07:41). Raportul scris de Claude **nu** e programat încă (decizia D2). Scriptul de verificare există și a rulat cu succes manual pe 2026-10-25. Nu rulează automat până nu aprobi programarea (decizia D2).
 
 ## Ce face fiecare rulare
 

@@ -89,7 +89,7 @@ a{text-decoration:none;color:inherit}
 <link rel="stylesheet" href="css/sbr-readability.css" media="print" onload="this.media='all'">
   <noscript><link rel="stylesheet" href="css/sbr-readability.css"></noscript>
 
-  <meta name="robots" content="index, follow, max-snippet:-1, max-image-preview:large">
+  
   <meta name="googlebot" content="index, follow">
   <meta name="ai-content-purpose" content="fraud-prevention, consumer-protection, digital-security">
   <meta name="perplexity-crawl" content="allow">
@@ -418,12 +418,13 @@ input::placeholder, textarea::placeholder { color: #555 !important; }
 .ss-btn{background:var(--red)!important;color:#fff!important}
 .ss-btn:hover{background:var(--red-l)!important}
 .ss-input:focus{border-color:rgba(192,57,43,.4)!important}
-</style></head>
+</style><meta name="robots" content="noindex, nofollow">
+</head>
 <body>
 <div id="scroll-progress"></div>
 </div>
 <nav id="nav">
-  <div class="nav-logo" onclick="if (!window.__cfRLUnblockHandlers) return false; location.href='index.html'" data-cf-modified-a6a2fbb62dd6b6f303ef4a3b-="">SBR<span>.</span><span class="nav-logo-sub">Anti-Fraud</span></div>
+  <div class="nav-logo" onclick="location.href='index.html'">SBR<span>.</span><span class="nav-logo-sub">Anti-Fraud</span></div>
   <a href="login.html" class="nb-solid">Am deja cont</a>
 </nav>
 <div class="auth-bg">
@@ -437,23 +438,23 @@ input::placeholder, textarea::placeholder { color: #555 !important; }
     <div class="field"><label>Parolă <span style="color:#555">(min. 6 caractere)</span></label><input type="password" id="r-pass" placeholder="Alege o parolă sigură" autocomplete="new-password"></div>
     <div class="slbl">Tip cont</div>
     <div class="cat-tabs">
-      <div class="cat-tab sel" id="cat-personal" onclick="if (!window.__cfRLUnblockHandlers) return false; setCat('personal')" data-cf-modified-a6a2fbb62dd6b6f303ef4a3b-="">Personal</div>
-      <div class="cat-tab" id="cat-business" onclick="if (!window.__cfRLUnblockHandlers) return false; setCat('business')" data-cf-modified-a6a2fbb62dd6b6f303ef4a3b-="">Business</div>
-      <div class="cat-tab" id="cat-signals" onclick="if (!window.__cfRLUnblockHandlers) return false; setCat('signals')" data-cf-modified-a6a2fbb62dd6b6f303ef4a3b-="">Signals</div>
-      <div class="cat-tab" id="cat-free" onclick="if (!window.__cfRLUnblockHandlers) return false; setCat('free')" data-cf-modified-a6a2fbb62dd6b6f303ef4a3b-="">Gratuit</div>
+      <div class="cat-tab sel" id="cat-personal" onclick="setCat('personal')">Personal</div>
+      <div class="cat-tab" id="cat-business" onclick="setCat('business')">Business</div>
+      <div class="cat-tab" id="cat-signals" onclick="setCat('signals')">Signals</div>
+      <div class="cat-tab" id="cat-free" onclick="setCat('free')">Gratuit</div>
     </div>
     <div id="plans-personal">
       <div class="slbl">Plan</div>
       <div class="plan-opts">
-        <div class="plan-opt sel" data-plan="essential" onclick="if (!window.__cfRLUnblockHandlers) return false; selPlan(this)" data-cf-modified-a6a2fbb62dd6b6f303ef4a3b-="">
+        <div class="plan-opt sel" data-plan="essential" onclick="selPlan(this)">
           <div><div class="po-name">Essential</div><div class="po-desc">50 tipologii &middot; AFIS &middot; Post-Fraud</div></div>
           <div><div class="po-price">99 RON</div><div class="po-note">Plată unică</div></div>
         </div>
-        <div class="plan-opt" data-plan="professional" onclick="if (!window.__cfRLUnblockHandlers) return false; selPlan(this)" data-cf-modified-a6a2fbb62dd6b6f303ef4a3b-="">
+        <div class="plan-opt" data-plan="professional" onclick="selPlan(this)">
           <div><div class="po-name">Professional</div><div class="po-desc">300+ tipologii &middot; AFIS complet</div></div>
           <div><div class="po-price">250 RON</div><div class="po-note">Plată unică</div></div>
         </div>
-        <div class="plan-opt" data-plan="premium" onclick="if (!window.__cfRLUnblockHandlers) return false; selPlan(this)" data-cf-modified-a6a2fbb62dd6b6f303ef4a3b-="">
+        <div class="plan-opt" data-plan="premium" onclick="selPlan(this)">
           <div><div class="po-name">Premium</div><div class="po-desc">Tot ecosistemul &middot; Signals 3 luni</div></div>
           <div><div class="po-price">449 RON</div><div class="po-note">Plată unică</div></div>
         </div>
@@ -462,15 +463,15 @@ input::placeholder, textarea::placeholder { color: #555 !important; }
     <div id="plans-business" style="display:none">
       <div class="slbl">Plan Business</div>
       <div class="plan-opts">
-        <div class="plan-opt sel" data-plan="basic" onclick="if (!window.__cfRLUnblockHandlers) return false; selPlan(this)" data-cf-modified-a6a2fbb62dd6b6f303ef4a3b-="">
+        <div class="plan-opt sel" data-plan="basic" onclick="selPlan(this)">
           <div><div class="po-name">Basic</div><div class="po-desc">50 tipologii &middot; 5 utilizatori</div></div>
           <div><div class="po-price">99 EUR</div><div class="po-note">Plată unică</div></div>
         </div>
-        <div class="plan-opt" data-plan="pro" onclick="if (!window.__cfRLUnblockHandlers) return false; selPlan(this)" data-cf-modified-a6a2fbb62dd6b6f303ef4a3b-="">
+        <div class="plan-opt" data-plan="pro" onclick="selPlan(this)">
           <div><div class="po-name">Pro</div><div class="po-desc">300+ tipologii &middot; 25 utilizatori</div></div>
           <div><div class="po-price">499 EUR</div><div class="po-note">Plată unică</div></div>
         </div>
-        <div class="plan-opt" data-plan="enterprise" onclick="if (!window.__cfRLUnblockHandlers) return false; selPlan(this)" data-cf-modified-a6a2fbb62dd6b6f303ef4a3b-="">
+        <div class="plan-opt" data-plan="enterprise" onclick="selPlan(this)">
           <div><div class="po-name">Enterprise</div><div class="po-desc">Complet &middot; Utilizatori nelimitați</div></div>
           <div><div class="po-price">5.000 EUR</div><div class="po-note">Plată unică</div></div>
         </div>
@@ -489,7 +490,7 @@ input::placeholder, textarea::placeholder { color: #555 !important; }
       </div>
     </div>
     <div id="r-err" class="auth-err"></div>
-    <button class="auth-btn" id="r-btn" onclick="if (!window.__cfRLUnblockHandlers) return false; doReg()" data-cf-modified-a6a2fbb62dd6b6f303ef4a3b-="">Creează Cont &rarr;</button>
+    <button class="auth-btn" id="r-btn" onclick="doReg()">Creează Cont &rarr;</button>
     <div class="auth-sw"><a href="login.html">Am deja cont</a></div>
     <div class="legal">Prin înregistrare ești de acord cu <a href="terms.html">Termenii</a> și <a href="privacy.html">Politica de Confidențialitate</a>.</div>
   </div>
@@ -503,8 +504,8 @@ input::placeholder, textarea::placeholder { color: #555 !important; }
       <div style="font-size:12px;color:#777;line-height:1.7">Am trimis un link de confirmare la <strong id="conf-email" style="color:#fff"></strong><br>Accesează linkul pentru a activa contul.</div>
     </div>
     <div id="plan-note" style="font-family:'IBM Plex Mono',monospace;font-size:10px;color:#777;text-align:center;margin-bottom:20px;line-height:1.7"></div>
-    <button class="auth-btn" onclick="if (!window.__cfRLUnblockHandlers) return false; location.href='login.html'" data-cf-modified-a6a2fbb62dd6b6f303ef4a3b-="">Mergi la Login &rarr;</button>
-    <div class="auth-sw" style="margin-top:8px"><a href="#" onclick="if (!window.__cfRLUnblockHandlers) return false; resend()" data-cf-modified-a6a2fbb62dd6b6f303ef4a3b-="">Nu ai primit emailul? Retrimite</a></div>
+    <button class="auth-btn" onclick="location.href='login.html'">Mergi la Login &rarr;</button>
+    <div class="auth-sw" style="margin-top:8px"><a href="#" onclick="resend()">Nu ai primit emailul? Retrimite</a></div>
   </div>
 </div>
 <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>

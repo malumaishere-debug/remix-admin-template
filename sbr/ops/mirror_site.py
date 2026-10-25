@@ -50,6 +50,9 @@ def clean_html(s):
     s = re.sub(r'<script[^>]+/cdn-cgi/scripts/[^>]*rocket-loader\.min\.js[^>]*></script>', "", s)
     s = re.sub(r'\stype="[0-9a-f]{20,}-(text/javascript|module|application/ld\+json)"',
                lambda m: "" if m.group(1) == "text/javascript" else f' type="{m.group(1)}"', s)
+    # Rocket Loader also wraps inline event handlers (onclick=...) and tags them.
+    s = s.replace("if (!window.__cfRLUnblockHandlers) return false; ", "")
+    s = re.sub(r'\sdata-cf-modified-[0-9a-f]+-=""', "", s)
     # Cloudflare e-mail obfuscation.
     s = re.sub(r'<script[^>]+/cdn-cgi/scripts/[^>]*email-decode\.min\.js[^>]*></script>', "", s)
     s = re.sub(r'<(span|a)[^>]*class="__cf_email__"[^>]*data-cfemail="([0-9a-f]+)"[^>]*>.*?</\1>',
