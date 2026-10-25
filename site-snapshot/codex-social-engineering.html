@@ -1,0 +1,574 @@
+<!DOCTYPE html>
+<html lang="ro">
+<head>
+<meta charset="UTF-8">
+<!-- Google Analytics 4 (Consent Mode v2) — nu colecteaza pana la consimtamant -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-9WT1GRKEGB"></script>
+<script>
+window.dataLayer=window.dataLayer||[];function gtag(){dataLayer.push(arguments);}
+gtag('js',new Date());
+gtag('consent','default',{'ad_storage':'denied','ad_user_data':'denied','ad_personalization':'denied','analytics_storage':'denied'});
+try{var _c=JSON.parse(localStorage.getItem('sbr_cookie_consent')||'null');if(_c&&_c.type==='all'){gtag('consent','update',{'analytics_storage':'granted'});}}catch(e){}
+gtag('config','G-9WT1GRKEGB',{anonymize_ip:true});
+</script>
+<!-- End GA4 -->
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Social Engineering — 17 tipologii de fraudă documentate | SBR Codex</title>
+<meta name="description" content="Nicio tehnologie — doar psihologie. Ingineria socială manipulează frica, autoritatea și graba ca să te facă TU să deschizi ușa. Fișele arată scenariile exact…">
+<meta name="robots" content="index, follow, max-snippet:-1, max-image-preview:large">
+<link rel="canonical" href="https://sbr.systems/codex-social-engineering.html">
+<meta property="og:type" content="website">
+<meta property="og:title" content="Social Engineering — SBR Codex | Atlasul Fraudelor Digitale">
+<meta property="og:description" content="Nicio tehnologie — doar psihologie. Ingineria socială manipulează frica, autoritatea și graba ca să te facă TU să deschizi ușa. Fișele arată scenariile exact…">
+<meta property="og:url" content="https://sbr.systems/codex-social-engineering.html">
+<meta name="twitter:card" content="summary">
+<script src="js/nav-universal.js?v=13"></script>
+<script src="/js/i18n.js?v=5"></script>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=IBM+Plex+Mono:wght@300;400;500&family=Lato:wght@300;400;700;900&display=swap" rel="stylesheet" media="print" onload="this.media='all'">
+<noscript><link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=IBM+Plex+Mono:wght@300;400;500&family=Lato:wght@300;400;700;900&display=swap" rel="stylesheet"></noscript>
+<link rel="stylesheet" href="css/codex.css">
+<link rel="stylesheet" href="css/sbr-readability.css" media="print" onload="this.media='all'">
+<noscript><link rel="stylesheet" href="css/sbr-readability.css"></noscript>
+<script type="application/ld+json">{"@context": "https://schema.org", "@type": "ItemList", "name": "SBR Codex — Social Engineering", "numberOfItems": 17, "itemListElement": [{"@type": "ListItem", "position": 1, "name": "Pretexting Attack"}, {"@type": "ListItem", "position": 2, "name": "Baiting Physical"}, {"@type": "ListItem", "position": 3, "name": "Tailgating Piggybacking"}, {"@type": "ListItem", "position": 4, "name": "Vishing Authority Framework"}, {"@type": "ListItem", "position": 5, "name": "Quid Pro Quo Scam"}, {"@type": "ListItem", "position": 6, "name": "Honey Trap Social Engineering"}, {"@type": "ListItem", "position": 7, "name": "Fake Charity Scam"}, {"@type": "ListItem", "position": 8, "name": "Authority Impersonation Framework"}, {"@type": "ListItem", "position": 9, "name": "Consensus Manipulation"}, {"@type": "ListItem", "position": 10, "name": "Scarcity FOMO Engineering"}, {"@type": "ListItem", "position": 11, "name": "Reciprocity Engineering"}, {"@type": "ListItem", "position": 12, "name": "Gradual Commitment Escalation"}, {"@type": "ListItem", "position": 13, "name": "Dual Authority Pressure"}, {"@type": "ListItem", "position": 14, "name": "Insider Threat Recruitment"}, {"@type": "ListItem", "position": 15, "name": "Information Elicitation"}, {"@type": "ListItem", "position": 16, "name": "Reverse Social Engineering"}, {"@type": "ListItem", "position": 17, "name": "Long Con Relationship Building"}]}</script>
+<script type="application/ld+json">{"@context": "https://schema.org", "@type": "BreadcrumbList", "itemListElement": [{"@type": "ListItem", "position": 1, "name": "Acasă", "item": "https://sbr.systems/"}, {"@type": "ListItem", "position": 2, "name": "Codex", "item": "https://sbr.systems/codex.html"}, {"@type": "ListItem", "position": 3, "name": "Social Engineering", "item": "https://sbr.systems/codex-social-engineering.html"}]}</script>
+<style>:root{--cat-color:#2C3E50}</style>
+<link rel="stylesheet" href="css/codex-interactive.css">
+</head>
+<body>
+<div id="scroll-progress"></div>
+<nav id="sbr-nav">
+  <a href="index.html" class="sn-logo" aria-label="SBR Home">
+    <span class="sn-sbr">SBR</span><span class="sn-dot">.</span>
+    <span class="sn-af">Anti-Fraud</span>
+  </a>
+  <div class="sn-links">
+    <div class="sn-item">
+      <button class="sn-link" aria-haspopup="true">Planuri <span class="arr">&#9662;</span></button>
+      <div class="sn-dd" style="min-width:280px">
+        <div class="sn-dd-section">Personal</div>
+        <a href="personal.html" class="sn-dd-link"><span class="sn-dd-dot"></span>Essential &mdash; 99 RON (plat&#259; unic&#259;)</a>
+        <a href="personal.html" class="sn-dd-link"><span class="sn-dd-dot"></span>Professional &mdash; 250 RON (plat&#259; unic&#259;)</a>
+        <a href="personal.html" class="sn-dd-link"><span class="sn-dd-dot"></span>Premium &mdash; 449 RON (plat&#259; unic&#259;)</a>
+        <div class="sn-dd-section">Business</div>
+        <a href="business.html" class="sn-dd-link"><span class="sn-dd-dot"></span>Basic &mdash; 99 EUR (plat&#259; unic&#259;)</a>
+        <a href="business.html" class="sn-dd-link"><span class="sn-dd-dot"></span>Pro &mdash; 499 EUR (plat&#259; unic&#259;)</a>
+        <a href="business.html" class="sn-dd-link"><span class="sn-dd-dot"></span>Enterprise &mdash; 5.000 EUR+</a>
+      </div>
+    </div>
+    <a href="signals.html" class="sn-link">Signals</a>
+    <div class="sn-item">
+      <button class="sn-link" aria-haspopup="true">Post-Fraud <span class="arr">&#9662;</span></button>
+      <div class="sn-dd">
+        <a href="postfraud.html" class="sn-dd-link"><span class="sn-dd-dot"></span>Overview</a>
+        <a href="postfraud-checklist.html" class="sn-dd-link"><span class="sn-dd-dot"></span>Checklist 72h</a>
+        <a href="postfraud-reclamatii.html" class="sn-dd-link"><span class="sn-dd-dot"></span>Reclama&#x21b;ii</a>
+        <a href="postfraud-chargeback.html" class="sn-dd-link"><span class="sn-dd-dot"></span>Chargeback</a>
+        <a href="postfraud-psihologie.html" class="sn-dd-link"><span class="sn-dd-dot"></span>Psihologie</a>
+        <a href="postfraud-investigare.html" class="sn-dd-link"><span class="sn-dd-dot"></span>Investigare</a>
+      </div>
+    </div>
+    <a href="codex.html" class="sn-link">Codex</a>
+    <div class="sn-item">
+      <button class="sn-link" aria-haspopup="true">Mai mult <span class="arr">&#9662;</span></button>
+      <div class="sn-dd">
+        <a href="afis.html" class="sn-dd-link"><span class="sn-dd-dot"></span>AFIS</a>
+        <a href="quiz.html" class="sn-dd-link"><span class="sn-dd-dot"></span>Diagnostic</a>
+        <a href="score.html" class="sn-dd-link"><span class="sn-dd-dot"></span>SBR Score</a>
+        <a href="institute.html" class="sn-dd-link"><span class="sn-dd-dot"></span>Institute</a>
+        <a href="about.html" class="sn-dd-link"><span class="sn-dd-dot"></span>Despre noi</a>
+        <a href="faq.html" class="sn-dd-link"><span class="sn-dd-dot"></span>FAQ</a>
+      </div>
+    </div>
+  </div>
+  <div class="sn-right">
+    <a href="login.html" class="sn-ghost desktop-only" data-nav="guest-only">Login</a>
+    <a href="dashboard.html" class="sn-ghost desktop-only" data-nav="auth-only" style="display:none">Dashboard</a>
+    <a href="quiz.html" class="sn-cta">Diagnostic &rarr;</a>
+    <button id="sbr-burger" aria-label="Meniu" onclick="if (!window.__cfRLUnblockHandlers) return false; sbrToggleMenu(this)" aria-expanded="false" data-cf-modified-40321c0ae49313ac355055c3-="">
+      <span></span><span></span><span></span>
+    </button>
+  </div>
+</nav>
+
+<header class="cdx-hero" style="--cat-color:#2C3E50">
+  <div class="cdx-hero-inner">
+    <div class="cdx-crumb"><a href="index.html" data-en="Home">Acasă</a> / <a href="codex.html">Codex</a> / <span style="color:#2C3E50">SEF</span></div>
+    <div class="cdx-code">SEF · C10</div>
+    <h1 class="cdx-h1">Social Engineering</h1>
+    <p class="cdx-intro" data-en="No technology — just psychology. Social engineering weaponizes fear, authority and urgency so that YOU open the door yourself. These entries show the exact scenarios, line by line.">Nicio tehnologie — doar psihologie. Ingineria socială manipulează frica, autoritatea și graba ca să te facă TU să deschizi ușa. Fișele arată scenariile exacte, replică cu replică.</p>
+    <div class="cdx-stats">
+      <div class="cdx-stat"><b>17</b><span data-en="documented typologies">tipologii documentate</span></div>
+      <div class="cdx-stat"><b>11</b><span data-en="critical risk">risc critic</span></div>
+      <div class="cdx-stat"><b>5</b><span data-en="high risk">risc ridicat</span></div>
+      <div class="cdx-stat"><b>2026</b><span data-en="edition">ediția</span></div>
+    </div>
+  </div>
+</header>
+
+<main class="cdx-body" style="--cat-color:#2C3E50">
+<article class="atlas-card" data-catnum="1" data-cat="C10" data-risk="CRITIC" data-num="165" data-tier="essential" data-search="sef-001 pretexting attack social engineering frameworks" style="--cat-color:#2C3E50">
+  <div class="ac-sidebar">
+    <div class="acs-id">SEF-001</div>
+    <div class="acs-num">#165</div>
+    <div class="acs-risk-badge rc" data-en="Critical">Critic</div>
+    <div class="acs-risk-bar"><div class="acs-risk-fill" style="height:100%;background:#C0392B"></div></div>
+  </div>
+  <div class="ac-main">
+    <div class="ac-title">Pretexting Attack</div>
+    <div class="ac-cat" style="color:#2C3E50">SOCIAL ENGINEERING FRAMEWORKS</div>
+    <div class="ac-vectors">
+      <div class="acv-block"><div class="acv-label">Entry Vector</div><div class="acv-tags"><span class="atag-entry" data-en="Phone">Telefon</span><span class="atag-entry">Email</span></div></div>
+      <div class="acv-block"><div class="acv-label">Manipulation</div><div class="acv-tags"><span class="atag-pat" data-en="Authority">Autoritate</span><span class="atag-pat" data-en="Familiarity">Familiaritate</span></div></div>
+      <div class="acv-block"><div class="acv-label">Extraction</div><div class="acv-extraction" data-en="Data or access via fake scenario">Date sau acces prin scenariu fals</div></div>
+    </div>
+    <div class="ac-desc">Pretextul este scenariul fabricat care justifică o cerere neobișnuită. Atacatorul nu cere direct informația sensibilă — construiește un context plauzibil în care victima o furnizează voluntar. Exemple: 'Sunt auditorul extern, am nevoie de accesul la sistemul X pentru verificarea anuală' sau 'Suntem de la HR, facem actualizarea bazei de date — confirmați adresa și CNP-ul.' Pretextul bun este bazat pe realitate — auditurile există, actualizările de date există — și exploatează obișnuința cu proceduri normale.</div>
+  </div>
+  <div class="ac-intel"><div class="aci-row"><div class="aci-k" data-en="HOW IT REACHES YOU">CUM TE ABORDEAZĂ</div><div class="aci-v" data-en="You get a direct call. The voice is calm, &quot;professional&quot;, and already knows a few real details about you.">Ești sunat direct. Vocea e calmă, „profesionistă&quot;, și are deja câteva date reale despre tine.</div></div><div class="aci-row"><div class="aci-k" data-en="PSYCHOLOGICAL LEVER">PÂRGHIA PSIHOLOGICĂ</div><div class="aci-v"><div class="aci-manip"><span class="aci-mtag" data-en="Authority">Autoritate</span><span class="aci-mex" data-en="The brain automatically obeys uniforms, titles and institutions — the attacker borrows them.">Creierul ascultă automat de uniformă, funcție și instituție — atacatorul le împrumută.</span></div><div class="aci-manip"><span class="aci-mtag" data-en="Familiarity">Familiaritate</span><span class="aci-mex" data-en="It seems familiar — a colleague, friend, or brand you use daily — so your guard drops.">Pare cineva cunoscut — coleg, prieten, brand folosit zilnic — deci lași garda jos.</span></div></div></div><div class="aci-row aci-watch"><div class="aci-k aci-k-warn" data-en="WATCH FOR — 3 SIGNALS">FII ATENT LA — 3 SEMNALE</div><ul class="aci-list"><li data-en="The caller builds pressure: &quot;right now, or you lose the money&quot;">Apelantul creează presiune: „chiar acum, altfel pierzi banii&quot;</li><li data-en="They ask for SMS codes, your PIN, or to install an app">Îți cere coduri din SMS, PIN sau instalarea unei aplicații</li><li data-en="They refuse to let you call back on the institution&#x27;s official number">Refuză să îl suni tu înapoi pe numărul oficial al instituției</li></ul></div></div>
+  <div class="atlas-lock-overlay" data-lock-tier="essential">
+    <div class="alo-icon">&#128274;</div>
+    <div class="alo-plan" data-en="Essential — 99 RON (one-time)">Essential — 99 RON (plată unică)</div>
+    <div class="alo-text" data-en="Available in Essential plan">Disponibil din planul Essential</div>
+    <a href="personal.html" class="alo-btn" data-en="Upgrade &rarr;">Upgrade &rarr;</a>
+  </div>
+</article>
+<article class="atlas-card" data-catnum="2" data-cat="C10" data-risk="CRITIC" data-num="166" data-tier="essential" data-search="sef-002 baiting physical social engineering frameworks" style="--cat-color:#2C3E50">
+  <div class="ac-sidebar">
+    <div class="acs-id">SEF-002</div>
+    <div class="acs-num">#166</div>
+    <div class="acs-risk-badge rc" data-en="Critical">Critic</div>
+    <div class="acs-risk-bar"><div class="acs-risk-fill" style="height:100%;background:#C0392B"></div></div>
+  </div>
+  <div class="ac-main">
+    <div class="ac-title">Baiting Physical</div>
+    <div class="ac-cat" style="color:#2C3E50">SOCIAL ENGINEERING FRAMEWORKS</div>
+    <div class="ac-vectors">
+      <div class="acv-block"><div class="acv-label">Entry Vector</div><div class="acv-tags"><span class="atag-entry" data-en="Physical">Fizic</span></div></div>
+      <div class="acv-block"><div class="acv-label">Manipulation</div><div class="acv-tags"><span class="atag-pat" data-en="Curiosity">Curiozitate</span></div></div>
+      <div class="acv-block"><div class="acv-label">Extraction</div><div class="acv-extraction" data-en="Malware or physical data">Malware sau date fizice</div></div>
+    </div>
+    <div class="ac-desc">Obiectul fizic abandonat strategic — USB, CD, QR code pe un afiș fals, badge de acces 'găsit' — exploatează curiozitatea naturală sau sentimentul civic. La sediul companiei: un USB etichetat 'Salarii Confidential 2024.xlsx' lăsat în parcare are șanse ridicate de a fi conectat de un angajat curios. Autorun și exploiturile de browser fac ca simpla conectare sau vizitarea unui URL să fie suficientă pentru infecție. Politicile de securitate care interzic dispozitivele externe neautorizate previn complet acest vector.</div>
+  </div>
+  <div class="ac-intel"><div class="aci-row"><div class="aci-k" data-en="HOW IT REACHES YOU">CUM TE ABORDEAZĂ</div><div class="aci-v" data-en="The attack has a physical component: a planted device, a handed document, a person at your door.">Atacul are o componentă fizică: dispozitiv montat, document înmânat, persoană care apare la ușă.</div></div><div class="aci-row"><div class="aci-k" data-en="PSYCHOLOGICAL LEVER">PÂRGHIA PSIHOLOGICĂ</div><div class="aci-v"><div class="aci-manip"><span class="aci-mtag" data-en="Curiosity">Curiozitate</span><span class="aci-mex" data-en="&quot;See who viewed your profile&quot;, &quot;your photo is here&quot; — curiosity clicks before you do.">„Vezi cine ți-a văzut profilul&quot;, „poza ta e aici&quot; — curiozitatea face click înaintea ta.</span></div></div></div><div class="aci-row aci-watch"><div class="aci-k aci-k-warn" data-en="WATCH FOR — 3 SIGNALS">FII ATENT LA — 3 SEMNALE</div><ul class="aci-list"><li data-en="The person shows up unannounced but &quot;official&quot;">Persoana apare neanunțată dar „oficial&quot;</li><li data-en="New devices or objects appear near your equipment">Dispozitive sau obiecte noi apărute lângă echipamentele tale</li><li data-en="The handed document demands data or a signature on the spot">Documentul înmânat cere date sau semnătură pe loc</li></ul></div></div>
+  <div class="atlas-lock-overlay" data-lock-tier="essential">
+    <div class="alo-icon">&#128274;</div>
+    <div class="alo-plan" data-en="Essential — 99 RON (one-time)">Essential — 99 RON (plată unică)</div>
+    <div class="alo-text" data-en="Available in Essential plan">Disponibil din planul Essential</div>
+    <a href="personal.html" class="alo-btn" data-en="Upgrade &rarr;">Upgrade &rarr;</a>
+  </div>
+</article>
+<article class="atlas-card" data-catnum="3" data-cat="C10" data-risk="CRITIC" data-num="167" data-tier="essential" data-search="sef-003 tailgating piggybacking social engineering frameworks" style="--cat-color:#2C3E50">
+  <div class="ac-sidebar">
+    <div class="acs-id">SEF-003</div>
+    <div class="acs-num">#167</div>
+    <div class="acs-risk-badge rc" data-en="Critical">Critic</div>
+    <div class="acs-risk-bar"><div class="acs-risk-fill" style="height:100%;background:#C0392B"></div></div>
+  </div>
+  <div class="ac-main">
+    <div class="ac-title">Tailgating Piggybacking</div>
+    <div class="ac-cat" style="color:#2C3E50">SOCIAL ENGINEERING FRAMEWORKS</div>
+    <div class="ac-vectors">
+      <div class="acv-block"><div class="acv-label">Entry Vector</div><div class="acv-tags"><span class="atag-entry" data-en="Physical">Fizic</span></div></div>
+      <div class="acv-block"><div class="acv-label">Manipulation</div><div class="acv-tags"><span class="atag-pat" data-en="Familiarity">Familiaritate</span></div></div>
+      <div class="acv-block"><div class="acv-label">Extraction</div><div class="acv-extraction" data-en="Unauthorized physical access">Acces fizic neautorizat</div></div>
+    </div>
+    <div class="ac-desc">Tailgating-ul fizic exploatează politețea socială — oamenii nu refuză să țină ușa deschisă unui 'coleg' cu mâinile pline sau bine îmbrăcat. Atacatorul urmează un angajat autorizat prin ușa cu card de acces fără a-și scana propriul badge. O dată în clădire, are acces la sisteme, documente sau spații restricționate. Companiile cu securitate fizică serioasă instalează turnichete sau airlock-uri care permit trecerea strictă individuală. Cultura de securitate (curajul de a întreba 'Cine ești?') este esențială.</div>
+  </div>
+  <div class="ac-intel"><div class="aci-row"><div class="aci-k" data-en="HOW IT REACHES YOU">CUM TE ABORDEAZĂ</div><div class="aci-v" data-en="The attack has a physical component: a planted device, a handed document, a person at your door.">Atacul are o componentă fizică: dispozitiv montat, document înmânat, persoană care apare la ușă.</div></div><div class="aci-row"><div class="aci-k" data-en="PSYCHOLOGICAL LEVER">PÂRGHIA PSIHOLOGICĂ</div><div class="aci-v"><div class="aci-manip"><span class="aci-mtag" data-en="Familiarity">Familiaritate</span><span class="aci-mex" data-en="It seems familiar — a colleague, friend, or brand you use daily — so your guard drops.">Pare cineva cunoscut — coleg, prieten, brand folosit zilnic — deci lași garda jos.</span></div></div></div><div class="aci-row aci-watch"><div class="aci-k aci-k-warn" data-en="WATCH FOR — 3 SIGNALS">FII ATENT LA — 3 SEMNALE</div><ul class="aci-list"><li data-en="The person shows up unannounced but &quot;official&quot;">Persoana apare neanunțată dar „oficial&quot;</li><li data-en="New devices or objects appear near your equipment">Dispozitive sau obiecte noi apărute lângă echipamentele tale</li><li data-en="The handed document demands data or a signature on the spot">Documentul înmânat cere date sau semnătură pe loc</li></ul></div></div>
+  <div class="atlas-lock-overlay" data-lock-tier="essential">
+    <div class="alo-icon">&#128274;</div>
+    <div class="alo-plan" data-en="Essential — 99 RON (one-time)">Essential — 99 RON (plată unică)</div>
+    <div class="alo-text" data-en="Available in Essential plan">Disponibil din planul Essential</div>
+    <a href="personal.html" class="alo-btn" data-en="Upgrade &rarr;">Upgrade &rarr;</a>
+  </div>
+</article>
+<article class="atlas-card" data-catnum="4" data-cat="C10" data-risk="CRITIC" data-num="168" data-tier="professional" data-search="sef-004 vishing authority framework social engineering frameworks" style="--cat-color:#2C3E50">
+  <div class="ac-sidebar">
+    <div class="acs-id">SEF-004</div>
+    <div class="acs-num">#168</div>
+    <div class="acs-risk-badge rc" data-en="Critical">Critic</div>
+    <div class="acs-risk-bar"><div class="acs-risk-fill" style="height:100%;background:#C0392B"></div></div>
+  </div>
+  <div class="ac-main">
+    <div class="ac-title">Vishing Authority Framework</div>
+    <div class="ac-cat" style="color:#2C3E50">SOCIAL ENGINEERING FRAMEWORKS</div>
+    <div class="ac-vectors">
+      <div class="acv-block"><div class="acv-label">Entry Vector</div><div class="acv-tags"><span class="atag-entry" data-en="Phone">Telefon</span></div></div>
+      <div class="acv-block"><div class="acv-label">Manipulation</div><div class="acv-tags"><span class="atag-pat" data-en="Authority">Autoritate</span><span class="atag-pat" data-en="Fear">Frică</span></div></div>
+      <div class="acv-block"><div class="acv-label">Extraction</div><div class="acv-extraction" data-en="Verbal data and immediate actions">Date verbale + acțiuni imediate</div></div>
+    </div>
+    <div class="ac-desc">Apelul multi-strat folosește 2-3 actori în coordonare. Apelul 1: 'Operatorul de call center' al băncii — ton neutru, confirmare date. Apelul 2 la 10 minute: 'Managerul' — ton mai serios, confirmare incident. Apelul 3 dacă e necesar: 'Specialistul de securitate' — autoritate maximă. Fiecare apel consolidează credibilitatea apelului anterior. Victima nu realizează că toate sunt parte din același atac. Tehnica exploatează principiul consecvenței — odată ce ai confirmat informații în primele apeluri, le confirmi și în ultimul.</div>
+  </div>
+  <div class="ac-intel"><div class="aci-row"><div class="aci-k" data-en="HOW IT REACHES YOU">CUM TE ABORDEAZĂ</div><div class="aci-v" data-en="You get a direct call. The voice is calm, &quot;professional&quot;, and already knows a few real details about you.">Ești sunat direct. Vocea e calmă, „profesionistă&quot;, și are deja câteva date reale despre tine.</div></div><div class="aci-row"><div class="aci-k" data-en="PSYCHOLOGICAL LEVER">PÂRGHIA PSIHOLOGICĂ</div><div class="aci-v"><div class="aci-manip"><span class="aci-mtag" data-en="Authority">Autoritate</span><span class="aci-mex" data-en="The brain automatically obeys uniforms, titles and institutions — the attacker borrows them.">Creierul ascultă automat de uniformă, funcție și instituție — atacatorul le împrumută.</span></div><div class="aci-manip"><span class="aci-mtag" data-en="Fear">Frică</span><span class="aci-mex" data-en="The threat (blocked account, criminal file, virus) triggers panic — and panic follows orders.">Amenințarea (cont blocat, dosar penal, virus) activează panica — și panica execută ordine.</span></div></div></div><div class="aci-row aci-watch"><div class="aci-k aci-k-warn" data-en="WATCH FOR — 3 SIGNALS">FII ATENT LA — 3 SEMNALE</div><ul class="aci-list"><li data-en="The caller builds pressure: &quot;right now, or you lose the money&quot;">Apelantul creează presiune: „chiar acum, altfel pierzi banii&quot;</li><li data-en="They ask for SMS codes, your PIN, or to install an app">Îți cere coduri din SMS, PIN sau instalarea unei aplicații</li><li data-en="They refuse to let you call back on the institution&#x27;s official number">Refuză să îl suni tu înapoi pe numărul oficial al instituției</li></ul></div></div>
+  <div class="atlas-lock-overlay" data-lock-tier="professional">
+    <div class="alo-icon">&#128274;</div>
+    <div class="alo-plan" data-en="Professional — 250 RON (one-time)">Professional — 250 RON (plată unică)</div>
+    <div class="alo-text" data-en="Available in Professional plan">Disponibil din planul Professional</div>
+    <a href="personal.html" class="alo-btn" data-en="Upgrade &rarr;">Upgrade &rarr;</a>
+  </div>
+</article>
+<article class="atlas-card" data-catnum="5" data-cat="C10" data-risk="RIDICAT" data-num="169" data-tier="professional" data-search="sef-005 quid pro quo scam social engineering frameworks" style="--cat-color:#2C3E50">
+  <div class="ac-sidebar">
+    <div class="acs-id">SEF-005</div>
+    <div class="acs-num">#169</div>
+    <div class="acs-risk-badge rh" data-en="High">Ridicat</div>
+    <div class="acs-risk-bar"><div class="acs-risk-fill" style="height:72%;background:#E67E22"></div></div>
+  </div>
+  <div class="ac-main">
+    <div class="ac-title">Quid Pro Quo Scam</div>
+    <div class="ac-cat" style="color:#2C3E50">SOCIAL ENGINEERING FRAMEWORKS</div>
+    <div class="ac-vectors">
+      <div class="acv-block"><div class="acv-label">Entry Vector</div><div class="acv-tags"><span class="atag-entry" data-en="Phone">Telefon</span><span class="atag-entry">Email</span></div></div>
+      <div class="acv-block"><div class="acv-label">Manipulation</div><div class="acv-tags"><span class="atag-pat" data-en="Reward">Recompensă</span></div></div>
+      <div class="acv-block"><div class="acv-label">Extraction</div><div class="acv-extraction" data-en="Data for fake service">Date contra serviciu fals</div></div>
+    </div>
+    <div class="ac-desc">Atacatorul oferă ceva de valoare (un serviciu IT 'gratuit', o evaluare gratuită, informații utile) creând o obligație implicită. Ulterior solicită reciprocitate: accesul la un sistem, o aprobare excepțională, informații sensibile. Psihologia reciprocității este profundă — oamenii se simt obligați să returneze favorurile, chiar și neechilibrat. În mediul corporate: 'I-am rezolvat o problemă de calculator fără bilet și acum are nevoie de un favor' este un pretext folosit frecvent.</div>
+  </div>
+  <div class="ac-intel"><div class="aci-row"><div class="aci-k" data-en="HOW IT REACHES YOU">CUM TE ABORDEAZĂ</div><div class="aci-v" data-en="You get a direct call. The voice is calm, &quot;professional&quot;, and already knows a few real details about you.">Ești sunat direct. Vocea e calmă, „profesionistă&quot;, și are deja câteva date reale despre tine.</div></div><div class="aci-row"><div class="aci-k" data-en="PSYCHOLOGICAL LEVER">PÂRGHIA PSIHOLOGICĂ</div><div class="aci-v"><div class="aci-manip"><span class="aci-mtag" data-en="Reward">Recompensă</span><span class="aci-mex" data-en="The promised gain (prize, discount, inheritance) shifts your attention from risk to reward.">Câștigul promis (premiu, discount, moștenire) îți mută atenția de la risc la beneficiu.</span></div></div></div><div class="aci-row aci-watch"><div class="aci-k aci-k-warn" data-en="WATCH FOR — 3 SIGNALS">FII ATENT LA — 3 SEMNALE</div><ul class="aci-list"><li data-en="The caller builds pressure: &quot;right now, or you lose the money&quot;">Apelantul creează presiune: „chiar acum, altfel pierzi banii&quot;</li><li data-en="They ask for SMS codes, your PIN, or to install an app">Îți cere coduri din SMS, PIN sau instalarea unei aplicații</li><li data-en="They refuse to let you call back on the institution&#x27;s official number">Refuză să îl suni tu înapoi pe numărul oficial al instituției</li></ul></div></div>
+  <div class="atlas-lock-overlay" data-lock-tier="professional">
+    <div class="alo-icon">&#128274;</div>
+    <div class="alo-plan" data-en="Professional — 250 RON (one-time)">Professional — 250 RON (plată unică)</div>
+    <div class="alo-text" data-en="Available in Professional plan">Disponibil din planul Professional</div>
+    <a href="personal.html" class="alo-btn" data-en="Upgrade &rarr;">Upgrade &rarr;</a>
+  </div>
+</article>
+<article class="atlas-card" data-catnum="6" data-cat="C10" data-risk="CRITIC" data-num="170" data-tier="professional" data-search="sef-006 honey trap social engineering social engineering frameworks" style="--cat-color:#2C3E50">
+  <div class="ac-sidebar">
+    <div class="acs-id">SEF-006</div>
+    <div class="acs-num">#170</div>
+    <div class="acs-risk-badge rc" data-en="Critical">Critic</div>
+    <div class="acs-risk-bar"><div class="acs-risk-fill" style="height:100%;background:#C0392B"></div></div>
+  </div>
+  <div class="ac-main">
+    <div class="ac-title">Honey Trap Social Engineering</div>
+    <div class="ac-cat" style="color:#2C3E50">SOCIAL ENGINEERING FRAMEWORKS</div>
+    <div class="ac-vectors">
+      <div class="acv-block"><div class="acv-label">Entry Vector</div><div class="acv-tags"><span class="atag-entry">Social</span><span class="atag-entry" data-en="Physical">Fizic</span></div></div>
+      <div class="acv-block"><div class="acv-label">Manipulation</div><div class="acv-tags"><span class="atag-pat" data-en="Familiarity">Familiaritate</span><span class="atag-pat" data-en="Reward">Recompensă</span></div></div>
+      <div class="acv-block"><div class="acv-label">Extraction</div><div class="acv-extraction" data-en="Confidential info or access">Informații confidențiale sau acces</div></div>
+    </div>
+    <div class="ac-desc">Honey trap-ul constă în construirea unei relații — de obicei romantice sau de prietenie — cu scopul explicit de a extrage ulterior informații confidențiale sau acces la sisteme. Folosit în spionaj industrial și competitiv. Atacatorul poate petrece luni construind relația înainte de a face prima cerere. Informațiile cerute par rezonabile în contextul relației — 'îmi poți trimite raportul X că e pentru un priect personal?' Contramasura principală: cultura organizațională care interzice discutarea datelor sensibile cu persoane din afara organizației.</div>
+  </div>
+  <div class="ac-intel"><div class="aci-row"><div class="aci-k" data-en="HOW IT REACHES YOU">CUM TE ABORDEAZĂ</div><div class="aci-v" data-en="The approach comes through social media: a cloned account, a &quot;new&quot; friend or a fake sponsored ad.">Abordarea vine din social media: cont clonat, prieten „nou&quot; sau reclamă sponsorizată falsă.</div></div><div class="aci-row"><div class="aci-k" data-en="PSYCHOLOGICAL LEVER">PÂRGHIA PSIHOLOGICĂ</div><div class="aci-v"><div class="aci-manip"><span class="aci-mtag" data-en="Familiarity">Familiaritate</span><span class="aci-mex" data-en="It seems familiar — a colleague, friend, or brand you use daily — so your guard drops.">Pare cineva cunoscut — coleg, prieten, brand folosit zilnic — deci lași garda jos.</span></div><div class="aci-manip"><span class="aci-mtag" data-en="Reward">Recompensă</span><span class="aci-mex" data-en="The promised gain (prize, discount, inheritance) shifts your attention from risk to reward.">Câștigul promis (premiu, discount, moștenire) îți mută atenția de la risc la beneficiu.</span></div></div></div><div class="aci-row aci-watch"><div class="aci-k aci-k-warn" data-en="WATCH FOR — 3 SIGNALS">FII ATENT LA — 3 SEMNALE</div><ul class="aci-list"><li data-en="A new or cloned account: few posts, few friends">Cont nou sau clonat: puține postări, prieteni puțini</li><li data-en="The message asks for money, codes or an &quot;urgent&quot; link click">Mesajul cere bani, coduri sau click pe link „urgent&quot;</li><li data-en="The profile avoids verification via a direct call">Profilul evită verificarea prin apel direct</li></ul></div></div>
+  <div class="atlas-lock-overlay" data-lock-tier="professional">
+    <div class="alo-icon">&#128274;</div>
+    <div class="alo-plan" data-en="Professional — 250 RON (one-time)">Professional — 250 RON (plată unică)</div>
+    <div class="alo-text" data-en="Available in Professional plan">Disponibil din planul Professional</div>
+    <a href="personal.html" class="alo-btn" data-en="Upgrade &rarr;">Upgrade &rarr;</a>
+  </div>
+</article>
+<article class="atlas-card" data-catnum="7" data-cat="C10" data-risk="RIDICAT" data-num="171" data-tier="professional" data-search="sef-007 fake charity scam social engineering frameworks" style="--cat-color:#2C3E50">
+  <div class="ac-sidebar">
+    <div class="acs-id">SEF-007</div>
+    <div class="acs-num">#171</div>
+    <div class="acs-risk-badge rh" data-en="High">Ridicat</div>
+    <div class="acs-risk-bar"><div class="acs-risk-fill" style="height:72%;background:#E67E22"></div></div>
+  </div>
+  <div class="ac-main">
+    <div class="ac-title">Fake Charity Scam</div>
+    <div class="ac-cat" style="color:#2C3E50">SOCIAL ENGINEERING FRAMEWORKS</div>
+    <div class="ac-vectors">
+      <div class="acv-block"><div class="acv-label">Entry Vector</div><div class="acv-tags"><span class="atag-entry">Email</span><span class="atag-entry">Social</span></div></div>
+      <div class="acv-block"><div class="acv-label">Manipulation</div><div class="acv-tags"><span class="atag-pat" data-en="Fear">Frică</span><span class="atag-pat" data-en="Reward">Recompensă</span></div></div>
+      <div class="acv-block"><div class="acv-label">Extraction</div><div class="acv-extraction" data-en="Direct donations lost">Donații directe pierdute</div></div>
+    </div>
+    <div class="ac-desc">Organizația de caritate falsă exploatează crize reale — cutremure, inundații, boli rare — sau creează cazuri inventate cu fotografii emoționante și povești fabricate. Donațiile merg direct la escroci. Fenomenul este amplificat de social media care facilitează distribuția rapidă a apelurilor înainte de verificare. Verificarea organizațiilor caritabile în România: ANPC, Registrul Asociațiilor și Fundațiilor, Charity Navigator pentru organizații internaționale.</div>
+  </div>
+  <div class="ac-intel"><div class="aci-row"><div class="aci-k" data-en="HOW IT REACHES YOU">CUM TE ABORDEAZĂ</div><div class="aci-v" data-en="You receive an email perfectly imitating a trusted sender — logo, tone, signature.">Primești un email care imită perfect un expeditor de încredere — logo, ton, semnătură.</div></div><div class="aci-row"><div class="aci-k" data-en="PSYCHOLOGICAL LEVER">PÂRGHIA PSIHOLOGICĂ</div><div class="aci-v"><div class="aci-manip"><span class="aci-mtag" data-en="Fear">Frică</span><span class="aci-mex" data-en="The threat (blocked account, criminal file, virus) triggers panic — and panic follows orders.">Amenințarea (cont blocat, dosar penal, virus) activează panica — și panica execută ordine.</span></div><div class="aci-manip"><span class="aci-mtag" data-en="Reward">Recompensă</span><span class="aci-mex" data-en="The promised gain (prize, discount, inheritance) shifts your attention from risk to reward.">Câștigul promis (premiu, discount, moștenire) îți mută atenția de la risc la beneficiu.</span></div></div></div><div class="aci-row aci-watch"><div class="aci-k aci-k-warn" data-en="WATCH FOR — 3 SIGNALS">FII ATENT LA — 3 SEMNALE</div><ul class="aci-list"><li data-en="The sender address differs by 1-2 characters from the official one">Adresa expeditorului diferă cu 1-2 caractere de cea oficială</li><li data-en="The displayed link and the real destination don&#x27;t match (hover to check)">Link-ul afișat și destinația reală nu coincid (verifică prin hover)</li><li data-en="It demands immediate action: &quot;your account will be blocked in 24h&quot;">Cere acțiune imediată: „contul se blochează în 24h&quot;</li></ul></div></div>
+  <div class="atlas-lock-overlay" data-lock-tier="professional">
+    <div class="alo-icon">&#128274;</div>
+    <div class="alo-plan" data-en="Professional — 250 RON (one-time)">Professional — 250 RON (plată unică)</div>
+    <div class="alo-text" data-en="Available in Professional plan">Disponibil din planul Professional</div>
+    <a href="personal.html" class="alo-btn" data-en="Upgrade &rarr;">Upgrade &rarr;</a>
+  </div>
+</article>
+<article class="atlas-card" data-catnum="8" data-cat="C10" data-risk="CRITIC" data-num="172" data-tier="professional" data-search="sef-008 authority impersonation framework social engineering frameworks" style="--cat-color:#2C3E50">
+  <div class="ac-sidebar">
+    <div class="acs-id">SEF-008</div>
+    <div class="acs-num">#172</div>
+    <div class="acs-risk-badge rc" data-en="Critical">Critic</div>
+    <div class="acs-risk-bar"><div class="acs-risk-fill" style="height:100%;background:#C0392B"></div></div>
+  </div>
+  <div class="ac-main">
+    <div class="ac-title">Authority Impersonation Framework</div>
+    <div class="ac-cat" style="color:#2C3E50">SOCIAL ENGINEERING FRAMEWORKS</div>
+    <div class="ac-vectors">
+      <div class="acv-block"><div class="acv-label">Entry Vector</div><div class="acv-tags"><span class="atag-entry" data-en="Phone">Telefon</span><span class="atag-entry">Email</span></div></div>
+      <div class="acv-block"><div class="acv-label">Manipulation</div><div class="acv-tags"><span class="atag-pat" data-en="Authority">Autoritate</span></div></div>
+      <div class="acv-block"><div class="acv-label">Extraction</div><div class="acv-extraction" data-en="Sensitive data and actions">Date sensibile + acțiuni</div></div>
+    </div>
+    <div class="ac-desc">Sistemul de impersonare a autorităților românești funcționează în trepte: apelul de la 'polițistul de cartier' este transferat la 'comisarul de la secție', care transferă la 'procurorul de caz', care la 'judecătorul de instrucție'. Fiecare nivel adaugă gravitate și presiune. Scenariul comun: 'contul dvs. este investigat pentru spălare de bani' sau 'există un mandat pe numele dvs.' Soluția propusă: transferul banilor 'în custodia statului' pentru protecție. Autoritățile nu solicită niciodată transferuri de bani prin telefon.</div>
+  </div>
+  <div class="ac-intel"><div class="aci-row"><div class="aci-k" data-en="HOW IT REACHES YOU">CUM TE ABORDEAZĂ</div><div class="aci-v" data-en="You get a direct call. The voice is calm, &quot;professional&quot;, and already knows a few real details about you.">Ești sunat direct. Vocea e calmă, „profesionistă&quot;, și are deja câteva date reale despre tine.</div></div><div class="aci-row"><div class="aci-k" data-en="PSYCHOLOGICAL LEVER">PÂRGHIA PSIHOLOGICĂ</div><div class="aci-v"><div class="aci-manip"><span class="aci-mtag" data-en="Authority">Autoritate</span><span class="aci-mex" data-en="The brain automatically obeys uniforms, titles and institutions — the attacker borrows them.">Creierul ascultă automat de uniformă, funcție și instituție — atacatorul le împrumută.</span></div></div></div><div class="aci-row aci-watch"><div class="aci-k aci-k-warn" data-en="WATCH FOR — 3 SIGNALS">FII ATENT LA — 3 SEMNALE</div><ul class="aci-list"><li data-en="The caller builds pressure: &quot;right now, or you lose the money&quot;">Apelantul creează presiune: „chiar acum, altfel pierzi banii&quot;</li><li data-en="They ask for SMS codes, your PIN, or to install an app">Îți cere coduri din SMS, PIN sau instalarea unei aplicații</li><li data-en="They refuse to let you call back on the institution&#x27;s official number">Refuză să îl suni tu înapoi pe numărul oficial al instituției</li></ul></div></div>
+  <div class="atlas-lock-overlay" data-lock-tier="professional">
+    <div class="alo-icon">&#128274;</div>
+    <div class="alo-plan" data-en="Professional — 250 RON (one-time)">Professional — 250 RON (plată unică)</div>
+    <div class="alo-text" data-en="Available in Professional plan">Disponibil din planul Professional</div>
+    <a href="personal.html" class="alo-btn" data-en="Upgrade &rarr;">Upgrade &rarr;</a>
+  </div>
+</article>
+<article class="atlas-card" data-catnum="9" data-cat="C10" data-risk="MEDIU" data-num="173" data-tier="professional" data-search="sef-009 consensus manipulation social engineering frameworks" style="--cat-color:#2C3E50">
+  <div class="ac-sidebar">
+    <div class="acs-id">SEF-009</div>
+    <div class="acs-num">#173</div>
+    <div class="acs-risk-badge rm" data-en="Medium">Mediu</div>
+    <div class="acs-risk-bar"><div class="acs-risk-fill" style="height:44%;background:#F1C40F"></div></div>
+  </div>
+  <div class="ac-main">
+    <div class="ac-title">Consensus Manipulation</div>
+    <div class="ac-cat" style="color:#2C3E50">SOCIAL ENGINEERING FRAMEWORKS</div>
+    <div class="ac-vectors">
+      <div class="acv-block"><div class="acv-label">Entry Vector</div><div class="acv-tags"><span class="atag-entry">Social</span><span class="atag-entry">Email</span></div></div>
+      <div class="acv-block"><div class="acv-label">Manipulation</div><div class="acv-tags"><span class="atag-pat" data-en="Familiarity">Familiaritate</span><span class="atag-pat" data-en="Reward">Recompensă</span></div></div>
+      <div class="acv-block"><div class="acv-label">Extraction</div><div class="acv-extraction" data-en="Influenced decision">Decizie influențată</div></div>
+    </div>
+    <div class="ac-desc">Principiul consensului social — 'toată lumea face asta' — este folosit pentru a reduce rezistența la o cerere neobișnuită. 'Toți colegii tăi din departament au confirmat deja actualizarea datelor' sau 'Toate companiile partenere au semnat deja acordul revizuit'. Victima nu dorește să fie singura care refuză și ridică dificultăți. Verificarea independentă a afirmațiilor despre 'ce fac ceilalți' este esențială — un simplu apel la colegii menționați ar expune minciuna.</div>
+  </div>
+  <div class="ac-intel"><div class="aci-row"><div class="aci-k" data-en="HOW IT REACHES YOU">CUM TE ABORDEAZĂ</div><div class="aci-v" data-en="The approach comes through social media: a cloned account, a &quot;new&quot; friend or a fake sponsored ad.">Abordarea vine din social media: cont clonat, prieten „nou&quot; sau reclamă sponsorizată falsă.</div></div><div class="aci-row"><div class="aci-k" data-en="PSYCHOLOGICAL LEVER">PÂRGHIA PSIHOLOGICĂ</div><div class="aci-v"><div class="aci-manip"><span class="aci-mtag" data-en="Familiarity">Familiaritate</span><span class="aci-mex" data-en="It seems familiar — a colleague, friend, or brand you use daily — so your guard drops.">Pare cineva cunoscut — coleg, prieten, brand folosit zilnic — deci lași garda jos.</span></div><div class="aci-manip"><span class="aci-mtag" data-en="Reward">Recompensă</span><span class="aci-mex" data-en="The promised gain (prize, discount, inheritance) shifts your attention from risk to reward.">Câștigul promis (premiu, discount, moștenire) îți mută atenția de la risc la beneficiu.</span></div></div></div><div class="aci-row aci-watch"><div class="aci-k aci-k-warn" data-en="WATCH FOR — 3 SIGNALS">FII ATENT LA — 3 SEMNALE</div><ul class="aci-list"><li data-en="A new or cloned account: few posts, few friends">Cont nou sau clonat: puține postări, prieteni puțini</li><li data-en="The message asks for money, codes or an &quot;urgent&quot; link click">Mesajul cere bani, coduri sau click pe link „urgent&quot;</li><li data-en="The profile avoids verification via a direct call">Profilul evită verificarea prin apel direct</li></ul></div></div>
+  <div class="atlas-lock-overlay" data-lock-tier="professional">
+    <div class="alo-icon">&#128274;</div>
+    <div class="alo-plan" data-en="Professional — 250 RON (one-time)">Professional — 250 RON (plată unică)</div>
+    <div class="alo-text" data-en="Available in Professional plan">Disponibil din planul Professional</div>
+    <a href="personal.html" class="alo-btn" data-en="Upgrade &rarr;">Upgrade &rarr;</a>
+  </div>
+</article>
+<article class="atlas-card" data-catnum="10" data-cat="C10" data-risk="RIDICAT" data-num="174" data-tier="professional" data-search="sef-010 scarcity fomo engineering social engineering frameworks" style="--cat-color:#2C3E50">
+  <div class="ac-sidebar">
+    <div class="acs-id">SEF-010</div>
+    <div class="acs-num">#174</div>
+    <div class="acs-risk-badge rh" data-en="High">Ridicat</div>
+    <div class="acs-risk-bar"><div class="acs-risk-fill" style="height:72%;background:#E67E22"></div></div>
+  </div>
+  <div class="ac-main">
+    <div class="ac-title">Scarcity FOMO Engineering</div>
+    <div class="ac-cat" style="color:#2C3E50">SOCIAL ENGINEERING FRAMEWORKS</div>
+    <div class="ac-vectors">
+      <div class="acv-block"><div class="acv-label">Entry Vector</div><div class="acv-tags"><span class="atag-entry">Email</span><span class="atag-entry">Web</span></div></div>
+      <div class="acv-block"><div class="acv-label">Manipulation</div><div class="acv-tags"><span class="atag-pat">FOMO</span><span class="atag-pat" data-en="Urgency">Urgență</span></div></div>
+      <div class="acv-block"><div class="acv-label">Extraction</div><div class="acv-extraction" data-en="Rushed unfavorable decision">Decizie grabită nefavorabilă</div></div>
+    </div>
+    <div class="ac-desc">Raritatea artificială și deadline-ul impus elimină verificarea prin presiunea psihologică. 'Oferta expiră în 47 de minute', '2 locuri rămase', 'prețul crește mâine'. Creierul uman în condiții de raritate și urgență procesează deficitar — funcția de analiză critică este redusă. Deciziile luate sub presiunea artificială a timpului sunt sistematic mai rele decât cele luate fără restricție temporală. Orice ofertă care expira brusc este acceptabilă după câteva ore sau zile de analiză.</div>
+  </div>
+  <div class="ac-intel"><div class="aci-row"><div class="aci-k" data-en="HOW IT REACHES YOU">CUM TE ABORDEAZĂ</div><div class="aci-v" data-en="You receive an email perfectly imitating a trusted sender — logo, tone, signature.">Primești un email care imită perfect un expeditor de încredere — logo, ton, semnătură.</div></div><div class="aci-row"><div class="aci-k" data-en="PSYCHOLOGICAL LEVER">PÂRGHIA PSIHOLOGICĂ</div><div class="aci-v"><div class="aci-manip"><span class="aci-mtag" data-en="Urgency">Urgență</span><span class="aci-mex" data-en="The artificial deadline shuts down critical thinking: you decide in seconds what you&#x27;d normally analyze for hours.">Termenul limită artificial oprește gândirea critică: decizi în secunde ce ai analiza în ore.</span></div></div></div><div class="aci-row aci-watch"><div class="aci-k aci-k-warn" data-en="WATCH FOR — 3 SIGNALS">FII ATENT LA — 3 SEMNALE</div><ul class="aci-list"><li data-en="The sender address differs by 1-2 characters from the official one">Adresa expeditorului diferă cu 1-2 caractere de cea oficială</li><li data-en="The displayed link and the real destination don&#x27;t match (hover to check)">Link-ul afișat și destinația reală nu coincid (verifică prin hover)</li><li data-en="It demands immediate action: &quot;your account will be blocked in 24h&quot;">Cere acțiune imediată: „contul se blochează în 24h&quot;</li></ul></div></div>
+  <div class="atlas-lock-overlay" data-lock-tier="professional">
+    <div class="alo-icon">&#128274;</div>
+    <div class="alo-plan" data-en="Professional — 250 RON (one-time)">Professional — 250 RON (plată unică)</div>
+    <div class="alo-text" data-en="Available in Professional plan">Disponibil din planul Professional</div>
+    <a href="personal.html" class="alo-btn" data-en="Upgrade &rarr;">Upgrade &rarr;</a>
+  </div>
+</article>
+<article class="atlas-card" data-catnum="11" data-cat="C10" data-risk="RIDICAT" data-num="175" data-tier="professional" data-search="sef-011 reciprocity engineering social engineering frameworks" style="--cat-color:#2C3E50">
+  <div class="ac-sidebar">
+    <div class="acs-id">SEF-011</div>
+    <div class="acs-num">#175</div>
+    <div class="acs-risk-badge rh" data-en="High">Ridicat</div>
+    <div class="acs-risk-bar"><div class="acs-risk-fill" style="height:72%;background:#E67E22"></div></div>
+  </div>
+  <div class="ac-main">
+    <div class="ac-title">Reciprocity Engineering</div>
+    <div class="ac-cat" style="color:#2C3E50">SOCIAL ENGINEERING FRAMEWORKS</div>
+    <div class="ac-vectors">
+      <div class="acv-block"><div class="acv-label">Entry Vector</div><div class="acv-tags"><span class="atag-entry" data-en="Physical">Fizic</span><span class="atag-entry">Social</span></div></div>
+      <div class="acv-block"><div class="acv-label">Manipulation</div><div class="acv-tags"><span class="atag-pat" data-en="Familiarity">Familiaritate</span></div></div>
+      <div class="acv-block"><div class="acv-label">Extraction</div><div class="acv-extraction" data-en="Obligation to return the favor">Obligație de a returna favoarea</div></div>
+    </div>
+    <div class="ac-desc">Un cadou nesolicitat — o carte, un serviciu gratuit, o evaluare — creează psihologic un sentiment de obligație de returnare a favorului, chiar dacă reciprocitatea nu a fost cerută explicit. Atacatorul exploatează această tendință naturală: 'Am rezolvat acea problemă pentru dvs. — pot să rog un favor mic în schimb?' Favoarea cerută este aparent minoră dar vizează date sensibile sau acces la sisteme. Conștientizarea acestui mecanism psihologic este singura protecție.</div>
+  </div>
+  <div class="ac-intel"><div class="aci-row"><div class="aci-k" data-en="HOW IT REACHES YOU">CUM TE ABORDEAZĂ</div><div class="aci-v" data-en="The attack has a physical component: a planted device, a handed document, a person at your door.">Atacul are o componentă fizică: dispozitiv montat, document înmânat, persoană care apare la ușă.</div></div><div class="aci-row"><div class="aci-k" data-en="PSYCHOLOGICAL LEVER">PÂRGHIA PSIHOLOGICĂ</div><div class="aci-v"><div class="aci-manip"><span class="aci-mtag" data-en="Familiarity">Familiaritate</span><span class="aci-mex" data-en="It seems familiar — a colleague, friend, or brand you use daily — so your guard drops.">Pare cineva cunoscut — coleg, prieten, brand folosit zilnic — deci lași garda jos.</span></div></div></div><div class="aci-row aci-watch"><div class="aci-k aci-k-warn" data-en="WATCH FOR — 3 SIGNALS">FII ATENT LA — 3 SEMNALE</div><ul class="aci-list"><li data-en="The person shows up unannounced but &quot;official&quot;">Persoana apare neanunțată dar „oficial&quot;</li><li data-en="New devices or objects appear near your equipment">Dispozitive sau obiecte noi apărute lângă echipamentele tale</li><li data-en="The handed document demands data or a signature on the spot">Documentul înmânat cere date sau semnătură pe loc</li></ul></div></div>
+  <div class="atlas-lock-overlay" data-lock-tier="professional">
+    <div class="alo-icon">&#128274;</div>
+    <div class="alo-plan" data-en="Professional — 250 RON (one-time)">Professional — 250 RON (plată unică)</div>
+    <div class="alo-text" data-en="Available in Professional plan">Disponibil din planul Professional</div>
+    <a href="personal.html" class="alo-btn" data-en="Upgrade &rarr;">Upgrade &rarr;</a>
+  </div>
+</article>
+<article class="atlas-card" data-catnum="12" data-cat="C10" data-risk="CRITIC" data-num="176" data-tier="professional" data-search="sef-012 gradual commitment escalation social engineering frameworks" style="--cat-color:#2C3E50">
+  <div class="ac-sidebar">
+    <div class="acs-id">SEF-012</div>
+    <div class="acs-num">#176</div>
+    <div class="acs-risk-badge rc" data-en="Critical">Critic</div>
+    <div class="acs-risk-bar"><div class="acs-risk-fill" style="height:100%;background:#C0392B"></div></div>
+  </div>
+  <div class="ac-main">
+    <div class="ac-title">Gradual Commitment Escalation</div>
+    <div class="ac-cat" style="color:#2C3E50">SOCIAL ENGINEERING FRAMEWORKS</div>
+    <div class="ac-vectors">
+      <div class="acv-block"><div class="acv-label">Entry Vector</div><div class="acv-tags"><span class="atag-entry">Social</span><span class="atag-entry">Email</span></div></div>
+      <div class="acv-block"><div class="acv-label">Manipulation</div><div class="acv-tags"><span class="atag-pat" data-en="Familiarity">Familiaritate</span><span class="atag-pat" data-en="Reward">Recompensă</span></div></div>
+      <div class="acv-block"><div class="acv-label">Extraction</div><div class="acv-extraction" data-en="Major decision through small steps">Decizie majoră prin pași mici</div></div>
+    </div>
+    <div class="ac-desc">Tehnica 'foot-in-the-door' funcționează în pași graduali. Prima cerere este mică și ușor de acceptat — confirmarea unui detaliu nesemnificativ, semnarea unui formular simplu. Acceptarea primei cereri creează consistență psihologică — persoana dorește să fie consistentă cu deciziile anterioare. Cererile escaladează treptat, fiecare justificată de precedentul creat. La finalul procesului, victima a furnizat informații sau a luat decizii pe care le-ar fi refuzat categoric dacă ar fi fost cerute de la început.</div>
+  </div>
+  <div class="ac-intel"><div class="aci-row"><div class="aci-k" data-en="HOW IT REACHES YOU">CUM TE ABORDEAZĂ</div><div class="aci-v" data-en="The approach comes through social media: a cloned account, a &quot;new&quot; friend or a fake sponsored ad.">Abordarea vine din social media: cont clonat, prieten „nou&quot; sau reclamă sponsorizată falsă.</div></div><div class="aci-row"><div class="aci-k" data-en="PSYCHOLOGICAL LEVER">PÂRGHIA PSIHOLOGICĂ</div><div class="aci-v"><div class="aci-manip"><span class="aci-mtag" data-en="Familiarity">Familiaritate</span><span class="aci-mex" data-en="It seems familiar — a colleague, friend, or brand you use daily — so your guard drops.">Pare cineva cunoscut — coleg, prieten, brand folosit zilnic — deci lași garda jos.</span></div><div class="aci-manip"><span class="aci-mtag" data-en="Reward">Recompensă</span><span class="aci-mex" data-en="The promised gain (prize, discount, inheritance) shifts your attention from risk to reward.">Câștigul promis (premiu, discount, moștenire) îți mută atenția de la risc la beneficiu.</span></div></div></div><div class="aci-row aci-watch"><div class="aci-k aci-k-warn" data-en="WATCH FOR — 3 SIGNALS">FII ATENT LA — 3 SEMNALE</div><ul class="aci-list"><li data-en="A new or cloned account: few posts, few friends">Cont nou sau clonat: puține postări, prieteni puțini</li><li data-en="The message asks for money, codes or an &quot;urgent&quot; link click">Mesajul cere bani, coduri sau click pe link „urgent&quot;</li><li data-en="The profile avoids verification via a direct call">Profilul evită verificarea prin apel direct</li></ul></div></div>
+  <div class="atlas-lock-overlay" data-lock-tier="professional">
+    <div class="alo-icon">&#128274;</div>
+    <div class="alo-plan" data-en="Professional — 250 RON (one-time)">Professional — 250 RON (plată unică)</div>
+    <div class="alo-text" data-en="Available in Professional plan">Disponibil din planul Professional</div>
+    <a href="personal.html" class="alo-btn" data-en="Upgrade &rarr;">Upgrade &rarr;</a>
+  </div>
+</article>
+<article class="atlas-card" data-catnum="13" data-cat="C10" data-risk="CRITIC" data-num="177" data-tier="professional" data-search="sef-013 dual authority pressure social engineering frameworks" style="--cat-color:#2C3E50">
+  <div class="ac-sidebar">
+    <div class="acs-id">SEF-013</div>
+    <div class="acs-num">#177</div>
+    <div class="acs-risk-badge rc" data-en="Critical">Critic</div>
+    <div class="acs-risk-bar"><div class="acs-risk-fill" style="height:100%;background:#C0392B"></div></div>
+  </div>
+  <div class="ac-main">
+    <div class="ac-title">Dual Authority Pressure</div>
+    <div class="ac-cat" style="color:#2C3E50">SOCIAL ENGINEERING FRAMEWORKS</div>
+    <div class="ac-vectors">
+      <div class="acv-block"><div class="acv-label">Entry Vector</div><div class="acv-tags"><span class="atag-entry" data-en="Phone">Telefon</span></div></div>
+      <div class="acv-block"><div class="acv-label">Manipulation</div><div class="acv-tags"><span class="atag-pat" data-en="Authority">Autoritate</span><span class="atag-pat" data-en="Fear">Frică</span></div></div>
+      <div class="acv-block"><div class="acv-label">Extraction</div><div class="acv-extraction" data-en="Data or actions under pressure">Date sau acțiuni sub presiune</div></div>
+    </div>
+    <div class="ac-desc">Dual authority pressure coordonează doi 'ofițeri' care se completează reciproc — 'detectivul' prezintă dovezile, 'procurorul' adaugă consecințele legale. Sau 'angajatul băncii' și 'ofițerul Băncii Naționale'. Victima este prinsă între două autorități și nu poate apela la una împotriva celeilalte — par să fie de acord. Presiunea psihologică este multiplă. Deciziile majore (transferuri, divulgarea de date) nu se iau niciodată sub presiunea unui apel telefonic, indiferent de câți 'ofițeri' sunt implicați.</div>
+  </div>
+  <div class="ac-intel"><div class="aci-row"><div class="aci-k" data-en="HOW IT REACHES YOU">CUM TE ABORDEAZĂ</div><div class="aci-v" data-en="You get a direct call. The voice is calm, &quot;professional&quot;, and already knows a few real details about you.">Ești sunat direct. Vocea e calmă, „profesionistă&quot;, și are deja câteva date reale despre tine.</div></div><div class="aci-row"><div class="aci-k" data-en="PSYCHOLOGICAL LEVER">PÂRGHIA PSIHOLOGICĂ</div><div class="aci-v"><div class="aci-manip"><span class="aci-mtag" data-en="Authority">Autoritate</span><span class="aci-mex" data-en="The brain automatically obeys uniforms, titles and institutions — the attacker borrows them.">Creierul ascultă automat de uniformă, funcție și instituție — atacatorul le împrumută.</span></div><div class="aci-manip"><span class="aci-mtag" data-en="Fear">Frică</span><span class="aci-mex" data-en="The threat (blocked account, criminal file, virus) triggers panic — and panic follows orders.">Amenințarea (cont blocat, dosar penal, virus) activează panica — și panica execută ordine.</span></div></div></div><div class="aci-row aci-watch"><div class="aci-k aci-k-warn" data-en="WATCH FOR — 3 SIGNALS">FII ATENT LA — 3 SEMNALE</div><ul class="aci-list"><li data-en="The caller builds pressure: &quot;right now, or you lose the money&quot;">Apelantul creează presiune: „chiar acum, altfel pierzi banii&quot;</li><li data-en="They ask for SMS codes, your PIN, or to install an app">Îți cere coduri din SMS, PIN sau instalarea unei aplicații</li><li data-en="They refuse to let you call back on the institution&#x27;s official number">Refuză să îl suni tu înapoi pe numărul oficial al instituției</li></ul></div></div>
+  <div class="atlas-lock-overlay" data-lock-tier="professional">
+    <div class="alo-icon">&#128274;</div>
+    <div class="alo-plan" data-en="Professional — 250 RON (one-time)">Professional — 250 RON (plată unică)</div>
+    <div class="alo-text" data-en="Available in Professional plan">Disponibil din planul Professional</div>
+    <a href="personal.html" class="alo-btn" data-en="Upgrade &rarr;">Upgrade &rarr;</a>
+  </div>
+</article>
+<article class="atlas-card" data-catnum="14" data-cat="C10" data-risk="RIDICAT" data-num="178" data-tier="professional" data-search="sef-014 insider threat recruitment social engineering frameworks" style="--cat-color:#2C3E50">
+  <div class="ac-sidebar">
+    <div class="acs-id">SEF-014</div>
+    <div class="acs-num">#178</div>
+    <div class="acs-risk-badge rh" data-en="High">Ridicat</div>
+    <div class="acs-risk-bar"><div class="acs-risk-fill" style="height:72%;background:#E67E22"></div></div>
+  </div>
+  <div class="ac-main">
+    <div class="ac-title">Insider Threat Recruitment</div>
+    <div class="ac-cat" style="color:#2C3E50">SOCIAL ENGINEERING FRAMEWORKS</div>
+    <div class="ac-vectors">
+      <div class="acv-block"><div class="acv-label">Entry Vector</div><div class="acv-tags"><span class="atag-entry">Social</span><span class="atag-entry">Email</span></div></div>
+      <div class="acv-block"><div class="acv-label">Manipulation</div><div class="acv-tags"><span class="atag-pat" data-en="Reward">Recompensă</span></div></div>
+      <div class="acv-block"><div class="acv-label">Extraction</div><div class="acv-extraction" data-en="Internal data sold">Date interne vândute</div></div>
+    </div>
+    <div class="ac-desc">Angajatul cu acces privilegiat este recrutat direct — oferindu-i-se compensație financiară pentru extragerea de date sau instalarea de malware — sau prin compromiterea (santaj cu material compromițător, presiune asupra familiei). Insider threat-ul este cel mai greu de detectat și cel mai devastator: atacatorul are acces legitim, știe unde sunt datele valoroase și cum să le extragă fără a declanșa alerte. Detectia necesită monitoring comportamental și separarea acceselor critice.</div>
+  </div>
+  <div class="ac-intel"><div class="aci-row"><div class="aci-k" data-en="HOW IT REACHES YOU">CUM TE ABORDEAZĂ</div><div class="aci-v" data-en="The approach comes through social media: a cloned account, a &quot;new&quot; friend or a fake sponsored ad.">Abordarea vine din social media: cont clonat, prieten „nou&quot; sau reclamă sponsorizată falsă.</div></div><div class="aci-row"><div class="aci-k" data-en="PSYCHOLOGICAL LEVER">PÂRGHIA PSIHOLOGICĂ</div><div class="aci-v"><div class="aci-manip"><span class="aci-mtag" data-en="Reward">Recompensă</span><span class="aci-mex" data-en="The promised gain (prize, discount, inheritance) shifts your attention from risk to reward.">Câștigul promis (premiu, discount, moștenire) îți mută atenția de la risc la beneficiu.</span></div></div></div><div class="aci-row aci-watch"><div class="aci-k aci-k-warn" data-en="WATCH FOR — 3 SIGNALS">FII ATENT LA — 3 SEMNALE</div><ul class="aci-list"><li data-en="A new or cloned account: few posts, few friends">Cont nou sau clonat: puține postări, prieteni puțini</li><li data-en="The message asks for money, codes or an &quot;urgent&quot; link click">Mesajul cere bani, coduri sau click pe link „urgent&quot;</li><li data-en="The profile avoids verification via a direct call">Profilul evită verificarea prin apel direct</li></ul></div></div>
+  <div class="atlas-lock-overlay" data-lock-tier="professional">
+    <div class="alo-icon">&#128274;</div>
+    <div class="alo-plan" data-en="Professional — 250 RON (one-time)">Professional — 250 RON (plată unică)</div>
+    <div class="alo-text" data-en="Available in Professional plan">Disponibil din planul Professional</div>
+    <a href="personal.html" class="alo-btn" data-en="Upgrade &rarr;">Upgrade &rarr;</a>
+  </div>
+</article>
+<article class="atlas-card" data-catnum="15" data-cat="C10" data-risk="CRITIC" data-num="179" data-tier="professional" data-search="sef-015 information elicitation social engineering frameworks" style="--cat-color:#2C3E50">
+  <div class="ac-sidebar">
+    <div class="acs-id">SEF-015</div>
+    <div class="acs-num">#179</div>
+    <div class="acs-risk-badge rc" data-en="Critical">Critic</div>
+    <div class="acs-risk-bar"><div class="acs-risk-fill" style="height:100%;background:#C0392B"></div></div>
+  </div>
+  <div class="ac-main">
+    <div class="ac-title">Information Elicitation</div>
+    <div class="ac-cat" style="color:#2C3E50">SOCIAL ENGINEERING FRAMEWORKS</div>
+    <div class="ac-vectors">
+      <div class="acv-block"><div class="acv-label">Entry Vector</div><div class="acv-tags"><span class="atag-entry" data-en="Phone">Telefon</span><span class="atag-entry">Social</span></div></div>
+      <div class="acv-block"><div class="acv-label">Manipulation</div><div class="acv-tags"><span class="atag-pat" data-en="Familiarity">Familiaritate</span></div></div>
+      <div class="acv-block"><div class="acv-label">Extraction</div><div class="acv-extraction" data-en="Sensitive data obtained naturally">Date sensibile obținute natural</div></div>
+    </div>
+    <div class="ac-desc">Conversația aparent inocentă extrage sistematic informații prin întrebări directe sau indirecte — niciodată evidente ca sondare. 'Cu ce sisteme lucrați?' (casual), 'Care este procesul pentru X?' (aparent din curiozitate), 'Cine se ocupă de Y?' (aparent pentru a direcționa o cerere). Atacatorul notează răspunsurile și construiește o hartă completă a organizației, fără ca victima să realizeze că a furnizat informații valoroase de intelligence. Regula: datele despre sisteme, procese și responsabili sunt informații sensibile.</div>
+  </div>
+  <div class="ac-intel"><div class="aci-row"><div class="aci-k" data-en="HOW IT REACHES YOU">CUM TE ABORDEAZĂ</div><div class="aci-v" data-en="You get a direct call. The voice is calm, &quot;professional&quot;, and already knows a few real details about you.">Ești sunat direct. Vocea e calmă, „profesionistă&quot;, și are deja câteva date reale despre tine.</div></div><div class="aci-row"><div class="aci-k" data-en="PSYCHOLOGICAL LEVER">PÂRGHIA PSIHOLOGICĂ</div><div class="aci-v"><div class="aci-manip"><span class="aci-mtag" data-en="Familiarity">Familiaritate</span><span class="aci-mex" data-en="It seems familiar — a colleague, friend, or brand you use daily — so your guard drops.">Pare cineva cunoscut — coleg, prieten, brand folosit zilnic — deci lași garda jos.</span></div></div></div><div class="aci-row aci-watch"><div class="aci-k aci-k-warn" data-en="WATCH FOR — 3 SIGNALS">FII ATENT LA — 3 SEMNALE</div><ul class="aci-list"><li data-en="The caller builds pressure: &quot;right now, or you lose the money&quot;">Apelantul creează presiune: „chiar acum, altfel pierzi banii&quot;</li><li data-en="They ask for SMS codes, your PIN, or to install an app">Îți cere coduri din SMS, PIN sau instalarea unei aplicații</li><li data-en="They refuse to let you call back on the institution&#x27;s official number">Refuză să îl suni tu înapoi pe numărul oficial al instituției</li></ul></div></div>
+  <div class="atlas-lock-overlay" data-lock-tier="professional">
+    <div class="alo-icon">&#128274;</div>
+    <div class="alo-plan" data-en="Professional — 250 RON (one-time)">Professional — 250 RON (plată unică)</div>
+    <div class="alo-text" data-en="Available in Professional plan">Disponibil din planul Professional</div>
+    <a href="personal.html" class="alo-btn" data-en="Upgrade &rarr;">Upgrade &rarr;</a>
+  </div>
+</article>
+<article class="atlas-card" data-catnum="16" data-cat="C10" data-risk="CRITIC" data-num="180" data-tier="professional" data-search="sef-016 reverse social engineering social engineering frameworks" style="--cat-color:#2C3E50">
+  <div class="ac-sidebar">
+    <div class="acs-id">SEF-016</div>
+    <div class="acs-num">#180</div>
+    <div class="acs-risk-badge rc" data-en="Critical">Critic</div>
+    <div class="acs-risk-bar"><div class="acs-risk-fill" style="height:100%;background:#C0392B"></div></div>
+  </div>
+  <div class="ac-main">
+    <div class="ac-title">Reverse Social Engineering</div>
+    <div class="ac-cat" style="color:#2C3E50">SOCIAL ENGINEERING FRAMEWORKS</div>
+    <div class="ac-vectors">
+      <div class="acv-block"><div class="acv-label">Entry Vector</div><div class="acv-tags"><span class="atag-entry" data-en="Phone">Telefon</span><span class="atag-entry">Web</span></div></div>
+      <div class="acv-block"><div class="acv-label">Manipulation</div><div class="acv-tags"><span class="atag-pat" data-en="Authority">Autoritate</span></div></div>
+      <div class="acv-block"><div class="acv-label">Extraction</div><div class="acv-extraction" data-en="Data obtained voluntarily">Date obținute voluntar</div></div>
+    </div>
+    <div class="ac-desc">Reverse social engineering inversează rolurile: victima crede că ea a contactat escrocul pentru ajutor. Atacatorul creează o situație problemă (ușoară sabotare a unui sistem, confuzie cu o factură) și se poziționează ca rezolvator. Victima apelează la 'expertul' care se oferise anterior sau care apare în rezultatele căutării. Odată stabilit ca rezolvator de probleme, atacatorul extrage datele necesare sau accesul remote sub pretextul rezolvării problemei pe care el însuși a creat-o.</div>
+  </div>
+  <div class="ac-intel"><div class="aci-row"><div class="aci-k" data-en="HOW IT REACHES YOU">CUM TE ABORDEAZĂ</div><div class="aci-v" data-en="You get a direct call. The voice is calm, &quot;professional&quot;, and already knows a few real details about you.">Ești sunat direct. Vocea e calmă, „profesionistă&quot;, și are deja câteva date reale despre tine.</div></div><div class="aci-row"><div class="aci-k" data-en="PSYCHOLOGICAL LEVER">PÂRGHIA PSIHOLOGICĂ</div><div class="aci-v"><div class="aci-manip"><span class="aci-mtag" data-en="Authority">Autoritate</span><span class="aci-mex" data-en="The brain automatically obeys uniforms, titles and institutions — the attacker borrows them.">Creierul ascultă automat de uniformă, funcție și instituție — atacatorul le împrumută.</span></div></div></div><div class="aci-row aci-watch"><div class="aci-k aci-k-warn" data-en="WATCH FOR — 3 SIGNALS">FII ATENT LA — 3 SEMNALE</div><ul class="aci-list"><li data-en="The caller builds pressure: &quot;right now, or you lose the money&quot;">Apelantul creează presiune: „chiar acum, altfel pierzi banii&quot;</li><li data-en="They ask for SMS codes, your PIN, or to install an app">Îți cere coduri din SMS, PIN sau instalarea unei aplicații</li><li data-en="They refuse to let you call back on the institution&#x27;s official number">Refuză să îl suni tu înapoi pe numărul oficial al instituției</li></ul></div></div>
+  <div class="atlas-lock-overlay" data-lock-tier="professional">
+    <div class="alo-icon">&#128274;</div>
+    <div class="alo-plan" data-en="Professional — 250 RON (one-time)">Professional — 250 RON (plată unică)</div>
+    <div class="alo-text" data-en="Available in Professional plan">Disponibil din planul Professional</div>
+    <a href="personal.html" class="alo-btn" data-en="Upgrade &rarr;">Upgrade &rarr;</a>
+  </div>
+</article>
+<article class="atlas-card" data-catnum="17" data-cat="C10" data-risk="CRITIC" data-num="181" data-tier="professional" data-search="sef-017 long con relationship building social engineering frameworks" style="--cat-color:#2C3E50">
+  <div class="ac-sidebar">
+    <div class="acs-id">SEF-017</div>
+    <div class="acs-num">#181</div>
+    <div class="acs-risk-badge rc" data-en="Critical">Critic</div>
+    <div class="acs-risk-bar"><div class="acs-risk-fill" style="height:100%;background:#C0392B"></div></div>
+  </div>
+  <div class="ac-main">
+    <div class="ac-title">Long Con Relationship Building</div>
+    <div class="ac-cat" style="color:#2C3E50">SOCIAL ENGINEERING FRAMEWORKS</div>
+    <div class="ac-vectors">
+      <div class="acv-block"><div class="acv-label">Entry Vector</div><div class="acv-tags"><span class="atag-entry">Social</span><span class="atag-entry">Email</span></div></div>
+      <div class="acv-block"><div class="acv-label">Manipulation</div><div class="acv-tags"><span class="atag-pat" data-en="Familiarity">Familiaritate</span><span class="atag-pat" data-en="Reward">Recompensă</span></div></div>
+      <div class="acv-block"><div class="acv-label">Extraction</div><div class="acv-extraction" data-en="Complete trust exploited">Trust complet exploatat</div></div>
+    </div>
+    <div class="ac-desc">Long con este o operațiune de luni sau chiar ani. Atacatorul construiește o relație autentică — de afaceri, de prietenie sau romantică — fără a cere nimic timp îndelungat. Investeste timp real, furnizează ajutor real, construiește încredere profundă. Craza finală vine după ce încrederea este consolidată — o cerere mare care exploatează relația. Valoarea tranzacției finale justifică investiția în construirea relației. Detectia este aproape imposibilă în timp real.</div>
+  </div>
+  <div class="ac-intel"><div class="aci-row"><div class="aci-k" data-en="HOW IT REACHES YOU">CUM TE ABORDEAZĂ</div><div class="aci-v" data-en="The approach comes through social media: a cloned account, a &quot;new&quot; friend or a fake sponsored ad.">Abordarea vine din social media: cont clonat, prieten „nou&quot; sau reclamă sponsorizată falsă.</div></div><div class="aci-row"><div class="aci-k" data-en="PSYCHOLOGICAL LEVER">PÂRGHIA PSIHOLOGICĂ</div><div class="aci-v"><div class="aci-manip"><span class="aci-mtag" data-en="Familiarity">Familiaritate</span><span class="aci-mex" data-en="It seems familiar — a colleague, friend, or brand you use daily — so your guard drops.">Pare cineva cunoscut — coleg, prieten, brand folosit zilnic — deci lași garda jos.</span></div><div class="aci-manip"><span class="aci-mtag" data-en="Reward">Recompensă</span><span class="aci-mex" data-en="The promised gain (prize, discount, inheritance) shifts your attention from risk to reward.">Câștigul promis (premiu, discount, moștenire) îți mută atenția de la risc la beneficiu.</span></div></div></div><div class="aci-row aci-watch"><div class="aci-k aci-k-warn" data-en="WATCH FOR — 3 SIGNALS">FII ATENT LA — 3 SEMNALE</div><ul class="aci-list"><li data-en="A new or cloned account: few posts, few friends">Cont nou sau clonat: puține postări, prieteni puțini</li><li data-en="The message asks for money, codes or an &quot;urgent&quot; link click">Mesajul cere bani, coduri sau click pe link „urgent&quot;</li><li data-en="The profile avoids verification via a direct call">Profilul evită verificarea prin apel direct</li></ul></div></div>
+  <div class="atlas-lock-overlay" data-lock-tier="professional">
+    <div class="alo-icon">&#128274;</div>
+    <div class="alo-plan" data-en="Professional — 250 RON (one-time)">Professional — 250 RON (plată unică)</div>
+    <div class="alo-text" data-en="Available in Professional plan">Disponibil din planul Professional</div>
+    <a href="personal.html" class="alo-btn" data-en="Upgrade &rarr;">Upgrade &rarr;</a>
+  </div>
+</article>
+</main>
+
+<section class="cdx-cta" id="cdx-gate" style="--cat-color:#2C3E50">
+  <h2 data-en="Unlock all 17 typologies in this category">Deblochează toate cele 17 tipologii din această categorie</h2>
+  <p data-en="Full access to the complete Codex — 300+ documented fraud typologies, cognitive analysis and monthly updates. One-time payment, permanent access.">Acces complet la întregul Codex — 300+ de tipologii documentate, analiză cognitivă și actualizări lunare. Plată unică, acces permanent.</p>
+  <a href="personal.html" class="btn" data-en="See plans →">Vezi planurile →</a>
+</section>
+
+<nav class="cdx-nav2" style="--cat-color:#2C3E50" aria-label="Categorii">
+  <a href="codex-ecommerce.html"><span class="lbl" data-en="← Previous category">← Categoria anterioară</span><span class="ttl">E-Commerce</span></a>
+  <a href="codex.html" style="flex:0 0 auto;display:flex;align-items:center;padding:18px 22px"><span class="ttl" style="font-size:15px" data-en="All">Toate</span></a>
+  <a href="codex-romance.html" class="nx"><span class="lbl" data-en="Next category →">Categoria următoare →</span><span class="ttl">Romance & Relationship</span></a>
+</nav>
+
+<footer class="sbr-footer">
+  <div style="display:flex;align-items:center"><div class="footer-logo">SBR<span>.</span></div></div>
+  <div class="footer-copy">&copy; 2026 Structura Brevis Rector&trade;</div>
+  <nav class="footer-links">
+    <a href="am-fost-inselat.html" class="footer-link" data-en="Been scammed?">Am fost înșelat</a>
+    <a href="unde-raportezi-frauda.html" class="footer-link" data-en="Report fraud">Raportează frauda</a>
+    <a href="phishing-cum-recunosti.html" class="footer-link">Phishing</a>
+    <a href="codex.html" class="footer-link">Codex</a>
+    <a href="terms.html" class="footer-link">Termeni</a>
+    <a href="privacy.html" class="footer-link">Privacy</a>
+    <a href="gdpr.html" class="footer-link">GDPR</a>
+  </nav>
+</footer>
+
+<script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+<script src="js/nav-auth.js"></script>
+<script src="js/codex-cat.js"></script>
+<script id="sbr-color-fix">
+(function(){function fix(){var r=document.documentElement;r.style.setProperty('--text','#EEEEEE');r.style.setProperty('--t2','#CCCCCC');r.style.setProperty('--t3','#AAAAAA');r.style.setProperty('--t4','#888888');r.style.setProperty('--t5','#555555');}fix();document.addEventListener('DOMContentLoaded',fix);})();
+</script>
+  <script src="js/cookie-consent.js"></script>
+<script src="js/codex-interactive.js" defer></script>
+
+</body>
+</html>

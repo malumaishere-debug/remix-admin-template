@@ -1,0 +1,382 @@
+<!DOCTYPE html>
+<html lang="ro">
+<head>
+<meta charset="UTF-8">
+<script>try{}catch(e){}</script>
+<script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+<script src="js/i18n.js?v=5"></script>
+<script src="js/nav-universal.js?v=13"></script>
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<meta name="description" content="Free 2-minute Fraud Vulnerability Scorecard for businesses. Get your Risk Score and a PDF report of the fraud typologies you're exposed to.">
+<meta name="robots" content="noindex, nofollow">
+<title>Fraud Vulnerability Scorecard | SBR</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=IBM+Plex+Mono:wght@400;500&family=Lato:wght@400;700&display=swap" rel="stylesheet">
+<style>
+:root{--red:#C0392B;--redL:#E74C3C;--amber:#E67E22;--green:#27AE60;--bg1:#111;--bg2:#1a1a1a;--bg0:#080808;--border:rgba(255,255,255,.08);--brd-red:rgba(192,57,43,.28);--text:#F7F7F7;--t2:#D2D2D2;--t3:#ADADAD;--t4:#808080;--fm:"IBM Plex Mono",monospace;--fd:"Bebas Neue",sans-serif;box-sizing:border-box;padding-top:env(safe-area-inset-top,0px);padding-bottom:env(safe-area-inset-bottom,0px)}
+*,*::before,*::after{box-sizing:inherit}
+html{scroll-padding-top:70px}
+body{margin:0;padding-top:58px;background:var(--bg0);color:var(--text);font-family:"Lato",sans-serif;min-height:100vh;-webkit-text-size-adjust:100%}
+::-webkit-scrollbar{width:2px}::-webkit-scrollbar-thumb{background:var(--red)}
+a{color:var(--redL)}
+button{cursor:pointer;font-family:inherit;border:none;background:none}
+.wrap{max-width:760px;margin:0 auto;padding:0 20px}
+.hero{padding:56px 0 20px;text-align:center}
+.tag{font-family:var(--fm);font-size:10px;letter-spacing:4px;color:rgba(192,57,43,.8);text-transform:uppercase;margin:0 0 14px}
+h1{font-family:var(--fd);font-size:clamp(34px,6vw,58px);line-height:1.04;letter-spacing:1px;margin:0 0 16px;color:#fff}
+h1 em{color:var(--red);font-style:normal}
+.lede{color:var(--t2);font-size:17px;max-width:56ch;margin:0 auto 26px;line-height:1.55}
+.stats{display:flex;justify-content:center;gap:0;border-top:1px solid var(--border);border-bottom:1px solid var(--border);margin:0 0 34px}
+.stats div{flex:1;padding:16px 10px;border-right:1px solid var(--border)}
+.stats div:last-child{border-right:0}
+.stats b{display:block;font-family:var(--fd);font-size:30px;color:var(--red)}
+.stats span{font-family:var(--fm);font-size:9px;letter-spacing:1.5px;color:var(--t4);text-transform:uppercase}
+.card{background:var(--bg1);border:1px solid var(--border);padding:32px 28px;margin:0 0 50px}
+.prog-row{display:flex;justify-content:space-between;align-items:center;margin-bottom:20px}
+.prog-lbl{font-family:var(--fm);font-size:10px;letter-spacing:2px;color:var(--t4);text-transform:uppercase}
+.prog-pct{font-family:var(--fm);font-size:11px;color:var(--red)}
+.prog-trk{height:2px;background:var(--border);margin-bottom:30px}
+.prog-fill{height:100%;background:var(--red);transition:width .4s ease}
+.q-icon{font-size:28px;margin-bottom:14px;display:block}
+#q-text{font-family:var(--fd);font-size:clamp(24px,4.2vw,34px);line-height:1.1;letter-spacing:.5px;color:#fff;margin:0 0 24px;min-height:34px}
+.opts{display:flex;flex-direction:column;gap:10px}
+.q-opt{display:flex;align-items:flex-start;gap:14px;padding:16px 18px;background:var(--bg0);border:1px solid var(--border);text-align:left;transition:all .16s;width:100%;font-size:15.5px;color:var(--t3);line-height:1.5}
+.q-opt:hover{border-color:var(--brd-red);background:var(--bg2);color:var(--t2)}
+.q-opt.picked{border-color:var(--red);background:rgba(192,57,43,.07);color:var(--text)}
+.q-key{font-family:var(--fm);font-size:11px;letter-spacing:2px;color:var(--t4);flex-shrink:0;margin-top:2px;width:20px}
+.q-opt.picked .q-key{color:var(--red)}
+.q-opt input[type=checkbox]{margin:3px 0 0;accent-color:var(--red)}
+.nav-row{display:flex;gap:12px;margin-top:26px}
+#q-back{font-family:var(--fm);font-size:11px;letter-spacing:2px;color:var(--t4);padding:16px 6px}
+#q-back:hover{color:var(--t2)}
+#q-next{flex:1;padding:17px;background:rgba(192,57,43,.14);color:rgba(255,255,255,.32);font-family:var(--fm);font-size:12px;letter-spacing:3px;text-transform:uppercase;transition:all .18s}
+#q-next.on{background:var(--red);color:#fff}
+#q-next.on:hover{background:var(--redL)}
+.gate-tag{font-family:var(--fm);font-size:9px;letter-spacing:4px;color:rgba(192,57,43,.8);text-transform:uppercase;margin-bottom:16px}
+.gate-h{font-family:var(--fd);font-size:clamp(26px,4.5vw,36px);color:#fff;margin:0 0 14px;line-height:1.1}
+.gate-p{color:var(--t2);font-size:15.5px;margin:0 0 26px;line-height:1.55}
+.field{margin:0 0 16px;text-align:left}
+.field label{display:block;font-family:var(--fm);font-size:10px;letter-spacing:2px;color:var(--t4);text-transform:uppercase;margin-bottom:8px}
+input[type=email],input[type=text]{width:100%;font:16px/1.4 "Lato",sans-serif;color:#fff;background:var(--bg0);border:1px solid var(--border);padding:14px 16px;border-radius:0}
+input[type=email]:focus,input[type=text]:focus{outline:none;border-color:var(--red)}
+.err{color:var(--redL);font-family:var(--fm);font-size:11px;letter-spacing:1px;margin-top:8px;min-height:14px}
+.consent{display:flex;gap:10px;align-items:flex-start;margin:18px 0 22px;text-align:left}
+.consent input{margin-top:3px;accent-color:var(--red)}
+.consent span{font-size:13px;color:var(--t3);line-height:1.5}
+.gate-cta{width:100%;padding:18px;background:var(--red);color:#fff;font-family:var(--fm);font-size:13px;letter-spacing:3px;text-transform:uppercase}
+.gate-cta:hover{background:var(--redL)}
+.gate-cta[disabled]{background:rgba(192,57,43,.2);color:rgba(255,255,255,.3);cursor:not-allowed}
+.trust{font-family:var(--fm);font-size:9.5px;letter-spacing:1.5px;color:var(--t4);margin-top:16px;text-transform:uppercase}
+.result-top{text-align:center;margin:0 0 30px}
+.gauge-wrap{max-width:220px;margin:0 auto 14px}
+.badge{display:inline-block;font-family:var(--fm);font-size:11px;letter-spacing:3px;text-transform:uppercase;padding:6px 16px;border:1px solid currentColor}
+.res-h{font-family:var(--fd);font-size:clamp(26px,4.5vw,36px);color:#fff;margin:14px 0 6px}
+.res-p{color:var(--t2);font-size:15px;max-width:52ch;margin:0 auto}
+.typ-list{margin:0 0 30px}
+.typ{display:flex;gap:16px;padding:18px 0;border-top:1px solid var(--border);text-align:left}
+.typ:last-child{border-bottom:1px solid var(--border)}
+.typ .ic{font-size:22px;flex-shrink:0;width:32px;text-align:center}
+.typ b{display:block;font-family:var(--fd);font-size:19px;letter-spacing:.5px;color:#fff;margin-bottom:3px}
+.typ p{margin:0;color:var(--t3);font-size:14.5px;line-height:1.5}
+.typ .fit{display:inline-block;margin-top:6px;font-family:var(--fm);font-size:9.5px;letter-spacing:1.5px;text-transform:uppercase;color:var(--red)}
+.actions{display:flex;flex-direction:column;gap:12px}
+.btn{display:block;text-align:center;padding:17px;font-family:var(--fm);font-size:12px;letter-spacing:3px;text-transform:uppercase;text-decoration:none}
+.btn.pri{background:var(--red);color:#fff}.btn.pri:hover{background:var(--redL)}
+.btn.sec{border:1px solid var(--border);color:var(--t2)}.btn.sec:hover{border-color:var(--brd-red);color:#fff}
+.share{font-family:var(--fm);font-size:10px;letter-spacing:1.5px;color:var(--t4);text-align:center;margin-top:20px;text-transform:uppercase}
+.foot{border-top:1px solid var(--border);padding:26px 0 60px;text-align:center;color:var(--t4);font-family:var(--fm);font-size:10px;letter-spacing:1.5px;text-transform:uppercase}
+@keyframes revealScore{from{stroke-dashoffset:439.8}}
+.arcfill{animation:revealScore 1.1s cubic-bezier(.2,.8,.2,1) both}
+@media (prefers-reduced-motion:reduce){.arcfill{animation:none}}
+@media(max-width:640px){.card{padding:24px 18px}.stats{flex-wrap:wrap}.stats div{flex:1 1 50%;border-bottom:1px solid var(--border)}}
+
+/* ===== ambient animated background ===== */
+.ambient{position:absolute;inset:0;overflow:hidden;pointer-events:none;z-index:0}
+.ambient span{position:absolute;border-radius:50%;filter:blur(70px);opacity:.28;mix-blend-mode:screen;will-change:transform}
+.ambient span:nth-child(1){width:420px;height:420px;background:#C0392B;top:-140px;left:-80px;animation:amb1 22s ease-in-out infinite}
+.ambient span:nth-child(2){width:380px;height:380px;background:#D4AC0D;bottom:-160px;right:-60px;animation:amb2 26s ease-in-out infinite}
+.ambient span:nth-child(3){width:300px;height:300px;background:#2980B9;top:20%;right:10%;animation:amb3 30s ease-in-out infinite}
+@keyframes amb1{0%,100%{transform:translate(0,0) scale(1)}50%{transform:translate(60px,40px) scale(1.15)}}
+@keyframes amb2{0%,100%{transform:translate(0,0) scale(1)}50%{transform:translate(-50px,-30px) scale(1.1)}}
+@keyframes amb3{0%,100%{transform:translate(0,0) scale(1)}50%{transform:translate(-30px,50px) scale(1.2)}}
+.hero,.top-mini{position:relative;isolation:isolate}
+.hero > *:not(.ambient),.top-mini > *:not(.ambient){position:relative;z-index:1}
+@media (prefers-reduced-motion:reduce){.ambient span{animation:none}}
+
+</style>
+</head>
+<body>
+<div class="wrap">
+  <div class="hero">
+    <div class="ambient" aria-hidden="true"><span></span><span></span><span></span></div>
+    <p class="tag">2-Minute Business Diagnostic</p>
+    <h1>Find out <em>exactly</em> how fraud<br>could hit your business.</h1>
+    <p class="lede">Five quick questions about your industry, your payment flows and your controls. At the end: your Risk Score, the specific fraud typologies you're exposed to, and a downloadable PDF report.</p>
+    <div class="stats">
+      <div><b>2 min</b><span>To complete</span></div>
+      <div><b>5</b><span>Questions</span></div>
+      <div><b>0-100</b><span>Risk score</span></div>
+      <div><b>PDF</b><span>Instant report</span></div>
+    </div>
+  </div>
+  <div id="app"></div>
+  <div class="foot">Structura Brevis Rector &middot; This scorecard is a self-assessment, not an audit or certification.</div>
+</div>
+<script>
+(function(){
+'use strict';
+var $=function(id){return document.getElementById(id);};
+var ESC_MAP={'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'};
+function esc(s){return String(s==null?'':s).replace(/[&<>"']/g,function(c){return ESC_MAP[c];});}
+
+/* ---------- Questions ---------- */
+var Q=[
+ {k:'industry',icon:'\uD83C\uDFED',t:'What is your primary industry?',
+  o:[
+   {v:'ecom',t:'E-commerce / Online retail',w:14},
+   {v:'fin',t:'Financial services / Fintech',w:20},
+   {v:'mfg',t:'Manufacturing / Industry',w:12},
+   {v:'constr',t:'Construction / Installations',w:15},
+   {v:'it',t:'Professional services / IT',w:13},
+   {v:'transport',t:'Transport / Logistics',w:14},
+   {v:'horeca',t:'HoReCa',w:10},
+   {v:'other',t:'Other',w:10}
+  ]},
+ {k:'crossborder',icon:'\uD83C\uDF0D',t:'Do you process cross-border payments?',
+  o:[
+   {v:'yes',t:'Yes, regularly',w:22},
+   {v:'occ',t:'Occasionally',w:12},
+   {v:'no',t:'No, domestic only',w:2}
+  ]},
+ {k:'employees',icon:'\uD83D\uDC65',t:'How many employees does your company have?',
+  o:[
+   {v:'s',t:'1\u20139',w:8},
+   {v:'m',t:'10\u201349',w:12},
+   {v:'l',t:'50\u2013249',w:16},
+   {v:'xl',t:'250 or more',w:18}
+  ]},
+ {k:'approval',icon:'\u270D',t:'Can a single person approve AND send a payment, with no second check?',
+  o:[
+   {v:'one',t:'Yes, one person can do both',w:26},
+   {v:'some',t:'Only below a certain amount',w:12},
+   {v:'two',t:'No, it always takes two people',w:0}
+  ]},
+ {k:'incident',icon:'\u26A0',t:'Has your company faced a suspected fraud attempt in the last 12 months?',
+  o:[
+   {v:'yes',t:'Yes, at least one attempt',w:20},
+   {v:'unsure',t:'Not sure / never checked',w:14},
+   {v:'no',t:'No, not that we know of',w:4}
+  ]}
+];
+
+/* ---------- Typology library (mapped to answers) ---------- */
+var TYP={
+ bec:{n:'CEO Fraud / Business Email Compromise',ic:'\uD83D\uDCE7',d:'An urgent, impersonated request (a "CEO", a known supplier) pushes someone to approve an unusual payment fast.',cond:function(a){return a.approval==='one'||a.approval==='some';}},
+ fakeinv:{n:'Fake Supplier Invoice',ic:'\uD83E\uDDFE',d:'A fraudulent invoice, or a real one with a changed IBAN, gets paid because no one calls the supplier back to confirm.',cond:function(a){return true;}},
+ crossborder:{n:'Cross-Border Payment Diversion',ic:'\uD83C\uDF10',d:'International transfers are harder to trace and reverse, which fraud rings specifically target.',cond:function(a){return a.crossborder==='yes'||a.crossborder==='occ';}},
+ phishing:{n:'Phishing Account Takeover',ic:'\uD83C\uDFA3',d:'A convincing fake login page or a malicious link compromises an employee\u2019s banking or e-mail access.',cond:function(a){return true;}},
+ insider:{n:'Insider / Segregation-of-Duties Gap',ic:'\uD83D\uDD11',d:'When one person can approve, execute and reconcile a payment alone, an internal fraud can go unnoticed for months.',cond:function(a){return a.approval==='one';}},
+ finserv:{n:'Account Takeover & Synthetic Identity',ic:'\uD83C\uDFE6',d:'Financial-services firms are a direct target for stolen-identity account openings and takeover attempts.',cond:function(a){return a.industry==='fin';}},
+ supplychain:{n:'Fake Carrier / Cargo Diversion',ic:'\uD83D\uDE9A',d:'A fraudulent carrier or a compromised broker diverts a shipment or gets paid for a delivery that never happens.',cond:function(a){return a.industry==='transport'||a.industry==='mfg'||a.industry==='constr';}},
+ chargeback:{n:'Chargeback / Card-Not-Present Fraud',ic:'\uD83D\uDED2',d:'Stolen card details are used for online orders, leaving the merchant to absorb the loss.',cond:function(a){return a.industry==='ecom'||a.industry==='horeca';}}
+};
+function matchTyp(a){
+  var ids=Object.keys(TYP).filter(function(k){return TYP[k].cond(a);});
+  // score each by a rough relevance order so the most specific ones lead
+  var order=['insider','bec','crossborder','finserv','supplychain','chargeback','fakeinv','phishing'];
+  ids.sort(function(x,y){return order.indexOf(x)-order.indexOf(y);});
+  return ids.slice(0,3).map(function(k){return Object.assign({id:k},TYP[k]);});
+}
+
+/* ---------- Scoring ---------- */
+function computeScore(a){
+  var sum=0,max=0;
+  Q.forEach(function(q){
+    var picked=q.o.find(function(o){return o.v===a[q.k];});
+    if(picked) sum+=picked.w;
+    max+=Math.max.apply(null,q.o.map(function(o){return o.w;}));
+  });
+  return Math.round(100*sum/max);
+}
+function band(score){
+  if(score>=70) return {label:'Critically Exposed',cls:'critical',color:'#C0392B'};
+  if(score>=48) return {label:'Vulnerable',cls:'high',color:'#E74C3C'};
+  if(score>=25) return {label:'Moderately Aware',cls:'medium',color:'#E67E22'};
+  return {label:'Aware',cls:'low',color:'#27AE60'};
+}
+
+/* ---------- Free-email blocklist (corporate-email gate) ---------- */
+var FREE=/(^|\.)(gmail\.com|yahoo\.(com|ro)|outlook\.com|hotmail\.com|icloud\.com|proton\.me|protonmail\.com|mail\.com|aol\.com|live\.com|yandex\.(com|ru)|gmx\.(com|net)|zoho\.com)$/i;
+
+/* ---------- State ---------- */
+var A={step:0,ans:{},email:'',company:'',consent:false};
+var app=$('app');
+
+function progHtml(i,n){
+  var pct=Math.round((i/n)*100);
+  return '<div class="prog-row"><span class="prog-lbl">Question '+(i+1)+' of '+n+'</span><span class="prog-pct">'+pct+'%</span></div>'+
+    '<div class="prog-trk"><div class="prog-fill" style="width:'+pct+'%"></div></div>';
+}
+function renderQuestion(){
+  var i=A.step,q=Q[i],h='';
+  h+='<div class="card">';
+  h+=progHtml(i,Q.length);
+  h+='<span class="q-icon">'+q.icon+'</span>';
+  h+='<h2 id="q-text">'+esc(q.t)+'</h2>';
+  h+='<div class="opts" role="radiogroup" aria-label="'+esc(q.t)+'">';
+  q.o.forEach(function(o,idx){
+    var picked=A.ans[q.k]===o.v;
+    h+='<button type="button" class="q-opt'+(picked?' picked':'')+'" data-v="'+esc(o.v)+'"><span class="q-key">'+String.fromCharCode(65+idx)+'</span><span>'+esc(o.t)+'</span></button>';
+  });
+  h+='</div>';
+  h+='<div class="nav-row">'+(i>0?'<button type="button" id="q-back">&larr; Back</button>':'')+
+     '<button type="button" id="q-next" class="'+(A.ans[q.k]?'on':'')+'">'+(i===Q.length-1?'See my risk score \u2192':'Next \u2192')+'</button></div>';
+  h+='</div>';
+  app.innerHTML=h;
+  attachQuestionEvents();
+  focusHeading();
+}
+function focusHeading(){ var t=$('q-text'); if(t){ t.setAttribute('tabindex','-1'); t.focus({preventScroll:true}); } }
+function attachQuestionEvents(){
+  var q=Q[A.step];
+  app.querySelectorAll('.q-opt').forEach(function(b){
+    b.addEventListener('click',function(){
+      A.ans[q.k]=b.dataset.v;
+      app.querySelectorAll('.q-opt').forEach(function(x){x.classList.remove('picked');});
+      b.classList.add('picked');
+      $('q-next').classList.add('on');
+    });
+  });
+  var back=$('q-back'); if(back) back.addEventListener('click',function(){ A.step--; renderQuestion(); });
+  $('q-next').addEventListener('click',function(){
+    if(!A.ans[q.k]) return;
+    if(A.step<Q.length-1){ A.step++; renderQuestion(); } else { renderGate(); }
+  });
+}
+
+function renderGate(){
+  var h='<div class="card" style="text-align:center">';
+  h+='<div class="gate-tag">Step '+(Q.length+1)+' of '+(Q.length+1)+' \u00b7 Almost done</div>';
+  h+='<h2 class="gate-h">Your Fraud Vulnerability Scorecard is ready.</h2>';
+  h+='<p class="gate-p">Enter your work e-mail to unlock your Risk Score and the specific fraud typologies your business is exposed to, plus a downloadable PDF report.</p>';
+  h+='<div class="field"><label for="in-company">Company</label><input type="text" id="in-company" autocomplete="organization" value="'+esc(A.company)+'"></div>';
+  h+='<div class="field"><label for="in-email">Work e-mail</label><input type="email" id="in-email" autocomplete="email" value="'+esc(A.email)+'" placeholder="you@yourcompany.com"><div class="err" id="email-err"></div></div>';
+  h+='<label class="consent"><input type="checkbox" id="in-consent"'+(A.consent?' checked':'')+'><span>I agree to receive my Risk Score and report by e-mail, and to be contacted by SBR about my results. See the <a href="privacy.html" target="_blank" rel="noopener">privacy policy</a>.</span></label>';
+  h+='<button type="button" class="gate-cta" id="gate-go">Unlock My Risk Score \u2192</button>';
+  h+='<div class="trust">Used by teams evaluating fraud exposure \u00b7 No spam \u00b7 Unsubscribe anytime</div>';
+  h+='</div>';
+  app.innerHTML=h;
+  $('in-company').addEventListener('input',function(){ A.company=this.value; });
+  $('in-email').addEventListener('input',function(){ A.email=this.value; $('email-err').textContent=''; });
+  $('in-consent').addEventListener('change',function(){ A.consent=this.checked; });
+  $('gate-go').addEventListener('click',submitGate);
+  focusFirstField();
+}
+function focusFirstField(){ var f=$('in-company'); if(f) f.focus({preventScroll:true}); }
+function validEmail(v){ return /^[^\s@]+@[^\s@]+\.[^\s@]{2,}$/.test(v); }
+function submitGate(){
+  var email=A.email.trim(),err=$('email-err');
+  if(!validEmail(email)){ err.textContent='Enter a valid e-mail address.'; return; }
+  if(FREE.test(email.split('@')[1]||'')){ err.textContent='Please use your work e-mail address, not a personal one (gmail, yahoo, etc.).'; return; }
+  if(!A.consent){ err.textContent='Please tick the consent checkbox to continue.'; return; }
+  var btn=$('gate-go'); btn.disabled=true; btn.textContent='Unlocking...';
+  sendLead(email).then(function(){ renderResult(); }).catch(function(){ renderResult(); });
+}
+function sendLead(email){
+  var score=computeScore(A.ans),b=band(score);
+  var body={action:'scorecard_lead',company:A.company,email:email,answers:A.ans,score:score,band:b.label,page:location.href,ts:new Date().toISOString()};
+  if(typeof fetch!=='function') return Promise.resolve();
+  return fetch('https://structurabrevisrector.app.n8n.cloud/webhook/sbr-scorecard-lead',{method:'POST',headers:{'Content-Type':'text/plain;charset=UTF-8'},body:JSON.stringify(body)}).catch(function(){});
+}
+
+/* ---------- Result ---------- */
+function gaugeSvg(score,color){
+  var r=70,C=2*Math.PI*r,off=C*(1-score/100);
+  return '<svg viewBox="0 0 180 180" role="img" aria-label="Risk score '+score+' out of 100" width="180" height="180">'+
+   '<circle cx="90" cy="90" r="'+r+'" fill="none" stroke="rgba(255,255,255,.08)" stroke-width="10"/>'+
+   '<circle class="arcfill" cx="90" cy="90" r="'+r+'" fill="none" stroke="'+color+'" stroke-width="10" stroke-linecap="round" stroke-dasharray="'+C.toFixed(1)+'" stroke-dashoffset="'+off.toFixed(1)+'" transform="rotate(-90 90 90)"/>'+
+   '<text x="90" y="98" text-anchor="middle" fill="#fff" font-family="Bebas Neue,sans-serif" font-size="46">'+score+'</text>'+
+   '<text x="90" y="118" text-anchor="middle" fill="#888" font-family=\'IBM Plex Mono,monospace\' font-size="10" letter-spacing="1">RISK / 100</text>'+
+   '</svg>';
+}
+function renderResult(){
+  var score=computeScore(A.ans),b=band(score),typ=matchTyp(A.ans);
+  var h='<div class="result-top"><div class="gauge-wrap">'+gaugeSvg(score,b.color)+'</div>';
+  h+='<span class="badge" style="color:'+b.color+'">'+b.label+'</span>';
+  h+='<h2 class="res-h">'+esc(A.company||'Your company')+' scores '+score+'/100 on fraud exposure.</h2>';
+  h+='<p class="res-p">Based on your industry, payment flows and internal controls, here is where a fraud attempt is most likely to succeed.</p></div>';
+  h+='<div class="typ-list">';
+  typ.forEach(function(t){
+    h+='<div class="typ"><span class="ic">'+t.ic+'</span><div><b>'+esc(t.n)+'</b><p>'+esc(t.d)+'</p><span class="fit">Relevant to your profile</span></div></div>';
+  });
+  h+='</div>';
+  h+='<div class="actions">';
+  h+='<button type="button" class="btn pri" id="dl-pdf">Download PDF Report</button>';
+  h+='<a class="btn sec" href="verified.html">Get the full SBR Verified audit &rarr;</a>';
+  h+='<a class="btn sec" href="business.html">See Business plans</a>';
+  h+='</div>';
+  h+='<div class="share">Report sent to '+esc(A.email)+'</div>';
+  app.innerHTML='<div class="card">'+h+'</div>';
+  $('dl-pdf').addEventListener('click',function(){ downloadPdf(score,b,typ); });
+}
+
+/* ---------- Client-side PDF (jsPDF) ---------- */
+function downloadPdf(score,b,typ){
+  var btn=$('dl-pdf');
+  if(!window.jspdf){ btn.textContent='Loading...'; loadJsPdf(function(){ buildPdf(score,b,typ); btn.textContent='Download PDF Report'; }); return; }
+  buildPdf(score,b,typ);
+}
+function loadJsPdf(cb){
+  var s=document.createElement('script');
+  s.src='https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.5.1/jspdf.umd.min.js';
+  s.onload=cb; s.onerror=function(){ alert('The PDF library could not be loaded. Please check your connection and try again.'); };
+  document.head.appendChild(s);
+}
+function buildPdf(score,b,typ){
+  var jsPDF=window.jspdf.jsPDF,doc=new jsPDF({unit:'pt',format:'a4'});
+  var W=595,M=48,y=64;
+  doc.setFillColor(8,8,8); doc.rect(0,0,W,120,'F');
+  doc.setTextColor(255,255,255); doc.setFont('helvetica','bold'); doc.setFontSize(22);
+  doc.text('SBR Fraud Vulnerability Scorecard',M,54);
+  doc.setFontSize(11); doc.setTextColor(200,200,200); doc.setFont('helvetica','normal');
+  doc.text((A.company||'Your company')+'  \u00b7  '+new Date().toLocaleDateString('en-GB'),M,76);
+  y=150;
+  doc.setTextColor(20,20,20); doc.setFont('helvetica','bold'); doc.setFontSize(15);
+  doc.text('Risk score',M,y);
+  doc.setFontSize(42); var rc=hexToRgb(b.color); doc.setTextColor(rc.r,rc.g,rc.b);
+  doc.text(String(score)+' / 100',M,y+40);
+  doc.setFontSize(13); doc.setTextColor(90,90,90); doc.setFont('helvetica','normal');
+  doc.text(b.label,M,y+58);
+  y+=96;
+  doc.setDrawColor(220,220,220); doc.line(M,y,W-M,y); y+=28;
+  doc.setTextColor(20,20,20); doc.setFont('helvetica','bold'); doc.setFontSize(14);
+  doc.text('Fraud typologies you are most exposed to',M,y); y+=22;
+  doc.setFont('helvetica','normal'); doc.setFontSize(11);
+  typ.forEach(function(t,i){
+    doc.setFont('helvetica','bold'); doc.setTextColor(20,20,20);
+    doc.text((i+1)+'. '+t.n,M,y); y+=16;
+    doc.setFont('helvetica','normal'); doc.setTextColor(90,90,90);
+    var lines=doc.splitTextToSize(t.d,W-2*M);
+    doc.text(lines,M,y); y+=lines.length*14+14;
+  });
+  y+=8; doc.setDrawColor(220,220,220); doc.line(M,y,W-M,y); y+=26;
+  doc.setFont('helvetica','bold'); doc.setFontSize(13); doc.setTextColor(20,20,20);
+  doc.text('Recommended next step',M,y); y+=18;
+  doc.setFont('helvetica','normal'); doc.setFontSize(11); doc.setTextColor(90,90,90);
+  var rec=doc.splitTextToSize('This scorecard is a quick, self-reported estimate. For a documented risk score with evidence review and a human evaluator, see the SBR Verified assessment at sbr.systems/verified.html.',W-2*M);
+  doc.text(rec,M,y); y+=rec.length*14+10;
+  doc.setFontSize(9); doc.setTextColor(150,150,150);
+  doc.text('Structura Brevis Rector \u00b7 sbr.systems \u00b7 This is a self-assessment, not an audit, certification or guarantee.',M,780);
+  doc.save('SBR-Fraud-Scorecard-'+(A.company||'company').replace(/[^a-z0-9]+/gi,'-')+'.pdf');
+}
+function hexToRgb(h){ var n=parseInt(h.replace('#',''),16); return {r:(n>>16)&255,g:(n>>8)&255,b:n&255}; }
+
+/* ---------- boot ---------- */
+renderQuestion();
+})();
+
+</script>
+
+</body>
+</html>

@@ -1,0 +1,1094 @@
+<!DOCTYPE html>
+<html lang="ro">
+<head>
+<meta charset="UTF-8">
+<!-- Google Analytics 4 (Consent Mode v2) — nu colecteaza pana la consimtamant -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-9WT1GRKEGB"></script>
+<script>
+window.dataLayer=window.dataLayer||[];function gtag(){dataLayer.push(arguments);}
+gtag('js',new Date());
+gtag('consent','default',{'ad_storage':'denied','ad_user_data':'denied','ad_personalization':'denied','analytics_storage':'denied'});
+try{var _c=JSON.parse(localStorage.getItem('sbr_cookie_consent')||'null');if(_c&&_c.type==='all'){gtag('consent','update',{'analytics_storage':'granted'});}}catch(e){}
+gtag('config','G-9WT1GRKEGB',{anonymize_ip:true});
+</script>
+<!-- End GA4 -->
+<script src="js/nav-universal.js?v=13"></script>
+<script src="/js/i18n.js?v=5"></script>
+
+  <meta name="description" content="300+ tipologii de frauda documentate in Codex SBR. Acces la atlas-ul complet al fraudelor digitale.">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>SBR CODEX&trade; — Harta completă a fraudelor digitale</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Playfair+Display:ital,wght@0,400;1,400&family=IBM+Plex+Mono:wght@300;400;500&family=Lato:wght@300;400;700&display=swap" rel="stylesheet" media="print" onload="this.media='all'">
+  <noscript><link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Playfair+Display:ital,wght@0,400;1,400&family=IBM+Plex+Mono:wght@300;400;500&family=Lato:wght@300;400;700&display=swap" rel="stylesheet"></noscript>
+
+<style>
+/* ── SBR Universal Nav ── */
+.sbr-nav{position:fixed;top:0;left:0;right:0;z-index:1000;height:58px;display:flex;align-items:center;justify-content:space-between;padding:0 clamp(18px,4vw,56px);background:rgba(8,8,8,.97);backdrop-filter:blur(20px);-webkit-backdrop-filter:blur(20px);border-bottom:1px solid rgba(192,57,43,.12)}
+.nav-logo{font-family:'Bebas Neue',sans-serif;font-size:22px;letter-spacing:5px;color:#e2e2e2;cursor:pointer;display:flex;align-items:center;gap:4px;text-decoration:none;flex-shrink:0}
+.nav-logo .dot{color:#C0392B}
+.nav-logo-sub{font-family:'IBM Plex Mono',monospace;font-size:7px;letter-spacing:2px;color:#333;text-transform:uppercase;margin-left:6px;margin-top:2px}
+.nav-links{display:flex;align-items:center;gap:20px}
+.nav-link{font-family:'IBM Plex Mono',monospace;font-size:9px;letter-spacing:2px;color:#444;text-transform:uppercase;text-decoration:none;transition:color .15s}
+.nav-link:hover,.nav-link.active{color:#aaa}
+.nav-right{display:flex;align-items:center;gap:8px;margin-left:auto}
+.btn-nav-ghost{font-family:'IBM Plex Mono',monospace;font-size:9px;letter-spacing:2px;text-transform:uppercase;background:transparent;border:1px solid rgba(255,255,255,.08);color:#444;padding:8px 14px;cursor:pointer;text-decoration:none;transition:all .18s;white-space:nowrap;display:inline-flex;align-items:center}
+.btn-nav-ghost:hover{border-color:rgba(192,57,43,.4);color:#aaa}
+.btn-nav-solid{font-family:'IBM Plex Mono',monospace;font-size:9px;letter-spacing:2px;text-transform:uppercase;background:#C0392B;color:#fff;border:none;padding:9px 18px;cursor:pointer;text-decoration:none;transition:background .18s;white-space:nowrap;display:inline-flex;align-items:center}
+.btn-nav-solid:hover{background:#E74C3C}
+#scroll-progress{position:fixed;top:0;left:0;height:2px;background:#C0392B;width:0%;z-index:9999;pointer-events:none}
+@media(max-width:700px){.nav-links{display:none}}
+@media(max-width:480px){.btn-nav-ghost:not(:last-of-type){display:none}}
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+html{scroll-behavior:smooth}
+body{font-family:'Lato',sans-serif;background:#0A0A0A;color:#e0e0e0;min-height:100vh;overflow-x:hidden}
+:root{
+  --red:#C0392B;--redL:#E74C3C;
+  --cx:#3498DB;--cx-d:rgba(52,152,219,.09);--cx-b:rgba(52,152,219,.18);
+  --dark:#111;--dark2:#1A1A1A;--dark3:#222;
+}
+::-webkit-scrollbar{width:3px}::-webkit-scrollbar-thumb{background:var(--cx)}
+a{text-decoration:none;color:inherit}
+
+/* ── NAV ── */
+#nav{position:fixed;top:0;left:0;right:0;z-index:1000;height:60px;display:flex;align-items:center;justify-content:space-between;padding:0 36px;background:rgba(10,10,10,.97);backdrop-filter:blur(20px);border-bottom:1px solid rgba(52,152,219,.12)}
+.nav-logo{font-family:'Bebas Neue',sans-serif;font-size:26px;letter-spacing:4px;cursor:pointer;display:flex;align-items:center}
+.nav-logo span{color:var(--red)}
+.nav-logo-sub{font-family:'IBM Plex Mono',monospace;font-size:8px;letter-spacing:2px;color:#aaa;text-transform:uppercase;margin-left:10px;margin-top:2px}
+#nav-right{display:flex;align-items:center;gap:16px}
+.nb{font-size:10px;letter-spacing:2px;text-transform:uppercase;color:#aaa;padding:4px 0;transition:color .2s;font-family:'IBM Plex Mono',monospace}
+.nb:hover,.nb.on{color:var(--cx)}
+.nb-ghost{background:transparent;border:1px solid rgba(255,255,255,.1);color:#aaa;font-family:'IBM Plex Mono',monospace;font-size:10px;letter-spacing:2px;text-transform:uppercase;padding:7px 14px;transition:all .2s}
+.nb-ghost:hover{border-color:var(--cx);color:var(--cx)}
+.nb-solid{background:var(--red);border:none;color:#fff;font-family:'IBM Plex Mono',monospace;font-size:10px;letter-spacing:2px;text-transform:uppercase;padding:8px 16px;cursor:pointer;transition:background .2s}
+.nb-solid:hover{background:var(--redL)}
+#nav-hamburger{display:none;flex-direction:column;gap:5px;cursor:pointer;padding:6px;z-index:1100}
+.hb-line{display:block;width:22px;height:2px;background:#bbb;transition:all .3s}
+
+/* LANG SWITCHER */
+#lang-switcher{position:relative;margin-left:6px}
+.lang-btn{display:flex;align-items:center;gap:5px;cursor:pointer;padding:5px 10px;border:1px solid rgba(255,255,255,.07);background:transparent;transition:all .2s;font-family:'IBM Plex Mono',monospace;font-size:9px;letter-spacing:2px;color:#aaa;user-select:none}
+.lang-btn:hover{border-color:var(--cx);color:var(--cx)}
+.lang-flag{font-size:13px;line-height:1}
+.lang-code{font-size:9px;letter-spacing:2px;text-transform:uppercase}
+.lang-arrow{font-size:8px;opacity:.5}
+.lang-dropdown{display:none;position:absolute;top:calc(100% + 6px);right:0;background:#111;border:1px solid rgba(255,255,255,.07);min-width:78px;z-index:9999;box-shadow:0 8px 24px rgba(0,0,0,.7)}
+.lang-dropdown.open{display:block}
+.lang-opt{display:flex;align-items:center;gap:8px;padding:9px 14px;font-family:'IBM Plex Mono',monospace;font-size:9px;letter-spacing:2px;color:#777;cursor:pointer;transition:all .15s;white-space:nowrap}
+.lang-opt:hover{background:rgba(52,152,219,.08);color:#fff}
+.lang-opt.lang-active{color:var(--cx);background:rgba(52,152,219,.05)}
+
+/* ── TICKER ── */
+.ticker{background:#0D0D0D;border-bottom:1px solid rgba(52,152,219,.05);padding:7px 0;overflow:hidden;white-space:nowrap;margin-top:60px}
+.ticker-inner{display:inline-block;animation:ticker 60s linear infinite}
+@keyframes ticker{from{transform:translateX(0)}to{transform:translateX(-50%)}}
+.ti{display:inline-block;font-family:'IBM Plex Mono',monospace;font-size:8px;letter-spacing:2px;color:#444;text-transform:uppercase;padding:0 22px}
+.ti::after{content:'◆';margin-left:22px;color:#444;font-size:6px}
+
+/* ── HERO ── */
+.hero{padding:60px 64px 48px;background:radial-gradient(ellipse 60% 50% at 20% 50%,rgba(52,152,219,.06) 0%,transparent 65%);border-bottom:1px solid rgba(255,255,255,.04);position:relative;overflow:hidden}
+.hgrid{position:absolute;inset:0;background-image:linear-gradient(rgba(52,152,219,.025) 1px,transparent 1px),linear-gradient(90deg,rgba(52,152,219,.025) 1px,transparent 1px);background-size:80px 80px;mask-image:radial-gradient(ellipse 55% 80% at 10% 50%,black 20%,transparent 80%)}
+.hi{position:relative;max-width:1200px;margin:0 auto;display:grid;grid-template-columns:1fr auto;gap:40px;align-items:center}
+.hbc{font-family:'IBM Plex Mono',monospace;font-size:8px;letter-spacing:2px;color:#555;text-transform:uppercase;margin-bottom:10px;display:flex;align-items:center;gap:8px}
+.hbc a{color:#555}.hbc a:hover{color:var(--cx)}
+.htag{font-family:'IBM Plex Mono',monospace;font-size:9px;letter-spacing:3px;color:var(--cx);text-transform:uppercase;display:flex;align-items:center;gap:10px;margin-bottom:8px}
+.htag::before{content:'';display:block;width:16px;height:1px;background:var(--cx)}
+.hh{font-family:'Bebas Neue',sans-serif;font-size:clamp(48px,8vw,90px);line-height:.88;letter-spacing:2px;margin-bottom:10px}
+.hh em{color:var(--cx);font-style:normal}
+.hhs{font-size:14px;color:#777;line-height:1.7;max-width:540px}
+.hstats{display:flex;gap:28px;flex-shrink:0}
+.hsn{font-family:'Bebas Neue',sans-serif;font-size:38px;color:var(--cx);line-height:1;margin-bottom:2px;text-align:center}
+.hsl{font-family:'IBM Plex Mono',monospace;font-size:7px;letter-spacing:2px;color:#555;text-transform:uppercase;text-align:center}
+
+/* ── PLAN BAR (sticky) ── */
+.plan-bar{background:var(--dark);border-bottom:1px solid rgba(255,255,255,.04);padding:0 64px;position:sticky;top:60px;z-index:100}
+.plan-bar-inner{max-width:1200px;margin:0 auto;display:flex;overflow-x:auto;scrollbar-width:none}
+.plan-bar-inner::-webkit-scrollbar{display:none}
+.ptab{font-family:'IBM Plex Mono',monospace;font-size:9px;letter-spacing:2px;text-transform:uppercase;padding:13px 18px;color:#555;border-bottom:2px solid transparent;cursor:pointer;transition:all .2s;white-space:nowrap;background:none;border-top:none;border-left:none;border-right:none}
+.ptab:hover{color:#888}
+.ptab.on{color:var(--cx);border-bottom-color:var(--cx)}
+.ptab .count{font-size:8px;color:rgba(52,152,219,.4);margin-left:5px}
+
+/* ── MAIN LAYOUT ── */
+.wrap{max-width:1200px;margin:0 auto;padding:40px 64px 100px;display:grid;grid-template-columns:210px 1fr;gap:36px;align-items:start}
+
+/* ── SIDEBAR ── */
+.sidebar{position:sticky;top:110px}
+.slbl{font-family:'IBM Plex Mono',monospace;font-size:7px;letter-spacing:3px;color:#444;text-transform:uppercase;margin-bottom:8px;padding-left:10px}
+.slink{display:flex;align-items:center;gap:7px;padding:7px 10px;font-family:'IBM Plex Mono',monospace;font-size:9px;letter-spacing:.5px;color:#555;border-left:2px solid transparent;margin-bottom:1px;transition:all .15s;cursor:pointer}
+.slink:hover{color:#aaa;border-left-color:rgba(52,152,219,.3);background:rgba(255,255,255,.015)}
+.slink.on{color:#fff;border-left-color:var(--cx);background:var(--cx-d)}
+.sdiv{height:1px;background:rgba(255,255,255,.04);margin:10px 0}
+
+/* PLAN UPGRADE BOX */
+.upgrade-box{background:linear-gradient(160deg,#0A1520,#071018);border:1px solid var(--cx-b);padding:18px;margin-top:14px}
+.ub-lbl{font-family:'IBM Plex Mono',monospace;font-size:7px;letter-spacing:2px;color:var(--cx);text-transform:uppercase;margin-bottom:7px}
+.ub-title{font-family:'Bebas Neue',sans-serif;font-size:18px;color:#fff;margin-bottom:4px}
+.ub-price{font-family:'Bebas Neue',sans-serif;font-size:32px;color:var(--cx);line-height:1;margin-bottom:2px}
+.ub-note{font-family:'IBM Plex Mono',monospace;font-size:7px;color:#555;letter-spacing:.5px;margin-bottom:10px}
+.ub-btn{display:block;width:100%;background:var(--cx);border:none;color:#fff;font-family:'IBM Plex Mono',monospace;font-size:9px;letter-spacing:2px;text-transform:uppercase;padding:10px;cursor:pointer;transition:background .2s}
+.ub-btn:hover{background:#2980B9}
+
+/* ── CONTENT AREA ── */
+.content{}
+
+/* NOT-LOGGED-IN GATE */
+.pub-gate{text-align:center;padding:64px 40px;background:rgba(52,152,219,.03);border:1px solid var(--cx-b)}
+.pg-ico{font-family:'Bebas Neue',sans-serif;font-size:64px;color:rgba(52,152,219,.1);margin-bottom:8px;line-height:1}
+.pg-t{font-family:'Bebas Neue',sans-serif;font-size:28px;color:#fff;margin-bottom:8px}
+.pg-s{font-size:13px;color:#777;line-height:1.7;margin-bottom:22px;max-width:380px;margin-left:auto;margin-right:auto}
+.pg-btn{background:var(--cx);border:none;color:#fff;font-family:'IBM Plex Mono',monospace;font-size:9px;letter-spacing:2px;text-transform:uppercase;padding:12px 26px;cursor:pointer;transition:background .2s}
+.pg-btn:hover{background:#2980B9}
+.pg-ghost{background:transparent;border:1px solid var(--cx-b);color:var(--cx);font-family:'IBM Plex Mono',monospace;font-size:9px;letter-spacing:2px;text-transform:uppercase;padding:11px 20px;cursor:pointer;transition:all .2s;margin-left:8px}
+.pg-ghost:hover{background:var(--cx-d)}
+
+/* UPGRADE GATE (between plans) */
+.plan-gate{background:linear-gradient(135deg,var(--cx-d),rgba(52,152,219,.02));border:1px solid var(--cx-b);padding:32px;text-align:center;margin:24px 0}
+.plg-t{font-family:'Bebas Neue',sans-serif;font-size:24px;color:#fff;margin-bottom:6px}
+.plg-s{font-size:12px;color:#777;line-height:1.6;margin-bottom:16px;max-width:380px;margin-left:auto;margin-right:auto}
+.plg-price{font-family:'Bebas Neue',sans-serif;font-size:40px;color:var(--cx);line-height:1;margin-bottom:4px}
+.plg-note{font-family:'IBM Plex Mono',monospace;font-size:8px;color:#666;margin-bottom:14px}
+
+/* ── TYPOLOGY ITEMS ── */
+.cat-header{display:flex;align-items:center;justify-content:space-between;margin-bottom:16px;margin-top:32px;padding-bottom:12px;border-bottom:1px solid rgba(52,152,219,.1)}
+.cat-header:first-child{margin-top:0}
+.cat-title{font-family:'Bebas Neue',sans-serif;font-size:20px;color:#fff}
+.cat-tag{font-family:'IBM Plex Mono',monospace;font-size:8px;letter-spacing:2px;color:var(--cx);text-transform:uppercase}
+.cat-count{font-family:'IBM Plex Mono',monospace;font-size:8px;color:#555;letter-spacing:1px}
+
+.titem{background:var(--dark2);border-left:2px solid transparent;margin-bottom:2px;transition:all .2s;cursor:pointer}
+.titem:hover{border-left-color:var(--cx);background:var(--dark3)}
+.titem-head{display:flex;align-items:center;gap:14px;padding:14px 18px}
+.tcode{font-family:'IBM Plex Mono',monospace;font-size:9px;letter-spacing:1px;color:var(--cx);opacity:.4;flex-shrink:0;width:42px}
+.tbody{flex:1}
+.tcat{font-family:'IBM Plex Mono',monospace;font-size:7px;letter-spacing:3px;color:#555;text-transform:uppercase;margin-bottom:3px}
+.ttitle{font-size:13px;color:#bbb;line-height:1.4;font-weight:400}
+.ttog{font-family:'IBM Plex Mono',monospace;font-size:10px;color:#555;transition:all .2s;flex-shrink:0}
+.titem:hover .ttog{color:var(--cx)}
+.titem.open .ttog{transform:rotate(45deg);color:var(--cx)}
+.texpand{display:none;padding:0 18px 16px 74px}
+.titem.open .texpand{display:block}
+.tdesc{font-size:12px;color:#aaa;line-height:1.8;margin-bottom:12px}
+.tsigs{display:flex;flex-wrap:wrap;gap:6px;margin-bottom:10px}
+.tsig{font-family:'IBM Plex Mono',monospace;font-size:8px;letter-spacing:1px;color:#555;background:rgba(52,152,219,.04);border:1px solid rgba(52,152,219,.1);padding:3px 8px}
+.trisk{font-family:'IBM Plex Mono',monospace;font-size:7px;letter-spacing:2px;padding:3px 8px;text-transform:uppercase}
+.trisk.h{background:rgba(192,57,43,.08);color:rgba(192,57,43,.6);border:1px solid rgba(192,57,43,.2)}
+.trisk.m{background:rgba(230,126,34,.06);color:rgba(230,126,34,.5);border:1px solid rgba(230,126,34,.2)}
+.trisk.l{background:rgba(46,204,113,.06);color:rgba(46,204,113,.4);border:1px solid rgba(46,204,113,.15)}
+
+/* SEARCH */
+.search-bar{display:flex;gap:0;margin-bottom:24px}
+.search-input{flex:1;background:var(--dark2);border:1px solid rgba(255,255,255,.06);border-right:none;color:#bbb;font-family:'IBM Plex Mono',monospace;font-size:11px;padding:11px 16px;transition:border-color .2s;outline:none}
+.search-input:focus{border-color:rgba(52,152,219,.3)}
+.search-input::placeholder{color:#555}
+.search-btn{background:var(--cx-d);border:1px solid var(--cx-b);color:var(--cx);font-family:'IBM Plex Mono',monospace;font-size:9px;letter-spacing:2px;text-transform:uppercase;padding:0 18px;cursor:pointer;transition:all .2s}
+.search-btn:hover{background:var(--cx);color:#fff}
+
+/* STATS ROW */
+.stats-row{display:flex;gap:2px;margin-bottom:24px}
+.stat-box{background:var(--dark2);padding:14px 20px;flex:1;text-align:center}
+.stat-box-n{font-family:'Bebas Neue',sans-serif;font-size:28px;color:var(--cx);line-height:1}
+.stat-box-l{font-family:'IBM Plex Mono',monospace;font-size:7px;letter-spacing:2px;color:#555;text-transform:uppercase;margin-top:2px}
+
+footer{border-top:1px solid rgba(255,255,255,.05);padding:44px 60px;background:#0A0A0A;margin-top:60px}
+.foot-inner{max-width:1200px;margin:0 auto;display:flex;justify-content:space-between;align-items:center;gap:24px;flex-wrap:wrap}
+.foot-copy{font-family:'IBM Plex Mono',monospace;font-size:9px;letter-spacing:1px;color:#555}
+.foot-links{display:flex;gap:20px}
+.foot-link{font-family:'IBM Plex Mono',monospace;font-size:9px;color:#666;letter-spacing:1px;transition:color .2s}
+.foot-link:hover{color:var(--cx)}
+
+@media(max-width:900px){
+  .wrap{grid-template-columns:1fr;padding:32px 24px 80px}
+  .sidebar{display:none}
+  .hero{padding:60px 24px 40px}
+  .hi{grid-template-columns:1fr}
+  .hstats{display:none}
+  .plan-bar{padding:0 24px}
+}
+</style>
+  <meta name="robots" content="index, follow">
+  <meta property="og:title" content="SBR Codex — Atlas complet al fraudelor | SBR">
+  <meta property="og:description" content="300+ tipologii de frauda documentate in Codex SBR. Acces la atlas-ul complet al fraudelor digitale.">
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="https://sbr.systems/codex-page.html">
+  <meta property="og:image" content="https://sbr.systems/og-image.png">
+  <meta property="og:site_name" content="SBR Anti-Fraud Intelligence Systems">
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="SBR Codex — Atlas complet al fraudelor | SBR">
+  <meta name="twitter:description" content="300+ tipologii de frauda documentate in Codex SBR. Acces la atlas-ul complet al fraudelor digitale.">
+  <link rel="canonical" href="https://sbr.systems/codex-page.html">
+<link rel="stylesheet" href="css/sbr-readability.css" media="print" onload="this.media='all'">
+  <noscript><link rel="stylesheet" href="css/sbr-readability.css"></noscript>
+
+<style id="sbr-text-fix">
+/* Force all CSS variables to white-readable values */
+:root, * {
+  --text:#EEEEEE !important;
+  --t2:#CCCCCC !important;
+  --t3:#AAAAAA !important;
+  --t4:#888888 !important;
+  --t5:#555555 !important;
+}
+/* Direct color overrides for common text elements */
+p, li, span, div, td, th, label, small,
+.card-desc, .feat-desc, .prob-desc, .plan-tagline,
+.b2b-for, .fi, .faq-a, .alert-desc, .mv-desc,
+.mg-desc, .pl-desc, .ot-desc, .ng-text, .ahd-def,
+.prod-tagline, .ss-sub, .gb-sub, .quiz-sub,
+.hero-sub, .section-p, .s-p, .sf-text,
+.scoring-intro p, .dp-wrap p, .pricing-intro p,
+.sim-email-body, .sem-body, .sim-choice-text,
+.cert-desc, .track-desc, .module-desc,
+.score-desc, .dimension-desc, .step-desc,
+.resource-desc, .checklist-desc,
+.compare-table td, .emp-table td,
+.footer-link, .footer-copy, .footer-logo-sub,
+.lb-dept, .emp-dept, .dmb-emp-dept,
+.kpi-delta, .page-subtitle, .tb-user, .tb-company,
+.nd-plan-feats, .nd-footer-link,
+.sv-text, .sim-choice .sv-text { color: #CCCCCC !important; }
+
+h1, h2, h3, h4, h5, h6,
+.card-title, .plan-name, .b2b-name, .nd-plan-name,
+.page-title, .ch-h1, .hero-h1, .section-h2, .s-h,
+.fc-h, .ac-h, .quiz-h, .ms-copy h2, .ss-h,
+.ot-title, .mv-title, .mg-title, .pl-title,
+.alert-title, .emp-name, .dmb-emp-name,
+.lb-name, .prof-name, .panel-title,
+.feat-name, .prod-name,
+.gb-h { color: #FFFFFF !important; }
+
+.nav-link { color: #CCCCCC !important; }
+.nav-link:hover, .nav-link.active { color: #FFFFFF !important; }
+.btn-nav-ghost { color: #CCCCCC !important; }
+</style>
+<style id="sbr-force-colors">
+/* Override elements with hardcoded dark colors */
+.card-desc{color:#CCCCCC !important}
+.plan-tagline,.b2b-for,.fi{color:#CCCCCC !important}
+.faq-a,.faq-answer{color:#CCCCCC !important}
+.alert-desc,.sim-email-body,.sem-body{color:#CCCCCC !important}
+.mv-desc,.mg-desc,.pl-desc,.ot-desc,.ng-text,.ahd-def{color:#CCCCCC !important}
+.prod-tagline,.ss-sub,.gb-sub,.quiz-sub{color:#CCCCCC !important}
+.hero-sub,.s-p,.section-p,.fc-sub,.ac-sub{color:#CCCCCC !important}
+.prob-desc,.prob-a{color:#CCCCCC !important}
+.feat-desc,.nd-plan-feats{color:#CCCCCC !important}
+.scoring-intro p,.dp-wrap p,.pricing-intro p{color:#CCCCCC !important}
+p,li,td:not([class*="risk"]):not([class*="rc"]):not([class*="rh"]){color:#CCCCCC !important}
+h1,h2,h3,h4,h5,h6,.card-title,.plan-name,.b2b-name,.page-title{color:#FFFFFF !important}
+.nav-link{color:#CCCCCC !important}
+.nav-link:hover,.nav-link.active{color:#FFFFFF !important}
+.btn-nav-ghost{color:#CCCCCC !important}
+.compare-table td{color:#CCCCCC !important}
+.compare-table td.feature-name,.compare-table .feat-name{color:#DDDDDD !important}
+.emp-name,.lb-name,.dmb-emp-name{color:#EEEEEE !important}
+.emp-dept,.lb-dept,.dmb-emp-dept{color:#AAAAAA !important}
+.alert-title,.panel-title{color:#FFFFFF !important}
+</style>
+<script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+<style id="sbr-footer-final">
+.sbr-footer{
+  background:#060606 !important;border-top:1px solid rgba(255,255,255,.04) !important;
+  padding:16px clamp(16px,4vw,48px) !important;display:flex !important;
+  align-items:center !important;justify-content:space-between !important;
+  gap:14px !important;flex-wrap:wrap !important;
+}
+.footer-logo{font-family:'Bebas Neue',sans-serif;font-size:16px !important;letter-spacing:4px !important;color:#fff !important}
+.footer-logo span{color:#C0392B !important}
+.footer-links{display:flex !important;align-items:center !important;gap:20px !important}
+.footer-link{font-family:'IBM Plex Mono',monospace !important;font-size:8px !important;letter-spacing:1px !important;color:#3a3a3a !important;text-transform:uppercase !important;text-decoration:none !important;transition:color .15s !important;white-space:nowrap !important}
+.footer-link:hover{color:#888 !important}
+.footer-copy{font-family:'IBM Plex Mono',monospace !important;font-size:7px !important;color:#222 !important;white-space:nowrap !important}
+@media(max-width:560px){
+  .sbr-footer{flex-direction:column !important;align-items:flex-start !important;gap:8px !important;padding:12px 16px !important}
+  .footer-links{gap:12px !important}
+  .footer-copy{font-size:6px !important}
+}
+</style>
+<style id="sbr-social-icons">
+/* Hide old text-based social bar */
+#sbr-social-bar, .sbr-social-bar { display: none !important; }
+/* Floating icon-only social pill */
+#sbr-sw {
+  position: fixed; right: 14px; top: 50%; transform: translateY(-50%);
+  z-index: 800; display: flex; flex-direction: column; gap: 6px;
+}
+.sbr-sw-a {
+  display: flex; align-items: center; justify-content: center;
+  width: 36px; height: 36px; border-radius: 50%;
+  background: rgba(255,255,255,.04); border: 1px solid rgba(255,255,255,.08);
+  text-decoration: none; cursor: pointer;
+  transition: background .2s, border-color .2s, transform .2s;
+  backdrop-filter: blur(10px); -webkit-backdrop-filter: blur(10px);
+  font-size: 14px; line-height: 1;
+}
+.sbr-sw-a:hover {
+  background: rgba(192,57,43,.15); border-color: rgba(192,57,43,.3);
+  transform: scale(1.12);
+}
+/* Mobile — bottom strip icon only */
+@media(max-width: 680px) {
+  #sbr-sw {
+    position: fixed; bottom: 0; left: 0; right: 0; top: auto; transform: none;
+    flex-direction: row; gap: 0; border-radius: 0;
+    background: rgba(6,6,6,.97); border-top: 1px solid rgba(255,255,255,.05);
+    backdrop-filter: blur(20px); -webkit-backdrop-filter: blur(20px);
+    padding-bottom: env(safe-area-inset-bottom, 0); height: 50px;
+  }
+  .sbr-sw-a {
+    flex: 1; width: auto; height: 50px; border-radius: 0; border: none;
+    border-right: 1px solid rgba(255,255,255,.04); background: transparent;
+    font-size: 16px;
+  }
+  .sbr-sw-a:last-child { border-right: none; }
+  .sbr-sw-a:hover { transform: none; background: rgba(192,57,43,.07); }
+  body { padding-bottom: 50px !important; }
+}
+/* Kill any text labels */
+.sbr-sw-l { display: none !important; }
+</style>
+<style id="sbr-fc">
+/* Force all common text elements to white-ish */
+p,li,td,th,label,small,figcaption,dd,dt,
+.card-desc,.plan-tagline,.b2b-for,.fi,.faq-a,.faq-answer,
+.alert-desc,.mv-desc,.mg-desc,.pl-desc,.ot-desc,.ng-text,
+.prod-tagline,.ss-sub,.gb-sub,.quiz-sub,.hero-sub,
+.s-p,.section-p,.fc-sub,.ac-sub,.feat-desc,
+.sim-email-body,.sem-body,.sf-text,
+.nd-plan-feats,.prob-desc,.prob-a,
+.pf-lead,.pf-desc,.pf-text,
+.score-desc,.dimension-desc,
+.cert-desc,.track-desc,.module-desc,
+.checklist-desc,.step-desc,.resource-desc,
+[class*="-desc"],[class*="-sub"],[class*="-text"],[class*="-body"],
+[class*="-copy"],[class*="-content"],[class*="-lead"]{
+  color:#CCCCCC!important;
+}
+h1,h2,h3,h4,h5,h6,
+.card-title,.plan-name,.b2b-name,.page-title,
+.section-h2,.s-h,.ch-h1,.hero-h1,.fc-h,.ac-h,.quiz-h,
+.ot-title,.mv-title,.mg-title,.pl-title,.alert-title,
+.panel-title,.emp-name,.lb-name,.feat-name,.prod-name,
+[class*="-title"]:not(.lock-title):not(.sn-dd-section):not(.sm-label){
+  color:#FFFFFF!important;
+}
+.nav-link,.sn-link,.sn-dd-link{color:#CCCCCC!important;}
+.nav-link:hover,.nav-link.active,.sn-link:hover,.sn-dd-link:hover{color:#FFFFFF!important;}
+.footer-link{color:#3a3a3a!important;}
+.footer-link:hover{color:#888!important;}
+.footer-copy{color:#222!important;}
+/* Mobile menu links — RED, not blue/inherit */
+.sm-link{color:#EEEEEE!important;}
+.sm-link:hover{color:#C0392B!important;}
+.sm-link > span:first-child{color:#EEEEEE!important;}
+.sm-link-sub{color:#444!important;}
+.sm-small-link{color:#666!important;}
+.sm-small-link:hover{color:#EEEEEE!important;}
+/* Kill any blue link inheritance in mobile menu */
+#sbr-menu a{color:#EEEEEE!important;}
+#sbr-menu a:hover{color:#C0392B!important;}
+/* Desktop nav links */
+.sn-link{color:#AAAAAA!important;}
+.sn-link:hover{color:#EEEEEE!important;}
+.sn-dd-link{color:#888!important;}
+.sn-dd-link:hover{color:#EEEEEE!important;background:rgba(192,57,43,.06)!important;}
+/* sbrN nav elements — white, never blue */
+#sbrN a,#sbrN button,.sbrN-btn{color:#aaa!important;text-decoration:none!important}
+#sbrN a:hover,#sbrN button:hover,.sbrN-btn:hover{color:#eee!important}
+.sbrN-cta,.sbrN-cta:hover{color:#fff!important}
+.dd-link{color:inherit!important;text-decoration:none!important}
+.dd-link-title{color:#eee!important}
+.dd-link-sub{color:#555!important}
+.mob-link{color:#eee!important;text-decoration:none!important}
+.mob-link:hover{color:#C0392B!important}
+.mob-small-link{color:#555!important;text-decoration:none!important}
+.snl-btn,.snl-btn *{color:#aaa!important}
+
+</style>
+<style id="sbr-font-nuclear">
+/* ═══ NUCLEAR WHITE TEXT OVERRIDE ═══════════════════════════════
+   Targets every element that could have dark gray text.
+   Does NOT touch: buttons, badges, risk labels, nav CTAs
+═══════════════════════════════════════════════════════════════ */
+
+/* Base: all body text → white-ish */
+body, body *:not(button):not(.sn-cta):not(.cta-primary):not(.btn-nav-solid)
+  :not(.card-risk):not(.rb-c):not(.rb-h):not(.rb-m):not(.rb-l)
+  :not(.chk):not(.cross):not(.lock-plan):not(.gb-plan-badge)
+  :not([class*="badge"]) {
+  -webkit-font-smoothing: antialiased !important;
+}
+
+/* Paragraph text, list items, descriptions */
+p { color: #DDDDDD !important; font-size: max(14px, 1em) !important; line-height: 1.85 !important; }
+li { color: #DDDDDD !important; font-size: max(13px, 0.9em) !important; line-height: 1.75 !important; }
+span:not([class*="risk"]):not([class*="badge"]):not(.dot):not(.sn-sbr):not(.sn-af):not(.sn-dot) { color: inherit !important; }
+td, th { color: #CCCCCC !important; }
+label { color: #CCCCCC !important; }
+small { color: #AAAAAA !important; }
+
+/* Specific content classes - all the variants we've seen */
+.card-desc, .plan-tagline, .b2b-for, .b2b-feat,
+.fi, .fi.yes, .feat-desc, .nd-plan-feats,
+.faq-a, .faq-answer, .faq-body,
+.alert-desc, .dmb-alert-text,
+.mv-desc, .mg-desc, .pl-desc, .ot-desc, .ng-text,
+.prob-desc, .prob-a, .prob-q,
+.ahd-def, .dc-desc, .dim-desc,
+.prod-tagline, .hero-sub, .s-p, .section-p,
+.fc-sub, .ac-sub, .quiz-sub, .ah-tagline,
+.gb-sub, .pq-text, .ss-sub, .scoring-intro p,
+.sim-email-body, .sem-body, .sf-text,
+.feat-desc, .step-desc, .checklist-desc, .resource-desc,
+.cert-desc, .track-desc, .module-desc,
+.pf-lead, .pf-desc, .pf-text, .pf-body,
+.score-desc, .dimension-desc,
+.dp-wrap p, .pricing-intro p,
+.rec-desc, .sg-sub, .sh-sub,
+.about-text, .team-bio, .mission-text,
+.sbi-fill + *, [class*="-desc"],
+[class*="-sub"]:not([class*="hero-sub"]),
+[class*="-body"]:not(#sbr-menu):not(#sbr-nav):not(.card-body) { color: #CCCCCC !important; }
+
+/* Headings - full white */
+h1, h2, h3, h4, h5, h6 { color: #FFFFFF !important; }
+.card-title, .plan-name, .b2b-name, .nd-plan-name,
+.page-title, .section-h2, .s-h, .ch-h1, .hero-h1,
+.fc-h, .ac-h, .quiz-h, .ss-h, .sh-h1,
+.ot-title, .mv-title, .mg-title, .pl-title,
+.alert-title, .panel-title, .emp-name, .lb-name,
+.feat-name, .prod-name, .gb-h,
+.dc-name, .rec-title, .fe-title, .sg-h,
+.sm-link > span:first-child { color: #FFFFFF !important; }
+
+/* Nav */
+.sn-link { color: #BBBBBB !important; }
+.sn-link:hover { color: #FFFFFF !important; }
+.sn-dd-link { color: #AAAAAA !important; }
+.sn-dd-link:hover { color: #EEEEEE !important; }
+.sn-af { color: #DDDDDD !important; }
+
+/* Footer */
+.footer-link { color: #444 !important; }
+.footer-link:hover { color: #999 !important; }
+.footer-copy { color: #2a2a2a !important; }
+.footer-logo { color: #FFFFFF !important; }
+
+/* Secondary labels */
+.card-cat, .prod-code, .cs-code, .kpi-label, .hs-l, .hstat-l,
+.section-eyebrow, .s-eyebrow, .ah-eyebrow, .hero-eyebrow,
+.cf-label, .sm-link-sub, .sm-small-link,
+.sm-label, .nd-plan-price, .b2b-period, .plan-period,
+.dc-sub, .sbi-name, .dc-indicators .dc-indicator,
+.sh-pill-word, .stl-name, .fe-desc, .cc-label { color: #AAAAAA !important; }
+
+/* Dashboard */
+.emp-name, .lb-name, .dmb-emp-name { color: #EEEEEE !important; }
+.emp-dept, .lb-dept, .dmb-emp-dept, .cs-name { color: #BBBBBB !important; }
+
+/* Monospace elements */
+.card-id, .sim-from, .sem-row-val, .sim-cat-label { color: #BBBBBB !important; }
+
+/* Tag entry / pattern */
+.tag-entry { color: #CCCCCC !important; font-size: 9px !important; }
+
+/* Sidebar count */
+.cs-count { color: #777 !important; }
+
+/* Compare table */
+.compare-table td { color: #CCCCCC !important; }
+.compare-table .feat-name { color: #EEEEEE !important; font-weight: 700 !important; }
+
+/* Input fields */
+input:not([type="submit"]):not([type="button"]):not([type="reset"]),
+textarea, select { color: #EEEEEE !important; }
+input::placeholder, textarea::placeholder { color: #555 !important; }
+</style>
+
+<style id="sbr-red-override">
+/* Replace all blue nav/UI accents with red */
+.nd-plan-badge.blue{background:rgba(192,57,43,.1)!important;color:var(--red)!important}
+.nd-plan-tier.blue{color:var(--red)!important}
+.sh-plan-badge:nth-child(1){color:var(--red)!important}
+.sh-plan-badge:nth-child(1) .spb-dot{background:var(--red)!important}
+.pb-name.professional,.pb-name.premium{background:rgba(192,57,43,.1)!important;color:var(--red)!important}
+.fe-badge.pro{background:rgba(192,57,43,.1)!important;color:var(--red)!important}
+/* Hero stats 4th — red instead of blue */
+.hstat:nth-child(4)::after{background:var(--red)!important}
+.hstat:nth-child(4) .hstat-n{color:var(--red)!important}
+/* Score page blue → red */
+.dim-card.breach{border-top-color:var(--red)!important}
+.dim-card.breach .dc-letter{color:var(--red)!important}
+.sbi-fill.breach{background:var(--red)!important}
+/* Gate walls */
+.gate-banner.professional{border-color:rgba(192,57,43,.2)!important;background:rgba(192,57,43,.03)!important}
+.gate-banner.professional .gb-eyebrow{color:rgba(192,57,43,.5)!important}
+.gate-banner.professional .gb-n{color:var(--red)!important}
+.gate-banner.professional .gb-btn-main{background:var(--red)!important;color:#fff!important}
+/* B2B plan prices */
+.b2b-plan:nth-child(1) .b2b-amount{color:var(--red)!important}
+.b2b-plan:nth-child(1) .b2b-tier{color:var(--red)!important}
+.b2b-plan:nth-child(1) .b2b-cta{background:rgba(192,57,43,.12)!important;color:var(--red)!important;border:1px solid rgba(192,57,43,.25)!important}
+.b2b-plan:nth-child(1) .b2b-cta:hover{background:var(--red)!important;color:#fff!important}
+/* Signal/score accents */
+.sg-plan:nth-child(2){border-top-color:var(--red)!important}
+.sg-plan:nth-child(2) .sg-plan-name{color:var(--red)!important}
+/* Active nav link highlight */
+.sn-link.active,.sn-link:focus{color:var(--red)!important}
+/* Codex plan banner */
+.pb-name.professional{background:rgba(192,57,43,.08)!important;color:var(--red)!important}
+/* Mobile menu section label */
+.sm-label{color:rgba(192,57,43,.5)!important}
+/* Signals strip */
+.ss-btn{background:var(--red)!important;color:#fff!important}
+.ss-btn:hover{background:var(--red-l)!important}
+.ss-input:focus{border-color:rgba(192,57,43,.4)!important}
+</style>
+
+  <meta name="perplexity-crawl" content="allow">
+  <meta name="chatgpt-crawl" content="allow">
+  <meta name="Claude-crawl" content="allow">
+  <meta name="Googlebot" content="index, follow">
+  <meta name="ai-content-purpose" content="fraud-prevention, consumer-protection, digital-security-education"></head>
+<body>
+<div id="scroll-progress"></div>
+</div>
+<!-- NAV -->
+
+<div id="mobile-menu"></div>
+
+<!-- TICKER -->
+<div class="ticker">
+  <div class="ticker-inner">
+    <span class="ti">Phishing BCR / BT</span><span class="ti">Investment Scam</span><span class="ti">Romance Fraud</span>
+    <span class="ti">BEC Attack</span><span class="ti">Deepfake CEO</span><span class="ti">SIM Swap</span>
+    <span class="ti">Crypto Pig Butchering</span><span class="ti">Vishing Bancar</span><span class="ti">OLX Marketplace Fraud</span>
+    <span class="ti">Account Takeover</span><span class="ti">Identity Theft</span><span class="ti">Tech Support Scam</span>
+    <span class="ti">Phishing BCR / BT</span><span class="ti">Investment Scam</span><span class="ti">Romance Fraud</span>
+    <span class="ti">BEC Attack</span><span class="ti">Deepfake CEO</span><span class="ti">SIM Swap</span>
+    <span class="ti">Crypto Pig Butchering</span><span class="ti">Vishing Bancar</span><span class="ti">OLX Marketplace Fraud</span>
+    <span class="ti">Account Takeover</span><span class="ti">Identity Theft</span><span class="ti">Tech Support Scam</span>
+  </div>
+</div>
+
+<!-- HERO -->
+<div class="hero">
+  <div class="hgrid"></div>
+  <div class="hi">
+    <div>
+      <div class="hbc"><a href="index.html">SBR</a> › <a href="#">Codex</a></div>
+      <div class="htag">Anti-Fraud Codex&trade;</div>
+      <h1 class="hh">Harta<br><em>Fraudelor</em><br>Digitale</h1>
+      <p class="hhs">300+ tipologii documentate sistematic. Mecanismele exacte, semnalele de alarmă și reacțiile practice — organizate în 18 categorii de risc.</p>
+    </div>
+    <div class="hstats">
+      <div>
+        <div class="hsn">151<span style="font-size:20px;color:#555">+</span></div>
+        <div class="hsl">Tipologii</div>
+      </div>
+      <div>
+        <div class="hsn">13</div>
+        <div class="hsl">Categorii</div>
+      </div>
+      <div>
+        <div class="hsn">7</div>
+        <div class="hsl">Capitole</div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- PLAN BAR -->
+<div class="plan-bar">
+  <div class="plan-bar-inner">
+    <button class="ptab on" onclick="if (!window.__cfRLUnblockHandlers) return false; showPanel('all',this)" data-cf-modified-3edf47acd22fed6323d27b19-="">Toate tipologiile <span class="count" id="cnt-all"></span></button>
+    <button class="ptab" onclick="if (!window.__cfRLUnblockHandlers) return false; showPanel('top50',this)" data-cf-modified-3edf47acd22fed6323d27b19-="">Top 50 — Essential <span class="count">50</span></button>
+    <button class="ptab" onclick="if (!window.__cfRLUnblockHandlers) return false; showPanel('phishing',this)" data-cf-modified-3edf47acd22fed6323d27b19-="">Phishing & Email</button>
+    <button class="ptab" onclick="if (!window.__cfRLUnblockHandlers) return false; showPanel('financial',this)" data-cf-modified-3edf47acd22fed6323d27b19-="">Financiar & Crypto</button>
+    <button class="ptab" onclick="if (!window.__cfRLUnblockHandlers) return false; showPanel('social',this)" data-cf-modified-3edf47acd22fed6323d27b19-="">Social & Romantic</button>
+    <button class="ptab" onclick="if (!window.__cfRLUnblockHandlers) return false; showPanel('business',this)" data-cf-modified-3edf47acd22fed6323d27b19-="">Business (BEC)</button>
+    <button class="ptab" onclick="if (!window.__cfRLUnblockHandlers) return false; showPanel('identity',this)" data-cf-modified-3edf47acd22fed6323d27b19-="">Identitate & Acces</button>
+    <button class="ptab" onclick="if (!window.__cfRLUnblockHandlers) return false; showPanel('marketplace',this)" data-cf-modified-3edf47acd22fed6323d27b19-="">Marketplace</button>
+    <button class="ptab" onclick="if (!window.__cfRLUnblockHandlers) return false; showPanel('ai',this)" data-cf-modified-3edf47acd22fed6323d27b19-="">AI & Deepfake</button>
+  </div>
+</div>
+
+<!-- MAIN -->
+<div class="wrap">
+
+  <!-- SIDEBAR -->
+  <aside class="sidebar">
+    <div class="slbl">Categorii</div>
+    <div class="slink on" onclick="if (!window.__cfRLUnblockHandlers) return false; filterCat('all',this)" data-cf-modified-3edf47acd22fed6323d27b19-="">Toate tipologiile</div>
+    <div class="slink" onclick="if (!window.__cfRLUnblockHandlers) return false; filterCat('phishing',this)" data-cf-modified-3edf47acd22fed6323d27b19-="">📧 Phishing & Email</div>
+    <div class="slink" onclick="if (!window.__cfRLUnblockHandlers) return false; filterCat('financial',this)" data-cf-modified-3edf47acd22fed6323d27b19-="">💰 Financiar & Crypto</div>
+    <div class="slink" onclick="if (!window.__cfRLUnblockHandlers) return false; filterCat('social',this)" data-cf-modified-3edf47acd22fed6323d27b19-="">💔 Social & Romantic</div>
+    <div class="slink" onclick="if (!window.__cfRLUnblockHandlers) return false; filterCat('business',this)" data-cf-modified-3edf47acd22fed6323d27b19-="">🏢 Business (BEC)</div>
+    <div class="slink" onclick="if (!window.__cfRLUnblockHandlers) return false; filterCat('identity',this)" data-cf-modified-3edf47acd22fed6323d27b19-="">🔑 Identitate & Acces</div>
+    <div class="slink" onclick="if (!window.__cfRLUnblockHandlers) return false; filterCat('marketplace',this)" data-cf-modified-3edf47acd22fed6323d27b19-="">🛒 Marketplace</div>
+    <div class="slink" onclick="if (!window.__cfRLUnblockHandlers) return false; filterCat('ai',this)" data-cf-modified-3edf47acd22fed6323d27b19-="">🤖 AI & Deepfake</div>
+    <div class="slink" onclick="if (!window.__cfRLUnblockHandlers) return false; filterCat('tech',this)" data-cf-modified-3edf47acd22fed6323d27b19-="">💻 Tech Support</div>
+    <div class="slink" onclick="if (!window.__cfRLUnblockHandlers) return false; filterCat('telecom',this)" data-cf-modified-3edf47acd22fed6323d27b19-="">📱 Telecom & SIM</div>
+    <div class="slink" onclick="if (!window.__cfRLUnblockHandlers) return false; filterCat('gov',this)" data-cf-modified-3edf47acd22fed6323d27b19-="">🏛️ Impersonare Stat</div>
+    <div class="slink" onclick="if (!window.__cfRLUnblockHandlers) return false; filterCat('employment',this)" data-cf-modified-3edf47acd22fed6323d27b19-="">💼 Angajare Falsă</div>
+    <div class="slink" onclick="if (!window.__cfRLUnblockHandlers) return false; filterCat('other',this)" data-cf-modified-3edf47acd22fed6323d27b19-="">⚠️ Alte tipologii</div>
+    <div class="sdiv"></div>
+
+    <!-- Upgrade box — shown to essential members -->
+    <div data-ms-content="essential" class="upgrade-box">
+      <div class="ub-lbl">Upgrade disponibil</div>
+      <div class="ub-title">Professional</div>
+      <div class="ub-price">250 <span style="font-size:16px">RON</span></div>
+      <div class="ub-note">Acces la toate 300+ tipologii</div>
+      <button class="ub-btn" data-ms-plan="professional">Upgrade &rarr;</button>
+    </div>
+
+    <!-- Non-member upgrade box -->
+    <div data-ms-content="!members" class="upgrade-box" style="margin-top:10px">
+      <div class="ub-lbl">Acces complet</div>
+      <div class="ub-title">Professional</div>
+      <div class="ub-price">250 <span style="font-size:16px">RON</span></div>
+      <div class="ub-note">300+ tipologii &middot; plată unică</div>
+      <button class="ub-btn" onclick="if (!window.__cfRLUnblockHandlers) return false; location.href='register.html?plan=professional'" data-cf-modified-3edf47acd22fed6323d27b19-="">Cumpără &rarr;</button>
+    </div>
+  </aside>
+
+  <!-- CONTENT -->
+  <main class="content">
+
+    <!-- SEARCH -->
+    <div class="search-bar">
+      <input class="search-input" type="text" placeholder="Caută tipologie... ex: phishing, deepfake, crypto" oninput="if (!window.__cfRLUnblockHandlers) return false; searchTypologies(this.value)" id="search-input" data-cf-modified-3edf47acd22fed6323d27b19-="">
+      <button class="search-btn">Caută</button>
+    </div>
+
+    <!-- STATS ROW -->
+    <div class="stats-row">
+      <div class="stat-box"><div class="stat-box-n" id="visible-count">–</div><div class="stat-box-l">Tipologii afișate</div></div>
+      <div class="stat-box"><div class="stat-box-n">13</div><div class="stat-box-l">Categorii</div></div>
+      <div class="stat-box"><div class="stat-box-n">2026</div><div class="stat-box-l">Ediție</div></div>
+    </div>
+
+    <!-- ═══════════════════════════════════════════
+         NOT LOGGED IN — GATE
+    ════════════════════════════════════════════ -->
+    <div data-ms-content="!members" class="pub-gate">
+      <div class="pg-ico">📖</div>
+      <div class="pg-t">Codex Anti-Fraudă</div>
+      <p class="pg-s">Harta completă a 300+ tipologii de fraudă digitală. Disponibil cu planul Essential (50 tipologii) sau Professional / Premium (toate tipologiile).</p>
+      <button class="pg-btn" onclick="if (!window.__cfRLUnblockHandlers) return false; location.href='register.html'" data-cf-modified-3edf47acd22fed6323d27b19-="">Creează cont gratuit</button>
+      <button class="pg-ghost" onclick="if (!window.__cfRLUnblockHandlers) return false; location.href='login.html'" data-cf-modified-3edf47acd22fed6323d27b19-="">Am deja cont</button>
+    </div>
+
+    <!-- ═══════════════════════════════════════════
+         LOGGED IN CONTENT
+    ════════════════════════════════════════════ -->
+    <div data-ms-content="members" id="codex-content">
+
+      <!-- PURCHASE BANNER — members without codex access -->
+      <div data-ms-content="!essential,!professional,!premium,!basic,!pro,!enterprise,!codex" style="background:linear-gradient(135deg,#071018,#0A1828);border:1px solid var(--cx-b);padding:24px 28px;margin-bottom:24px;display:flex;align-items:center;justify-content:space-between;gap:20px">
+        <div>
+          <div style="font-family:'IBM Plex Mono',monospace;font-size:8px;letter-spacing:3px;color:var(--cx);text-transform:uppercase;margin-bottom:6px">Acces Codex</div>
+          <div style="font-family:'Bebas Neue',sans-serif;font-size:22px;color:#fff;margin-bottom:4px">Activează accesul la Codex</div>
+          <div style="font-size:12px;color:#777">Alege planul care ți se potrivește pentru a debloca tipologiile</div>
+        </div>
+        <div style="display:flex;gap:10px;flex-shrink:0">
+          <button data-ms-plan="essential" style="background:transparent;border:1px solid var(--cx-b);color:var(--cx);font-family:'IBM Plex Mono',monospace;font-size:9px;letter-spacing:2px;text-transform:uppercase;padding:10px 18px;cursor:pointer">Essential &middot; 99 RON</button>
+          <button data-ms-plan="professional" style="background:var(--cx);border:none;color:#fff;font-family:'IBM Plex Mono',monospace;font-size:9px;letter-spacing:2px;text-transform:uppercase;padding:10px 18px;cursor:pointer">Professional &middot; 250 RON</button>
+        </div>
+      </div>
+
+      <!-- ═══ ESSENTIAL: TOP 50 TYPOLOGIES ═══ -->
+      <div data-ms-content="essential,professional,premium,basic,pro,enterprise,codex" id="top50-section">
+
+        <!-- CATEGORY: PHISHING & EMAIL (Essential + Pro) -->
+        <div class="cat-header" data-cat="phishing">
+          <div>
+            <div class="cat-tag">01 &middot; Phishing & Email</div>
+            <div class="cat-title">Fraudă prin Email și Mesaje False</div>
+          </div>
+          <div class="cat-count" id="count-phishing"></div>
+        </div>
+
+        <div class="titem" data-cat="phishing" data-tier="essential" onclick="if (!window.__cfRLUnblockHandlers) return false; tog(this)" data-cf-modified-3edf47acd22fed6323d27b19-="">
+          <div class="titem-head"><div class="tcode">T-001</div><div class="tbody"><div class="tcat">Phishing &middot; Email &middot; Bancă</div><div class="ttitle">Phishing bancar clasic — email fals de la bancă</div></div><div class="ttog">+</div></div>
+          <div class="texpand"><div class="tdesc">Email aparent de la bancă (BCR, BT, ING, Raiffeisen) care solicită „verificarea contului" sau „confirmarea datelor". Link-ul duce la un site identic cu cel al băncii, unde datele introduse ajung direct la atacator.</div><div class="tsigs"><span class="tsig">Expeditor neoficial</span><span class="tsig">Link extern</span><span class="tsig">Urgență artificială</span></div><div style="display:flex;gap:5px"><span class="trisk h">RISC RIDICAT</span></div></div>
+        </div>
+
+        <div class="titem" data-cat="phishing" data-tier="essential" onclick="if (!window.__cfRLUnblockHandlers) return false; tog(this)" data-cf-modified-3edf47acd22fed6323d27b19-="">
+          <div class="titem-head"><div class="tcode">T-002</div><div class="tbody"><div class="tcat">Smishing &middot; SMS &middot; Bancar</div><div class="ttitle">Smishing bancar — SMS fals cu link de „verificare"</div></div><div class="ttog">+</div></div>
+          <div class="texpand"><div class="tdesc">SMS aparent de la bancă sau ANAF cu un link scurt (bit.ly, tinyurl) care duce la o pagină falsă. Adesea texte precum „Contul tău a fost suspendat" sau „Plată neautorizată detectată — verifică acum".</div><div class="tsigs"><span class="tsig">Număr nerecunoscut</span><span class="tsig">Link scurt</span><span class="tsig">Limbaj urgent</span></div><div style="display:flex;gap:5px"><span class="trisk h">RISC RIDICAT</span></div></div>
+        </div>
+
+        <div class="titem" data-cat="phishing" data-tier="essential" onclick="if (!window.__cfRLUnblockHandlers) return false; tog(this)" data-cf-modified-3edf47acd22fed6323d27b19-="">
+          <div class="titem-head"><div class="tcode">T-003</div><div class="tbody"><div class="tcat">Phishing &middot; Curierat &middot; Livrare</div><div class="ttitle">Fraudă livrare — SMS/email FAN Courier / DHL fals</div></div><div class="ttog">+</div></div>
+          <div class="texpand"><div class="tdesc">Notificare falsă de livrare care cere „taxa suplimentară" sau „confirmare adresă" printr-un link. Foarte frecventă în perioadele de cumpărături online. Taxa solicitată e mică (5-20 RON) dar datele cardului sunt capturate.</div><div class="tsigs"><span class="tsig">Colet „nelivrabil"</span><span class="tsig">Taxă mică</span><span class="tsig">Link extern</span></div><div style="display:flex;gap:5px"><span class="trisk h">RISC RIDICAT</span></div></div>
+        </div>
+
+        <div class="titem" data-cat="phishing" data-tier="essential" onclick="if (!window.__cfRLUnblockHandlers) return false; tog(this)" data-cf-modified-3edf47acd22fed6323d27b19-="">
+          <div class="titem-head"><div class="tcode">T-004</div><div class="tbody"><div class="tcat">Phishing &middot; ANAF &middot; Stat</div><div class="ttitle">Email fals ANAF — rambursare TVA sau amendă</div></div><div class="ttog">+</div></div>
+          <div class="texpand"><div class="tdesc">Email aparent de la ANAF care informează despre o „rambursare de taxe" sau o „amendă neachitată". Victima e redirecționată către o pagină falsă unde trebuie să introducă datele bancare pentru a „primi rambursarea".</div><div class="tsigs"><span class="tsig">Domeniu fals</span><span class="tsig">Sumă exactă</span><span class="tsig">Termen scurt</span></div><div style="display:flex;gap:5px"><span class="trisk h">RISC RIDICAT</span></div></div>
+        </div>
+
+        <div class="titem" data-cat="phishing" data-tier="essential" onclick="if (!window.__cfRLUnblockHandlers) return false; tog(this)" data-cf-modified-3edf47acd22fed6323d27b19-="">
+          <div class="titem-head"><div class="tcode">T-005</div><div class="tbody"><div class="tcat">Phishing &middot; Social Media &middot; Cont</div><div class="ttitle">Phishing cont Instagram / Facebook — pagină falsă de login</div></div><div class="ttog">+</div></div>
+          <div class="texpand"><div class="tdesc">Link trimis prin DM sau email care promite „premiu", „verificare cont" sau „acces exclusiv". Pagina falsă copiază vizual loginul Meta/Instagram. Datele introduse preiau controlul contului imediat.</div><div class="tsigs"><span class="tsig">DM de la cont necunoscut</span><span class="tsig">Premiu / ofertă</span><span class="tsig">Link neoficial</span></div><div style="display:flex;gap:5px"><span class="trisk m">RISC MEDIU</span></div></div>
+        </div>
+
+        <!-- CATEGORY: FINANCIAL & CRYPTO (Essential) -->
+        <div class="cat-header" data-cat="financial">
+          <div>
+            <div class="cat-tag">02 &middot; Financiar & Crypto</div>
+            <div class="cat-title">Fraude Financiare și Crypto</div>
+          </div>
+        </div>
+
+        <div class="titem" data-cat="financial" data-tier="essential" onclick="if (!window.__cfRLUnblockHandlers) return false; tog(this)" data-cf-modified-3edf47acd22fed6323d27b19-="">
+          <div class="titem-head"><div class="tcode">T-010</div><div class="tbody"><div class="tcat">Crypto &middot; Investment &middot; Scam</div><div class="ttitle">Investment scam — platformă de trading falsă</div></div><div class="ttog">+</div></div>
+          <div class="texpand"><div class="tdesc">Platformă de investiții falsă (crypto, forex, acțiuni) care arată profituri reale în primele săptămâni pentru a câștiga încrederea victimei. Când victima încearcă să retragă bani, i se cer taxe sau accesul este blocat.</div><div class="tsigs"><span class="tsig">Profit garantat</span><span class="tsig">Platformă necunoscută</span><span class="tsig">Recrutor din social media</span></div><div style="display:flex;gap:5px"><span class="trisk h">RISC CRITIC</span></div></div>
+        </div>
+
+        <div class="titem" data-cat="financial" data-tier="essential" onclick="if (!window.__cfRLUnblockHandlers) return false; tog(this)" data-cf-modified-3edf47acd22fed6323d27b19-="">
+          <div class="titem-head"><div class="tcode">T-011</div><div class="tbody"><div class="tcat">Crypto &middot; Pig Butchering</div><div class="ttitle">Pig Butchering — îngrășarea porcului (relație + investiție)</div></div><div class="ttog">+</div></div>
+          <div class="texpand"><div class="tdesc">Schema combină romance scam și investment scam. Escrocul construiește o relație de câteva luni (romantică sau de prietenie), câștigă încrederea totală, apoi introduce „oportunitatea de investiție" pe o platformă controlată de el.</div><div class="tsigs"><span class="tsig">Contact inițial întâmplător</span><span class="tsig">Relație rapidă</span><span class="tsig">Platformă crypto recomandată</span></div><div style="display:flex;gap:5px"><span class="trisk h">RISC CRITIC &middot; PREJUDICIU MARE</span></div></div>
+        </div>
+
+        <div class="titem" data-cat="financial" data-tier="essential" onclick="if (!window.__cfRLUnblockHandlers) return false; tog(this)" data-cf-modified-3edf47acd22fed6323d27b19-="">
+          <div class="titem-head"><div class="tcode">T-012</div><div class="tbody"><div class="tcat">Crypto &middot; Wallet &middot; Seed Phrase</div><div class="ttitle">Solicitare seed phrase / cheie privată wallet</div></div><div class="ttog">+</div></div>
+          <div class="texpand"><div class="tdesc">Orice formă de solicitare a frazei seed (12/24 cuvinte) sau a cheii private a unui wallet crypto. Poate veni prin support fals, „verificare securitate" sau un „moștenitor" care are nevoie de ajutor cu un wallet. Divulgarea = pierdere totală și irevocabilă.</div><div class="tsigs"><span class="tsig">Cerere seed phrase</span><span class="tsig">Support fals</span><span class="tsig">„Ajutor" cu wallet</span></div><div style="display:flex;gap:5px"><span class="trisk h">RISC EXTREM &middot; IREVOCABIL</span></div></div>
+        </div>
+
+        <!-- CATEGORY: MARKETPLACE (Essential) -->
+        <div class="cat-header" data-cat="marketplace">
+          <div>
+            <div class="cat-tag">03 &middot; Marketplace</div>
+            <div class="cat-title">Fraude pe Platforme de Anunțuri</div>
+          </div>
+        </div>
+
+        <div class="titem" data-cat="marketplace" data-tier="essential" onclick="if (!window.__cfRLUnblockHandlers) return false; tog(this)" data-cf-modified-3edf47acd22fed6323d27b19-="">
+          <div class="titem-head"><div class="tcode">T-020</div><div class="tbody"><div class="tcat">OLX &middot; Marketplace &middot; Cumpărător fals</div><div class="ttitle">Cumpărător fals OLX — plată în avans, marfă niciodată</div></div><div class="ttog">+</div></div>
+          <div class="texpand"><div class="tdesc">Cumpărătorul „interesat" de anunțul tău cere să trimitei produsul în avans, promite plata prin transfer. Plata nu sosește niciodată. Variație: cumpărătorul trimite un link fals de plată care captează datele cardului.</div><div class="tsigs"><span class="tsig">Plată în avans</span><span class="tsig">Link de plată extern</span><span class="tsig">Urgență de livrare</span></div><div style="display:flex;gap:5px"><span class="trisk h">RISC RIDICAT</span></div></div>
+        </div>
+
+        <div class="titem" data-cat="marketplace" data-tier="essential" onclick="if (!window.__cfRLUnblockHandlers) return false; tog(this)" data-cf-modified-3edf47acd22fed6323d27b19-="">
+          <div class="titem-head"><div class="tcode">T-021</div><div class="tbody"><div class="tcat">OLX &middot; Vânzător fals &middot; Avans</div><div class="ttitle">Vânzător fals — produsul nu există sau e alt produs</div></div><div class="ttog">+</div></div>
+          <div class="texpand"><div class="tdesc">Anunț cu produs la preț mic (mașină, electrocasnic, apartament). Vânzătorul cere avans înainte de vizionare sau predare. După transfer, dispare. Variație: produsul există dar e deteriorat / fals / furat.</div><div class="tsigs"><span class="tsig">Preț anormal de mic</span><span class="tsig">Avans obligatoriu</span><span class="tsig">Refuză întâlnire directă</span></div><div style="display:flex;gap:5px"><span class="trisk h">RISC RIDICAT</span></div></div>
+        </div>
+
+        <!-- CATEGORY: SOCIAL & ROMANTIC (Essential) -->
+        <div class="cat-header" data-cat="social">
+          <div>
+            <div class="cat-tag">04 &middot; Social & Romantic</div>
+            <div class="cat-title">Fraude Relaționale și Emoționale</div>
+          </div>
+        </div>
+
+        <div class="titem" data-cat="social" data-tier="essential" onclick="if (!window.__cfRLUnblockHandlers) return false; tog(this)" data-cf-modified-3edf47acd22fed6323d27b19-="">
+          <div class="titem-head"><div class="tcode">T-030</div><div class="tbody"><div class="tcat">Romance &middot; Scam &middot; Online Dating</div><div class="ttitle">Romance scam — relație falsă online cu cerere de bani</div></div><div class="ttog">+</div></div>
+          <div class="texpand"><div class="tdesc">Escrocul construiește o relație romantică online (Facebook, Instagram, dating apps) pe parcursul mai multor săptămâni sau luni. Profilele folosesc poze furate de la persoane reale. Criza fabricată (medical, legal, militar) generează cererea de bani.</div><div class="tsigs"><span class="tsig">Profil prea perfect</span><span class="tsig">Nu vrea video call</span><span class="tsig">Relație rapidă</span><span class="tsig">Criză fabricată</span></div><div style="display:flex;gap:5px"><span class="trisk h">RISC CRITIC &middot; PREJUDICIU EMOȚIONAL</span></div></div>
+        </div>
+
+        <div class="titem" data-cat="social" data-tier="essential" onclick="if (!window.__cfRLUnblockHandlers) return false; tog(this)" data-cf-modified-3edf47acd22fed6323d27b19-="">
+          <div class="titem-head"><div class="tcode">T-031</div><div class="tbody"><div class="tcat">Sextortion &middot; Șantaj</div><div class="ttitle">Sextortion — șantaj cu conținut intim</div></div><div class="ttog">+</div></div>
+          <div class="texpand"><div class="tdesc">Escrocul obține sau pretinde că deține imagini/video intime și amenință cu publicarea dacă nu primește bani. Poate fi real (conținut obținut în relație anterioară) sau fals (bluf). Plata nu oprește amenințările — dimpotrivă.</div><div class="tsigs"><span class="tsig">Amenințare publicare</span><span class="tsig">Cerere urgentă de bani</span><span class="tsig">Crypto preferat</span></div><div style="display:flex;gap:5px"><span class="trisk h">RISC RIDICAT &middot; PSIHOLOGIC</span></div></div>
+        </div>
+
+        <!-- CATEGORY: TECH SUPPORT (Essential) -->
+        <div class="cat-header" data-cat="tech">
+          <div>
+            <div class="cat-tag">05 &middot; Tech Support</div>
+            <div class="cat-title">Fraude prin Suport Tehnic Fals</div>
+          </div>
+        </div>
+
+        <div class="titem" data-cat="tech" data-tier="essential" onclick="if (!window.__cfRLUnblockHandlers) return false; tog(this)" data-cf-modified-3edf47acd22fed6323d27b19-="">
+          <div class="titem-head"><div class="tcode">T-040</div><div class="tbody"><div class="tcat">Tech Support &middot; Acces Remote &middot; AnyDesk</div><div class="ttitle">Suport tehnic fals — acces la distanță (AnyDesk / TeamViewer)</div></div><div class="ttog">+</div></div>
+          <div class="texpand"><div class="tdesc">„Tehnicianul" (fals Microsoft, antivirus, bancă) convinge victima să instaleze o aplicație de acces la distanță. Odată conectat, are control total asupra computerului și poate accesa banca online, fișiere și parole. „Ajutorul" devine control total.</div><div class="tsigs"><span class="tsig">Apel neașteptat „Microsoft"</span><span class="tsig">Cerere instalare aplicație</span><span class="tsig">Virus detectat</span></div><div style="display:flex;gap:5px"><span class="trisk h">RISC EXTREM &middot; ACCES TOTAL</span></div></div>
+        </div>
+
+        <div class="titem" data-cat="tech" data-tier="essential" onclick="if (!window.__cfRLUnblockHandlers) return false; tog(this)" data-cf-modified-3edf47acd22fed6323d27b19-="">
+          <div class="titem-head"><div class="tcode">T-041</div><div class="tbody"><div class="tcat">Tech Support &middot; Pop-up &middot; Virus fals</div><div class="ttitle">Pop-up virus fals — alertă de securitate în browser</div></div><div class="ttog">+</div></div>
+          <div class="texpand"><div class="tdesc">O fereastră browser care nu poate fi închisă afișează o alertă că „sistemul este infectat" și solicită apelarea unui număr de urgență. Numărul duce la un call center al escrocilor care cer plată sau acces la distanță.</div><div class="tsigs"><span class="tsig">Fereastră imposibil de închis</span><span class="tsig">Număr telefon în alertă</span><span class="tsig">Sunete de alarmă</span></div><div style="display:flex;gap:5px"><span class="trisk m">RISC MEDIU</span></div></div>
+        </div>
+
+        <!-- CATEGORY: EMPLOYMENT (Essential) -->
+        <div class="cat-header" data-cat="employment">
+          <div>
+            <div class="cat-tag">06 &middot; Angajare Falsă</div>
+            <div class="cat-title">Fraude prin Oferte de Muncă</div>
+          </div>
+        </div>
+
+        <div class="titem" data-cat="employment" data-tier="essential" onclick="if (!window.__cfRLUnblockHandlers) return false; tog(this)" data-cf-modified-3edf47acd22fed6323d27b19-="">
+          <div class="titem-head"><div class="tcode">T-050</div><div class="tbody"><div class="tcat">Angajare &middot; Job Fals &middot; Avans</div><div class="ttitle">Ofertă de muncă falsă — taxă de procesare / echipament</div></div><div class="ttog">+</div></div>
+          <div class="texpand"><div class="tdesc">Ofertă de angajare (adesea remote, salarii mari) care solicită o „taxă de procesare", „fond de garanție" sau plata echipamentului înainte de angajare. Compania nu există sau nu are legătură cu oferta. „Interviul" se face pe WhatsApp.</div><div class="tsigs"><span class="tsig">Salariu mare fără experiență</span><span class="tsig">Taxă inițială</span><span class="tsig">Interviu pe chat</span></div><div style="display:flex;gap:5px"><span class="trisk h">RISC RIDICAT</span></div></div>
+        </div>
+
+        <!-- CATEGORY: TELECOM (Essential) -->
+        <div class="cat-header" data-cat="telecom">
+          <div>
+            <div class="cat-tag">07 &middot; Telecom & SIM</div>
+            <div class="cat-title">Fraude prin Rețele Telefonice</div>
+          </div>
+        </div>
+
+        <div class="titem" data-cat="telecom" data-tier="essential" onclick="if (!window.__cfRLUnblockHandlers) return false; tog(this)" data-cf-modified-3edf47acd22fed6323d27b19-="">
+          <div class="titem-head"><div class="tcode">T-060</div><div class="tbody"><div class="tcat">SIM Swap &middot; Clonare</div><div class="ttitle">SIM Swap — preluarea numărului tău de telefon</div></div><div class="ttog">+</div></div>
+          <div class="texpand"><div class="tdesc">Escrocul convinge operatorul telecom să transfere numărul victimei pe un SIM nou (folosind date personale furate). Odată cu numărul, preiau toate SMS-urile de 2FA — inclusiv cele ale băncii — și pot accesa toate conturile.</div><div class="tsigs"><span class="tsig">Pierdere semnal brusc</span><span class="tsig">Nu mai primești SMS</span><span class="tsig">Notificări tranzacții neașteptate</span></div><div style="display:flex;gap:5px"><span class="trisk h">RISC EXTREM &middot; CONT GOLIT</span></div></div>
+        </div>
+
+        <!-- CATEGORY: GOV IMPERSONATION (Essential) -->
+        <div class="cat-header" data-cat="gov">
+          <div>
+            <div class="cat-tag">08 &middot; Impersonare Stat</div>
+            <div class="cat-title">Fraude prin Impersonare Autorități</div>
+          </div>
+        </div>
+
+        <div class="titem" data-cat="gov" data-tier="essential" onclick="if (!window.__cfRLUnblockHandlers) return false; tog(this)" data-cf-modified-3edf47acd22fed6323d27b19-="">
+          <div class="titem-head"><div class="tcode">T-070</div><div class="tbody"><div class="tcat">Vishing &middot; Poliție falsă &middot; Amenințare</div><div class="ttitle">Apel poliție falsă — cont compromis, trebuie bani „puși la adăpost"</div></div><div class="ttog">+</div></div>
+          <div class="texpand"><div class="tdesc">Apel de la „polițist" sau „procuror" care informează victima că contul ei a fost implicat în activități ilegale sau că un hoț i-a furat datele. Victima trebuie să scoată bani cash și să îi predea unui „agent sub acoperire" sau să îi transfere într-un cont „sigur". Schema vizează în principal pensionari.</div><div class="tsigs"><span class="tsig">Apel „autoritate oficială"</span><span class="tsig">Nu spune nimănui</span><span class="tsig">Bani cash sau transfer urgent</span></div><div style="display:flex;gap:5px"><span class="trisk h">RISC EXTREM &middot; PREJUDICIU MARE</span></div></div>
+        </div>
+
+      </div>
+      <!-- END TOP-50 SECTION -->
+
+      <!-- ═══ UPGRADE GATE FOR ESSENTIAL ONLY ═══ -->
+      <div data-ms-content="essential" class="plan-gate">
+        <div class="plg-t">Acces la toate 300+ tipologiile</div>
+        <p class="plg-s">Planul Essential include Top 50 tipologii. Upgrade la Professional pentru accesul complet la toate categoriile și tipologiile avansate.</p>
+        <div class="plg-price">250 <span style="font-size:20px">RON</span></div>
+        <div class="plg-note">Plată unică &middot; Acces permanent</div>
+        <button class="pg-btn" data-ms-plan="professional">Upgrade Professional &rarr;</button>
+        <button class="pg-ghost" data-ms-plan="codex">Sau cumpără Codex individual</button>
+      </div>
+
+      <!-- ═══ PROFESSIONAL / PREMIUM — ALL 151 TYPOLOGIES ═══ -->
+      <div data-ms-content="professional,premium,basic,pro,enterprise,codex" id="full-access-section">
+
+        <!-- CATEGORY: BUSINESS (BEC) — Pro only -->
+        <div class="cat-header" data-cat="business">
+          <div>
+            <div class="cat-tag">09 &middot; Business Email Compromise</div>
+            <div class="cat-title">Fraude Corporate & BEC</div>
+          </div>
+          <div style="font-family:'IBM Plex Mono',monospace;font-size:7px;letter-spacing:2px;color:rgba(52,152,219,.4);text-transform:uppercase">Professional+</div>
+        </div>
+
+        <div class="titem" data-cat="business" data-tier="professional" onclick="if (!window.__cfRLUnblockHandlers) return false; tog(this)" data-cf-modified-3edf47acd22fed6323d27b19-="">
+          <div class="titem-head"><div class="tcode">T-080</div><div class="tbody"><div class="tcat">BEC &middot; CEO Fraud &middot; Transfer</div><div class="ttitle">CEO Fraud — email fals de la director, transfer urgent</div></div><div class="ttog">+</div></div>
+          <div class="texpand"><div class="tdesc">Escrocul impersonează CEO-ul sau un director financiar (prin email similar sau cont compromis) și solicită angajatului financiar un transfer bancar urgent și confidențial. Tranzacția trebuie finalizată înainte ca „directorul" să fie disponibil pentru verificare.</div><div class="tsigs"><span class="tsig">Email director la angajat financiar</span><span class="tsig">Transfer urgent confidențial</span><span class="tsig">Nu verifica cu nimeni</span></div><div style="display:flex;gap:5px"><span class="trisk h">RISC EXTREM &middot; CORPORATE</span></div></div>
+        </div>
+
+        <div class="titem" data-cat="business" data-tier="professional" onclick="if (!window.__cfRLUnblockHandlers) return false; tog(this)" data-cf-modified-3edf47acd22fed6323d27b19-="">
+          <div class="titem-head"><div class="tcode">T-081</div><div class="tbody"><div class="tcat">BEC &middot; Furnizor fals &middot; IBAN schimbat</div><div class="ttitle">Fraudă furnizor — schimbare IBAN în ultimul moment</div></div><div class="ttog">+</div></div>
+          <div class="texpand"><div class="tdesc">Escrocul interceptează (sau imită) comunicarea dintre o companie și furnizorul ei real. Trimite o notificare că IBAN-ul de plată s-a schimbat. Plata merge la escrocul care controlează noul cont. Detectată tardiv, după ce furnizorul real reclamă neplata.</div><div class="tsigs"><span class="tsig">Email similar furnizorului</span><span class="tsig">IBAN nou urgent</span><span class="tsig">Motiv plauzibil (schimbare bancă)</span></div><div style="display:flex;gap:5px"><span class="trisk h">RISC EXTREM &middot; CORPORATE</span></div></div>
+        </div>
+
+        <!-- CATEGORY: IDENTITY & ACCESS — Pro -->
+        <div class="cat-header" data-cat="identity">
+          <div>
+            <div class="cat-tag">10 &middot; Identitate & Acces</div>
+            <div class="cat-title">Fraude de Identitate și Acces Neautorizat</div>
+          </div>
+          <div style="font-family:'IBM Plex Mono',monospace;font-size:7px;letter-spacing:2px;color:rgba(52,152,219,.4);text-transform:uppercase">Professional+</div>
+        </div>
+
+        <div class="titem" data-cat="identity" data-tier="professional" onclick="if (!window.__cfRLUnblockHandlers) return false; tog(this)" data-cf-modified-3edf47acd22fed6323d27b19-="">
+          <div class="titem-head"><div class="tcode">T-090</div><div class="tbody"><div class="tcat">Account Takeover &middot; ATO</div><div class="ttitle">Account Takeover — preluarea contului prin credential stuffing</div></div><div class="ttog">+</div></div>
+          <div class="texpand"><div class="tdesc">Atacatorul folosește baze de date cu parole compromise (leaked) pentru a încerca accesul pe multiple platforme (bănci, email, social media). Victimele care refolosesc parole sunt cele mai vulnerabile. Accesul se face automat, noaptea, prin boți.</div><div class="tsigs"><span class="tsig">Notificare login neobișnuit</span><span class="tsig">Parolă refuzată</span><span class="tsig">Email de resetare neașteptat</span></div><div style="display:flex;gap:5px"><span class="trisk h">RISC RIDICAT</span></div></div>
+        </div>
+
+        <div class="titem" data-cat="identity" data-tier="professional" onclick="if (!window.__cfRLUnblockHandlers) return false; tog(this)" data-cf-modified-3edf47acd22fed6323d27b19-="">
+          <div class="titem-head"><div class="tcode">T-091</div><div class="tbody"><div class="tcat">Identity Theft &middot; Date personale</div><div class="ttitle">Furt identitate — credit / contract fals în numele tău</div></div><div class="ttog">+</div></div>
+          <div class="texpand"><div class="tdesc">Escrocul folosește datele tale personale (CNP, buletin scanat, adresă) pentru a contracta credite, abonamente sau a închiria bunuri în numele tău. Datele provin din scurgeri de date, fotografii ale documentelor trimise online sau phishing.</div><div class="tsigs"><span class="tsig">Somație pentru credit necunoscut</span><span class="tsig">SMS de la bancă necunoscută</span><span class="tsig">Ai trimis scan buletin online</span></div><div style="display:flex;gap:5px"><span class="trisk h">RISC RIDICAT &middot; DURATĂ LUNGĂ</span></div></div>
+        </div>
+
+        <!-- CATEGORY: AI & DEEPFAKE — Premium -->
+        <div class="cat-header" data-cat="ai">
+          <div>
+            <div class="cat-tag">11 &middot; AI & Deepfake</div>
+            <div class="cat-title">Fraude prin Inteligență Artificială</div>
+          </div>
+          <div style="font-family:'IBM Plex Mono',monospace;font-size:7px;letter-spacing:2px;color:rgba(52,152,219,.4);text-transform:uppercase">Professional+</div>
+        </div>
+
+        <div class="titem" data-cat="ai" data-tier="professional" onclick="if (!window.__cfRLUnblockHandlers) return false; tog(this)" data-cf-modified-3edf47acd22fed6323d27b19-="">
+          <div class="titem-head"><div class="tcode">T-100</div><div class="tbody"><div class="tcat">AI &middot; Voice Clone &middot; Vishing</div><div class="ttitle">Voice cloning — vocea unui apropiat clonată cu AI</div></div><div class="ttog">+</div></div>
+          <div class="texpand"><div class="tdesc">Escrocul folosește AI pentru a clona vocea unui prieten, rudă sau coleg (din videourile publice). Apelul pare să vină de la persoana reală, care cere ajutor financiar urgent (accident, urgență medicală). Câteva secunde de voce reală sunt suficiente pentru clonare.</div><div class="tsigs"><span class="tsig">Apel „de urgență" de la cunoscut</span><span class="tsig">Voce ușor diferită</span><span class="tsig">Cerere transfer imediat</span></div><div style="display:flex;gap:5px"><span class="trisk h">RISC CRITIC &middot; EMERGING</span></div></div>
+        </div>
+
+        <div class="titem" data-cat="ai" data-tier="professional" onclick="if (!window.__cfRLUnblockHandlers) return false; tog(this)" data-cf-modified-3edf47acd22fed6323d27b19-="">
+          <div class="titem-head"><div class="tcode">T-101</div><div class="tbody"><div class="tcat">AI &middot; Deepfake &middot; Video</div><div class="ttitle">Deepfake CEO — impersonare video în timp real</div></div><div class="ttog">+</div></div>
+          <div class="texpand"><div class="tdesc">Videocall în care atacatorul folosește deepfake în timp real pentru a imita CEO-ul sau un partener de afaceri. Solicită transferuri urgente sau aprobări de contracte. Primele cazuri documentate în România în 2024. Necesită protocol de verificare alternativă obligatorie.</div><div class="tsigs"><span class="tsig">Video call neplanificat</span><span class="tsig">Urgență transfer</span><span class="tsig">Canal neobișnuit</span></div><div style="display:flex;gap:5px"><span class="trisk h">RISC CRITIC &middot; EMERGING</span></div></div>
+        </div>
+
+        <!-- MORE TYPOLOGIES indicator -->
+        <div style="text-align:center;padding:40px;border:1px dashed rgba(52,152,219,.1);color:#555;font-family:'IBM Plex Mono',monospace;font-size:9px;letter-spacing:2px;text-transform:uppercase;margin-top:16px">
+          + 80 tipologii suplimentare disponibile în platformă &middot; Accesează din Dashboard
+        </div>
+
+      </div>
+      <!-- END PROFESSIONAL SECTION -->
+
+    </div>
+    <!-- END members content -->
+
+  </main>
+</div>
+
+<footer class="sbr-footer">
+  <div style="display:flex;align-items:center"><div class="footer-logo">SBR<span>.</span></div></div>
+  <div class="footer-copy">&copy; 2026 Structura Brevis Rector&trade;</div>
+  <nav class="footer-links">
+    <a href="am-fost-inselat.html" class="footer-link" data-en="Been scammed?">Am fost înșelat</a>
+    <a href="unde-raportezi-frauda.html" class="footer-link" data-en="Report fraud">Raportează frauda</a>
+    <a href="phishing-cum-recunosti.html" class="footer-link">Phishing</a>
+    <a href="codex.html" class="footer-link">Codex</a>
+    <a href="terms.html" class="footer-link">Termeni</a>
+    <a href="privacy.html" class="footer-link">Privacy &amp; Cookies</a>
+    <a href="gdpr.html" class="footer-link">GDPR</a>
+  </nav>
+</footer>
+
+<script>
+// ── TOGGLE TYPOLOGY ──
+function tog(el) {
+  el.classList.toggle('open');
+}
+
+// ── FILTER BY CATEGORY ──
+function filterCat(cat, link) {
+  document.querySelectorAll('.slink').forEach(function(l){ l.classList.remove('on'); });
+  if (link) link.classList.add('on');
+  var items = document.querySelectorAll('.titem');
+  var headers = document.querySelectorAll('.cat-header');
+  var count = 0;
+  items.forEach(function(it){
+    var show = (cat === 'all') || (it.getAttribute('data-cat') === cat);
+    it.style.display = show ? '' : 'none';
+    if (show) count++;
+  });
+  headers.forEach(function(h){
+    var show = (cat === 'all') || (h.getAttribute('data-cat') === cat);
+    h.style.display = show ? '' : 'none';
+  });
+  var vc = document.getElementById('visible-count');
+  if (vc) vc.textContent = count;
+}
+
+// ── SEARCH ──
+function searchTypologies(q) {
+  var items = document.querySelectorAll('.titem');
+  var count = 0;
+  var lq = q.toLowerCase();
+  items.forEach(function(it){
+    var text = it.textContent.toLowerCase();
+    var show = !q || text.includes(lq);
+    it.style.display = show ? '' : 'none';
+    if (show) count++;
+  });
+  var vc = document.getElementById('visible-count');
+  if (vc) vc.textContent = count;
+}
+
+// ── PANEL TABS ──
+function showPanel(panel, btn) {
+  document.querySelectorAll('.ptab').forEach(function(b){ b.classList.remove('on'); });
+  if (btn) btn.classList.add('on');
+  var search = document.getElementById('search-input');
+  if (search) search.value = '';
+  var catMap = {
+    'all': 'all', 'top50': 'all',
+    'phishing': 'phishing', 'financial': 'financial', 'social': 'social',
+    'business': 'business', 'identity': 'identity', 'marketplace': 'marketplace',
+    'ai': 'ai'
+  };
+  var cat = catMap[panel] || 'all';
+  filterCat(cat, null);
+}
+
+// ── COUNT ──
+window.addEventListener('DOMContentLoaded', function(){
+  var items = document.querySelectorAll('.titem');
+  var vc = document.getElementById('visible-count');
+  if (vc) vc.textContent = items.length;
+  var ac = document.getElementById('cnt-all');
+  if (ac) ac.textContent = items.length;
+});
+
+// ── LANG SWITCHER ──
+function toggleLangDD() { document.getElementById('lang-dd').classList.toggle('open'); }
+function setLang(code, flag) {
+  localStorage.setItem('sbr_lang', code);
+  document.getElementById('lf').textContent = flag;
+  document.getElementById('lc').textContent = code;
+  document.querySelectorAll('.lang-opt').forEach(function(o){
+    o.classList.toggle('lang-active', o.textContent.trim().includes(code));
+  });
+  document.getElementById('lang-dd').classList.remove('open');
+}
+document.addEventListener('click', function(e){
+  if (!e.target.closest('#lang-switcher')) {
+    var dd = document.getElementById('lang-dd');
+    if (dd) dd.classList.remove('open');
+  }
+});
+(function(){
+  var saved = localStorage.getItem('sbr_lang');
+  var flags = {RO:'🇷🇴',EN:'🇬🇧',ES:'🇪🇸',FR:'🇫🇷',DE:'🇩🇪'};
+  if (saved && flags[saved]) {
+    document.getElementById('lf').textContent = flags[saved];
+    document.getElementById('lc').textContent = saved;
+    document.querySelectorAll('.lang-opt').forEach(function(o){
+      o.classList.toggle('lang-active', o.textContent.trim().includes(saved));
+    });
+  }
+})();
+
+// ── MOBILE MENU ──
+function toggleMenu() {
+  var mm = document.getElementById('mobile-menu');
+  if (!mm) return;
+  var links = ['personal','business','signals','afis','codex-page','resources','institute'];
+  mm.innerHTML = links.map(function(l){
+    return '<a href="'+l+'.html" class="nb" style="display:block;padding:12px 0;border-bottom:1px solid rgba(255,255,255,.04)">'+l.charAt(0).toUpperCase()+l.slice(1)+'</a>';
+  }).join('');
+  mm.style.display = mm.style.display === 'block' ? 'none' : 'block';
+}
+</script>
+<script src="js/early-access.js"></script>
+<script>
+window.addEventListener("scroll",function(){var h=document.documentElement.scrollHeight-window.innerHeight;var sp=document.getElementById("scroll-progress");if(sp&&h>0)sp.style.width=Math.round(window.scrollY/h*100)+"%";},{passive:true});
+</script>
+
+<script id="sbr-color-fix">
+(function(){
+  function fix(){
+    var r=document.documentElement;
+    r.style.setProperty('--text','#EEEEEE');
+    r.style.setProperty('--t1','#EEEEEE');
+    r.style.setProperty('--t2','#CCCCCC');
+    r.style.setProperty('--t3','#AAAAAA');
+    r.style.setProperty('--t4','#888888');
+    r.style.setProperty('--t5','#555555');
+    r.style.setProperty('--T2','#CCCCCC');
+    r.style.setProperty('--T3','#AAAAAA');
+  }
+  fix();
+  document.addEventListener('DOMContentLoaded',fix);
+  setTimeout(fix,100);
+})();
+</script>
+<div id="sbr-sw" aria-label="Social Media">
+  <a class="sbr-sw-a" href="https://instagram.com/sbr_antifraud" target="_blank" rel="noopener" title="Instagram @sbr_antifraud">&#128248;</a>
+  <a class="sbr-sw-a" href="https://tiktok.com/@structurabrevisrector" target="_blank" rel="noopener" title="TikTok @structurabrevisrector">&#127925;</a>
+  <a class="sbr-sw-a" href="https://t.me/sbrorator" target="_blank" rel="noopener" title="Telegram t.me/sbrorator">&#9992;&#65039;</a>
+  <a class="sbr-sw-a" href="https://pin.it/7yO6KnjsW" target="_blank" rel="noopener" title="Pinterest">&#128204;</a>
+</div>
+<script src="js/cookie-consent.js"></script>
+
+</body>
+</html>

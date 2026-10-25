@@ -1,0 +1,1767 @@
+<!DOCTYPE html>
+<html lang="ro">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>SBR Verified: evaluarea proceselor firmei</title>
+<meta name="description" content="SBR Verified: traseu de audit digital pentru firme, de la profil si procese la dovezi, scor, verificare si raport.">
+<meta name="robots" content="noindex, nofollow">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Sans:wght@400;500;600&family=Source+Serif+4:opsz,wght@8..60,500;8..60,600;8..60,700&display=swap" rel="stylesheet">
+<script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+<script src="js/i18n.js?v=5"></script>
+<script src="js/nav-universal.js?v=13"></script>
+<style>
+:root{
+  --paper:#EEF1EF; --panel:#F8FAF9; --ink:#10202E; --soft:#4A5866; --line:#C7D0CD;
+  --pine:#1B6B58; --pine-t:#DCEBE6; --amber:#8F6208; --amber-t:#F3E7CC; --brick:#A83A2E; --brick-t:#F2D9D5;
+  --serif:'Source Serif 4',Georgia,'Times New Roman',serif;
+  --sans:'IBM Plex Sans',system-ui,-apple-system,'Segoe UI',Roboto,Helvetica,Arial,sans-serif;
+  box-sizing:border-box; padding-top:env(safe-area-inset-top,0px); padding-bottom:env(safe-area-inset-bottom,0px);
+}
+@media (prefers-color-scheme: dark){
+  :root:not([data-theme="light"]){
+    --paper:#0E1822; --panel:#152431; --ink:#E6ECEA; --soft:#A6B3BC; --line:#2B3B49;
+    --pine:#4DB89B; --pine-t:#173A33; --amber:#E0AB4A; --amber-t:#3A2E14; --brick:#E2796C; --brick-t:#402320;
+  }
+}
+:root[data-theme="dark"]{
+  --paper:#0E1822; --panel:#152431; --ink:#E6ECEA; --soft:#A6B3BC; --line:#2B3B49;
+  --pine:#4DB89B; --pine-t:#173A33; --amber:#E0AB4A; --amber-t:#3A2E14; --brick:#E2796C; --brick-t:#402320;
+}
+html{scroll-padding-top:env(safe-area-inset-top,0px);scroll-behavior:smooth;}
+*,*::before,*::after{box-sizing:inherit;}
+body{margin:0;padding-top:58px;background:var(--paper);color:var(--ink);font:400 16px/1.6 var(--sans);-webkit-text-size-adjust:100%;}
+a{color:var(--pine);}
+.wrap{max-width:980px;margin:0 auto;padding:0 20px;}
+.top{border-bottom:1px solid var(--line);background:var(--paper);}
+.top .wrap{display:flex;align-items:center;gap:22px;padding-top:14px;padding-bottom:14px;flex-wrap:wrap;}
+.top .logo{font:700 24px/1 var(--serif);color:var(--ink);text-decoration:none;letter-spacing:.01em;}
+.top nav{display:flex;gap:18px;flex-wrap:wrap;margin-left:auto;font-size:15px;}
+.top nav a{color:var(--soft);text-decoration:none;font-weight:500;}
+.top nav a.on{color:var(--ink);border-bottom:2px solid var(--pine);}
+h1{font:600 clamp(30px,5.2vw,50px)/1.1 var(--serif);margin:0 0 16px;letter-spacing:-.01em;}
+h2{font:600 clamp(24px,3.6vw,32px)/1.18 var(--serif);margin:0 0 10px;}
+h3{font:600 19px/1.3 var(--serif);margin:24px 0 6px;}
+.lede{color:var(--soft);font-size:18px;max-width:64ch;margin:0 0 22px;}
+.note{font-size:14px;color:var(--soft);}
+.meta{color:var(--soft);font-size:14px;}
+.field{margin:0 0 18px;}
+.field label,.field .lab{display:block;font-weight:500;margin-bottom:6px;}
+.field .hint{display:block;font-weight:400;color:var(--soft);font-size:14px;}
+input[type=text],input[type=number],input[type=date],select,textarea{width:100%;font:inherit;color:var(--ink);background:var(--panel);border:1px solid var(--line);border-radius:4px;padding:10px 12px;}
+textarea{min-height:120px;resize:vertical;}
+input:focus-visible,select:focus-visible,textarea:focus-visible,button:focus-visible,a:focus-visible{outline:2px solid var(--pine);outline-offset:2px;}
+.row2{display:grid;grid-template-columns:1fr 1fr;gap:16px;}
+.btn{font:600 15px/1 var(--sans);padding:13px 20px;border-radius:4px;border:1px solid var(--ink);background:var(--ink);color:var(--paper);cursor:pointer;text-decoration:none;display:inline-block;}
+.btn.sec{background:transparent;color:var(--ink);}
+.btn.pine{background:var(--pine);border-color:var(--pine);color:#fff;}
+.btn[disabled]{opacity:.4;cursor:not-allowed;}
+.btn.sm{padding:9px 14px;font-size:14px;}
+.err{color:var(--brick);font-size:14px;margin-top:6px;}
+.pill{display:inline-block;font-weight:600;font-size:14px;padding:4px 10px;border-radius:99px;margin:0 6px 6px 0;}
+.pill.ok{background:var(--pine-t);color:var(--pine);} .pill.mid{background:var(--amber-t);color:var(--amber);} .pill.bad{background:var(--brick-t);color:var(--brick);}
+.pill.neutral{background:var(--panel);color:var(--soft);border:1px solid var(--line);}
+.box{border:1px solid var(--line);border-left-width:5px;padding:14px 16px;margin:16px 0;background:var(--panel);}
+.box.ok{border-left-color:var(--pine);} .box.mid{border-left-color:var(--amber);} .box.bad{border-left-color:var(--brick);}
+.box b{display:block;margin-bottom:4px;}
+.box ul{margin:6px 0 0;padding-left:20px;}
+.scroll{overflow-x:auto;max-width:100%;}
+.spin{display:inline-block;width:14px;height:14px;border:2px solid var(--line);border-top-color:var(--pine);border-radius:50%;vertical-align:-2px;margin-right:8px;animation:sp .8s linear infinite;}
+@keyframes sp{to{transform:rotate(360deg);}}
+@media (prefers-reduced-motion:reduce){.spin{animation:none;} html{scroll-behavior:auto;}}
+.foot{border-top:1px solid var(--line);margin-top:60px;padding:24px 0 50px;color:var(--soft);font-size:14px;}
+@media (max-width:700px){.row2{grid-template-columns:1fr;} .top nav{margin-left:0;}}
+@media print{.top,.noprint,.foot{display:none !important;} body{background:#fff;color:#000;} :root{--paper:#fff;}}
+/* ===== art direction layer ===== */
+.js .rv{opacity:0;transform:translateY(16px);transition:opacity .7s ease,transform .7s ease;}
+.js .rv.in{opacity:1;transform:none;}
+@media (prefers-reduced-motion:reduce){.js .rv{opacity:1;transform:none;transition:none;}}
+.band{background:#0B1622;color:#E9EFEC;position:relative;overflow:hidden;}
+.band::before{content:"";position:absolute;inset:0;background:linear-gradient(rgba(255,255,255,.045) 1px,transparent 1px) 0 0/48px 48px,linear-gradient(90deg,rgba(255,255,255,.045) 1px,transparent 1px) 0 0/48px 48px;-webkit-mask-image:radial-gradient(ellipse at 72% 45%,#000 0,transparent 72%);mask-image:radial-gradient(ellipse at 72% 45%,#000 0,transparent 72%);}
+.band .wrap{position:relative;z-index:1;}
+.band a{color:#5BD0B2;} .band .lede{color:#B4C2CB;} .band .note{color:#8FA3AF;}
+.band .eyebrow{color:#5BD0B2;} .band h1{color:#F3F7F5;}
+.band .btn{background:#F3F7F5;color:#0B1622;border-color:#F3F7F5;} .band .btn.pine{background:#2AA58A;border-color:#2AA58A;color:#fff;} .band .btn.sec{background:transparent;color:#F3F7F5;border-color:#5B7382;}
+.hero-grid{display:grid;grid-template-columns:1.1fr .9fr;gap:36px;align-items:center;padding:64px 0 58px;}
+.art{width:100%;max-width:430px;height:auto;justify-self:center;}
+.dash{animation:dash 40s linear infinite;} @keyframes dash{to{stroke-dashoffset:-480;}}
+.spinslow{animation:spinslow 120s linear infinite;transform-origin:200px 200px;} @keyframes spinslow{to{transform:rotate(360deg);}}
+.scan{animation:scan 3.6s ease-in-out infinite alternate;} @keyframes scan{from{transform:translateY(0);}to{transform:translateY(292px);}}
+@media (prefers-reduced-motion:reduce){.dash,.spinslow,.scan{animation:none;}}
+.facts{border-bottom:1px solid var(--line);background:var(--panel);}
+.facts .wrap{display:grid;grid-template-columns:repeat(4,1fr);gap:0;padding:0;}
+.facts div{padding:22px 20px;border-right:1px solid var(--line);} .facts div:last-child{border-right:0;}
+.facts b{display:block;font:600 34px/1 var(--serif);color:var(--pine);} .facts span{font-size:14px;color:var(--soft);}
+.sec2{padding:70px 0 6px;} .sec2 + .sec2{border-top:1px solid var(--line);margin-top:56px;}
+.kicker{font-weight:600;font-size:14px;color:var(--pine);margin:0 0 10px;}
+.grid3{display:grid;grid-template-columns:repeat(3,1fr);gap:0;margin-top:26px;border-top:1px solid var(--line);border-left:1px solid var(--line);}
+.tile{padding:22px;border-right:1px solid var(--line);border-bottom:1px solid var(--line);background:var(--panel);}
+.tile .no{font:600 14px var(--sans);color:var(--pine);} .tile h3{margin:4px 0 6px;font-size:18px;} .tile p{margin:0;color:var(--soft);font-size:15px;} .tile .w{display:inline-block;margin-top:10px;font-size:13px;font-weight:600;color:var(--soft);border:1px solid var(--line);border-radius:99px;padding:2px 10px;}
+.ladder{display:grid;grid-template-columns:repeat(3,1fr);gap:0;margin-top:26px;}
+.ladder div{position:relative;padding:22px 22px 24px;border:1px solid var(--line);background:var(--panel);}
+.ladder div:nth-child(2){background:var(--pine-t);} .ladder div:nth-child(3){background:var(--ink);color:var(--paper);border-color:var(--ink);}
+.ladder div:nth-child(3) p{color:inherit;opacity:.85;}
+.ladder b{font:600 22px/1.2 var(--serif);display:block;margin-bottom:6px;} .ladder p{margin:0;font-size:15px;color:var(--soft);} .ladder small{display:block;margin-top:10px;font-weight:600;font-size:13px;}
+.mock{border:1px solid var(--line);background:var(--panel);margin-top:26px;box-shadow:0 22px 50px -28px rgba(11,22,34,.45);}
+.mock-h{display:flex;gap:12px;align-items:center;flex-wrap:wrap;padding:14px 20px;border-bottom:1px solid var(--line);background:var(--paper);}
+.mock-h b{font:600 17px var(--serif);}
+.mock-b{display:grid;grid-template-columns:190px 1fr;gap:28px;padding:22px 20px;align-items:center;}
+.mock-b svg{width:100%;height:auto;} .mb{display:grid;grid-template-columns:150px 1fr 34px;gap:10px;align-items:center;padding:5px 0;font-size:14px;}
+.mb i{display:block;height:9px;background:var(--line);border-radius:2px;overflow:hidden;} .mb i em{display:block;height:100%;} .mb .ok{background:var(--pine);} .mb .mid{background:var(--amber);} .mb .bad{background:var(--brick);} .mb strong{text-align:right;font-variant-numeric:tabular-nums;}
+.mock-n{padding:0 20px 20px;color:var(--soft);font-size:15px;max-width:74ch;}
+.chipsrow{display:flex;gap:8px;flex-wrap:wrap;margin-top:18px;} .chipsrow span{border:1px solid var(--line);border-radius:99px;padding:6px 14px;background:var(--panel);font-size:14px;font-weight:500;}
+.faq details{border-top:1px solid var(--line);padding:16px 0;} .faq details:last-child{border-bottom:1px solid var(--line);}
+.faq summary{cursor:pointer;font:600 18px/1.35 var(--serif);list-style:none;display:flex;justify-content:space-between;gap:16px;} .faq summary::-webkit-details-marker{display:none;}
+.faq summary::after{content:"+";font:400 26px/1 var(--sans);color:var(--pine);} .faq details[open] summary::after{content:"\2212";}
+.faq p{margin:10px 0 0;color:var(--soft);max-width:70ch;}
+.ctaband{background:var(--ink);color:var(--paper);padding:52px 0;margin-top:70px;text-align:left;}
+.ctaband h2{color:var(--paper);margin:0 0 8px;} .ctaband p{margin:0 0 18px;opacity:.85;max-width:60ch;}
+.ctaband .btn{background:var(--paper);color:var(--ink);border-color:var(--paper);}
+@media (max-width:820px){.hero-grid{grid-template-columns:1fr;padding:42px 0 40px;} .art{max-width:300px;} .facts .wrap{grid-template-columns:repeat(2,1fr);} .facts div:nth-child(2){border-right:0;} .facts div{border-bottom:1px solid var(--line);} .grid3,.ladder{grid-template-columns:1fr;} .mock-b{grid-template-columns:1fr;justify-items:center;} .mb{grid-template-columns:110px 1fr 30px;}}
+@media print{.band,.facts,.sec2,.ctaband{display:none !important;}}
+
+.top nav a.lang{border:1px solid var(--line);border-radius:4px;padding:1px 9px;font-size:13px;font-weight:600;color:var(--ink);}
+
+.hero{padding:56px 0 34px;}
+.eyebrow{font-weight:600;font-size:14px;color:var(--pine);margin:0 0 12px;}
+.ctas{display:flex;gap:12px;flex-wrap:wrap;margin-top:8px;}
+.story{padding:34px 0 10px;border-top:1px solid var(--line);}
+.story p{max-width:66ch;font-size:17px;}
+.three{display:grid;grid-template-columns:repeat(3,1fr);gap:22px;margin-top:26px;}
+.three div{border-top:3px solid var(--pine);padding-top:10px;}
+.three b{font:600 19px/1.3 var(--serif);display:block;margin-bottom:4px;}
+.three span{color:var(--soft);font-size:15px;}
+.route{list-style:none;margin:26px 0 0;padding:0;position:relative;}
+.route::before{content:"";position:absolute;left:19px;top:8px;bottom:8px;width:2px;background:var(--line);}
+.route li{position:relative;padding:0 0 26px 62px;}
+.route .n{position:absolute;left:0;top:0;width:40px;height:40px;border-radius:50%;background:var(--paper);border:2px solid var(--pine);color:var(--pine);font:700 17px/36px var(--serif);text-align:center;}
+.route h3{margin:0 0 4px;} .route p{margin:0 0 6px;max-width:64ch;color:var(--soft);}
+.route .res{font-size:14px;font-weight:600;color:var(--pine);}
+.vs{display:grid;grid-template-columns:1fr 1fr;gap:20px;margin-top:20px;}
+.vs > div{border:1px solid var(--line);padding:20px;background:var(--panel);}
+.vs .k{font-size:13px;font-weight:600;color:var(--pine);margin:0 0 6px;}
+.vs h3{margin:0 0 8px;} .vs p{margin:0 0 10px;color:var(--soft);font-size:15px;} .vs ul{margin:0 0 10px;padding-left:18px;font-size:15px;}
+.sect{padding:44px 0 6px;border-top:1px solid var(--line);margin-top:34px;}
+/* workspace */
+.rail{list-style:none;margin:20px 0 0;padding:0;display:flex;overflow-x:auto;gap:0;}
+.rail li{flex:1 0 108px;position:relative;text-align:center;}
+.rail li::before{content:"";position:absolute;top:17px;left:-50%;right:50%;height:2px;background:var(--line);}
+.rail li:first-child::before{display:none;}
+.rail li.done::before,.rail li.on::before{background:var(--pine);}
+.rail button{position:relative;background:none;border:0;cursor:pointer;font:500 13px/1.25 var(--sans);color:var(--soft);padding:0 4px 8px;width:100%;}
+.rail .dot{display:block;width:34px;height:34px;border-radius:50%;margin:0 auto 6px;background:var(--paper);border:2px solid var(--line);font:700 15px/30px var(--serif);color:var(--soft);}
+.rail li.done .dot{background:var(--pine);border-color:var(--pine);color:#fff;}
+.rail li.on .dot{border-color:var(--pine);color:var(--pine);}
+.rail li.on button{color:var(--ink);font-weight:600;}
+.rail button[disabled]{opacity:.5;cursor:default;}
+.stage{background:var(--panel);border:1px solid var(--line);padding:26px;margin-top:16px;}
+.niches{display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:10px;}
+.gt{font:600 15px/1.3 var(--sans);color:var(--soft);margin:22px 0 8px;}
+.niche{display:block;cursor:pointer;} .niche input{position:absolute;opacity:0;pointer-events:none;}
+.niche span{display:block;height:100%;min-height:92px;padding:16px;border:1px solid var(--line);border-radius:4px;background:var(--paper);}
+.niche b{display:block;font:600 17px/1.25 var(--serif);margin-bottom:3px;} .niche small{color:var(--soft);font-size:13.5px;line-height:1.4;display:block;}
+.niche input:checked+span{border-color:var(--pine);background:var(--pine-t);box-shadow:inset 3px 0 0 var(--pine);}
+.niche input:focus-visible+span{outline:2px solid var(--pine);outline-offset:2px;}
+.tabs{display:flex;gap:6px;flex-wrap:wrap;margin:0 0 18px;}
+.tabs button{font:500 14px var(--sans);padding:8px 14px;border:1px solid var(--line);background:var(--paper);color:var(--ink);border-radius:99px;cursor:pointer;}
+.tabs button.on{background:var(--ink);color:var(--paper);border-color:var(--ink);}
+.tabs button.ok::after{content:" \2713";color:var(--pine);} .tabs button.on.ok::after{color:var(--paper);}
+.grp{margin:26px 0 4px;} .grp b{font:600 18px/1.3 var(--serif);display:block;} .grp span{font-size:14px;color:var(--soft);}
+.stmt{border:0;border-top:1px solid var(--line);margin:0;padding:14px 0 16px;min-width:0;}
+.stmt legend{padding:0;width:100%;} .stmt .tag{display:block;font-size:13px;font-weight:600;color:var(--pine);}
+.stmt .txt{display:block;font-weight:500;margin:1px 0 10px;max-width:72ch;}
+.opts{display:grid;grid-template-columns:repeat(4,1fr);gap:8px;}
+.opt{display:block;cursor:pointer;} .opt input{position:absolute;opacity:0;pointer-events:none;}
+.opt span{display:block;height:100%;padding:9px 10px;border:1px solid var(--line);border-radius:4px;font-size:14px;line-height:1.3;background:var(--paper);}
+.opt input:checked+span{background:var(--ink);color:var(--paper);border-color:var(--ink);}
+.opt input:focus-visible+span{outline:2px solid var(--pine);outline-offset:2px;}
+.nav{display:flex;gap:12px;align-items:center;margin-top:26px;padding-top:18px;border-top:1px solid var(--line);flex-wrap:wrap;}
+.nav .prog{margin-left:auto;color:var(--soft);font-size:14px;}
+.drop{border:1.5px dashed var(--line);padding:14px;background:var(--paper);border-radius:4px;}
+.files{display:flex;gap:10px;flex-wrap:wrap;margin-top:10px;}
+.file{position:relative;border:1px solid var(--line);border-radius:4px;background:var(--paper);padding:6px 30px 6px 8px;font-size:13px;display:flex;gap:8px;align-items:center;}
+.file img{width:44px;height:34px;object-fit:cover;border-radius:2px;}
+.file button{position:absolute;top:2px;right:2px;width:22px;height:22px;border:0;border-radius:50%;background:var(--ink);color:var(--paper);cursor:pointer;line-height:1;}
+.seal{width:100%;max-width:220px;height:auto;} .seal .num{font:700 58px/1 var(--serif);fill:var(--ink);} .seal .of{font:500 13px var(--sans);fill:var(--soft);}
+.verdict{display:grid;grid-template-columns:230px 1fr;gap:28px;align-items:center;margin:8px 0;}
+.firm{font:600 26px/1.2 var(--serif);margin:0 0 4px;}
+.bars{margin:8px 0 0;} .bar{display:grid;grid-template-columns:minmax(120px,250px) 1fr 48px;gap:12px;align-items:center;padding:7px 0;}
+.bar .trk{height:12px;background:var(--line);border-radius:2px;overflow:hidden;} .bar .fil{height:100%;} .bar .v{font-weight:600;text-align:right;font-variant-numeric:tabular-nums;}
+.fil.ok{background:var(--pine);} .fil.mid{background:var(--amber);} .fil.bad{background:var(--brick);}
+table.heat{border-collapse:collapse;width:100%;min-width:560px;font-size:14px;}
+table.heat th{font-weight:600;text-align:left;padding:8px;border-bottom:1px solid var(--line);vertical-align:bottom;}
+table.heat td{padding:8px;border-bottom:1px solid var(--line);} table.heat td.c{text-align:center;font-weight:600;font-variant-numeric:tabular-nums;}
+td.c.ok{background:var(--pine-t);color:var(--pine);} td.c.mid{background:var(--amber-t);color:var(--amber);} td.c.bad{background:var(--brick-t);color:var(--brick);}
+ol.plan{padding:0;margin:0;list-style:none;} ol.plan li{padding:14px 0;border-top:1px solid var(--line);} ol.plan b{display:block;font:600 16px/1.3 var(--serif);}
+.pc{padding:14px 0;border-top:1px solid var(--line);} .pc b{font:600 17px/1.3 var(--serif);} .pc ul{margin:4px 0 0;padding-left:20px;font-size:15px;}
+.fq{padding:12px 0;border-top:1px solid var(--line);} .fq .qt{font-weight:500;} .fq .qw{font-size:14px;color:var(--soft);margin:2px 0 8px;}
+.change{border:1px solid var(--line);border-left:5px solid var(--amber);padding:12px 16px;background:var(--paper);margin:14px 0;} .change ul{margin:6px 0 0;padding-left:20px;}
+.up{color:var(--brick);font-weight:600;} .down{color:var(--pine);font-weight:600;}
+.verif{display:flex;gap:14px;align-items:center;padding:16px;border:1px solid var(--line);border-left:5px solid var(--pine);background:var(--paper);margin:8px 0 20px;}
+.verif .av{flex:0 0 52px;height:52px;border-radius:50%;background:var(--pine);color:#fff;font:600 19px/52px var(--serif);text-align:center;} .verif b{display:block;font:600 19px/1.2 var(--serif);} .verif span{color:var(--soft);font-size:14px;}
+ol.how{padding-left:22px;margin:8px 0 20px;max-width:70ch;} ol.how li{margin:6px 0;}
+#req-out{min-height:220px;font:400 14px/1.5 var(--sans);}
+.story-rep p{max-width:68ch;font-size:17px;}
+.method{font-size:14px;color:var(--soft);} .method p{max-width:75ch;}
+.actions{display:flex;gap:12px;flex-wrap:wrap;margin-top:22px;}
+.ok-t{color:var(--pine);font-weight:600;font-size:14px;}
+@media (max-width:760px){.three,.vs{grid-template-columns:1fr;} .opts{grid-template-columns:repeat(2,1fr);} .verdict{grid-template-columns:1fr;justify-items:start;} .bar{grid-template-columns:1fr 44px;} .bar .trk{grid-column:1 / -1;order:3;} .stage{padding:18px;}}
+@media print{.rail,.explain{display:none !important;} .stage{border:0;padding:0;background:transparent;}}
+
+</style>
+</head>
+<body>
+<div id="root"></div>
+<template id="tpl-ro">
+<section class="band explain">
+ <div class="wrap hero-grid">
+  <div>
+   <p class="eyebrow">SBR Verified · standard de incredere pentru afaceri</p>
+   <h1>Increderea in business nu ar trebui sa fie doar reputatie.</h1>
+   <p class="lede">SBR Verified ofera o perspectiva structurata asupra modului in care o companie isi gestioneaza procesele si riscurile. Nu pornim de la ce se spune despre firma, ci de la ce poate fi aratat, verificat si masurat. Incepem cu firmele din Romania.</p>
+   <div class="ctas" style="display:flex;gap:12px;flex-wrap:wrap"><a class="btn pine" href="#traseu">Incepe traseul</a><a class="btn sec" href="#cum">Vezi cum functioneaza</a></div><p class="note" style="margin-top:14px">Nu esti gata pentru evaluarea completa? <a href="scorecard.html">Incearca scorecardul gratuit de 2 minute</a>.</p>
+  </div>
+  <svg class="art" viewBox="0 0 400 400" role="img" aria-label="Sigiliul SBR Verified cu sapte statii ale traseului">
+   <defs><radialGradient id="g1" cx="50%" cy="42%" r="62%"><stop offset="0" stop-color="#34B99B"/><stop offset="1" stop-color="#0F4C3F"/></radialGradient></defs>
+   <g class="spinslow"><g id="art-ticks" stroke="#4D6677"></g></g>
+   <circle cx="200" cy="200" r="150" fill="none" stroke="#1B3242" stroke-width="1.5"/>
+   <polygon id="art-poly" fill="rgba(42,165,138,.06)" stroke="#2AA58A" stroke-width="1.4" stroke-dasharray="7 7" class="dash"/>
+   <g id="art-nodes"></g>
+   <circle cx="200" cy="200" r="80" fill="url(#g1)"/><circle cx="200" cy="200" r="80" fill="none" stroke="#7FE0C6" stroke-opacity=".5" stroke-width="1.2"/>
+   <path d="M166 198 l26 26 l44 -54" fill="none" stroke="#fff" stroke-width="9" stroke-linecap="round" stroke-linejoin="round"/>
+   <text x="200" y="262" text-anchor="middle" fill="#CFE9E1" font-size="12" font-family="IBM Plex Sans,sans-serif" letter-spacing="4">VERIFIED</text>
+  </svg>
+ </div>
+</section>
+<section class="facts explain" aria-label="Pe scurt"><div class="wrap"><div><b>7</b><span>statii, de la profil la raport</span></div><div><b>6</b><span>dimensiuni evaluate pe fiecare proces</span></div><div><b>3</b><span>niveluri de incredere: declarat, documentat, validat</span></div><div><b>1</b><span>evaluator uman care valideaza dosarul</span></div></div></section>
+
+<main class="wrap">
+<div class="explain">
+<section class="sec2 rv" aria-labelledby="why">
+  <p class="kicker">De ce SBR Verified</p>
+  <h2 id="why">Reputatia spune ce s-a intamplat. Standardul arata cum functioneaza firma azi.</h2>
+  <p style="max-width:66ch;font-size:17px">In afaceri, increderea se construieste greu si se pierde repede. Partenerii, bancile si clientii mari se bazeaza pe reputatie, pe recomandari si pe documente pe care nu au cum sa le verifice singuri.</p>
+  <p style="max-width:66ch;font-size:17px">Reputatia nu spune cat de bine este organizata firma astazi: cine aproba platile, cum sunt alesi furnizorii, ce ramane in urma fiecarei operatiuni, cat depinde totul de o singura persoana sau de un intermediar. SBR Verified raspunde exact acestei intrebari: firma isi prezinta procesele si dovezile, iar evaluarea le transforma intr-un scor de risc, un plan de imbunatatire si un raport care poate fi aratat mai departe.</p>
+  <div class="grid3"><div class="tile"><span class="no">01</span><h3>Structurat</h3><p>Aceleasi criterii, aplicate coerent si adaptate domeniului de activitate.</p></div><div class="tile"><span class="no">02</span><h3>Dovedit</h3><p>Fiecare afirmatie poate fi sustinuta cu documente, capturi si fotografii, iar AI-ul le compara cu ce s-a declarat.</p></div><div class="tile"><span class="no">03</span><h3>Verificat</h3><p>Un evaluator uman SBR valideaza dosarul inainte de orice marca de incredere.</p></div></div>
+</section>
+
+<section class="sec2 rv" aria-labelledby="dim-h">
+  <p class="kicker">Ce evaluam</p>
+  <h2 id="dim-h">Sase dimensiuni, pentru fiecare proces</h2>
+  <p class="lede" style="margin-bottom:0">Nu cautam un checklist bifat, ci felul in care procesul rezista in practica.</p>
+  <div class="grid3">
+   <div class="tile"><span class="no">Documentare</span><h3>Exista si este actual?</h3><p>Procedura scrisa, pasi clari, responsabili numiti, exceptii tratate.</p><span class="w">pondere 12%</span></div>
+   <div class="tile"><span class="no">Control intern</span><h3>Cineva verifica?</h3><p>Aprobari, reconcilieri si verificari periodice care functioneaza cu adevarat.</p><span class="w">pondere 18%</span></div>
+   <div class="tile"><span class="no">Separarea atributiilor</span><h3>Cine face ce?</h3><p>Cel care aproba nu este cel care executa, iar cel care executa nu este cel care verifica.</p><span class="w">pondere 18%</span></div>
+   <div class="tile"><span class="no">Trasabilitate</span><h3>Ce ramane in urma?</h3><p>Jurnale, semnaturi si evidente din care se poate reconstitui orice operatiune.</p><span class="w">pondere 14%</span></div>
+   <div class="tile"><span class="no">Expunere la frauda</span><h3>Cat de usor e de exploatat?</h3><p>Puncte slabe concrete ale procesului, in raport cu tiparele reale de frauda.</p><span class="w">pondere 18%</span></div>
+   <div class="tile"><span class="no">Dependenta</span><h3>Cine il poate bloca sau exploata?</h3><p>Persoane-cheie, terti cu acces si interpusi: firme sau persoane de fatada.</p><span class="w">pondere 20%</span></div>
+  </div>
+</section>
+
+<section class="sec2 rv" id="cum" aria-labelledby="cum-h">
+  <p class="kicker">Traseul</p>
+  <h2 id="cum-h">De la profil la raport, in sapte statii</h2>
+  <p class="lede" style="margin-bottom:0">Fiecare statie are un rezultat clar. Este o evaluare care se construieste pe masura ce firma isi arata procesele, nu un chestionar.</p>
+  <ol class="route">
+    <li><span class="n">1</span><h3>Profil</h3><p>Spui cine esti: firma, CUI, dimensiune. Acesta este cadrul evaluarii.</p><span class="res">Rezultat: identitatea evaluarii</span></li>
+    <li><span class="n">2</span><h3>Domeniu</h3><p>Alegi domeniul de activitate. Criteriile se adapteaza riscurilor specifice: un magazin online nu are aceleasi expuneri ca o firma de constructii.</p><span class="res">Rezultat: setul de procese relevante</span></li>
+    <li><span class="n">3</span><h3>Procese</h3><p>Descrii cum functioneaza procesele-cheie: plati, achizitii, acces la date si procesele specifice domeniului.</p><span class="res">Rezultat: harta proceselor</span></li>
+    <li><span class="n">4</span><h3>Dovezi</h3><p>Sustii ce ai declarat: proceduri (SOP), capturi de ecran din aplicatii, fotografii ale registrelor, contracte, e-mailuri de aprobare.</p><span class="res">Rezultat: dosarul de dovezi</span></li>
+    <li><span class="n">5</span><h3>Scor si recomandari</h3><p>Analiza AI citeste dovezile, le compara cu ce ai declarat, pune intrebari acolo unde exista lacune si calculeaza scorul. Poti raspunde, iar scorul se recalculeaza si iti explica ce s-a schimbat.</p><span class="res">Rezultat: scor pe proces si pe companie, plan prioritizat</span></li>
+    <li><span class="n">6</span><h3>Verificare</h3><p>Un evaluator uman SBR analizeaza dosarul, discuta cu responsabilii proceselor si valideaza rezultatele.</p><span class="res">Rezultat: nivelul Validat</span></li>
+    <li><span class="n">7</span><h3>Raport</h3><p>Un raport lizibil: povestea evaluarii, explicatia, rezultatul, dovezile si recomandarile.</p><span class="res">Rezultat: documentul pe care il poti arata partenerilor</span></li>
+  </ol>
+</section>
+
+<section class="sec2 rv" aria-labelledby="lvl-h">
+  <p class="kicker">Niveluri de incredere</p>
+  <h2 id="lvl-h">Increderea creste odata cu dovezile</h2>
+  <div class="ladder"><div><b>Declarat</b><p>Firma a descris procesele. Este punctul de plecare: informatii nesustinute inca de dovezi.</p><small>Automat</small></div><div><b>Documentat</b><p>Pentru toate procesele exista dovezi: proceduri, capturi, fotografii, contracte, analizate de AI.</p><small>Automat, dupa analiza dovezilor</small></div><div><b>Validat</b><p>Un evaluator uman a verificat dosarul, a discutat cu responsabilii si a validat rezultatele.</p><small>Evaluator uman SBR</small></div></div>
+</section>
+
+<section class="sec2 rv" aria-labelledby="mock-h">
+  <p class="kicker">Ce primesti</p>
+  <h2 id="mock-h">Un raport pe care il poti citi si arata mai departe</h2>
+  <div class="mock" aria-label="Exemplu ilustrativ de raport">
+   <div class="mock-h"><span class="pill neutral" style="margin:0">Exemplu ilustrativ</span><b>Exemplu SRL, comert online</b><span class="pill mid" style="margin:0">Risc mediu</span><span class="pill neutral" style="margin:0">Nivel: Documentat</span></div>
+   <div class="mock-b">
+    <svg viewBox="0 0 200 200" role="img" aria-label="Scor exemplu 71 din 100"><circle cx="100" cy="100" r="74" fill="none" stroke="var(--line)" stroke-width="10"/><circle cx="100" cy="100" r="74" fill="none" stroke="var(--amber)" stroke-width="10" stroke-dasharray="464.96" stroke-dashoffset="134.84" transform="rotate(-90 100 100)"/><text x="100" y="112" text-anchor="middle" font-family="Source Serif 4,Georgia,serif" font-weight="700" font-size="54" fill="var(--ink)">71</text><text x="100" y="134" text-anchor="middle" font-size="13" fill="var(--soft)" font-family="IBM Plex Sans,sans-serif">din 100</text></svg>
+    <div><div class="mb"><span>Plati si trezorerie</span><i><em class="bad" style="width:52%"></em></i><strong>52</strong></div><div class="mb"><span>Achizitii si furnizori</span><i><em class="mid" style="width:68%"></em></i><strong>68</strong></div><div class="mb"><span>Acces la sisteme si date</span><i><em class="mid" style="width:74%"></em></i><strong>74</strong></div><div class="mb"><span>Comenzi si retururi</span><i><em class="ok" style="width:81%"></em></i><strong>81</strong></div><div class="mb"><span>Stocuri si depozit</span><i><em class="ok" style="width:77%"></em></i><strong>77</strong></div></div>
+   </div>
+   <p class="mock-n"><b>Povestea evaluarii.</b> Exemplu SRL a parcurs traseul pe cinci procese. Scorul companiei este 71 din 100. Cel mai solid proces este „Comenzi si retururi”, iar cel mai expus este „Plati si trezorerie”, unde aceeasi persoana poate aproba si executa plati. Acesta este primul punct de corectat, indiferent de restul controalelor. <i>Exemplu ilustrativ, nu reprezinta o firma reala.</i></p>
+  </div>
+</section>
+
+<section class="sec2 rv" aria-labelledby="niche-h">
+  <p class="kicker">Pentru cine</p>
+  <h2 id="niche-h">Criterii adaptate domeniului tau</h2>
+  <p class="lede" style="margin-bottom:0">Trei procese comune tuturor firmelor si doua specifice fiecarui domeniu.</p>
+  <div class="chipsrow"><span>Comert online</span><span>Servicii profesionale si IT</span><span>Productie si industrie</span><span>Constructii si instalatii</span><span>Transport si logistica</span><span>HoReCa</span><span>Alte domenii</span></div>
+</section>
+
+<section class="sec2 rv" aria-labelledby="vs-h">
+  <p class="kicker">Doua instrumente</p>
+  <h2 id="vs-h">SBR Verified si SBR AI</h2>
+  <div class="vs">
+    <div><p class="k">Pentru firme</p><h3>SBR Verified: traseu de audit digital</h3><p>Documente, conformitate, procese, dovezi, analiza, scor, recomandari si raport.</p><ul><li>evalueaza cum functioneaza firma</li><li>se termina cu un raport si un nivel de incredere</li></ul></div>
+    <div><p class="k">Pentru oricine</p><h3>SBR AI: analist interactiv de risc</h3><p>Primeste informatii, pune intrebari, da un scor si recomanda. Identifica semnale si isi actualizeaza evaluarea pe masura ce afla mai mult.</p><ul><li>analizeaza mesaje, linkuri si capturi suspecte</li><li>se termina cu un scor 0-100 si un plan de actiune</li></ul><a class="btn sec sm" href="sbr-ai.html">Deschide SBR AI</a></div>
+  </div>
+</section>
+
+<section class="sec2 rv faq" aria-labelledby="faq-h">
+  <p class="kicker">Intrebari frecvente</p>
+  <h2 id="faq-h" style="margin-bottom:18px">Ce merita stiut inainte sa incepi</h2>
+  <details><summary>Este un audit sau o certificare?</summary><p>Nu. SBR Verified este o evaluare structurata, bazata pe informatiile si dovezile pe care le prezinti. Nu inlocuieste un audit financiar sau o certificare acreditata si nu garanteaza absenta fraudei. Limitele sunt scrise in fiecare raport.</p></details>
+  <details><summary>Ce se intampla cu documentele si imaginile incarcate?</summary><p>Sunt trimise spre analiza automata si nu sunt pastrate ca fisiere. Se inregistreaza textul (fara numere de card si CNP) si rezultatele analizei, conform politicii de confidentialitate si acordului pe care il bifezi la inceput.</p></details>
+  <details><summary>Cine verifica dosarul?</summary><p>La nivelul Validat, un evaluator uman SBR analizeaza dosarul, discuta cu responsabilii proceselor si valideaza rezultatele.</p></details>
+  <details><summary>Pot opri si continua mai tarziu?</summary><p>Da. Raspunsurile si textele se salveaza in browserul tau. Fisierele incarcate trebuie adaugate din nou daca inchizi pagina.</p></details>
+  <details><summary>Ce inseamna scorul?</summary><p>Scorul merge de la 0 la 100; mai mare inseamna risc operational mai mic. Regulile de plafonare fac ca un punct critic, de exemplu aceeasi persoana care aproba si executa plati, sa nu poata fi compensat de alte bune practici.</p></details>
+  <details><summary>Care sunt conditiile comerciale?</summary><p>Vor fi comunicate inainte de lansarea publica. In aceasta etapa, evaluarea este un pilot.</p></details>
+</section>
+</div>
+
+<section class="sec2" id="traseu" aria-labelledby="tr-h" style="border-top:1px solid var(--line);margin-top:56px">
+  <p class="kicker">Evaluarea</p>
+  <h2 id="tr-h">Traseul tau</h2>
+  <p class="lede" style="margin-bottom:0">Fiecare pas se salveaza in browserul tau. Analiza dovezilor foloseste AI SBR, iar tu poti reveni oricand.</p>
+  <ol class="rail" id="rail" aria-label="Statiile traseului"></ol>
+  <div class="stage" id="stage"></div>
+</section>
+</main>
+<footer class="foot noprint"><div class="wrap">SBR Verified este o evaluare bazata pe informatiile si dovezile furnizate de firma. Nu constituie audit, certificare sau garantie si nu dovedeste absenta fraudei. Structura Brevis Rector.</div></footer>
+
+</template>
+<template id="tpl-en">
+<section class="band explain">
+ <div class="wrap hero-grid">
+  <div>
+   <p class="eyebrow">SBR Verified · trust standard for business</p>
+   <h1>Trust in business should not rest on reputation alone.</h1>
+   <p class="lede">SBR Verified offers a structured view of how a company manages its processes and risks. We do not start from what is said about the company, but from what can be shown, verified and measured. We are starting with companies in Romania.</p>
+   <div class="ctas" style="display:flex;gap:12px;flex-wrap:wrap"><a class="btn pine" href="#traseu">Start the route</a><a class="btn sec" href="#cum">See how it works</a></div><p class="note" style="margin-top:14px">Nu esti gata pentru evaluarea completa? <a href="scorecard.html">Incearca scorecardul gratuit de 2 minute</a>.</p>
+  </div>
+  <svg class="art" viewBox="0 0 400 400" role="img" aria-label="The SBR Verified seal with the seven stations of the route">
+   <defs><radialGradient id="g1" cx="50%" cy="42%" r="62%"><stop offset="0" stop-color="#34B99B"/><stop offset="1" stop-color="#0F4C3F"/></radialGradient></defs>
+   <g class="spinslow"><g id="art-ticks" stroke="#4D6677"></g></g>
+   <circle cx="200" cy="200" r="150" fill="none" stroke="#1B3242" stroke-width="1.5"/>
+   <polygon id="art-poly" fill="rgba(42,165,138,.06)" stroke="#2AA58A" stroke-width="1.4" stroke-dasharray="7 7" class="dash"/>
+   <g id="art-nodes"></g>
+   <circle cx="200" cy="200" r="80" fill="url(#g1)"/><circle cx="200" cy="200" r="80" fill="none" stroke="#7FE0C6" stroke-opacity=".5" stroke-width="1.2"/>
+   <path d="M166 198 l26 26 l44 -54" fill="none" stroke="#fff" stroke-width="9" stroke-linecap="round" stroke-linejoin="round"/>
+   <text x="200" y="262" text-anchor="middle" fill="#CFE9E1" font-size="12" font-family="IBM Plex Sans,sans-serif" letter-spacing="4">VERIFIED</text>
+  </svg>
+ </div>
+</section>
+<section class="facts explain" aria-label="At a glance"><div class="wrap"><div><b>7</b><span>stations, from profile to report</span></div><div><b>6</b><span>dimensions assessed for each process</span></div><div><b>3</b><span>trust levels: declared, documented, validated</span></div><div><b>1</b><span>human evaluator who validates the file</span></div></div></section>
+
+<main class="wrap">
+<div class="explain">
+<section class="sec2 rv" aria-labelledby="why">
+  <p class="kicker">Why SBR Verified</p>
+  <h2 id="why">Reputation says what has happened. The standard shows how the company works today.</h2>
+  <p style="max-width:66ch;font-size:17px">In business, trust is built slowly and lost quickly. Partners, banks and large customers rely on reputation, recommendations and documents they cannot verify themselves.</p>
+  <p style="max-width:66ch;font-size:17px">Reputation does not say how well organised the company is today: who approves payments, how suppliers are chosen, what is left behind by each operation, how much depends on a single person or an intermediary. SBR Verified answers exactly this question: the company presents its processes and evidence, and the assessment turns them into a risk score, an improvement plan and a report that can be shown to others.</p>
+  <div class="grid3"><div class="tile"><span class="no">01</span><h3>Structured</h3><p>The same criteria, applied consistently and adapted to the field of activity.</p></div><div class="tile"><span class="no">02</span><h3>Evidenced</h3><p>Every claim can be supported with documents, screenshots and photos, and the AI compares them with what was declared.</p></div><div class="tile"><span class="no">03</span><h3>Verified</h3><p>A human SBR evaluator validates the file before any trust mark.</p></div></div>
+</section>
+
+<section class="sec2 rv" aria-labelledby="dim-h">
+  <p class="kicker">What we assess</p>
+  <h2 id="dim-h">Six dimensions, for each process</h2>
+  <p class="lede" style="margin-bottom:0">We are not looking for a ticked checklist, but for how the process holds up in practice.</p>
+  <div class="grid3">
+   <div class="tile"><span class="no">Documentation</span><h3>Does it exist and is it current?</h3><p>Written procedure, clear steps, named owners, exceptions handled.</p><span class="w">weight 12%</span></div>
+   <div class="tile"><span class="no">Internal control</span><h3>Does someone check?</h3><p>Approvals, reconciliations and periodic checks that really work.</p><span class="w">weight 18%</span></div>
+   <div class="tile"><span class="no">Segregation of duties</span><h3>Who does what?</h3><p>The one who approves is not the one who executes, and the one who executes is not the one who checks.</p><span class="w">weight 18%</span></div>
+   <div class="tile"><span class="no">Traceability</span><h3>What is left behind?</h3><p>Logs, signatures and records from which any operation can be reconstructed.</p><span class="w">weight 14%</span></div>
+   <div class="tile"><span class="no">Fraud exposure</span><h3>How easy is it to exploit?</h3><p>Concrete weak points of the process, against real fraud patterns.</p><span class="w">weight 18%</span></div>
+   <div class="tile"><span class="no">Dependence</span><h3>Who can block or exploit it?</h3><p>Key people, third parties with access and intermediaries: front companies or people.</p><span class="w">weight 20%</span></div>
+  </div>
+</section>
+
+<section class="sec2 rv" id="cum" aria-labelledby="cum-h">
+  <p class="kicker">The route</p>
+  <h2 id="cum-h">From profile to report, in seven stations</h2>
+  <p class="lede" style="margin-bottom:0">Each station has a clear result. It is an assessment that builds up as the company shows its processes, not a questionnaire.</p>
+  <ol class="route">
+    <li><span class="n">1</span><h3>Profile</h3><p>You say who you are: company, tax ID, size. This is the frame of the assessment.</p><span class="res">Result: the identity of the assessment</span></li>
+    <li><span class="n">2</span><h3>Field</h3><p>You choose the field of activity. The criteria adapt to specific risks: an online shop does not have the same exposures as a construction company.</p><span class="res">Result: the set of relevant processes</span></li>
+    <li><span class="n">3</span><h3>Processes</h3><p>You describe how the key processes work: payments, purchasing, access to data and the processes specific to the field.</p><span class="res">Result: the process map</span></li>
+    <li><span class="n">4</span><h3>Evidence</h3><p>You support what you declared: procedures (SOP), screenshots from applications, photos of registers, contracts, approval e-mails.</p><span class="res">Result: the evidence file</span></li>
+    <li><span class="n">5</span><h3>Score and recommendations</h3><p>The AI analysis reads the evidence, compares it with what you declared, asks questions where there are gaps and calculates the score. You can answer, and the score is recalculated and explains what changed.</p><span class="res">Result: score by process and for the company, prioritised plan</span></li>
+    <li><span class="n">6</span><h3>Verification</h3><p>A human SBR evaluator analyses the file, talks to the process owners and validates the results.</p><span class="res">Result: the Validated level</span></li>
+    <li><span class="n">7</span><h3>Report</h3><p>A readable report: the story of the assessment, the explanation, the result, the evidence and the recommendations.</p><span class="res">Result: the document you can show to partners</span></li>
+  </ol>
+</section>
+
+<section class="sec2 rv" aria-labelledby="lvl-h">
+  <p class="kicker">Trust levels</p>
+  <h2 id="lvl-h">Trust grows with the evidence</h2>
+  <div class="ladder"><div><b>Declared</b><p>The company described its processes. This is the starting point: information not yet backed by evidence.</p><small>Automatic</small></div><div><b>Documented</b><p>Evidence exists for all processes: procedures, screenshots, photos, contracts, analysed by AI.</p><small>Automatic, after the evidence analysis</small></div><div><b>Validated</b><p>A human evaluator checked the file, talked to the owners and validated the results.</p><small>SBR human evaluator</small></div></div>
+</section>
+
+<section class="sec2 rv" aria-labelledby="mock-h">
+  <p class="kicker">What you get</p>
+  <h2 id="mock-h">A report you can read and show onwards</h2>
+  <div class="mock" aria-label="Illustrative example of a report">
+   <div class="mock-h"><span class="pill neutral" style="margin:0">Illustrative example</span><b>Example Ltd, online retail</b><span class="pill mid" style="margin:0">Medium risk</span><span class="pill neutral" style="margin:0">Level: Documented</span></div>
+   <div class="mock-b">
+    <svg viewBox="0 0 200 200" role="img" aria-label="Example score 71 out of 100"><circle cx="100" cy="100" r="74" fill="none" stroke="var(--line)" stroke-width="10"/><circle cx="100" cy="100" r="74" fill="none" stroke="var(--amber)" stroke-width="10" stroke-dasharray="464.96" stroke-dashoffset="134.84" transform="rotate(-90 100 100)"/><text x="100" y="112" text-anchor="middle" font-family="Source Serif 4,Georgia,serif" font-weight="700" font-size="54" fill="var(--ink)">71</text><text x="100" y="134" text-anchor="middle" font-size="13" fill="var(--soft)" font-family="IBM Plex Sans,sans-serif">out of 100</text></svg>
+    <div><div class="mb"><span>Payments and treasury</span><i><em class="bad" style="width:52%"></em></i><strong>52</strong></div><div class="mb"><span>Purchasing and suppliers</span><i><em class="mid" style="width:68%"></em></i><strong>68</strong></div><div class="mb"><span>Access to systems and data</span><i><em class="mid" style="width:74%"></em></i><strong>74</strong></div><div class="mb"><span>Orders and returns</span><i><em class="ok" style="width:81%"></em></i><strong>81</strong></div><div class="mb"><span>Stock and warehouse</span><i><em class="ok" style="width:77%"></em></i><strong>77</strong></div></div>
+   </div>
+   <p class="mock-n"><b>The story of the assessment.</b> Example Ltd went through the route on five processes. The company score is 71 out of 100. The strongest process is "Orders and returns", and the most exposed is "Payments and treasury", where the same person can approve and execute payments. This is the first point to correct, regardless of the other controls. <i>Illustrative example, not a real company.</i></p>
+  </div>
+</section>
+
+<section class="sec2 rv" aria-labelledby="niche-h">
+  <p class="kicker">Who it is for</p>
+  <h2 id="niche-h">Criteria adapted to your field</h2>
+  <p class="lede" style="margin-bottom:0">Three processes common to all companies and two specific to each field.</p>
+  <div class="chipsrow"><span>Online retail</span><span>Professional services and IT</span><span>Manufacturing and industry</span><span>Construction and installations</span><span>Transport and logistics</span><span>HoReCa</span><span>Other fields</span></div>
+</section>
+
+<section class="sec2 rv" aria-labelledby="vs-h">
+  <p class="kicker">Two tools</p>
+  <h2 id="vs-h">SBR Verified and SBR AI</h2>
+  <div class="vs">
+    <div><p class="k">For companies</p><h3>SBR Verified: digital audit route</h3><p>Documents, compliance, processes, evidence, analysis, score, recommendations and report.</p><ul><li>assesses how the company works</li><li>ends with a report and a trust level</li></ul></div>
+    <div><p class="k">For everyone</p><h3>SBR AI: interactive risk analyst</h3><p>It receives information, asks questions, gives a score and recommends. It identifies signals and updates its assessment as it learns more.</p><ul><li>analyses suspicious messages, links and screenshots</li><li>ends with a 0-100 score and an action plan</li></ul><a class="btn sec sm" href="sbr-ai.html">Open SBR AI</a></div>
+  </div>
+</section>
+
+<section class="sec2 rv faq" aria-labelledby="faq-h">
+  <p class="kicker">Frequently asked questions</p>
+  <h2 id="faq-h" style="margin-bottom:18px">What is worth knowing before you start</h2>
+  <details><summary>Is it an audit or a certification?</summary><p>No. SBR Verified is a structured assessment based on the information and evidence you present. It does not replace a financial audit or an accredited certification and does not guarantee the absence of fraud. The limits are written in every report.</p></details>
+  <details><summary>What happens to the uploaded documents and images?</summary><p>They are sent for automatic analysis and are not kept as files. The text (without card and personal ID numbers) and the analysis results are recorded, in line with the privacy policy and the consent you tick at the start.</p></details>
+  <details><summary>Who checks the file?</summary><p>At the Validated level, a human SBR evaluator analyses the file, talks to the process owners and validates the results.</p></details>
+  <details><summary>Can I stop and continue later?</summary><p>Yes. Your answers and texts are saved in your browser. Uploaded files must be added again if you close the page.</p></details>
+  <details><summary>What does the score mean?</summary><p>The score runs from 0 to 100; higher means lower operational risk. The capping rules mean that a critical weak point, for example the same person approving and executing payments, cannot be offset by other good practices.</p></details>
+  <details><summary>What are the commercial terms?</summary><p>They will be communicated before the public launch. At this stage, the assessment is a pilot.</p></details>
+</section>
+</div>
+
+<section class="sec2" id="traseu" aria-labelledby="tr-h" style="border-top:1px solid var(--line);margin-top:56px">
+  <p class="kicker">The assessment</p>
+  <h2 id="tr-h">Your route</h2>
+  <p class="lede" style="margin-bottom:0">Each step is saved in your browser. The evidence analysis uses SBR AI, and you can come back at any time.</p>
+  <ol class="rail" id="rail" aria-label="The stations of the route"></ol>
+  <div class="stage" id="stage"></div>
+</section>
+</main>
+<footer class="foot noprint"><div class="wrap">SBR Verified is an assessment based on the information and evidence provided by the company. It is not an audit, certification or guarantee and does not prove the absence of fraud. Structura Brevis Rector.</div></footer>
+
+</template>
+<script>
+var SBR_LANG=(function(){var l='';try{l=(localStorage.getItem('sbr_lang')||'').toLowerCase();}catch(e){}
+  return l==='en'?'en':'ro';})();
+(function(){
+  function onLangChanged(e){
+    var nl=(e&&e.detail&&e.detail.lang)||''; if(!nl){ try{ nl=(localStorage.getItem('sbr_lang')||'').toUpperCase(); }catch(x){} }
+    if(nl && nl!==SBR_LANG.toUpperCase()){ try{ location.reload(); }catch(err){} }
+  }
+  document.addEventListener('sbr:lang:changed', onLangChanged);
+  window.addEventListener('storage', function(e){ if(e.key==='sbr_lang') onLangChanged({detail:{lang:e.newValue}}); });
+})();
+function mkSBR_ro(){
+/* ===== SBR shared core (API client, upload, redaction) ===== */
+var SBR=(function(){
+  var API={ai:'https://structurabrevisrector.app.n8n.cloud/webhook/sbr-ai',save:'https://structurabrevisrector.app.n8n.cloud/webhook/sbr-save',timeout:90000};
+  function esc(s){ return String(s==null?'':s).replace(/[&<>"']/g,function(c){return {'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c];}); }
+  function session(){
+    try{ var k=sessionStorage.getItem('sbr_sid'); if(k) return k; }catch(e){}
+    var id='s'+Date.now().toString(36)+Math.random().toString(36).slice(2,8);
+    try{ sessionStorage.setItem('sbr_sid',id); }catch(e){}
+    return id;
+  }
+  function post(url,body){
+    if(typeof fetch!=='function') return Promise.reject(new Error('fetch indisponibil'));
+    var ctl=(typeof AbortController==='function')?new AbortController():null,t=null;
+    if(ctl) t=setTimeout(function(){ ctl.abort(); },API.timeout);
+    return fetch(url,{method:'POST',headers:{'Content-Type':'text/plain;charset=UTF-8'},body:JSON.stringify(body),signal:ctl?ctl.signal:undefined})
+      .then(function(r){ if(t) clearTimeout(t); if(!r.ok) throw new Error('http '+r.status); return r.json(); })
+      .catch(function(e){ if(t) clearTimeout(t); throw e; });
+  }
+  function luhn(d){ var s=0,alt=false; for(var i=d.length-1;i>=0;i--){ var n=+d.charAt(i); if(alt){ n*=2; if(n>9) n-=9; } s+=n; alt=!alt; } return s%10===0; }
+  function redact(t){
+    var count=0; t=String(t||'');
+    t=t.replace(/\b(?:\d[ -]?){12,18}\d\b/g,function(m){ var d=m.replace(/\D/g,''); if(d.length>=13&&d.length<=19&&luhn(d)){ count++; return '[NUMAR CARD ELIMINAT]'; } return m; });
+    t=t.replace(/\b[1-8]\d{12}\b/g,function(){ count++; return '[CNP ELIMINAT]'; });
+    return {text:t,count:count};
+  }
+  function uniq(a){ var o={},r=[]; a.forEach(function(x){ var k=x.toLowerCase(); if(!o[k]){ o[k]=1; r.push(x); } }); return r; }
+  function extract(text){
+    text=String(text||'');
+    var links=uniq((text.match(/(?:https?:\/\/|www\.)[^\s<>"')\]]+/gi)||[]).map(function(x){ return x.replace(/[.,;:!?]+$/,''); }));
+    var emails=uniq(text.match(/[A-Za-z0-9._%+-]+@[A-Za-z0-9.-]+\.[A-Za-z]{2,}/g)||[]);
+    var phones=uniq(text.match(/(?:\+40|0040|0)[ .-]?7\d{2}[ .-]?\d{3}[ .-]?\d{3}/g)||[]);
+    return {links:links,emails:emails,phones:phones};
+  }
+  function readImage(file){
+    return new Promise(function(res,rej){
+      var fr=new FileReader();
+      fr.onload=function(){
+        var img=new Image();
+        img.onload=function(){
+          var max=1400,k=Math.min(1,max/Math.max(img.width,img.height)),c=document.createElement('canvas');
+          c.width=Math.round(img.width*k); c.height=Math.round(img.height*k);
+          c.getContext('2d').drawImage(img,0,0,c.width,c.height);
+          var url=c.toDataURL('image/jpeg',.82);
+          res({name:file.name,kind:'image',media_type:'image/jpeg',data:url.split(',')[1],preview:url});
+        };
+        img.onerror=function(){ rej(new Error('Imaginea nu poate fi citita.')); };
+        img.src=fr.result;
+      };
+      fr.onerror=function(){ rej(new Error('Fisierul nu poate fi citit.')); };
+      fr.readAsDataURL(file);
+    });
+  }
+  function readFile(file){
+    var n=(file.name||'').toLowerCase();
+    if(/^image\//.test(file.type)) { if(file.size>12*1024*1024) return Promise.reject(new Error('Imaginea "'+file.name+'" depaseste 12 MB.')); return readImage(file); }
+    if(file.type==='application/pdf'||/\.pdf$/.test(n)){
+      if(file.size>3*1024*1024) return Promise.reject(new Error('PDF-ul "'+file.name+'" depaseste 3 MB.'));
+      return new Promise(function(res,rej){ var fr=new FileReader(); fr.onload=function(){ res({name:file.name,kind:'pdf',media_type:'application/pdf',data:String(fr.result).split(',')[1]}); }; fr.onerror=function(){ rej(new Error('PDF ilizibil.')); }; fr.readAsDataURL(file); });
+    }
+    if(/\.(txt|md|csv|eml)$/.test(n)||/^text\//.test(file.type)){
+      if(file.size>300*1024) return Promise.reject(new Error('Fisierul text "'+file.name+'" depaseste 300 KB.'));
+      return new Promise(function(res,rej){ var fr=new FileReader(); fr.onload=function(){ res({name:file.name,kind:'text',text:String(fr.result)}); }; fr.onerror=function(){ rej(new Error('Fisier ilizibil.')); }; fr.readAsText(file); });
+    }
+    return Promise.reject(new Error('Tip neacceptat: "'+file.name+'". Accept imagini, PDF si text (.txt, .eml).'));
+  }
+  return {API:API,esc:esc,session:session,post:post,redact:redact,extract:extract,readFile:readFile};
+})();
+/* ===== art direction helpers ===== */
+SBR.init=function(){
+  document.documentElement.classList.add('js');
+  var els=[].slice.call(document.querySelectorAll('.rv'));
+  if('IntersectionObserver' in window){
+    var io=new IntersectionObserver(function(en){ en.forEach(function(x){ if(x.isIntersecting){ x.target.classList.add('in'); io.unobserve(x.target); } }); },{threshold:.1});
+    els.forEach(function(e){ io.observe(e); });
+    setTimeout(function(){ els.forEach(function(e){ e.classList.add('in'); }); },4000);
+  } else els.forEach(function(e){ e.classList.add('in'); });
+  var g=document.getElementById('art-ticks');
+  if(g){ var h=''; for(var t=0;t<72;t++){ var a=t*5*Math.PI/180,r1=t%6===0?168:174; h+='<line x1="'+(200+r1*Math.sin(a)).toFixed(1)+'" y1="'+(200-r1*Math.cos(a)).toFixed(1)+'" x2="'+(200+182*Math.sin(a)).toFixed(1)+'" y2="'+(200-182*Math.cos(a)).toFixed(1)+'" stroke-width="'+(t%6===0?1.6:.8)+'"/>'; } g.innerHTML=h; }
+  var nd=document.getElementById('art-nodes'),pl=document.getElementById('art-poly');
+  if(nd&&pl){ var pts=[],hh=''; for(var i=0;i<7;i++){ var an=(-90+i*360/7)*Math.PI/180,x=200+150*Math.cos(an),y=200+150*Math.sin(an); pts.push(x.toFixed(1)+','+y.toFixed(1)); hh+='<circle cx="'+x.toFixed(1)+'" cy="'+y.toFixed(1)+'" r="15" fill="#0B1622" stroke="#2AA58A" stroke-width="1.8"/><text x="'+x.toFixed(1)+'" y="'+(y+5).toFixed(1)+'" text-anchor="middle" fill="#CFE9E1" font-size="14" font-family="Source Serif 4,Georgia,serif" font-weight="600">'+(i+1)+'</text>'; } pl.setAttribute('points',pts.join(' ')); nd.innerHTML=hh; }
+  setTimeout(function(){
+    var fb=document.getElementById('sbr-fallback-nav'); if(!fb) return;
+    var others=[].slice.call(document.querySelectorAll('nav,header')).filter(function(n){ return n!==fb&&!fb.contains(n)&&n.querySelectorAll('a').length>=4; });
+    if(others.length) fb.style.display='none';
+  },1800);
+};
+
+return SBR;}
+function mkSBR_en(){
+/* ===== SBR shared core (API client, upload, redaction) ===== */
+var SBR=(function(){
+  var API={ai:'https://structurabrevisrector.app.n8n.cloud/webhook/sbr-ai',save:'https://structurabrevisrector.app.n8n.cloud/webhook/sbr-save',timeout:90000};
+  function esc(s){ return String(s==null?'':s).replace(/[&<>"']/g,function(c){return {'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c];}); }
+  function session(){
+    try{ var k=sessionStorage.getItem('sbr_sid'); if(k) return k; }catch(e){}
+    var id='s'+Date.now().toString(36)+Math.random().toString(36).slice(2,8);
+    try{ sessionStorage.setItem('sbr_sid',id); }catch(e){}
+    return id;
+  }
+  function post(url,body){
+    if(typeof fetch!=='function') return Promise.reject(new Error('fetch indisponibil'));
+    var ctl=(typeof AbortController==='function')?new AbortController():null,t=null;
+    if(ctl) t=setTimeout(function(){ ctl.abort(); },API.timeout);
+    return fetch(url,{method:'POST',headers:{'Content-Type':'text/plain;charset=UTF-8'},body:JSON.stringify(body),signal:ctl?ctl.signal:undefined})
+      .then(function(r){ if(t) clearTimeout(t); if(!r.ok) throw new Error('http '+r.status); return r.json(); })
+      .catch(function(e){ if(t) clearTimeout(t); throw e; });
+  }
+  function luhn(d){ var s=0,alt=false; for(var i=d.length-1;i>=0;i--){ var n=+d.charAt(i); if(alt){ n*=2; if(n>9) n-=9; } s+=n; alt=!alt; } return s%10===0; }
+  function redact(t){
+    var count=0; t=String(t||'');
+    t=t.replace(/\b(?:\d[ -]?){12,18}\d\b/g,function(m){ var d=m.replace(/\D/g,''); if(d.length>=13&&d.length<=19&&luhn(d)){ count++; return '[CARD NUMBER REMOVED]'; } return m; });
+    t=t.replace(/\b[1-8]\d{12}\b/g,function(){ count++; return '[PERSONAL ID REMOVED]'; });
+    return {text:t,count:count};
+  }
+  function uniq(a){ var o={},r=[]; a.forEach(function(x){ var k=x.toLowerCase(); if(!o[k]){ o[k]=1; r.push(x); } }); return r; }
+  function extract(text){
+    text=String(text||'');
+    var links=uniq((text.match(/(?:https?:\/\/|www\.)[^\s<>"')\]]+/gi)||[]).map(function(x){ return x.replace(/[.,;:!?]+$/,''); }));
+    var emails=uniq(text.match(/[A-Za-z0-9._%+-]+@[A-Za-z0-9.-]+\.[A-Za-z]{2,}/g)||[]);
+    var phones=uniq(text.match(/(?:\+40|0040|0)[ .-]?7\d{2}[ .-]?\d{3}[ .-]?\d{3}/g)||[]);
+    return {links:links,emails:emails,phones:phones};
+  }
+  function readImage(file){
+    return new Promise(function(res,rej){
+      var fr=new FileReader();
+      fr.onload=function(){
+        var img=new Image();
+        img.onload=function(){
+          var max=1400,k=Math.min(1,max/Math.max(img.width,img.height)),c=document.createElement('canvas');
+          c.width=Math.round(img.width*k); c.height=Math.round(img.height*k);
+          c.getContext('2d').drawImage(img,0,0,c.width,c.height);
+          var url=c.toDataURL('image/jpeg',.82);
+          res({name:file.name,kind:'image',media_type:'image/jpeg',data:url.split(',')[1],preview:url});
+        };
+        img.onerror=function(){ rej(new Error('The image cannot be read.')); };
+        img.src=fr.result;
+      };
+      fr.onerror=function(){ rej(new Error('The file cannot be read.')); };
+      fr.readAsDataURL(file);
+    });
+  }
+  function readFile(file){
+    var n=(file.name||'').toLowerCase();
+    if(/^image\//.test(file.type)) { if(file.size>12*1024*1024) return Promise.reject(new Error('Image "'+file.name+'" exceeds 12 MB.')); return readImage(file); }
+    if(file.type==='application/pdf'||/\.pdf$/.test(n)){
+      if(file.size>3*1024*1024) return Promise.reject(new Error('PDF "'+file.name+'" exceeds 3 MB.'));
+      return new Promise(function(res,rej){ var fr=new FileReader(); fr.onload=function(){ res({name:file.name,kind:'pdf',media_type:'application/pdf',data:String(fr.result).split(',')[1]}); }; fr.onerror=function(){ rej(new Error('The PDF is unreadable.')); }; fr.readAsDataURL(file); });
+    }
+    if(/\.(txt|md|csv|eml)$/.test(n)||/^text\//.test(file.type)){
+      if(file.size>300*1024) return Promise.reject(new Error('Text file "'+file.name+'" exceeds 300 KB.'));
+      return new Promise(function(res,rej){ var fr=new FileReader(); fr.onload=function(){ res({name:file.name,kind:'text',text:String(fr.result)}); }; fr.onerror=function(){ rej(new Error('The file is unreadable.')); }; fr.readAsText(file); });
+    }
+    return Promise.reject(new Error('Unsupported type: "'+file.name+'". Images, PDF and text (.txt, .eml) are accepted.'));
+  }
+  return {API:API,esc:esc,session:session,post:post,redact:redact,extract:extract,readFile:readFile};
+})();
+/* ===== art direction helpers ===== */
+SBR.init=function(){
+  document.documentElement.classList.add('js');
+  var els=[].slice.call(document.querySelectorAll('.rv'));
+  if('IntersectionObserver' in window){
+    var io=new IntersectionObserver(function(en){ en.forEach(function(x){ if(x.isIntersecting){ x.target.classList.add('in'); io.unobserve(x.target); } }); },{threshold:.1});
+    els.forEach(function(e){ io.observe(e); });
+    setTimeout(function(){ els.forEach(function(e){ e.classList.add('in'); }); },4000);
+  } else els.forEach(function(e){ e.classList.add('in'); });
+  var g=document.getElementById('art-ticks');
+  if(g){ var h=''; for(var t=0;t<72;t++){ var a=t*5*Math.PI/180,r1=t%6===0?168:174; h+='<line x1="'+(200+r1*Math.sin(a)).toFixed(1)+'" y1="'+(200-r1*Math.cos(a)).toFixed(1)+'" x2="'+(200+182*Math.sin(a)).toFixed(1)+'" y2="'+(200-182*Math.cos(a)).toFixed(1)+'" stroke-width="'+(t%6===0?1.6:.8)+'"/>'; } g.innerHTML=h; }
+  var nd=document.getElementById('art-nodes'),pl=document.getElementById('art-poly');
+  if(nd&&pl){ var pts=[],hh=''; for(var i=0;i<7;i++){ var an=(-90+i*360/7)*Math.PI/180,x=200+150*Math.cos(an),y=200+150*Math.sin(an); pts.push(x.toFixed(1)+','+y.toFixed(1)); hh+='<circle cx="'+x.toFixed(1)+'" cy="'+y.toFixed(1)+'" r="15" fill="#0B1622" stroke="#2AA58A" stroke-width="1.8"/><text x="'+x.toFixed(1)+'" y="'+(y+5).toFixed(1)+'" text-anchor="middle" fill="#CFE9E1" font-size="14" font-family="Source Serif 4,Georgia,serif" font-weight="600">'+(i+1)+'</text>'; } pl.setAttribute('points',pts.join(' ')); nd.innerHTML=hh; }
+  setTimeout(function(){
+    var fb=document.getElementById('sbr-fallback-nav'); if(!fb) return;
+    var others=[].slice.call(document.querySelectorAll('nav,header')).filter(function(n){ return n!==fb&&!fb.contains(n)&&n.querySelectorAll('a').length>=4; });
+    if(others.length) fb.style.display='none';
+  },1800);
+};
+
+return SBR;}
+var SBR=(SBR_LANG==='en'?mkSBR_en:mkSBR_ro)();
+SBR.lang=SBR_LANG; SBR.loc=(SBR_LANG==='en'?'en-GB':'ro-RO');
+function runRO(){
+/* ===== SBR Verified journey ===== */
+(function(){
+'use strict';
+var $=function(id){ return document.getElementById(id); },esc=SBR.esc;
+/* ---------- Model ---------- */
+var V=[0,33,67,100];
+var OPTS=['Nu exista','Partial / informal','Da, documentat','Da, documentat si verificat'];
+var DIMS=[
+  {id:'doc',name:'Documentare',short:'Documentare',w:12},
+  {id:'ctl',name:'Control intern',short:'Control',w:18},
+  {id:'seg',name:'Separarea atributiilor',short:'Separare',w:18},
+  {id:'trc',name:'Trasabilitate',short:'Trasabilitate',w:14},
+  {id:'exp',name:'Expunere la frauda',short:'Expunere',w:18},
+  {id:'dep',name:'Dependenta de persoane-cheie, terti si interpusi',short:'Dependenta',w:20}
+];
+
+var PROCS={
+ pay:{n:'Plati si trezorerie',w:1.3,d:'Plati catre furnizori, salarii, transferuri si accesul la conturile bancare.',
+  exp:{q:'Orice schimbare de IBAN sau instructiune urgenta de plata este confirmata telefonic, pe un numar deja cunoscut, inainte de plata?',f:'Introdu regula de contra-verificare telefonica pe un numar cunoscut pentru orice modificare de IBAN sau plata urgenta. Este apararea principala impotriva fraudei de tip „CEO” si a facturilor false.'},
+  ext:{q:'Accesul contabilului extern si al bancii (utilizatori, limite, drepturi) este stabilit prin contract si revizuit periodic?',f:'Documenteaza drepturile contabilului extern si revizuieste-le trimestrial. Elimina dreptul de a executa plati acolo unde nu este necesar.'},
+  prox:{q:'Beneficiarii platilor noi sunt verificati (beneficiar real, sediu, legaturi cu angajati sau conducere) inainte de prima plata?',f:'Verifica beneficiarul real si legaturile cu personalul inainte de prima plata catre un beneficiar nou. Pastreaza dovada verificarii in dosarul platii.'}},
+ buy:{n:'Achizitii si furnizori',w:1.2,d:'Selectia furnizorilor, comparatia de oferte, comenzi si receptia bunurilor sau serviciilor.',
+  exp:{q:'Ofertele sunt comparate (minimum trei peste un prag stabilit) iar preturile sunt raportate la piata?',f:'Stabileste un prag peste care sunt obligatorii minimum trei oferte si un control periodic al preturilor fata de piata. Preturile constant peste piata sunt un semnal de alarma.'},
+  ext:{q:'Dependenta de un singur furnizor este monitorizata, cu alternative identificate pentru furnizorii principali?',f:'Listeaza primii cinci furnizori dupa valoare, identifica pentru fiecare o alternativa si revizuieste lista de doua ori pe an.'},
+  prox:{q:'Angajatii si conducerea declara in scris conflictele de interese si relatiile cu furnizorii (rude, asociati, afiliati)?',f:'Introdu o declaratie anuala de conflict de interese pentru toti cei care aleg sau aproba furnizori si compara-o cu lista furnizorilor activi.'}},
+ acc:{n:'Acces la sisteme si date',w:1.1,d:'E-mail, aplicatii de business, banci online, date ale clientilor si drepturile de administrare.',
+  exp:{q:'Conturile bancare, e-mailul si sistemele critice au autentificare in doi pasi si alerte pentru actiuni neobisnuite?',f:'Activeaza autentificarea in doi pasi pe toate conturile critice si alertele pentru autentificari noi, schimbari de parola si transferuri neobisnuite.'},
+  ext:{q:'Firma de IT externa si alti terti cu acces au conturi individuale, drepturi minime si acces revocat imediat la incheierea colaborarii?',f:'Cere conturi individuale pentru fiecare persoana externa, cu drepturi minime, si revoca accesul in aceeasi zi in care colaborarea se incheie.'},
+  prox:{q:'Exista o evidenta a persoanelor cu procuri si drepturi de administrare, revizuita cand se schimba rolurile?',f:'Tine o evidenta unica a procurilor si a drepturilor de administrare si revizuieste-o la fiecare schimbare de rol si cel putin anual.'}},
+ ord:{n:'Comenzi, retururi si rambursari',w:1.0,d:'Preluarea comenzilor online, plati de la clienti, retururi si rambursari.',
+  exp:{q:'Comenzile si retururile suspecte (adrese multiple, valori mari, rambursari repetate) sunt semnalate automat si verificate?',f:'Defineste reguli de alerta pentru comenzi si retururi atipice si stabileste cine le verifica si in cat timp.'},
+  ext:{q:'Curierii, procesatorul de plati si marketplace-urile sunt verificate si reconciliate periodic cu evidenta proprie?',f:'Reconciliaza lunar incasarile si rambursarile cu extrasele procesatorului si ale curierilor si pastreaza dovada.'},
+  prox:{q:'Rambursarile catre alt cont decat cel al platii initiale sunt interzise sau aprobate de o a doua persoana?',f:'Interzice rambursarea pe alt cont decat cel de plata sau cere aprobarea unei a doua persoane si pastreaza justificarea.'}},
+ stk:{n:'Stocuri si depozit',w:1.0,d:'Receptia marfii, gestiunea stocului, inventariere si iesiri de marfa.',
+  exp:{q:'Inventarierile sunt facute periodic de persoane diferite de cele care gestioneaza stocul, iar diferentele sunt investigate?',f:'Fa inventare prin sondaj lunar, executate de o persoana din afara depozitului, si investigheaza fiecare diferenta peste un prag.'},
+  ext:{q:'Depozitele terte si furnizorii de logistica sunt reconciliati periodic cu evidenta proprie?',f:'Compara trimestrial stocul raportat de depozitele terte cu evidenta proprie si verifica fizic un esantion.'},
+  prox:{q:'Iesirile de marfa fara factura (probe, donatii, deseuri) au aprobare separata si evidenta?',f:'Cere aprobare scrisa a unei a doua persoane si evidenta separata pentru orice iesire de marfa fara factura.'}},
+ tcon:{n:'Contractare curse si subcontractori',w:1.1,d:'Alegerea transportatorilor, atribuirea comenzilor si plata subcontractorilor.',
+  exp:{q:'Transportatorii noi sunt verificati (licenta, asigurare, istoric) inainte de prima cursa, pentru a evita subcontractori fictivi si preluari de marfuri?',f:'Verifica licenta, asigurarea si istoricul oricarui transportator nou inainte de prima cursa si pastreaza dosarul de verificare.'},
+  ext:{q:'Dependenta de cativa subcontractori sau clienti mari este monitorizata, cu alternative?',f:'Masoara ponderea primilor subcontractori si clienti in cifra de afaceri si pregateste alternative pentru cei peste un prag.'},
+  prox:{q:'Se verifica daca subcontractorii au legaturi cu angajati sau dispeceri ai firmei si daca aceeasi persoana controleaza mai multe firme de transport folosite?',f:'Compara asociatii si administratorii subcontractorilor cu lista de angajati si intre ei, si cere declaratie de conflict de interese dispecerilor.'}},
+ tfleet:{n:'Combustibil, flota si documente de transport',w:1.0,d:'Carduri de combustibil, consum, service, reparatii si documente de transport.',
+  exp:{q:'Consumul de combustibil este reconciliat cu kilometrajul, GPS-ul si cardurile de combustibil, cu investigarea abaterilor?',f:'Reconciliaza lunar consumul cu kilometrajul, GPS-ul si tranzactiile cardurilor si investigheaza abaterile peste un prag.'},
+  ext:{q:'Service-urile, statiile de alimentare si firmele de leasing sunt selectate pe criterii documentate?',f:'Documenteaza criteriile de selectie si revizuieste anual furnizorii de service, combustibil si leasing.'},
+  prox:{q:'Persoana care aproba reparatiile este diferita de cea care alege service-ul si verifica factura?',f:'Separa alegerea service-ului, aprobarea reparatiei si verificarea facturii intre persoane diferite.'}},
+ inv:{n:'Facturare si contracte cu clientii',w:1.1,d:'Oferte, contracte, preturi, reduceri, facturare si incasare.',
+  exp:{q:'Contractele, preturile si reducerile speciale sunt aprobate de o a doua persoana, iar facturile emise sunt reconciliate cu livrabilele?',f:'Cere aprobarea unei a doua persoane pentru reduceri si preturi speciale si reconciliaza lunar facturile cu livrabilele.'},
+  ext:{q:'Clientii mari si intermediarii (agentii, parteneri de vanzare) sunt verificati, iar contractele contin clauze de conformitate?',f:'Verifica clientii mari si intermediarii inainte de contract si adauga clauze de conformitate si de audit.'},
+  prox:{q:'Comisioanele si intermedierile sunt platite doar pe baza unui contract si a dovezii serviciului, catre beneficiari reali verificati?',f:'Plateste comisioane doar pe baza unui contract scris, a dovezii serviciului si a verificarii beneficiarului real.'}},
+ proj:{n:'Proiecte, subcontractori si freelanceri',w:1.0,d:'Alocarea muncii, pontaj, livrabile si plata colaboratorilor externi.',
+  exp:{q:'Orele si livrabilele subcontractorilor sunt verificate de alta persoana decat cea care le-a angajat?',f:'Cere ca orele si livrabilele externe sa fie verificate de o persoana diferita de cea care a angajat colaboratorul.'},
+  ext:{q:'Freelancerii si subcontractorii cu acces la codul sursa sau la datele clientilor au acorduri de confidentialitate si acces limitat?',f:'Semneaza acorduri de confidentialitate, limiteaza accesul la strictul necesar si revoca-l la finalul proiectului.'},
+  prox:{q:'Se verifica daca freelancerii si firmele subcontractate sunt independente de angajati si daca munca este facuta de persoana contractata?',f:'Verifica independenta subcontractorilor fata de angajati si cere dovezi ca munca este facuta de persoana contractata.'}}
+};
+
+Object.assign(PROCS,{
+ prod1:{n:'Productie si materii prime',w:1.0,d:'Aprovizionarea cu materii prime, consumuri, productia propriu-zisa si evidenta productivitatii.',
+  exp:{q:'Consumurile de materii prime sunt reconciliate periodic cu productia realizata, iar abaterile sunt investigate?',f:'Compara lunar consumul de materii prime cu productia realizata si investigheaza abaterile peste un prag stabilit.'},
+  ext:{q:'Furnizorii critici de materii prime si subcontractorii de productie sunt evaluati periodic, cu alternative identificate?',f:'Evalueaza anual furnizorii critici si subcontractorii si identifica alternative pentru materialele fara substituent.'},
+  prox:{q:'Sunt verificate legaturile dintre angajatii din productie sau achizitii si firmele care furnizeaza materii prime ori preiau deseuri si resturi?',f:'Compara lista angajatilor cu asociatii si administratorii furnizorilor si ai firmelor care preiau deseuri si cere declaratii de conflict de interese.'}},
+ prod2:{n:'Calitate, livrari si pierderi',w:1.0,d:'Controlul calitatii, deseuri si rebuturi, livrarea produselor finite.',
+  exp:{q:'Deseurile, rebuturile si pierderile sunt masurate si justificate, iar casarea sau vanzarea resturilor are aprobare separata?',f:'Masoara deseurile si rebuturile pe lot si cere aprobarea unei a doua persoane pentru casare sau vanzarea resturilor.'},
+  ext:{q:'Transportatorii si depozitele externe folosite pentru livrari sunt contractate si reconciliate periodic?',f:'Reconciliaza lunar livrarile cu documentele transportatorilor si depozitelor externe si pastreaza dovada.'},
+  prox:{q:'Vanzarea sau donarea produselor declasate si a resturilor se face catre beneficiari verificati, la preturi aprobate?',f:'Vinde produsele declasate si resturile doar catre beneficiari verificati, la preturi aprobate in scris.'}},
+ constr1:{n:'Devize, situatii de lucrari si subcontractori',w:1.1,d:'Ofertare, devize, situatii de lucrari, subcontractori si plata acestora.',
+  exp:{q:'Situatiile de lucrari sunt verificate pe teren de o persoana diferita de cea care le-a intocmit, inainte de aprobarea la plata?',f:'Cere verificarea pe teren a situatiilor de lucrari de catre o persoana diferita de cea care le-a intocmit, inainte de plata.'},
+  ext:{q:'Subcontractorii sunt selectati pe baza de oferte comparate si au contracte cu obiect, pret si termene clare?',f:'Compara minimum trei oferte pentru subcontractori si incheie contracte cu obiect, pret, termene si penalitati clare.'},
+  prox:{q:'Se verifica daca subcontractorii sau furnizorii au legaturi cu angajati, diriginti de santier sau conducere, si daca aceeasi persoana controleaza mai multe firme folosite?',f:'Compara asociatii si administratorii subcontractorilor cu lista angajatilor si intre ei si cere declaratii de conflict de interese.'}},
+ constr2:{n:'Materiale, receptii si utilaje',w:1.0,d:'Comandarea si receptia materialelor pe santier, consumuri, inchirieri de utilaje.',
+  exp:{q:'Materialele primite pe santier sunt receptionate cantitativ si calitativ, cu semnatura unei persoane diferite de cea care le-a comandat?',f:'Cere receptia materialelor de o persoana diferita de cea care le-a comandat, cu semnatura si fotografie a livrarii.'},
+  ext:{q:'Furnizorii de materiale si de inchiriere utilaje sunt comparati ca pret si au conditii de livrare documentate?',f:'Compara anual preturile furnizorilor de materiale si utilaje si documenteaza conditiile de livrare.'},
+  prox:{q:'Consumurile de materiale pe santier sunt reconciliate cu lucrarile executate, iar iesirile catre alte santiere sau persoane sunt aprobate separat?',f:'Reconciliaza lunar consumurile cu lucrarile executate si cere aprobare separata pentru orice transfer de materiale.'}},
+ horeca1:{n:'Incasari, casa si POS',w:1.1,d:'Casa de marcat, POS, anulari, reduceri, incasari numerar si card.',
+  exp:{q:'Incasarile din casa de marcat si POS sunt reconciliate zilnic cu comenzile si cu extrasele bancare, iar anularile si reducerile sunt aprobate de o a doua persoana?',f:'Reconciliaza zilnic casa cu comenzile si POS-ul si cere aprobarea unui responsabil pentru anulari si reduceri.'},
+  ext:{q:'Furnizorii de POS, aplicatii de comenzi si platforme de livrare au conturi individuale si sunt reconciliati periodic?',f:'Foloseste conturi individuale in aplicatiile terte si reconciliaza lunar incasarile platformelor cu extrasele.'},
+  prox:{q:'Accesul la casa, la anulari si la modificarea preturilor este limitat pe roluri, iar codurile si cheile sunt evidentiate?',f:'Limiteaza pe roluri accesul la casa si la modificarea preturilor si tine evidenta codurilor si a cheilor.'}},
+ horeca2:{n:'Stocuri, aprovizionare si retete',w:1.0,d:'Comenzi catre furnizori, receptia marfii, stocuri si consumuri pe baza retetelor.',
+  exp:{q:'Consumurile sunt comparate cu vanzarile pe baza retetelor, iar diferentele de stoc sunt investigate?',f:'Compara lunar consumul teoretic din retete cu cel real si investigheaza diferentele.'},
+  ext:{q:'Furnizorii de alimente si bauturi sunt comparati ca pret si calitate, iar livrarile sunt receptionate cantitativ?',f:'Compara preturile furnizorilor de doua ori pe an si cere receptia cantitativa la fiecare livrare.'},
+  prox:{q:'Persoana care comanda marfa este diferita de cea care o receptioneaza si de cea care verifica factura, iar relatiile cu furnizorii sunt declarate?',f:'Separa comandarea, receptia si verificarea facturii si cere declaratia de conflict de interese pentru cei care aleg furnizorii.'}},
+ oth1:{n:'Vanzari si incasari',w:1.1,d:'Oferte, contracte, facturare si incasare de la clienti.',
+  exp:{q:'Reducerile, preturile speciale si anularile sunt aprobate de o a doua persoana, iar facturile sunt reconciliate cu livrarile?',f:'Cere aprobarea unei a doua persoane pentru reduceri si preturi speciale si reconciliaza lunar facturile cu livrarile.'},
+  ext:{q:'Clientii mari si intermediarii sunt verificati, iar contractele contin clauze clare de plata si conformitate?',f:'Verifica clientii mari si intermediarii inainte de contract si adauga clauze de plata, conformitate si audit.'},
+  prox:{q:'Comisioanele si intermedierile sunt platite doar pe baza unui contract si a dovezii serviciului, catre beneficiari reali verificati?',f:'Plateste comisioane doar pe baza unui contract scris, a dovezii serviciului si a verificarii beneficiarului real.'}},
+ oth2:{n:'Personal, pontaj si salarizare',w:1.0,d:'Angajari, modificari de salarii, pontaj si plata salariilor.',
+  exp:{q:'Angajarile, modificarile de salariu, pontajul si plata salariilor sunt aprobate si verificate de persoane diferite?',f:'Separa intre persoane diferite angajarea, modificarea salariilor, pontajul si plata, cu verificare lunara a statului de plata.'},
+  ext:{q:'Firma de contabilitate sau salarizare externa are acces limitat, documentat si revizuit periodic?',f:'Documenteaza accesul firmei externe de salarizare, limiteaza-l la strictul necesar si revizuieste-l anual.'},
+  prox:{q:'Se verifica existenta reala a angajatilor si colaboratorilor platiti (contracte, pontaj, dovezi de activitate) si legaturile de rudenie cu cei care aproba platile?',f:'Verifica periodic existenta reala a persoanelor platite si declara legaturile de rudenie cu cei care aproba platile.'}}
+});
+var REQ={
+ pay:'legislatia anti-spalare de bani (Legea 129/2019), unde firma este entitate raportoare, cere cunoasterea partenerilor si a beneficiarului real; bancile si partenerii cer frecvent verificari similare.',
+ buy:'verificarea partenerilor si a beneficiarului real, gestionarea conflictelor de interese si cerintele de conformitate ale clientilor mari si ale bancilor.',
+ acc:'GDPR (securitatea prelucrarii datelor) si, pentru entitatile din sectoarele vizate, legislatia romana de transpunere a NIS2 privind managementul riscurilor de securitate cibernetica.',
+ ord:'GDPR pentru datele clientilor, regulile privind platile electronice si protectia consumatorilor.',
+ stk:'cerintele partenerilor si ale auditorilor privind evidenta stocurilor si controlul intern.',
+ tcon:'verificarea partenerilor si a beneficiarului real, respectiv cerintele clientilor mari privind selectia transportatorilor.',
+ tfleet:'cerintele privind evidenta documentelor de transport si a consumurilor, precum si cele ale asiguratorilor si ale clientilor.',
+ inv:'verificarea clientilor si intermediarilor, GDPR pentru datele clientilor si cerintele de conformitate ale partenerilor.',
+ proj:'GDPR si clauzele de confidentialitate pentru datele clientilor la care au acces colaboratorii externi.',
+ prod1:'cerintele de trasabilitate ale clientilor si partenerilor si verificarea furnizorilor de materii prime.',
+ prod2:'cerintele privind calitatea, trasabilitatea loturilor si evidenta deseurilor.',
+ constr1:'verificarea subcontractorilor si a beneficiarului real, respectiv cerintele beneficiarilor si finantatorilor privind controlul costurilor.',
+ constr2:'cerintele privind receptia lucrarilor, evidenta materialelor si controlul costurilor.',
+ horeca1:'obligatiile privind casele de marcat si evidenta incasarilor, respectiv GDPR pentru datele clientilor.',
+ horeca2:'cerintele privind evidenta stocurilor si trasabilitatea alimentelor.',
+ oth1:'verificarea clientilor si intermediarilor si cerintele partenerilor privind conformitatea.',
+ oth2:'GDPR pentru datele angajatilor, obligatiile privind evidenta timpului de munca si cerintele auditorilor.'
+};
+Object.keys(REQ).forEach(function(k){ PROCS[k].req=REQ[k]; });
+
+var NICHES={
+ retail:{n:'Comert online',d:'Magazine online, marketplace-uri, retururi si depozit.',procs:['pay','buy','acc','ord','stk']},
+ it:{n:'Servicii profesionale si IT',d:'Agentii, software, consultanta si colaboratori externi.',procs:['pay','buy','acc','inv','proj']},
+ prod:{n:'Productie si industrie',d:'Fabrici, ateliere, procesare, materii prime si livrari.',procs:['pay','buy','acc','prod1','prod2']},
+ constr:{n:'Constructii si instalatii',d:'Santiere, subcontractori, materiale si utilaje.',procs:['pay','buy','acc','constr1','constr2']},
+ transport:{n:'Transport si logistica',d:'Transport rutier, subcontractori, flota si combustibil.',procs:['pay','buy','acc','tcon','tfleet']},
+ horeca:{n:'HoReCa',d:'Restaurante, cafenele, hoteluri, casa, POS si stocuri.',procs:['pay','buy','acc','horeca1','horeca2']},
+ other:{n:'Alta activitate',d:'Orice alt domeniu: se folosesc procese generale.',procs:['pay','buy','acc','oth1','oth2']}
+};
+var GROUPS=[
+ {t:'Comert si servicii',k:['retail','it']},
+ {t:'Productie si constructii',k:['prod','constr']},
+ {t:'Transport si ospitalitate',k:['transport','horeca']},
+ {t:'Altele',k:['other']}
+];
+
+function buildQs(pid){
+  var P=PROCS[pid],n=P.n;
+  return [
+   {k:'doc',dim:'doc',t:'Procesul „'+n+'” are o procedura scrisa (SOP) actualizata, cu pasi si responsabili numiti?',f:'Scrie sau actualizeaza SOP-ul „'+n+'”: pasi, responsabili, praguri de aprobare si exceptii.'},
+   {k:'ctl',dim:'ctl',t:'Pentru „'+n+'” exista controale interne definite (aprobari, reconcilieri, verificari periodice), iar cineva verifica respectarea lor?',f:'Defineste controale minime pentru „'+n+'” (aprobare, reconciliere lunara, verificare prin sondaj) si numeste responsabilul care le verifica.'},
+   {k:'seg',dim:'seg',t:'In „'+n+'”, aprobarea, executia si verificarea sunt facute de persoane diferite?',f:'Separa aprobarea, executia si verificarea in „'+n+'”. Daca firma este mica, introdu verificarea lunara de catre proprietar sau un contabil extern pe un esantion.'},
+   {k:'trc',dim:'trc',t:'Actiunile din „'+n+'” lasa urme (jurnal, semnaturi, evidente) care pot fi reconstituite ulterior?',f:'Activeaza jurnalele si evidentele pentru „'+n+'”: cine, ce, cand, aprobat de cine. Pastreaza-le conform unei politici de arhivare.'},
+   {k:'exp',dim:'exp',t:P.exp.q,f:P.exp.f},
+   {k:'depA',dim:'dep',sub:.3,g:'Dependenta: persoane-cheie interne',t:'Daca persoana-cheie din „'+n+'” lipseste 30 de zile, procesul continua cu un inlocuitor instruit, iar in mod normal exista rotatie si concediu efectiv?',f:'Desemneaza si instruieste un inlocuitor pentru „'+n+'”, tine accesele intr-un seif de parole al firmei si introdu concediu obligatoriu pentru rolurile critice.'},
+   {k:'depB',dim:'dep',sub:.3,g:'Dependenta: terti externi cu acces',t:P.ext.q,f:P.ext.f},
+   {k:'depC',dim:'dep',sub:.4,g:'Dependenta: interpusi si relatii ascunse',t:P.prox.q,f:P.prox.f}
+  ];
+}
+function dimName(q){ if(q.g) return q.g; for(var i=0;i<DIMS.length;i++){ if(DIMS[i].id===q.dim) return DIMS[i].name; } return ''; }
+function dimW(id){ for(var i=0;i<DIMS.length;i++){ if(DIMS[i].id===id) return DIMS[i].w; } return 0; }
+
+
+function band(s){
+  if(s>=90) return {label:'Risc foarte scazut',cls:'ok'};
+  if(s>=75) return {label:'Risc scazut',cls:'ok'};
+  if(s>=60) return {label:'Risc mediu',cls:'mid'};
+  if(s>=40) return {label:'Risc ridicat',cls:'bad'};
+  return {label:'Risc critic',cls:'bad'};
+}
+var KW=[['aprob|approv|sign-?off','aprobare'],['semn|signature|signed','semnaturi'],['registru|jurnal|eviden|register|log\\b|record','jurnal sau evidenta'],['verific|control|check|review','verificare'],['responsabil|responsible|owner','responsabil numit'],['termen|scaden|deadline|due date','termene'],['excep','exceptii'],['reconcil','reconciliere'],['audit','audit'],['prag|limit|threshold','praguri sau limite']];
+function analyse(text){
+  var t=(text||'').toLowerCase(),trimmed=(text||'').trim();
+  var words=trimmed?trimmed.split(/\s+/).length:0,hit=[],miss=[];
+  KW.forEach(function(p){ (new RegExp(p[0])).test(t)?hit.push(p[1]):miss.push(p[1]); });
+  return {words:words,hit:hit,miss:miss};
+}
+
+function pad2(n){ return (n<10?'0':'')+n; }
+function isoDate(d){ return d.getFullYear()+'-'+pad2(d.getMonth()+1)+'-'+pad2(d.getDate()); }
+var SLOTS=['09:00–10:00','10:00–11:00','11:00–12:00','13:00–14:00','14:00–15:00','15:00–16:00','16:00–17:00'];
+function fmtDate(iso){ if(!iso) return ''; var d=new Date(iso+'T12:00:00'); return isNaN(d)?iso:d.toLocaleDateString(SBR.loc,{weekday:'long',day:'numeric',month:'long',year:'numeric'}).normalize('NFD').replace(/[\u0300-\u036f]/g,''); }
+function auditProblems(){
+  var A=S.audit,p=[];
+  if(!A.date) p.push('data preferata'); else {
+    var d=new Date(A.date+'T12:00:00'),tm=new Date(); tm.setHours(0,0,0,0); tm.setDate(tm.getDate()+1);
+    if(isNaN(d)||d<tm) p.push('o data de maine sau ulterioara'); else if(d.getDay()===0||d.getDay()===6) p.push('o zi lucratoare (luni–vineri)');
+  }
+  if(!A.slot) p.push('intervalul orar');
+  if(!A.mode) p.push('modalitatea (online sau la sediu)');
+  if(!A.name.trim()) p.push('numele persoanei de contact');
+  if(!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(A.email.trim())) p.push('o adresa de e-mail valida');
+  if(!A.consent) p.push('acordul pentru transmiterea datelor');
+  return p;
+}
+function reqText(){
+  var R=compute(),A=S.audit,L=[];
+  L.push('CERERE DE AUDIT SBR VERIFIED');
+  L.push('Firma: '+S.profile.name+(S.profile.cui?' (CUI '+S.profile.cui+')':''));
+  L.push('Domeniu: '+NICHES[S.niche].n+(S.profile.emp?', '+S.profile.emp+' angajati':''));
+  L.push('Scor SBR: '+R.company+'/100 ('+band(R.company).label+'), nivel de incredere: '+R.level);
+  L.push('Scoruri pe procese:');
+  R.procs.forEach(function(p){ L.push('- '+p.name+': '+p.score+(p.caps.length?' (plafonat)':'')); });
+  if(R.plan.length){ L.push('Prioritati principale:'); R.plan.slice(0,3).forEach(function(x){ L.push('- '+x.pn+': '+x.dim); }); }
+  L.push('Programare dorita: '+fmtDate(A.date)+', '+A.slot+' (ora Romaniei), '+(A.mode||''));
+  L.push('Contact: '+A.name+', '+A.email+(A.phone?', '+A.phone:''));
+  L.push('Verificator: '+VERIFIER.name);
+  return L.join('\n');
+}
+
+
+var VERIFIER={name:'Sabrin Doaga',role:'Verificator uman SBR, SBR SYSTEMS GS S.R.L.',email:'',telegram:'https://t.me/sbrorator'};
+var STN=['Profil','Domeniu','Procese','Dovezi','Scor si recomandari','Verificare','Raport'];
+var G=[
+ {t:'Cum este descris si controlat procesul',s:'O procedura clara si controale reale sunt baza oricarei evaluari.',ks:['doc','ctl']},
+ {t:'Cine face ce si ce ramane in urma',s:'Separarea rolurilor si urmele lasate fac frauda mai greu de ascuns.',ks:['seg','trc']},
+ {t:'Cat de expus este la frauda',s:'Cat de usor poate fi exploatat procesul de cineva din interior sau din exterior.',ks:['exp']},
+ {t:'Dependenta de oameni-cheie, terti si interpusi',s:'Cine poate bloca sau exploata procesul: o persoana, un furnizor sau o firma de fatada.',ks:['depA','depB','depC']}
+];
+function newAudit(){ return {date:'',slot:'',mode:'',name:'',email:'',phone:'',consent:false}; }
+var S={sid:SBR.session(),niche:null,profile:{name:'',cui:'',emp:'',human:'',consent:false},ans:{},ev:{},st:0,max:0,pt:0,et:0,round:0,analyzed:false,mode:'',busy:false,log:[],prevScore:null,changes:[],audit:newAudit(),sent:''};
+var KEY='sbrverified_journey_v2';
+function evOf(pid){ if(!S.ev[pid]) S.ev[pid]={text:'',files:[],find:{},gaps:[],incons:[],fq:[],answered:[],summary:'',src:''}; if(!S.ev[pid].files) S.ev[pid].files=[]; return S.ev[pid]; }
+function procs(){ return S.niche?NICHES[S.niche].procs:[]; }
+function save(){
+  try{
+    var e={}; Object.keys(S.ev).forEach(function(k){ var v=S.ev[k]; e[k]={text:v.text,find:v.find,gaps:v.gaps,incons:v.incons,fq:v.fq,answered:v.answered,summary:v.summary,src:v.src}; });
+    localStorage.setItem(KEY,JSON.stringify({niche:S.niche,profile:S.profile,ans:S.ans,ev:e,st:S.st,max:S.max,round:S.round,analyzed:S.analyzed,mode:S.mode,audit:S.audit,prevScore:S.prevScore,changes:S.changes}));
+  }catch(x){}
+}
+function load(){
+  try{
+    var o=JSON.parse(localStorage.getItem(KEY)||'null'); if(!o) return;
+    S.niche=o.niche||null; S.profile=Object.assign(S.profile,o.profile||{}); S.ans=o.ans||{};
+    Object.keys(o.ev||{}).forEach(function(k){ var v=o.ev[k]; S.ev[k]=Object.assign({files:[]},v); });
+    S.st=o.st||0; S.max=o.max||0; S.round=o.round||0; S.analyzed=!!o.analyzed; S.mode=o.mode||''; S.audit=Object.assign(newAudit(),o.audit||{}); S.prevScore=o.prevScore; S.changes=o.changes||[];
+  }catch(x){}
+}
+function answeredCount(pid){ var a=S.ans[pid]||{},c=0; buildQs(pid).forEach(function(q){ if(typeof a[q.k]==='number') c++; }); return c; }
+function allAnswered(){ return procs().length>0&&procs().every(function(p){ return answeredCount(p)===buildQs(p).length; }); }
+function humanVal(){ var h=String(S.profile.human).trim(); if(h==='') return null; var n=Number(h); return (isFinite(n)&&n>=0&&n<=100)?n:NaN; }
+function profileOk(){ var h=humanVal(); return S.profile.name.trim().length>=2&&S.profile.consent&&!(h!==null&&isNaN(h)); }
+function words(t){ t=(t||'').trim(); return t?t.split(/\s+/).length:0; }
+function evWords(pid){ var e=evOf(pid),extra=e.files.filter(function(f){ return f.kind==='text'; }).map(function(f){ return f.text; }).join(' '); return words((e.text||'')+' '+extra); }
+function hasEvidence(pid){ var e=evOf(pid); return evWords(pid)>=40||e.files.some(function(f){ return f.kind!=='text'; })||e.files.length>0&&evWords(pid)>=40; }
+
+/* ---------- effective answers and scoring ---------- */
+function declared(pid,k){ return (S.ans[pid]||{})[k]; }
+function eff(pid,k){ var d=declared(pid,k),f=(evOf(pid).find||{})[k]; if(f&&typeof f.lvl==='number'&&f.lvl<d) return f.lvl; return d; }
+function compute(){
+  var list=procs(),out=[],sumW=0,sumS=0;
+  list.forEach(function(pid){
+    var P=PROCS[pid],qs=buildQs(pid),a={},e=evOf(pid),reduced=[],unproven=[];
+    qs.forEach(function(q){ var d=declared(pid,q.k),v=eff(pid,q.k); a[q.k]=v; if(v<d) reduced.push({k:q.k,from:d,to:v,note:(e.find[q.k]||{}).note||'',t:q.t}); else if(d>=2&&!hasEvidence(pid)) unproven.push(q.k); });
+    var d={doc:V[a.doc],ctl:V[a.ctl],seg:V[a.seg],trc:V[a.trc],exp:V[a.exp],dep:.3*V[a.depA]+.3*V[a.depB]+.4*V[a.depC]};
+    var raw=0; DIMS.forEach(function(D){ raw+=D.w*d[D.id]; }); raw=raw/100;
+    var caps=[],score=raw;
+    if(a.seg<=1&&(a.depA<=1||a.depC<=1)) caps.push({cap:40,why:'Aceeasi persoana poate aproba, executa si controla relatia cu un tert (separarea atributiilor si dependenta de persoane-cheie sau interpusi sunt slabe).'});
+    if(a.doc===0&&a.ctl===0) caps.push({cap:50,why:'Procesul nu are nici procedura scrisa, nici controale.'});
+    caps.forEach(function(c){ if(score>c.cap) score=c.cap; });
+    var plan=[];
+    qs.forEach(function(q){ var v=a[q.k]; if(v>=3) return; var w=dimW(q.dim)*(q.sub||1),f=(e.find[q.k]||{}).rec||q.f; plan.push({pid:pid,pn:P.n,f:f,cur:OPTS[v],impact:((3-v)/3)*w*P.w,dim:dimName(q),k:q.k}); });
+    out.push({id:pid,name:P.n,w:P.w,d:d,raw:raw,score:Math.round(score),caps:caps,reduced:reduced,unproven:unproven,plan:plan,evidence:hasEvidence(pid),depA:a.depA,eff:a});
+    sumW+=P.w; sumS+=P.w*score;
+  });
+  var proc=sumW?sumS/sumW:0,penalty=0,keyCount=0;
+  out.forEach(function(p){ if(PROCS[p.id].w>=1.1&&p.depA<=1) keyCount++; });
+  if(keyCount>=3) penalty=8; else if(keyCount===2) penalty=5;
+  var company=proc-penalty,notes=[];
+  if(penalty) notes.push('Penalizare de '+penalty+' puncte: '+keyCount+' procese critice depind de persoane-cheie fara inlocuitor.');
+  if(out.some(function(p){ return PROCS[p.id].w>=1.2&&p.caps.length; })&&company>65){ company=65; notes.push('Scorul companiei este plafonat la 65, deoarece un proces critic (plati sau achizitii) este plafonat.'); }
+  var h=humanVal();
+  if(h!==null&&!isNaN(h)){ company=.85*company+.15*h; notes.push('Factorul uman (scor comportamental mediu al angajatilor, '+h+') contribuie cu 15% la scorul final.'); }
+  company=Math.max(0,Math.min(100,Math.round(company)));
+  var allEv=out.length>0&&out.every(function(p){ return p.evidence; }),level=allEv?'Documentat':'Declarat',blockers=[];
+  if(company<75) blockers.push('Scorul companiei este sub 75.');
+  if(out.some(function(p){ return p.caps.length; })) blockers.push('Exista procese plafonate de reguli critice.');
+  if(!allEv) blockers.push('Nu toate procesele au dovezi atasate (text sau fisiere).');
+  if(h!==null&&!isNaN(h)&&h<50) blockers.push('Scorul comportamental al angajatilor este sub 50.');
+  var all=[]; out.forEach(function(p){ all=all.concat(p.plan); });
+  out.forEach(function(p){ if(p.caps.length) all.forEach(function(x){ if(x.pid===p.id&&/separ|persoane-cheie|interpusi/i.test(x.dim)) x.impact+=1000; }); });
+  all.sort(function(a,b){ return b.impact-a.impact; });
+  return {procs:out,company:company,level:level,notes:notes,blockers:blockers,elig:blockers.length===0,plan:all.slice(0,10)};
+}
+function snapshot(){ var m={}; procs().forEach(function(pid){ buildQs(pid).forEach(function(q){ m[pid+'.'+q.k]=eff(pid,q.k); }); }); return m; }
+
+/* ---------- evidence analysis (AI with local fallback) ---------- */
+function normEv(r,src){
+  if(!r||!Array.isArray(r.findings)) throw new Error('raspuns invalid');
+  var find={}; r.findings.forEach(function(f){ if(!f||!f.k) return; var l=(f.evidence_level===null||f.evidence_level===undefined||f.evidence_level==='')?null:Math.max(0,Math.min(3,Math.round(+f.evidence_level))); find[f.k]={lvl:(l!==null&&!isNaN(l))?l:null,note:String(f.note||''),rec:f.recommendation?String(f.recommendation):''}; });
+  var ar=function(x){ return Array.isArray(x)?x.map(String):[]; };
+  return {find:find,gaps:ar(r.gaps),incons:ar(r.inconsistencies),summary:String(r.summary||''),fq:(Array.isArray(r.followups)?r.followups:[]).map(function(q,i){ return {id:String(q.id||('f'+i)),q:String(q.q||''),why:String(q.why||''),a:''}; }).filter(function(q){ return q.q; }).slice(0,4),src:src};
+}
+function localEv(pid,text,fu){
+  var e=evOf(pid),an=analyse(text),find={},gaps=[],incons=[],fq=[],hasFiles=e.files.some(function(f){ return f.kind!=='text'; });
+  var d=declared(pid,'doc');
+  if(d>=2&&an.words<40&&!hasFiles){ find.doc={lvl:1,note:'Ai declarat SOP documentat, dar nu ai furnizat text sau fisiere care sa-l arate.',rec:''}; incons.push('Documentarea declarata nu este sustinuta de dovezi.'); }
+  if(an.words>0&&an.miss.length) gaps.push('In descrierea procesului nu apar: '+an.miss.slice(0,4).join(', ')+'.');
+  if(an.words===0&&!hasFiles) gaps.push('Nu ai furnizat nicio dovada pentru acest proces.');
+  var n=PROCS[pid].n;
+  if(an.miss.indexOf('aprobare')>=0||an.words===0) fq.push({id:'f1',q:'Cine aproba operatiunile din "'+n+'" si de la ce prag?',why:'Fara aprobare clara, separarea atributiilor nu poate fi confirmata.',a:''});
+  if(an.miss.indexOf('jurnal sau evidenta')>=0||an.words===0) fq.push({id:'f2',q:'Ce evidenta sau jurnal ramane dupa fiecare operatiune din "'+n+'"?',why:'Urmele lasate permit reconstituirea ulterioara.',a:''});
+  if(an.miss.indexOf('verificare')>=0||an.words===0) fq.push({id:'f3',q:'Cine verifica periodic respectarea procedurii din "'+n+'" si cat de des?',why:'Un control neverificat nu poate fi considerat functional.',a:''});
+  var done=(fu||[]).map(function(x){ return x.q; }); fq=fq.filter(function(x){ return done.indexOf(x.q)<0; });
+  return {find:find,gaps:gaps,incons:incons,summary:an.words?('Text analizat: '+an.words+' cuvinte, '+an.hit.length+' elemente-cheie gasite.'):'Nu exista text de analizat.',fq:fq.slice(0,3),src:'local'};
+}
+function analyzeEvidence(pid){
+  var e=evOf(pid),P=PROCS[pid],qs=buildQs(pid),textFiles=e.files.filter(function(f){ return f.kind==='text'; }).map(function(f){ return f.text; }),files=e.files.filter(function(f){ return f.kind!=='text'; });
+  var red=SBR.redact((e.text||'')+(textFiles.length?'\n\n'+textFiles.join('\n\n'):''));
+  var fu=(e.answered||[]).concat((e.fq||[]).filter(function(x){ return x.a&&x.a.trim(); }).map(function(x){ return {q:x.q,a:x.a}; }));
+  var body={action:'verified_evidence',lang:SBR.lang,session_id:S.sid,round:S.round,niche:NICHES[S.niche].n,employees:S.profile.emp,process:{id:pid,name:P.n,description:P.d},
+    questions:qs.map(function(q){ return {k:q.k,text:q.t,declared:declared(pid,q.k)}; }),text:red.text,files:files.map(function(f){ return {name:f.name,kind:f.kind,media_type:f.media_type,data:f.data}; }),followups:fu};
+  return SBR.post(SBR.API.ai,body).then(function(r){ return normEv(r,'ai'); }).catch(function(){ return localEv(pid,red.text,fu); });
+}
+function applyEv(pid,r){
+  var e=evOf(pid);
+  (e.fq||[]).forEach(function(x){ if(x.a&&x.a.trim()) e.answered.push({q:x.q,a:x.a}); });
+  e.find=r.find; e.gaps=r.gaps; e.incons=r.incons; e.summary=r.summary; e.fq=r.fq; e.src=r.src;
+}
+function runAnalysis(){
+  if(S.busy) return; S.busy=true; S.round++; S.log=[];
+  var before=S.analyzed?snapshot():null,prevScore=S.analyzed?compute().company:null,list=procs(),chain=Promise.resolve(),srcs=[];
+  list.forEach(function(pid){ chain=chain.then(function(){ S.log.push('Analizez "'+PROCS[pid].n+'"...'); paintLog(); return analyzeEvidence(pid).then(function(r){ applyEv(pid,r); srcs.push(r.src); S.log[S.log.length-1]='Analizat: "'+PROCS[pid].n+'"'; paintLog(); }); }); });
+  chain.then(function(){
+    S.mode=srcs.every(function(x){ return x==='ai'; })?'ai':'local'; S.analyzed=true; S.busy=false;
+    S.prevScore=prevScore; S.changes=[];
+    if(before){ var after=snapshot(); Object.keys(after).forEach(function(k){ if(after[k]!==before[k]){ var p=k.split('.'),q=buildQs(p[0]).filter(function(x){ return x.k===p[1]; })[0]; S.changes.push({p:PROCS[p[0]].n,dim:dimName(q),from:before[k],to:after[k],note:((evOf(p[0]).find[p[1]])||{}).note||''}); } }); }
+    save(); saveRemote('verified_analysis'); render(true);
+  });
+}
+function paintLog(){ var el=$('runlog'); if(el) el.innerHTML=S.log.map(function(x){ return '<div>'+(/^Analizez/.test(x)?'<span class="spin"></span>':'&#10003; ')+esc(x)+'</div>'; }).join(''); }
+function saveRemote(kind){
+  if(!S.profile.consent) return Promise.resolve(false);
+  var R=compute();
+  return SBR.post(SBR.API.save,{action:'save',session_id:S.sid,kind:kind,round:S.round,score:R.company,
+    payload:{firm:{name:S.profile.name,cui:S.profile.cui,employees:S.profile.emp},niche:S.niche,level:R.level,mode:S.mode,procs:R.procs.map(function(p){ return {id:p.id,name:p.name,score:p.score,capped:p.caps.length,evidence:p.evidence}; }),audit:kind==='audit_request'?S.audit:undefined},
+    result:{plan:R.plan.slice(0,10).map(function(x){ return {process:x.pn,dimension:x.dim,action:x.f}; }),notes:R.notes}}).then(function(){ return true; }).catch(function(){ return false; });
+}
+
+/* ---------- views ---------- */
+function navRow(back,nextLabel,ok,prog,nextAct){
+  return '<div class="nav">'+(back?'<button type="button" class="btn sec" data-act="back">'+back+'</button>':'')+(nextLabel?'<button type="button" class="btn" data-act="'+(nextAct||'next')+'" id="btn-next"'+(ok?'':' disabled')+'>'+nextLabel+'</button>':'')+'<span class="prog" id="prog">'+esc(prog||'')+'</span></div>';
+}
+function v0(){
+  var p=S.profile,h='<h2>Profilul companiei</h2><p class="lede">Incepem cu cadrul: cine este firma evaluata.</p>';
+  h+='<div class="field"><label for="f-name">Denumirea firmei</label><input type="text" id="f-name" autocomplete="organization" value="'+esc(p.name)+'"></div>';
+  h+='<div class="row2"><div class="field"><label for="f-cui">CUI <span class="hint">Optional in aceasta etapa</span></label><input type="text" id="f-cui" inputmode="numeric" value="'+esc(p.cui)+'"></div>';
+  h+='<div class="field"><label for="f-emp">Numarul de angajati</label><select id="f-emp"><option value="">Alege</option>';
+  ['1-9','10-49','50-249','250 sau mai multi'].forEach(function(o){ h+='<option'+(p.emp===o?' selected':'')+'>'+o+'</option>'; });
+  h+='</select></div></div>';
+  h+='<div class="field"><label for="f-human">Scor comportamental mediu al angajatilor, din SBR Business <span class="hint">Optional, intre 0 si 100. Daca il completezi, contribuie cu 15% la scorul final.</span></label><input type="number" id="f-human" min="0" max="100" step="1" value="'+esc(p.human)+'"><div class="err" id="e-human" hidden>Introdu un numar intre 0 si 100.</div></div>';
+  h+='<div class="field"><label style="font-weight:400"><input type="checkbox" id="f-consent"'+(p.consent?' checked':'')+'> Sunt de acord ca informatiile si dovezile introduse in acest traseu sa fie trimise spre analiza automata SBR si inregistrate pentru evaluare. Nu incarca parole, coduri sau date de card.</label><div class="note"><a href="https://www.sbr.systems/privacy.html" target="_blank" rel="noopener">Politica de confidentialitate</a> · <a href="https://www.sbr.systems/gdpr.html" target="_blank" rel="noopener">GDPR</a></div></div>';
+  return h+navRow('','Continua la domeniu',profileOk(),profileOk()?'':'Completeaza denumirea firmei si bifeaza acordul.');
+}
+function v1(){
+  var h='<h2>Domeniul de activitate</h2><p class="lede">Alege categoria care descrie cel mai bine activitatea principala. Procesele evaluate si intrebarile se adapteaza domeniului.</p>';
+  GROUPS.forEach(function(g){
+    h+='<h3 class="gt">'+g.t+'</h3><div class="niches" role="radiogroup" aria-label="'+g.t+'">';
+    g.k.forEach(function(k){ h+='<label class="niche"><input type="radio" name="niche" value="'+k+'"'+(S.niche===k?' checked':'')+'><span><b>'+NICHES[k].n+'</b><small>'+NICHES[k].d+'</small></span></label>'; });
+    h+='</div>';
+  });
+  return h+navRow('Inapoi','Continua la procese',!!S.niche,S.niche?'':'Alege un domeniu.');
+}
+function tabs(kind){
+  var list=procs(),cur=kind==='p'?S.pt:S.et;
+  return '<div class="tabs" role="tablist">'+list.map(function(id,i){ var done=kind==='p'?answeredCount(id)===buildQs(id).length:hasEvidence(id); return '<button type="button" role="tab" class="'+(i===cur?'on ':'')+(done?'ok':'')+'" data-act="tab'+kind+'" data-i="'+i+'">'+esc(PROCS[id].n)+'</button>'; }).join('')+'</div>';
+}
+function v2(){
+  var list=procs(),pid=list[S.pt],P=PROCS[pid],qs=buildQs(pid),a=S.ans[pid]||{},h='<h2>Procesele firmei</h2><p class="lede">Pentru fiecare proces, alege cum stau lucrurile <b>astazi</b>, nu cum ar trebui sa fie. Raspunsurile vor fi comparate cu dovezile.</p>'+tabs('p');
+  h+='<h3 style="margin-top:6px">'+esc(P.n)+'</h3><p class="note" style="margin:0 0 4px">'+esc(P.d)+'</p><p class="note">Cerinte conexe (de verificat cu un specialist): '+esc(P.req)+'</p>';
+  G.forEach(function(g){
+    h+='<div class="grp"><b>'+g.t+'</b>'+(g.s?'<span>'+g.s+'</span>':'')+'</div>';
+    g.ks.forEach(function(k){
+      var q=qs.filter(function(x){ return x.k===k; })[0];
+      h+='<fieldset class="stmt"><legend><span class="tag">'+esc(dimName(q))+'</span><span class="txt">'+esc(q.t)+'</span></legend><div class="opts">';
+      OPTS.forEach(function(o,vi){ h+='<label class="opt"><input type="radio" name="'+pid+'_'+k+'" value="'+vi+'" data-p="'+pid+'" data-k="'+k+'"'+(a[k]===vi?' checked':'')+'><span>'+o+'</span></label>'; });
+      h+='</div></fieldset>';
+    });
+  });
+  var c=answeredCount(pid),last=S.pt===list.length-1;
+  return h+navRow('Inapoi',last?'Continua la dovezi':'Urmatorul proces',c===qs.length,c+' din '+qs.length+' raspunsuri completate',last?'next':'nextp');
+}
+function filesHtml(pid){ return evOf(pid).files.map(function(f,i){ return '<div class="file">'+(f.preview?'<img alt="" src="'+f.preview+'">':'')+'<span>'+esc(f.name)+' ('+f.kind+')</span><button type="button" data-act="rmf" data-p="'+pid+'" data-i="'+i+'" aria-label="Sterge">&times;</button></div>'; }).join(''); }
+function v3(){
+  var list=procs(),pid=list[S.et],P=PROCS[pid],e=evOf(pid),h='<h2>Dovezi</h2><p class="lede">Sustine ce ai declarat. Dovezile transforma o afirmatie intr-un fapt verificabil si cresc nivelul de incredere. Poti sari peste un proces, dar scorul ramane la nivelul „Declarat”.</p>'+tabs('e');
+  h+='<h3 style="margin-top:6px">'+esc(P.n)+'</h3>';
+  h+='<p class="note">Ce dovezi ajuta: procedura scrisa (SOP), capturi de ecran din aplicatii (aprobari, jurnale, drepturi de acces), fotografii ale registrelor sau formularelor, contracte, e-mailuri de aprobare, extrase de raport.</p>';
+  h+='<div class="field"><label for="f-note">Procedura sau descrierea procesului <span class="hint">Lipeste textul SOP sau descrie pas cu pas cum decurge procesul si cine face ce.</span></label><textarea id="f-note" data-p="'+pid+'" style="min-height:150px">'+esc(e.text)+'</textarea></div>';
+  h+='<div class="field"><label for="f-files">Fisiere <span class="hint">Imagini (micsorate in browser), PDF pana la 3 MB, text (.txt, .eml). Maximum 4 imagini si 2 documente pe proces.</span></label><div class="drop"><input type="file" id="f-files" data-p="'+pid+'" accept="image/*,.pdf,.txt,.eml" multiple></div><div class="files" id="flist">'+filesHtml(pid)+'</div><div class="err" id="ferr" hidden></div></div>';
+  h+='<p class="note" id="evst">'+evStatus(pid)+' Numerele de card si CNP din text sunt eliminate automat.</p>';
+  var last=S.et===list.length-1;
+  return h+navRow('Inapoi',last?'Continua la scor':'Urmatorul proces',true,'',last?'next':'nexte');
+}
+function evStatus(pid){ var e=evOf(pid),w=evWords(pid),nf=e.files.filter(function(f){ return f.kind!=='text'; }).length; return hasEvidence(pid)?'Proces cu dovezi ('+w+' cuvinte, '+nf+' fisiere).':'Dovezi insuficiente ('+w+' cuvinte, '+nf+' fisiere).'; }
+function seal(score){
+  var b=band(score),r=74,C=2*Math.PI*r,off=C*(1-score/100),ticks='',col='var(--'+(b.cls==='ok'?'pine':(b.cls==='mid'?'amber':'brick'))+')';
+  for(var t=0;t<60;t++){ var an=t*6*Math.PI/180,r1=t%5===0?86:89; ticks+='<line x1="'+(100+r1*Math.sin(an)).toFixed(2)+'" y1="'+(100-r1*Math.cos(an)).toFixed(2)+'" x2="'+(100+94*Math.sin(an)).toFixed(2)+'" y2="'+(100-94*Math.cos(an)).toFixed(2)+'" stroke="var(--soft)" stroke-width="'+(t%5===0?1.6:.8)+'"/>'; }
+  return '<svg class="seal" viewBox="0 0 200 200" role="img" aria-label="Scor SBR '+score+' din 100">'+ticks+'<circle cx="100" cy="100" r="'+r+'" fill="none" stroke="var(--line)" stroke-width="9"/><circle cx="100" cy="100" r="'+r+'" fill="none" stroke="'+col+'" stroke-width="9" stroke-dasharray="'+C.toFixed(2)+'" stroke-dashoffset="'+off.toFixed(2)+'" transform="rotate(-90 100 100)"/><text class="num" x="100" y="112" text-anchor="middle">'+score+'</text><text class="of" x="100" y="134" text-anchor="middle">din 100</text></svg>';
+}
+function bars(R){ var h='<div class="bars">'; R.procs.forEach(function(p){ var bb=band(p.score); h+='<div class="bar"><span>'+esc(p.name)+'</span><div class="trk"><div class="fil '+bb.cls+'" style="width:'+p.score+'%"></div></div><span class="v">'+p.score+'</span></div>'; p.caps.forEach(function(c){ h+='<div class="err" style="margin:0 0 6px">Plafon '+c.cap+': '+esc(c.why)+'</div>'; }); }); return h+'</div>'; }
+function ul(a){ return '<ul>'+a.map(function(x){ return '<li>'+esc(x)+'</li>'; }).join('')+'</ul>'; }
+function v4(){
+  var h='<h2>Scor si recomandari</h2>';
+  if(!S.analyzed){
+    h+='<p class="lede">Analiza citeste dovezile fiecarui proces, le compara cu ce ai declarat, semnaleaza lacunele si calculeaza scorul. Daca lipsesc informatii, iti pune intrebari.</p><div class="box"><b>Ce va fi analizat</b>'+ul(procs().map(function(id){ return PROCS[id].n+': '+evStatus(id); }))+'</div>';
+    h+='<div id="runlog" class="note" role="status" aria-live="polite"></div>';
+    return h+navRow('Inapoi',S.busy?'Analizez...':'Analizeaza dovezile si calculeaza scorul',!S.busy,'','run');
+  }
+  var R=compute(),b=band(R.company);
+  h+='<div class="verdict"><div>'+seal(R.company)+'</div><div><p><span class="pill '+b.cls+'">'+b.label+'</span><span class="pill neutral">Nivel de incredere: '+R.level+'</span><span class="pill neutral">Analiza dovezilor: '+(S.mode==='ai'?'AI SBR':'mod demonstrativ')+'</span></p><p style="margin:0">Scorul merge de la 0 la 100; un scor mai mare inseamna un risc operational mai mic. Runda de analiza: '+S.round+'.</p></div></div>';
+  if(S.mode!=='ai') h+='<div class="box mid"><b>Mod demonstrativ</b>Analiza AI nu este disponibila momentan. A rulat o analiza locala simplificata a textului; imaginile si documentele PDF nu au fost citite. Scorul se bazeaza in principal pe raspunsurile declarate.</div>';
+  if(S.prevScore!==null&&S.changes.length){ var dl=R.company-S.prevScore; h+='<div class="change"><b>Ce a schimbat scorul: de la '+S.prevScore+' la '+R.company+' ('+(dl>0?'+':'')+dl+')</b><ul>'+S.changes.map(function(c){ return '<li><b>'+esc(c.p)+', '+esc(c.dim)+'</b>: nivelul evaluat a trecut de la '+c.from+' la '+c.to+(c.note?'. '+esc(c.note):'')+'</li>'; }).join('')+'</ul></div>'; }
+  else if(S.prevScore!==null) h+='<div class="change"><b>Scorul a ramas '+R.company+'</b>Raspunsurile noi nu au schimbat nivelurile evaluate.</div>';
+  if(R.notes.length) h+='<div class="box"><b>Ajustari aplicate scorului companiei</b>'+ul(R.notes)+'</div>';
+  h+='<h3>Scor pe procese</h3>'+bars(R);
+  h+='<h3>Ce a rezultat din analiza dovezilor</h3>';
+  R.procs.forEach(function(p){
+    var e=evOf(p.id),it=[];
+    if(e.summary) it.push(e.summary);
+    p.reduced.forEach(function(x){ it.push('Evaluare redusa dupa dovezi ('+x.from+' la '+x.to+'): '+x.t+(x.note?' '+x.note:'')); });
+    e.incons.forEach(function(x){ it.push('Neconcordanta: '+x); });
+    e.gaps.forEach(function(x){ it.push('Lacuna: '+x); });
+    if(!hasEvidence(p.id)) it.push('Fara dovezi suficiente, nivelul ramane "Declarat".');
+    h+='<div class="pc"><b>'+esc(p.name)+' ('+p.score+')</b>'+(it.length?ul(it):'<div class="meta">Nicio observatie.</div>')+'</div>';
+  });
+  var pend=[]; procs().forEach(function(id){ evOf(id).fq.forEach(function(q,i){ pend.push({pid:id,i:i,q:q}); }); });
+  if(pend.length){
+    h+='<h3>Clarificari necesare</h3><p class="note">Raspunde la ce stii, apoi reanalizeaza. Raspunsurile pot schimba scorul, iar eu iti arat cum.</p>';
+    pend.forEach(function(x){ h+='<div class="fq"><div class="qt">'+esc(x.q.q)+'</div><div class="qw">'+esc(PROCS[x.pid].n)+(x.q.why?'. '+esc(x.q.why):'')+'</div><input type="text" data-fq="'+x.pid+'" data-i="'+x.i+'" value="'+esc(x.q.a)+'" aria-label="'+esc(x.q.q)+'"></div>'; });
+    h+='<div class="nav" style="border:0;padding-top:6px"><button type="button" class="btn pine" data-act="run" id="rerun"'+(S.busy?' disabled':'')+'>Reanalizeaza cu raspunsurile</button><span class="note" id="runlog" role="status" aria-live="polite"></span></div>';
+  } else h+='<div id="runlog" class="note" role="status" aria-live="polite"></div>';
+  h+='<h3>Plan prioritar de imbunatatire</h3>';
+  if(!R.plan.length) h+='<p>Toate nivelurile sunt maxime. Mentine controalele si repeta evaluarea periodic.</p>';
+  else{ h+='<ol class="plan">'; R.plan.slice(0,8).forEach(function(x,i){ h+='<li><b>'+esc(x.pn)+'</b>'+esc(x.f)+'<div class="meta">Dimensiune: '+esc(x.dim)+'. Situatia actuala: '+esc(x.cur)+'. Termen recomandat: '+(i<3?'imediat, in 30 de zile':(i<6?'in 1-3 luni':'in 3-6 luni'))+'.</div></li>'; }); h+='</ol>'; }
+  return h+navRow('Inapoi la dovezi','Continua la verificare',true,'');
+}
+function viewAudit(){
+  var R=compute(),A=S.audit,tm=new Date(); tm.setDate(tm.getDate()+1);
+  var h='<h2>Verificarea cu evaluatorul uman</h2><p class="lede">Ultimul pas al evaluarii este verificarea de catre un evaluator SBR. Ea poate duce firma de la nivelul „'+R.level+'” la nivelul „Validat”.</p>';
+  h+='<div class="verif"><div class="av" aria-hidden="true">'+esc(VERIFIER.name.split(' ').map(function(x){ return x.charAt(0); }).join(''))+'</div><div><b>'+esc(VERIFIER.name)+'</b><span>'+esc(VERIFIER.role)+'</span></div></div>';
+  h+='<h3>Cum decurge verificarea</h3><ol class="how"><li>Evaluatorul analizeaza dosarul de dovezi si raportul generat.</li><li>Discuta cu responsabilii proceselor in care scorul este slab sau plafonat.</li><li>Verifica incrucisat informatiile-cheie cu surse publice, cu respectarea legislatiei privind datele personale.</li><li>Emite raportul validat si, daca sunt indeplinite conditiile, marca SBR Verified.</li></ol>';
+  h+='<h3>Alege momentul</h3><div class="row2"><div class="field"><label for="a-date">Data preferata <span class="hint">Luni-vineri, de maine incolo</span></label><input type="date" id="a-date" min="'+isoDate(tm)+'" value="'+esc(A.date)+'"></div><div class="field"><label for="a-slot">Interval orar <span class="hint">Ora Romaniei</span></label><select id="a-slot"><option value="">Alege</option>';
+  SLOTS.forEach(function(o){ h+='<option'+(A.slot===o?' selected':'')+'>'+o+'</option>'; });
+  h+='</select></div></div><div class="field"><span class="lab">Modalitate</span><div class="opts" style="grid-template-columns:repeat(2,1fr);max-width:420px">';
+  ['Online','La sediul firmei'].forEach(function(o){ h+='<label class="opt"><input type="radio" name="a-mode" value="'+o+'"'+(A.mode===o?' checked':'')+'><span>'+o+'</span></label>'; });
+  h+='</div></div><div class="row2"><div class="field"><label for="a-name">Persoana de contact</label><input type="text" id="a-name" autocomplete="name" value="'+esc(A.name)+'"></div><div class="field"><label for="a-email">E-mail</label><input type="text" id="a-email" inputmode="email" autocomplete="email" value="'+esc(A.email)+'"></div></div>';
+  h+='<div class="field" style="max-width:420px"><label for="a-phone">Telefon <span class="hint">Optional</span></label><input type="text" id="a-phone" inputmode="tel" autocomplete="tel" value="'+esc(A.phone)+'"></div>';
+  h+='<div class="field"><label style="font-weight:400"><input type="checkbox" id="a-consent"'+(A.consent?' checked':'')+'> Sunt de acord ca datele din aceasta cerere si rezumatul evaluarii sa fie transmise verificatorului SBR pentru programarea verificarii.</label></div>';
+  h+='<h3>Rezumatul cererii</h3><div class="field"><label for="req-out" class="note">Acest text ajunge la verificator</label><textarea id="req-out" readonly></textarea></div><div id="audit-actions" class="actions"></div><p class="note" id="audit-note"></p>';
+  return h+navRow('Inapoi la scor','Continua la raport',true,'');
+}
+function refreshAudit(){
+  var out=$('req-out'),box=$('audit-actions'),nt=$('audit-note'); if(!out||!box) return;
+  var pr=auditProblems(),txt=reqText(); out.value=txt;
+  if(pr.length){ box.innerHTML='<button type="button" class="btn" disabled>Trimite cererea catre verificator</button>'; nt.textContent='Mai trebuie completat: '+pr.join(', ')+'.'; return; }
+  var hh='<button type="button" class="btn pine" data-act="sendreq">Trimite cererea catre verificator</button><button type="button" class="btn sec" data-act="copyreq">Copiaza cererea</button>';
+  if(VERIFIER.email) hh+='<a class="btn sec" href="mailto:'+encodeURIComponent(VERIFIER.email).replace('%40','@')+'?subject='+encodeURIComponent('Cerere verificare SBR Verified: '+S.profile.name)+'&body='+encodeURIComponent(txt)+'">Trimite prin e-mail</a>';
+  if(VERIFIER.telegram) hh+='<a class="btn sec" href="'+esc(VERIFIER.telegram)+'" target="_blank" rel="noopener">Deschide Telegram SBR</a>';
+  box.innerHTML=hh;
+  nt.innerHTML=(S.sent==='ok'?'<span class="ok-t">Cererea a fost inregistrata. Verificatorul iti va confirma programarea printr-un raspuns.</span>':(S.sent==='fail'?'<span class="err">Cererea nu a putut fi trimisa automat. Copiaz-o si trimite-o prin Telegram sau e-mail.</span>':'Programarea este confirmata de verificator printr-un raspuns.'))+'<br><span class="ok-t" id="copied"></span>';
+}
+function sendReq(){ S.sent='pending'; var n=$('audit-note'); if(n) n.innerHTML='<span class="spin"></span>Se trimite...'; saveRemote('audit_request').then(function(ok){ S.sent=ok?'ok':'fail'; refreshAudit(); }); }
+function copyReq(){
+  var ta=$('req-out'),m=$('copied'); if(!ta) return;
+  function ok(){ if(m) m.textContent='Cererea a fost copiata.'; }
+  function fb(){ ta.focus(); ta.select(); var d=false; try{ d=document.execCommand('copy'); }catch(e){} if(d) ok(); else if(m) m.textContent='Textul este selectat. Copiaza-l manual.'; }
+  if(navigator.clipboard&&navigator.clipboard.writeText) navigator.clipboard.writeText(ta.value).then(ok,fb); else fb();
+}
+function narrative(R){
+  var b=band(R.company),so=R.procs.slice().sort(function(x,y){ return y.score-x.score; }),best=so[0],worst=so[so.length-1],capped=R.procs.filter(function(p){ return p.caps.length; }),nev=R.procs.filter(function(p){ return p.evidence; }).length,red=0;
+  R.procs.forEach(function(p){ red+=p.reduced.length; });
+  var t=[];
+  t.push(S.profile.name+' este o firma din domeniul "'+NICHES[S.niche].n+'"'+(S.profile.emp?', cu '+S.profile.emp+' angajati,':'')+' care a parcurs traseul SBR Verified pe '+R.procs.length+' procese: '+R.procs.map(function(p){ return p.name; }).join(', ')+'.');
+  t.push('Scorul companiei este '+R.company+' din 100 ('+b.label.toLowerCase()+'). Cel mai solid proces este "'+best.name+'" ('+best.score+'), iar cel mai expus este "'+worst.name+'" ('+worst.score+').');
+  if(capped.length) t.push('In '+capped.map(function(p){ return '"'+p.name+'"'; }).join(', ')+' scorul este plafonat: aceeasi persoana poate aproba, executa si controla relatia cu un tert, ceea ce reprezinta cel mai important punct de corectat, indiferent de restul controalelor.');
+  t.push('Dovezile au fost furnizate pentru '+nev+' din '+R.procs.length+' procese.'+(red?' Analiza dovezilor a redus '+red+' evaluari declarate, deoarece dovezile nu le-au confirmat.':' Analiza dovezilor nu a redus nicio evaluare declarata.'));
+  t.push(R.elig?'Firma indeplineste conditiile pentru trecerea la nivelul "Validat", prin verificarea unui evaluator uman SBR.':'Pentru a fi eligibila pentru marca SBR Verified, firma mai are de rezolvat: '+R.blockers.map(function(x){ return x.replace(/\.$/,'').toLowerCase(); }).join('; ')+'.');
+  return t;
+}
+function v6(){
+  var R=compute(),b=band(R.company),now=new Date().toLocaleDateString(SBR.loc),h='<div class="story-rep">';
+  h+='<p class="eyebrow" style="margin:0 0 8px">Raport SBR Verified</p><p class="firm">'+esc(S.profile.name)+'</p><p class="meta">'+(S.profile.cui?'CUI '+esc(S.profile.cui)+' · ':'')+esc(NICHES[S.niche].n)+' · Evaluare din '+now+'</p>';
+  h+='<div class="verdict"><div>'+seal(R.company)+'</div><div><p><span class="pill '+b.cls+'">'+b.label+'</span><span class="pill neutral">Nivel de incredere: '+R.level+'</span><span class="pill neutral">Verificare umana: '+(S.sent==='ok'?'programare solicitata':'in asteptare')+'</span></p><p class="meta" style="margin:0">Scor de la 0 la 100; mai mare inseamna risc operational mai mic.</p></div></div>';
+  h+='<h3>Povestea evaluarii</h3>'+narrative(R).map(function(x){ return '<p>'+esc(x)+'</p>'; }).join('');
+  h+=(R.elig?'<div class="box ok"><b>Eligibil pentru evaluarea SBR Verified</b>Conditiile de scor, procese si dovezi sunt indeplinite.</div>':'<div class="box mid"><b>Inca neeligibil pentru marca SBR Verified</b>'+ul(R.blockers)+'</div>');
+  if(R.notes.length) h+='<div class="box"><b>Ajustari aplicate scorului companiei</b>'+ul(R.notes)+'</div>';
+  h+='<h3>Rezultatul pe procese</h3>'+bars(R);
+  h+='<h3>Harta dimensiunilor</h3><p class="note">Scorul fiecarei dimensiuni, pe fiecare proces (0-100).</p><div class="scroll"><table class="heat"><thead><tr><th>Proces</th>'+DIMS.map(function(d){ return '<th>'+d.short+'</th>'; }).join('')+'</tr></thead><tbody>';
+  R.procs.forEach(function(p){ h+='<tr><td>'+esc(p.name)+'</td>'+DIMS.map(function(d){ var v=Math.round(p.d[d.id]); return '<td class="c '+band(v).cls+'">'+v+'</td>'; }).join('')+'</tr>'; });
+  h+='</tbody></table></div><h3>Dovezi si analiza</h3>';
+  R.procs.forEach(function(p){ var e=evOf(p.id),it=[]; if(e.summary) it.push(e.summary); p.reduced.forEach(function(x){ it.push('Evaluare redusa dupa dovezi: '+x.t); }); e.gaps.forEach(function(x){ it.push('Lacuna: '+x); }); h+='<div class="pc"><b>'+esc(p.name)+'</b><div class="meta">'+esc(evStatus(p.id))+'</div>'+(it.length?ul(it):'')+'<div class="meta">Cerinte conexe (de verificat cu un specialist): '+esc(PROCS[p.id].req)+'</div></div>'; });
+  h+='<h3>Recomandari, in ordinea impactului</h3>';
+  if(R.plan.length){ h+='<ol class="plan">'; R.plan.forEach(function(x,i){ h+='<li><b>'+esc(x.pn)+'</b>'+esc(x.f)+'<div class="meta">Dimensiune: '+esc(x.dim)+'. Situatia actuala: '+esc(x.cur)+'. Termen recomandat: '+(i<3?'imediat, in 30 de zile':(i<7?'in 1-3 luni':'in 3-6 luni'))+'.</div></li>'; }); h+='</ol>'; } else h+='<p>Toate nivelurile sunt maxime.</p>';
+  h+='<h3>Metodologie</h3><div class="method"><p>Fiecare proces este evaluat pe sase dimensiuni: '+DIMS.map(function(d){ return d.name.split(',')[0]+' '+d.w+'%'; }).join(', ')+'. Dimensiunea de dependenta are trei sub-scoruri: persoane-cheie interne 30%, terti externi 30%, interpusi si relatii ascunse 40%. Nivelurile declarate sunt comparate cu dovezile, iar evaluarea se reduce atunci cand dovezile nu o sustin.</p><p>Reguli de plafonare: scorul unui proces nu poate depasi 40 daca aceeasi persoana poate aproba, executa si controla relatia cu un tert, si nu poate depasi 50 daca procesul nu are nici procedura, nici controale. Scorul companiei este media ponderata a proceselor, cu penalizare pentru concentrarea dependentei de persoane-cheie.</p><p>Niveluri de incredere: „Declarat”, „Documentat” (dovezi pentru toate procesele) si „Validat” (verificare de un evaluator SBR si verificare incrucisata cu surse publice).</p><p><b>Limite.</b> Evaluarea se bazeaza pe informatiile si dovezile furnizate de firma. Nu constituie audit, certificare sau garantie si nu dovedeste absenta fraudei. Indicatorii de risc semnaleaza structuri care permit abuzuri, nu acuza persoane.</p></div></div>';
+  h+='<div class="actions noprint"><button type="button" class="btn" data-act="print">Tipareste raportul</button><button type="button" class="btn sec" data-act="edit">Modifica raspunsurile</button><button type="button" class="btn sec" data-act="reset">Reincepe de la zero</button></div>';
+  return h;
+}
+function render(scroll){
+  var rail='';
+  STN.forEach(function(l,i){ var cls=(i===S.st?'on':(i<S.st?'done':'')); rail+='<li class="'+cls+'"><button type="button" data-act="go" data-i="'+i+'"'+(i>S.max?' disabled':'')+(i===S.st?' aria-current="step"':'')+'><span class="dot">'+(i<S.st?'&#10003;':(i+1))+'</span>'+esc(l)+'</button></li>'; });
+  $('rail').innerHTML=rail;
+  var fn=[v0,v1,v2,v3,v4,viewAudit,v6][S.st]; $('stage').innerHTML=fn();
+  if(S.st===5) refreshAudit();
+  if(scroll){ var t=$('traseu'); if(t&&t.scrollIntoView) t.scrollIntoView({block:'start'}); }
+}
+function updateNext(){
+  var btn=$('btn-next'),pg=$('prog'); if(!btn) return;
+  if(S.st===0){ var ok=profileOk(); btn.disabled=!ok; pg.textContent=ok?'':'Completeaza denumirea firmei si bifeaza acordul.'; }
+  else if(S.st===1){ btn.disabled=!S.niche; }
+  else if(S.st===2){ var pid=procs()[S.pt],c=answeredCount(pid),n=buildQs(pid).length; btn.disabled=(c!==n); pg.textContent=c+' din '+n+' raspunsuri completate'; }
+}
+function go(n,scroll){ S.st=n; S.max=Math.max(S.max,n); save(); render(scroll!==false); }
+
+/* ---------- events ---------- */
+var stage=$('stage');
+stage.addEventListener('input',function(e){
+  var t=e.target;
+  if(t.id==='f-name') S.profile.name=t.value;
+  else if(t.id==='f-cui') S.profile.cui=t.value;
+  else if(t.id==='f-human'){ S.profile.human=t.value; var er=$('e-human'); if(er) er.hidden=!isNaN(humanVal()); }
+  else if(t.id==='f-note'){ evOf(t.dataset.p).text=t.value; var s=$('evst'); if(s) s.textContent=evStatus(t.dataset.p)+' Numerele de card si CNP din text sunt eliminate automat.'; }
+  else if(t.dataset&&t.dataset.fq){ evOf(t.dataset.fq).fq[+t.dataset.i].a=t.value; }
+  else if(t.id==='a-name'||t.id==='a-email'||t.id==='a-phone'){ var mp={'a-name':'name','a-email':'email','a-phone':'phone'}; S.audit[mp[t.id]]=t.value; S.sent=''; save(); refreshAudit(); return; }
+  else return;
+  save(); updateNext();
+});
+stage.addEventListener('change',function(e){
+  var t=e.target;
+  if(t.id==='f-emp'){ S.profile.emp=t.value; save(); return; }
+  if(t.id==='f-consent'){ S.profile.consent=t.checked; save(); updateNext(); return; }
+  if(t.name==='niche'){ if(S.niche!==t.value){ S.niche=t.value; S.ans={}; S.ev={}; S.analyzed=false; S.pt=0; S.et=0; S.round=0; S.max=Math.min(S.max,1); } save(); updateNext(); return; }
+  if(t.id==='a-date'){ S.audit.date=t.value; S.sent=''; save(); refreshAudit(); return; }
+  if(t.id==='a-slot'){ S.audit.slot=t.value; S.sent=''; save(); refreshAudit(); return; }
+  if(t.name==='a-mode'){ S.audit.mode=t.value; S.sent=''; save(); refreshAudit(); return; }
+  if(t.id==='a-consent'){ S.audit.consent=t.checked; S.sent=''; save(); refreshAudit(); return; }
+  if(t.dataset&&t.dataset.k){ var p=t.dataset.p; S.ans[p]=S.ans[p]||{}; S.ans[p][t.dataset.k]=Number(t.value); S.analyzed=S.analyzed; save(); updateNext(); return; }
+  if(t.id==='f-files'){ addFiles(t); }
+});
+function addFiles(inp){
+  var pid=inp.dataset.p,e=evOf(pid),er=$('ferr'),fs=Array.prototype.slice.call(inp.files||[]); er.hidden=true;
+  fs.forEach(function(f){
+    var imgs=e.files.filter(function(x){ return x.kind==='image'; }).length,docs=e.files.filter(function(x){ return x.kind!=='image'; }).length,isImg=/^image\//.test(f.type);
+    if(isImg&&imgs>=4){ er.textContent='Maximum 4 imagini pe proces.'; er.hidden=false; return; }
+    if(!isImg&&docs>=2){ er.textContent='Maximum 2 documente pe proces.'; er.hidden=false; return; }
+    SBR.readFile(f).then(function(x){ e.files.push(x); $('flist').innerHTML=filesHtml(pid); var s=$('evst'); if(s) s.textContent=evStatus(pid); }).catch(function(x){ er.textContent=x.message; er.hidden=false; });
+  });
+  inp.value='';
+}
+document.addEventListener('click',function(ev){
+  var b=ev.target.closest('[data-act]'); if(!b||b.disabled) return;
+  var act=b.dataset.act,st=S.st;
+  if(act==='next'){ go(st+1); }
+  else if(act==='back'){ if(st===2&&S.pt>0){ S.pt--; render(true); } else if(st===3&&S.et>0){ S.et--; render(true); } else if(st>0) go(st-1); }
+  else if(act==='nextp'){ S.pt++; save(); render(true); }
+  else if(act==='nexte'){ S.et++; save(); render(true); }
+  else if(act==='tabp'){ S.pt=+b.dataset.i; render(false); }
+  else if(act==='tabe'){ S.et=+b.dataset.i; render(false); }
+  else if(act==='go'){ var i=+b.dataset.i; if(i<=S.max) go(i); }
+  else if(act==='rmf'){ evOf(b.dataset.p).files.splice(+b.dataset.i,1); $('flist').innerHTML=filesHtml(b.dataset.p); var s=$('evst'); if(s) s.textContent=evStatus(b.dataset.p); }
+  else if(act==='run'){ if(!allAnswered()){ return; } runAnalysis(); var bt=$('btn-next'); if(bt){ bt.disabled=true; bt.textContent='Analizez...'; } }
+  else if(act==='sendreq'){ sendReq(); }
+  else if(act==='copyreq'){ copyReq(); }
+  else if(act==='print'){ try{ window.print(); }catch(e){} }
+  else if(act==='edit'){ S.pt=0; go(2); }
+  else if(act==='reset'){ S=Object.assign(S,{niche:null,profile:{name:'',cui:'',emp:'',human:'',consent:false},ans:{},ev:{},st:0,max:0,pt:0,et:0,round:0,analyzed:false,mode:'',busy:false,log:[],prevScore:null,changes:[],audit:newAudit(),sent:''}); try{ localStorage.removeItem(KEY); }catch(e){} render(true); }
+});
+SBR.init();
+load();
+if(S.st>6||(S.st>0&&!S.niche)) S.st=0;
+render(false);
+})();
+
+}
+function runEN(){
+/* ===== SBR Verified journey ===== */
+(function(){
+'use strict';
+var $=function(id){ return document.getElementById(id); },esc=SBR.esc;
+/* ---------- Model ---------- */
+var V=[0,33,67,100];
+var OPTS=['Does not exist','Partial / informal','Yes, documented','Yes, documented and verified'];
+var DIMS=[
+  {id:'doc',name:'Documentation',short:'Documentation',w:12},
+  {id:'ctl',name:'Internal control',short:'Control',w:18},
+  {id:'seg',name:'Segregation of duties',short:'Segregation',w:18},
+  {id:'trc',name:'Traceability',short:'Traceability',w:14},
+  {id:'exp',name:'Fraud exposure',short:'Exposure',w:18},
+  {id:'dep',name:'Dependence on key people, third parties and intermediaries',short:'Dependence',w:20}
+];
+
+var PROCS={
+ pay:{n:'Payments and treasury',w:1.3,d:'Payments to suppliers, salaries, transfers and access to bank accounts.',
+  exp:{q:'Is every IBAN change or urgent payment instruction confirmed by phone, on an already known number, before paying?',f:'Introduce a phone call-back rule on a known number for any IBAN change or urgent payment. It is the main defence against "CEO" fraud and fake invoices.'},
+  ext:{q:'Is the access of the external accountant and the bank (users, limits, rights) set by contract and reviewed periodically?',f:'Document the external accountant\'s rights and review them quarterly. Remove the right to execute payments where it is not needed.'},
+  prox:{q:'Are new payment beneficiaries checked (real owner, registered office, links to employees or management) before the first payment?',f:'Check the real beneficial owner and the links to staff before the first payment to a new beneficiary. Keep the proof of the check in the payment file.'}},
+ buy:{n:'Purchasing and suppliers',w:1.2,d:'Supplier selection, offer comparison, orders and receipt of goods or services.',
+  exp:{q:'Are offers compared (at least three above a set threshold) and prices checked against the market?',f:'Set a threshold above which at least three offers are mandatory, and a periodic check of prices against the market. Prices constantly above market are a warning sign.'},
+  ext:{q:'Is dependence on a single supplier monitored, with alternatives identified for the main suppliers?',f:'List the top five suppliers by value, identify an alternative for each and review the list twice a year.'},
+  prox:{q:'Do employees and management declare conflicts of interest and relationships with suppliers (relatives, partners, affiliates) in writing?',f:'Introduce an annual conflict-of-interest declaration for everyone who chooses or approves suppliers and compare it with the list of active suppliers.'}},
+ acc:{n:'Access to systems and data',w:1.1,d:'E-mail, business applications, online banking, customer data and administration rights.',
+  exp:{q:'Do bank accounts, e-mail and critical systems have two-step authentication and alerts for unusual actions?',f:'Enable two-step authentication on all critical accounts and alerts for new logins, password changes and unusual transfers.'},
+  ext:{q:'Do the external IT firm and other third parties with access have individual accounts, minimum rights and access revoked immediately when the collaboration ends?',f:'Require individual accounts for every external person, with minimum rights, and revoke access the same day the collaboration ends.'},
+  prox:{q:'Is there a register of people with powers of attorney and administration rights, reviewed when roles change?',f:'Keep a single register of powers of attorney and administration rights, and review it at every role change and at least yearly.'}},
+ ord:{n:'Orders, returns and refunds',w:1.0,d:'Taking online orders, customer payments, returns and refunds.',
+  exp:{q:'Are suspicious orders and returns (multiple addresses, large values, repeated refunds) flagged automatically and checked?',f:'Define alert rules for atypical orders and returns and set who checks them and how quickly.'},
+  ext:{q:'Are couriers, the payment processor and marketplaces checked and reconciled periodically with your own records?',f:'Reconcile receipts and refunds monthly with the processor\'s and couriers\' statements and keep the proof.'},
+  prox:{q:'Are refunds to an account other than the original payment account forbidden or approved by a second person?',f:'Forbid refunds to an account other than the payment account, or require a second person\'s approval and keep the justification.'}},
+ stk:{n:'Stock and warehouse',w:1.0,d:'Receiving goods, stock management, stocktaking and outgoing goods.',
+  exp:{q:'Are stocktakes done periodically by people other than those who manage the stock, and are differences investigated?',f:'Run monthly spot stocktakes carried out by a person from outside the warehouse, and investigate every difference above a threshold.'},
+  ext:{q:'Are third-party warehouses and logistics providers reconciled periodically with your own records?',f:'Compare quarterly the stock reported by third-party warehouses with your own records and physically check a sample.'},
+  prox:{q:'Do goods leaving without an invoice (samples, donations, waste) have separate approval and a record?',f:'Require written approval from a second person and a separate record for any goods leaving without an invoice.'}},
+ tcon:{n:'Trip contracting and subcontractors',w:1.1,d:'Choosing carriers, assigning orders and paying subcontractors.',
+  exp:{q:'Are new carriers checked (licence, insurance, history) before the first trip, to avoid fictitious subcontractors and cargo diversion?',f:'Check the licence, insurance and history of any new carrier before the first trip and keep the verification file.'},
+  ext:{q:'Is dependence on a few subcontractors or large customers monitored, with alternatives?',f:'Measure the share of top subcontractors and customers in turnover and prepare alternatives for those above a threshold.'},
+  prox:{q:'Do you check whether subcontractors have links with the company\'s employees or dispatchers, and whether the same person controls several transport firms in use?',f:'Compare the subcontractors\' shareholders and administrators with the employee list and with each other, and ask dispatchers for a conflict-of-interest declaration.'}},
+ tfleet:{n:'Fuel, fleet and transport documents',w:1.0,d:'Fuel cards, consumption, service, repairs and transport documents.',
+  exp:{q:'Is fuel consumption reconciled with mileage, GPS and fuel cards, with deviations investigated?',f:'Reconcile consumption monthly with mileage, GPS and card transactions and investigate deviations above a threshold.'},
+  ext:{q:'Are service centres, fuel stations and leasing firms selected on documented criteria?',f:'Document the selection criteria and review service, fuel and leasing providers yearly.'},
+  prox:{q:'Is the person who approves repairs different from the one who chooses the service centre and checks the invoice?',f:'Separate choosing the service centre, approving the repair and checking the invoice between different people.'}},
+ inv:{n:'Invoicing and customer contracts',w:1.1,d:'Offers, contracts, prices, discounts, invoicing and collection.',
+  exp:{q:'Are contracts, prices and special discounts approved by a second person, and are issued invoices reconciled with deliverables?',f:'Require a second person\'s approval for discounts and special prices and reconcile invoices with deliverables monthly.'},
+  ext:{q:'Are large customers and intermediaries (agencies, sales partners) checked, and do contracts contain compliance clauses?',f:'Check large customers and intermediaries before signing and add compliance and audit clauses.'},
+  prox:{q:'Are commissions and intermediation fees paid only on the basis of a contract and proof of service, to verified real beneficiaries?',f:'Pay commissions only on the basis of a written contract, proof of the service and verification of the real beneficiary.'}},
+ proj:{n:'Projects, subcontractors and freelancers',w:1.0,d:'Work allocation, timesheets, deliverables and payment of external collaborators.',
+  exp:{q:'Are subcontractors\' hours and deliverables verified by someone other than the person who hired them?',f:'Require external hours and deliverables to be verified by a person other than the one who hired the collaborator.'},
+  ext:{q:'Do freelancers and subcontractors with access to source code or customer data have confidentiality agreements and limited access?',f:'Sign confidentiality agreements, limit access to what is strictly necessary and revoke it at the end of the project.'},
+  prox:{q:'Do you check whether freelancers and subcontracted firms are independent of employees and whether the work is done by the contracted person?',f:'Check the subcontractors\' independence from employees and ask for proof that the work is done by the contracted person.'}}
+};
+
+Object.assign(PROCS,{
+ prod1:{n:'Production and raw materials',w:1.0,d:'Raw-material supply, consumption, the production itself and productivity records.',
+  exp:{q:'Is raw-material consumption reconciled periodically with the production achieved, and are deviations investigated?',f:'Compare raw-material consumption with production achieved monthly and investigate deviations above a set threshold.'},
+  ext:{q:'Are critical raw-material suppliers and production subcontractors evaluated periodically, with alternatives identified?',f:'Evaluate critical suppliers and subcontractors yearly and identify alternatives for materials without a substitute.'},
+  prox:{q:'Are the links checked between employees in production or purchasing and the firms that supply raw materials or take waste and scrap?',f:'Compare the employee list with the shareholders and administrators of suppliers and of firms that take waste, and ask for conflict-of-interest declarations.'}},
+ prod2:{n:'Quality, deliveries and losses',w:1.0,d:'Quality control, waste and rejects, delivery of finished goods.',
+  exp:{q:'Are waste, rejects and losses measured and justified, and does scrapping or selling remnants have separate approval?',f:'Measure waste and rejects per batch and require a second person\'s approval for scrapping or selling remnants.'},
+  ext:{q:'Are the carriers and external warehouses used for deliveries under contract and reconciled periodically?',f:'Reconcile deliveries monthly with the documents of carriers and external warehouses and keep the proof.'},
+  prox:{q:'Is the sale or donation of downgraded products and remnants made to verified beneficiaries, at approved prices?',f:'Sell downgraded products and remnants only to verified beneficiaries, at prices approved in writing.'}},
+ constr1:{n:'Bills of quantities, work statements and subcontractors',w:1.1,d:'Bidding, bills of quantities, work statements, subcontractors and their payment.',
+  exp:{q:'Are work statements verified on site by a person other than the one who prepared them, before approval for payment?',f:'Require on-site verification of work statements by a person other than the one who prepared them, before payment.'},
+  ext:{q:'Are subcontractors selected on the basis of compared offers and do they have contracts with a clear scope, price and deadlines?',f:'Compare at least three offers for subcontractors and sign contracts with a clear scope, price, deadlines and penalties.'},
+  prox:{q:'Do you check whether subcontractors or suppliers have links with employees, site managers or management, and whether the same person controls several firms in use?',f:'Compare the subcontractors\' shareholders and administrators with the employee list and with each other and ask for conflict-of-interest declarations.'}},
+ constr2:{n:'Materials, receipts and equipment',w:1.0,d:'Ordering and receiving materials on site, consumption, equipment rental.',
+  exp:{q:'Are materials received on site checked for quantity and quality, signed by a person other than the one who ordered them?',f:'Require materials to be received by a person other than the one who ordered them, with a signature and a photo of the delivery.'},
+  ext:{q:'Are material and equipment-rental suppliers compared on price and do they have documented delivery terms?',f:'Compare material and equipment suppliers\' prices yearly and document the delivery terms.'},
+  prox:{q:'Is material consumption on site reconciled with the work carried out, and are transfers to other sites or people approved separately?',f:'Reconcile consumption with the work carried out monthly and require separate approval for any transfer of materials.'}},
+ horeca1:{n:'Takings, till and POS',w:1.1,d:'Cash register, POS, voids, discounts, cash and card takings.',
+  exp:{q:'Are takings from the cash register and POS reconciled daily with orders and bank statements, and are voids and discounts approved by a second person?',f:'Reconcile the till daily with orders and the POS, and require a manager\'s approval for voids and discounts.'},
+  ext:{q:'Do POS providers, ordering apps and delivery platforms have individual accounts and are they reconciled periodically?',f:'Use individual accounts in third-party apps and reconcile the platforms\' takings with the statements monthly.'},
+  prox:{q:'Is access to the till, to voids and to price changes limited by role, and are codes and keys recorded?',f:'Limit access to the till and to price changes by role and keep a record of codes and keys.'}},
+ horeca2:{n:'Stock, purchasing and recipes',w:1.0,d:'Orders to suppliers, receipt of goods, stock and consumption based on recipes.',
+  exp:{q:'Is consumption compared with sales based on recipes, and are stock differences investigated?',f:'Compare theoretical consumption from recipes with actual consumption monthly and investigate the differences.'},
+  ext:{q:'Are food and beverage suppliers compared on price and quality, and are deliveries checked for quantity?',f:'Compare supplier prices twice a year and require a quantity check at every delivery.'},
+  prox:{q:'Is the person who orders goods different from the one who receives them and from the one who checks the invoice, and are relationships with suppliers declared?',f:'Separate ordering, receiving and invoice checking, and require a conflict-of-interest declaration from those who choose suppliers.'}},
+ oth1:{n:'Sales and collections',w:1.1,d:'Offers, contracts, invoicing and collection from customers.',
+  exp:{q:'Are discounts, special prices and cancellations approved by a second person, and are invoices reconciled with deliveries?',f:'Require a second person\'s approval for discounts and special prices and reconcile invoices with deliveries monthly.'},
+  ext:{q:'Are large customers and intermediaries checked, and do contracts contain clear payment and compliance clauses?',f:'Check large customers and intermediaries before signing and add payment, compliance and audit clauses.'},
+  prox:{q:'Are commissions and intermediation fees paid only on the basis of a contract and proof of service, to verified real beneficiaries?',f:'Pay commissions only on the basis of a written contract, proof of the service and verification of the real beneficiary.'}},
+ oth2:{n:'Personnel, timesheets and payroll',w:1.0,d:'Hiring, salary changes, timesheets and payment of salaries.',
+  exp:{q:'Are hiring, salary changes, timesheets and payment of salaries approved and checked by different people?',f:'Separate hiring, salary changes, timesheets and payment between different people, with a monthly check of the payroll.'},
+  ext:{q:'Does the external accounting or payroll firm have limited access, documented and reviewed periodically?',f:'Document the external payroll firm\'s access, limit it to what is strictly necessary and review it yearly.'},
+  prox:{q:'Do you check that the employees and collaborators paid really exist (contracts, timesheets, proof of activity) and any family ties with those who approve payments?',f:'Periodically check that the people paid really exist and declare any family ties with those who approve payments.'}}
+});
+var REQ={
+ pay:'anti-money-laundering legislation (Law 129/2019), where the company is a reporting entity, requires knowing your partners and the real beneficial owner; banks and partners often ask for similar checks.',
+ buy:'checks on partners and the real beneficial owner, handling of conflicts of interest and the compliance requirements of large customers and banks.',
+ acc:'GDPR (security of data processing) and, for entities in the targeted sectors, the Romanian legislation transposing NIS2 on cybersecurity risk management.',
+ ord:'GDPR for customer data, rules on electronic payments and consumer protection.',
+ stk:'the requirements of partners and auditors on stock records and internal control.',
+ tcon:'checks on partners and the real beneficial owner, and large customers\' requirements on carrier selection.',
+ tfleet:'requirements on transport-document and consumption records, as well as those of insurers and customers.',
+ inv:'checks on customers and intermediaries, GDPR for customer data and partners\' compliance requirements.',
+ proj:'GDPR and confidentiality clauses for customer data that external collaborators can access.',
+ prod1:'customers\' and partners\' traceability requirements and checks on raw-material suppliers.',
+ prod2:'requirements on quality, batch traceability and waste records.',
+ constr1:'checks on subcontractors and the real beneficial owner, and the requirements of clients and financiers on cost control.',
+ constr2:'requirements on acceptance of works, material records and cost control.',
+ horeca1:'obligations on cash registers and takings records, and GDPR for customer data.',
+ horeca2:'requirements on stock records and food traceability.',
+ oth1:'checks on customers and intermediaries and partners\' compliance requirements.',
+ oth2:'GDPR for employee data, obligations on working-time records and auditors\' requirements.'
+};
+Object.keys(REQ).forEach(function(k){ PROCS[k].req=REQ[k]; });
+
+var NICHES={
+ retail:{n:'Online retail',d:'Online shops, marketplaces, returns and warehouse.',procs:['pay','buy','acc','ord','stk']},
+ it:{n:'Professional services and IT',d:'Agencies, software, consulting and external collaborators.',procs:['pay','buy','acc','inv','proj']},
+ prod:{n:'Manufacturing and industry',d:'Factories, workshops, processing, raw materials and deliveries.',procs:['pay','buy','acc','prod1','prod2']},
+ constr:{n:'Construction and installations',d:'Sites, subcontractors, materials and equipment.',procs:['pay','buy','acc','constr1','constr2']},
+ transport:{n:'Transport and logistics',d:'Road transport, subcontractors, fleet and fuel.',procs:['pay','buy','acc','tcon','tfleet']},
+ horeca:{n:'HoReCa',d:'Restaurants, cafes, hotels, till, POS and stock.',procs:['pay','buy','acc','horeca1','horeca2']},
+ other:{n:'Other activity',d:'Any other field: general processes are used.',procs:['pay','buy','acc','oth1','oth2']}
+};
+var GROUPS=[
+ {t:'Commerce and services',k:['retail','it']},
+ {t:'Manufacturing and construction',k:['prod','constr']},
+ {t:'Transport and hospitality',k:['transport','horeca']},
+ {t:'Other',k:['other']}
+];
+
+function buildQs(pid){
+  var P=PROCS[pid],n=P.n;
+  return [
+   {k:'doc',dim:'doc',t:'The process "'+n+'" has an up-to-date written procedure (SOP), with steps and named owners?',f:'Write or update the SOP for "'+n+'": steps, owners, approval thresholds and exceptions.'},
+   {k:'ctl',dim:'ctl',t:'For "'+n+'" are internal controls defined (approvals, reconciliations, periodic checks), and does someone verify they are followed?',f:'Define minimum controls for "'+n+'" (approval, monthly reconciliation, spot check) and name the person who verifies them.'},
+   {k:'seg',dim:'seg',t:'In "'+n+'", are approval, execution and verification done by different people?',f:'Separate approval, execution and verification in "'+n+'". If the company is small, introduce a monthly check on a sample by the owner or an external accountant.'},
+   {k:'trc',dim:'trc',t:'Do the actions in "'+n+'" leave traces (log, signatures, records) that can be reconstructed later?',f:'Enable logs and records for "'+n+'": who, what, when, approved by whom. Keep them according to an archiving policy.'},
+   {k:'exp',dim:'exp',t:P.exp.q,f:P.exp.f},
+   {k:'depA',dim:'dep',sub:.3,g:'Dependence: internal key people',t:'If the key person in "'+n+'" is absent for 30 days, does the process continue with a trained replacement, and are rotation and actual leave normal?',f:'Appoint and train a replacement for "'+n+'", keep the access in the company\'s password vault and introduce mandatory leave for critical roles.'},
+   {k:'depB',dim:'dep',sub:.3,g:'Dependence: external third parties with access',t:P.ext.q,f:P.ext.f},
+   {k:'depC',dim:'dep',sub:.4,g:'Dependence: intermediaries and hidden relationships',t:P.prox.q,f:P.prox.f}
+  ];
+}
+function dimName(q){ if(q.g) return q.g; for(var i=0;i<DIMS.length;i++){ if(DIMS[i].id===q.dim) return DIMS[i].name; } return ''; }
+function dimW(id){ for(var i=0;i<DIMS.length;i++){ if(DIMS[i].id===id) return DIMS[i].w; } return 0; }
+
+
+function band(s){
+  if(s>=90) return {label:'Very low risk',cls:'ok'};
+  if(s>=75) return {label:'Low risk',cls:'ok'};
+  if(s>=60) return {label:'Medium risk',cls:'mid'};
+  if(s>=40) return {label:'High risk',cls:'bad'};
+  return {label:'Critical risk',cls:'bad'};
+}
+var KW=[['aprob|approv|sign-?off','approval'],['semn|signature|signed','signatures'],['registru|jurnal|eviden|register|log\\b|record','log or record'],['verific|control|check|review','checks'],['responsabil|responsible|owner','named owner'],['termen|scaden|deadline|due date','deadlines'],['excep','exceptions'],['reconcil','reconciliation'],['audit','audit'],['prag|limit|threshold','thresholds or limits']];
+function analyse(text){
+  var t=(text||'').toLowerCase(),trimmed=(text||'').trim();
+  var words=trimmed?trimmed.split(/\s+/).length:0,hit=[],miss=[];
+  KW.forEach(function(p){ (new RegExp(p[0])).test(t)?hit.push(p[1]):miss.push(p[1]); });
+  return {words:words,hit:hit,miss:miss};
+}
+
+function pad2(n){ return (n<10?'0':'')+n; }
+function isoDate(d){ return d.getFullYear()+'-'+pad2(d.getMonth()+1)+'-'+pad2(d.getDate()); }
+var SLOTS=['09:00–10:00','10:00–11:00','11:00–12:00','13:00–14:00','14:00–15:00','15:00–16:00','16:00–17:00'];
+function fmtDate(iso){ if(!iso) return ''; var d=new Date(iso+'T12:00:00'); return isNaN(d)?iso:d.toLocaleDateString(SBR.loc,{weekday:'long',day:'numeric',month:'long',year:'numeric'}).normalize('NFD').replace(/[\u0300-\u036f]/g,''); }
+function auditProblems(){
+  var A=S.audit,p=[];
+  if(!A.date) p.push('the preferred date'); else {
+    var d=new Date(A.date+'T12:00:00'),tm=new Date(); tm.setHours(0,0,0,0); tm.setDate(tm.getDate()+1);
+    if(isNaN(d)||d<tm) p.push('a date from tomorrow onwards'); else if(d.getDay()===0||d.getDay()===6) p.push('a working day (Monday to Friday)');
+  }
+  if(!A.slot) p.push('the time slot');
+  if(!A.mode) p.push('the format (online or on site)');
+  if(!A.name.trim()) p.push('the contact person\'s name');
+  if(!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(A.email.trim())) p.push('a valid e-mail address');
+  if(!A.consent) p.push('the consent for sending the data');
+  return p;
+}
+function reqText(){
+  var R=compute(),A=S.audit,L=[];
+  L.push('SBR VERIFIED AUDIT REQUEST');
+  L.push('Company: '+S.profile.name+(S.profile.cui?' (CUI '+S.profile.cui+')':''));
+  L.push('Field: '+NICHES[S.niche].n+(S.profile.emp?', '+S.profile.emp+' employees':''));
+  L.push('SBR score: '+R.company+'/100 ('+band(R.company).label+'), trust level: '+R.level);
+  L.push('Scores by process:');
+  R.procs.forEach(function(p){ L.push('- '+p.name+': '+p.score+(p.caps.length?' (capped)':'')); });
+  if(R.plan.length){ L.push('Main priorities:'); R.plan.slice(0,3).forEach(function(x){ L.push('- '+x.pn+': '+x.dim); }); }
+  L.push('Requested appointment: '+fmtDate(A.date)+', '+A.slot+' (Romania time), '+(A.mode||''));
+  L.push('Contact: '+A.name+', '+A.email+(A.phone?', '+A.phone:''));
+  L.push('Verifier: '+VERIFIER.name);
+  return L.join('\n');
+}
+
+
+var VERIFIER={name:'Sabrin Doaga',role:'SBR human verifier, SBR SYSTEMS GS S.R.L.',email:'',telegram:'https://t.me/sbrorator'};
+var STN=['Profile','Field','Processes','Evidence','Score and recommendations','Verification','Report'];
+var G=[
+ {t:'How the process is described and controlled',s:'A clear procedure and real controls are the foundation of any assessment.',ks:['doc','ctl']},
+ {t:'Who does what, and what is left behind',s:'Separating roles and the traces left make fraud harder to hide.',ks:['seg','trc']},
+ {t:'How exposed it is to fraud',s:'How easily the process can be exploited by someone inside or outside.',ks:['exp']},
+ {t:'Dependence on key people, third parties and intermediaries',s:'Who can block or exploit the process: a person, a supplier or a front company.',ks:['depA','depB','depC']}
+];
+function newAudit(){ return {date:'',slot:'',mode:'',name:'',email:'',phone:'',consent:false}; }
+var S={sid:SBR.session(),niche:null,profile:{name:'',cui:'',emp:'',human:'',consent:false},ans:{},ev:{},st:0,max:0,pt:0,et:0,round:0,analyzed:false,mode:'',busy:false,log:[],prevScore:null,changes:[],audit:newAudit(),sent:''};
+var KEY='sbrverified_journey_v2';
+function evOf(pid){ if(!S.ev[pid]) S.ev[pid]={text:'',files:[],find:{},gaps:[],incons:[],fq:[],answered:[],summary:'',src:''}; if(!S.ev[pid].files) S.ev[pid].files=[]; return S.ev[pid]; }
+function procs(){ return S.niche?NICHES[S.niche].procs:[]; }
+function save(){
+  try{
+    var e={}; Object.keys(S.ev).forEach(function(k){ var v=S.ev[k]; e[k]={text:v.text,find:v.find,gaps:v.gaps,incons:v.incons,fq:v.fq,answered:v.answered,summary:v.summary,src:v.src}; });
+    localStorage.setItem(KEY,JSON.stringify({niche:S.niche,profile:S.profile,ans:S.ans,ev:e,st:S.st,max:S.max,round:S.round,analyzed:S.analyzed,mode:S.mode,audit:S.audit,prevScore:S.prevScore,changes:S.changes}));
+  }catch(x){}
+}
+function load(){
+  try{
+    var o=JSON.parse(localStorage.getItem(KEY)||'null'); if(!o) return;
+    S.niche=o.niche||null; S.profile=Object.assign(S.profile,o.profile||{}); S.ans=o.ans||{};
+    Object.keys(o.ev||{}).forEach(function(k){ var v=o.ev[k]; S.ev[k]=Object.assign({files:[]},v); });
+    S.st=o.st||0; S.max=o.max||0; S.round=o.round||0; S.analyzed=!!o.analyzed; S.mode=o.mode||''; S.audit=Object.assign(newAudit(),o.audit||{}); S.prevScore=o.prevScore; S.changes=o.changes||[];
+  }catch(x){}
+}
+function answeredCount(pid){ var a=S.ans[pid]||{},c=0; buildQs(pid).forEach(function(q){ if(typeof a[q.k]==='number') c++; }); return c; }
+function allAnswered(){ return procs().length>0&&procs().every(function(p){ return answeredCount(p)===buildQs(p).length; }); }
+function humanVal(){ var h=String(S.profile.human).trim(); if(h==='') return null; var n=Number(h); return (isFinite(n)&&n>=0&&n<=100)?n:NaN; }
+function profileOk(){ var h=humanVal(); return S.profile.name.trim().length>=2&&S.profile.consent&&!(h!==null&&isNaN(h)); }
+function words(t){ t=(t||'').trim(); return t?t.split(/\s+/).length:0; }
+function evWords(pid){ var e=evOf(pid),extra=e.files.filter(function(f){ return f.kind==='text'; }).map(function(f){ return f.text; }).join(' '); return words((e.text||'')+' '+extra); }
+function hasEvidence(pid){ var e=evOf(pid); return evWords(pid)>=40||e.files.some(function(f){ return f.kind!=='text'; })||e.files.length>0&&evWords(pid)>=40; }
+
+/* ---------- effective answers and scoring ---------- */
+function declared(pid,k){ return (S.ans[pid]||{})[k]; }
+function eff(pid,k){ var d=declared(pid,k),f=(evOf(pid).find||{})[k]; if(f&&typeof f.lvl==='number'&&f.lvl<d) return f.lvl; return d; }
+function compute(){
+  var list=procs(),out=[],sumW=0,sumS=0;
+  list.forEach(function(pid){
+    var P=PROCS[pid],qs=buildQs(pid),a={},e=evOf(pid),reduced=[],unproven=[];
+    qs.forEach(function(q){ var d=declared(pid,q.k),v=eff(pid,q.k); a[q.k]=v; if(v<d) reduced.push({k:q.k,from:d,to:v,note:(e.find[q.k]||{}).note||'',t:q.t}); else if(d>=2&&!hasEvidence(pid)) unproven.push(q.k); });
+    var d={doc:V[a.doc],ctl:V[a.ctl],seg:V[a.seg],trc:V[a.trc],exp:V[a.exp],dep:.3*V[a.depA]+.3*V[a.depB]+.4*V[a.depC]};
+    var raw=0; DIMS.forEach(function(D){ raw+=D.w*d[D.id]; }); raw=raw/100;
+    var caps=[],score=raw;
+    if(a.seg<=1&&(a.depA<=1||a.depC<=1)) caps.push({cap:40,why:'The same person can approve, execute and control the relationship with a third party (segregation of duties and dependence on key people or intermediaries are weak).'});
+    if(a.doc===0&&a.ctl===0) caps.push({cap:50,why:'The process has neither a written procedure nor controls.'});
+    caps.forEach(function(c){ if(score>c.cap) score=c.cap; });
+    var plan=[];
+    qs.forEach(function(q){ var v=a[q.k]; if(v>=3) return; var w=dimW(q.dim)*(q.sub||1),f=(e.find[q.k]||{}).rec||q.f; plan.push({pid:pid,pn:P.n,f:f,cur:OPTS[v],impact:((3-v)/3)*w*P.w,dim:dimName(q),k:q.k}); });
+    out.push({id:pid,name:P.n,w:P.w,d:d,raw:raw,score:Math.round(score),caps:caps,reduced:reduced,unproven:unproven,plan:plan,evidence:hasEvidence(pid),depA:a.depA,eff:a});
+    sumW+=P.w; sumS+=P.w*score;
+  });
+  var proc=sumW?sumS/sumW:0,penalty=0,keyCount=0;
+  out.forEach(function(p){ if(PROCS[p.id].w>=1.1&&p.depA<=1) keyCount++; });
+  if(keyCount>=3) penalty=8; else if(keyCount===2) penalty=5;
+  var company=proc-penalty,notes=[];
+  if(penalty) notes.push('Penalty of '+penalty+' points: '+keyCount+' critical processes depend on key people with no replacement.');
+  if(out.some(function(p){ return PROCS[p.id].w>=1.2&&p.caps.length; })&&company>65){ company=65; notes.push('The company score is capped at 65 because a critical process (payments or purchasing) is capped.'); }
+  var h=humanVal();
+  if(h!==null&&!isNaN(h)){ company=.85*company+.15*h; notes.push('The human factor (average employee behavioural score, '+h+') contributes 15% to the final score.'); }
+  company=Math.max(0,Math.min(100,Math.round(company)));
+  var allEv=out.length>0&&out.every(function(p){ return p.evidence; }),level=allEv?'Documented':'Declared',blockers=[];
+  if(company<75) blockers.push('The company score is below 75.');
+  if(out.some(function(p){ return p.caps.length; })) blockers.push('There are processes capped by critical rules.');
+  if(!allEv) blockers.push('Not all processes have evidence attached (text or files).');
+  if(h!==null&&!isNaN(h)&&h<50) blockers.push('The employees\' behavioural score is below 50.');
+  var all=[]; out.forEach(function(p){ all=all.concat(p.plan); });
+  out.forEach(function(p){ if(p.caps.length) all.forEach(function(x){ if(x.pid===p.id&&/separ|persoane-cheie|interpusi/i.test(x.dim)) x.impact+=1000; }); });
+  all.sort(function(a,b){ return b.impact-a.impact; });
+  return {procs:out,company:company,level:level,notes:notes,blockers:blockers,elig:blockers.length===0,plan:all.slice(0,10)};
+}
+function snapshot(){ var m={}; procs().forEach(function(pid){ buildQs(pid).forEach(function(q){ m[pid+'.'+q.k]=eff(pid,q.k); }); }); return m; }
+
+/* ---------- evidence analysis (AI with local fallback) ---------- */
+function normEv(r,src){
+  if(!r||!Array.isArray(r.findings)) throw new Error('invalid response');
+  var find={}; r.findings.forEach(function(f){ if(!f||!f.k) return; var l=(f.evidence_level===null||f.evidence_level===undefined||f.evidence_level==='')?null:Math.max(0,Math.min(3,Math.round(+f.evidence_level))); find[f.k]={lvl:(l!==null&&!isNaN(l))?l:null,note:String(f.note||''),rec:f.recommendation?String(f.recommendation):''}; });
+  var ar=function(x){ return Array.isArray(x)?x.map(String):[]; };
+  return {find:find,gaps:ar(r.gaps),incons:ar(r.inconsistencies),summary:String(r.summary||''),fq:(Array.isArray(r.followups)?r.followups:[]).map(function(q,i){ return {id:String(q.id||('f'+i)),q:String(q.q||''),why:String(q.why||''),a:''}; }).filter(function(q){ return q.q; }).slice(0,4),src:src};
+}
+function localEv(pid,text,fu){
+  var e=evOf(pid),an=analyse(text),find={},gaps=[],incons=[],fq=[],hasFiles=e.files.some(function(f){ return f.kind!=='text'; });
+  var d=declared(pid,'doc');
+  if(d>=2&&an.words<40&&!hasFiles){ find.doc={lvl:1,note:'You declared a documented SOP, but you did not provide text or files that show it.',rec:''}; incons.push('The declared documentation is not supported by evidence.'); }
+  if(an.words>0&&an.miss.length) gaps.push('The description of the process does not include: '+an.miss.slice(0,4).join(', ')+'.');
+  if(an.words===0&&!hasFiles) gaps.push('You did not provide any evidence for this process.');
+  var n=PROCS[pid].n;
+  if(an.miss.indexOf('approval')>=0||an.words===0) fq.push({id:'f1',q:'Who approves operations in "'+n+'" and from what threshold?',why:'Without clear approval, segregation of duties cannot be confirmed.',a:''});
+  if(an.miss.indexOf('log or record')>=0||an.words===0) fq.push({id:'f2',q:'What record or log remains after each operation in "'+n+'"?',why:'The traces left allow later reconstruction.',a:''});
+  if(an.miss.indexOf('checks')>=0||an.words===0) fq.push({id:'f3',q:'Who periodically checks compliance with the procedure in "'+n+'" and how often?',why:'A control that is not verified cannot be considered functional.',a:''});
+  var done=(fu||[]).map(function(x){ return x.q; }); fq=fq.filter(function(x){ return done.indexOf(x.q)<0; });
+  return {find:find,gaps:gaps,incons:incons,summary:an.words?('Text analysed: '+an.words+' words, '+an.hit.length+' key elements found.'):'There is no text to analyse.',fq:fq.slice(0,3),src:'local'};
+}
+function analyzeEvidence(pid){
+  var e=evOf(pid),P=PROCS[pid],qs=buildQs(pid),textFiles=e.files.filter(function(f){ return f.kind==='text'; }).map(function(f){ return f.text; }),files=e.files.filter(function(f){ return f.kind!=='text'; });
+  var red=SBR.redact((e.text||'')+(textFiles.length?'\n\n'+textFiles.join('\n\n'):''));
+  var fu=(e.answered||[]).concat((e.fq||[]).filter(function(x){ return x.a&&x.a.trim(); }).map(function(x){ return {q:x.q,a:x.a}; }));
+  var body={action:'verified_evidence',lang:SBR.lang,session_id:S.sid,round:S.round,niche:NICHES[S.niche].n,employees:S.profile.emp,process:{id:pid,name:P.n,description:P.d},
+    questions:qs.map(function(q){ return {k:q.k,text:q.t,declared:declared(pid,q.k)}; }),text:red.text,files:files.map(function(f){ return {name:f.name,kind:f.kind,media_type:f.media_type,data:f.data}; }),followups:fu};
+  return SBR.post(SBR.API.ai,body).then(function(r){ return normEv(r,'ai'); }).catch(function(){ return localEv(pid,red.text,fu); });
+}
+function applyEv(pid,r){
+  var e=evOf(pid);
+  (e.fq||[]).forEach(function(x){ if(x.a&&x.a.trim()) e.answered.push({q:x.q,a:x.a}); });
+  e.find=r.find; e.gaps=r.gaps; e.incons=r.incons; e.summary=r.summary; e.fq=r.fq; e.src=r.src;
+}
+function runAnalysis(){
+  if(S.busy) return; S.busy=true; S.round++; S.log=[];
+  var before=S.analyzed?snapshot():null,prevScore=S.analyzed?compute().company:null,list=procs(),chain=Promise.resolve(),srcs=[];
+  list.forEach(function(pid){ chain=chain.then(function(){ S.log.push('Analysing "'+PROCS[pid].n+'"...'); paintLog(); return analyzeEvidence(pid).then(function(r){ applyEv(pid,r); srcs.push(r.src); S.log[S.log.length-1]='Analysed: "'+PROCS[pid].n+'"'; paintLog(); }); }); });
+  chain.then(function(){
+    S.mode=srcs.every(function(x){ return x==='ai'; })?'ai':'local'; S.analyzed=true; S.busy=false;
+    S.prevScore=prevScore; S.changes=[];
+    if(before){ var after=snapshot(); Object.keys(after).forEach(function(k){ if(after[k]!==before[k]){ var p=k.split('.'),q=buildQs(p[0]).filter(function(x){ return x.k===p[1]; })[0]; S.changes.push({p:PROCS[p[0]].n,dim:dimName(q),from:before[k],to:after[k],note:((evOf(p[0]).find[p[1]])||{}).note||''}); } }); }
+    save(); saveRemote('verified_analysis'); render(true);
+  });
+}
+function paintLog(){ var el=$('runlog'); if(el) el.innerHTML=S.log.map(function(x){ return '<div>'+(/^Analizez/.test(x)?'<span class="spin"></span>':'&#10003; ')+esc(x)+'</div>'; }).join(''); }
+function saveRemote(kind){
+  if(!S.profile.consent) return Promise.resolve(false);
+  var R=compute();
+  return SBR.post(SBR.API.save,{action:'save',session_id:S.sid,kind:kind,round:S.round,score:R.company,
+    payload:{firm:{name:S.profile.name,cui:S.profile.cui,employees:S.profile.emp},niche:S.niche,level:R.level,mode:S.mode,procs:R.procs.map(function(p){ return {id:p.id,name:p.name,score:p.score,capped:p.caps.length,evidence:p.evidence}; }),audit:kind==='audit_request'?S.audit:undefined},
+    result:{plan:R.plan.slice(0,10).map(function(x){ return {process:x.pn,dimension:x.dim,action:x.f}; }),notes:R.notes}}).then(function(){ return true; }).catch(function(){ return false; });
+}
+
+/* ---------- views ---------- */
+function navRow(back,nextLabel,ok,prog,nextAct){
+  return '<div class="nav">'+(back?'<button type="button" class="btn sec" data-act="back">'+back+'</button>':'')+(nextLabel?'<button type="button" class="btn" data-act="'+(nextAct||'next')+'" id="btn-next"'+(ok?'':' disabled')+'>'+nextLabel+'</button>':'')+'<span class="prog" id="prog">'+esc(prog||'')+'</span></div>';
+}
+function v0(){
+  var p=S.profile,h='<h2>Company profile</h2><p class="lede">We start with the frame: who the assessed company is.</p>';
+  h+='<div class="field"><label for="f-name">Company name</label><input type="text" id="f-name" autocomplete="organization" value="'+esc(p.name)+'"></div>';
+  h+='<div class="row2"><div class="field"><label for="f-cui">Tax ID (CUI) <span class="hint">Optional at this stage</span></label><input type="text" id="f-cui" inputmode="numeric" value="'+esc(p.cui)+'"></div>';
+  h+='<div class="field"><label for="f-emp">Number of employees</label><select id="f-emp"><option value="">Choose</option>';
+  ['1-9','10-49','50-249','250 or more'].forEach(function(o){ h+='<option'+(p.emp===o?' selected':'')+'>'+o+'</option>'; });
+  h+='</select></div></div>';
+  h+='<div class="field"><label for="f-human">Average employee behavioural score, from SBR Business <span class="hint">Optional, between 0 and 100. If you fill it in, it contributes 15% to the final score.</span></label><input type="number" id="f-human" min="0" max="100" step="1" value="'+esc(p.human)+'"><div class="err" id="e-human" hidden>Enter a number between 0 and 100.</div></div>';
+  h+='<div class="field"><label style="font-weight:400"><input type="checkbox" id="f-consent"'+(p.consent?' checked':'')+'> I agree that the information and evidence entered in this route may be sent for automatic SBR analysis and recorded for the assessment. Do not upload passwords, codes or card details.</label><div class="note"><a href="https://www.sbr.systems/privacy.html" target="_blank" rel="noopener">Privacy policy</a> · <a href="https://www.sbr.systems/gdpr.html" target="_blank" rel="noopener">GDPR</a></div></div>';
+  return h+navRow('','Continue to field',profileOk(),profileOk()?'':'Fill in the company name and tick the consent.');
+}
+function v1(){
+  var h='<h2>Field of activity</h2><p class="lede">Choose the category that best describes the main activity. The processes assessed and the questions adapt to the field.</p>';
+  GROUPS.forEach(function(g){
+    h+='<h3 class="gt">'+g.t+'</h3><div class="niches" role="radiogroup" aria-label="'+g.t+'">';
+    g.k.forEach(function(k){ h+='<label class="niche"><input type="radio" name="niche" value="'+k+'"'+(S.niche===k?' checked':'')+'><span><b>'+NICHES[k].n+'</b><small>'+NICHES[k].d+'</small></span></label>'; });
+    h+='</div>';
+  });
+  return h+navRow('Back','Continue to processes',!!S.niche,S.niche?'':'Choose a field.');
+}
+function tabs(kind){
+  var list=procs(),cur=kind==='p'?S.pt:S.et;
+  return '<div class="tabs" role="tablist">'+list.map(function(id,i){ var done=kind==='p'?answeredCount(id)===buildQs(id).length:hasEvidence(id); return '<button type="button" role="tab" class="'+(i===cur?'on ':'')+(done?'ok':'')+'" data-act="tab'+kind+'" data-i="'+i+'">'+esc(PROCS[id].n)+'</button>'; }).join('')+'</div>';
+}
+function v2(){
+  var list=procs(),pid=list[S.pt],P=PROCS[pid],qs=buildQs(pid),a=S.ans[pid]||{},h='<h2>The company\'s processes</h2><p class="lede">For each process, choose how things stand <b>today</b>, not how they should be. The answers will be compared with the evidence.</p>'+tabs('p');
+  h+='<h3 style="margin-top:6px">'+esc(P.n)+'</h3><p class="note" style="margin:0 0 4px">'+esc(P.d)+'</p><p class="note">Related requirements (to be checked with a specialist): '+esc(P.req)+'</p>';
+  G.forEach(function(g){
+    h+='<div class="grp"><b>'+g.t+'</b>'+(g.s?'<span>'+g.s+'</span>':'')+'</div>';
+    g.ks.forEach(function(k){
+      var q=qs.filter(function(x){ return x.k===k; })[0];
+      h+='<fieldset class="stmt"><legend><span class="tag">'+esc(dimName(q))+'</span><span class="txt">'+esc(q.t)+'</span></legend><div class="opts">';
+      OPTS.forEach(function(o,vi){ h+='<label class="opt"><input type="radio" name="'+pid+'_'+k+'" value="'+vi+'" data-p="'+pid+'" data-k="'+k+'"'+(a[k]===vi?' checked':'')+'><span>'+o+'</span></label>'; });
+      h+='</div></fieldset>';
+    });
+  });
+  var c=answeredCount(pid),last=S.pt===list.length-1;
+  return h+navRow('Back',last?'Continue to evidence':'Next process',c===qs.length,c+' of '+qs.length+' answers completed',last?'next':'nextp');
+}
+function filesHtml(pid){ return evOf(pid).files.map(function(f,i){ return '<div class="file">'+(f.preview?'<img alt="" src="'+f.preview+'">':'')+'<span>'+esc(f.name)+' ('+f.kind+')</span><button type="button" data-act="rmf" data-p="'+pid+'" data-i="'+i+'" aria-label="Remove">&times;</button></div>'; }).join(''); }
+function v3(){
+  var list=procs(),pid=list[S.et],P=PROCS[pid],e=evOf(pid),h='<h2>Evidence</h2><p class="lede">Support what you declared. Evidence turns a claim into a verifiable fact and raises the trust level. You may skip a process, but the score stays at the "Declared" level.</p>'+tabs('e');
+  h+='<h3 style="margin-top:6px">'+esc(P.n)+'</h3>';
+  h+='<p class="note">Evidence that helps: the written procedure (SOP), screenshots from applications (approvals, logs, access rights), photos of registers or forms, contracts, approval e-mails, report extracts.</p>';
+  h+='<div class="field"><label for="f-note">Procedure or description of the process <span class="hint">Paste the SOP text or describe step by step how the process runs and who does what.</span></label><textarea id="f-note" data-p="'+pid+'" style="min-height:150px">'+esc(e.text)+'</textarea></div>';
+  h+='<div class="field"><label for="f-files">Files <span class="hint">Images (reduced in the browser), PDF up to 3 MB, text (.txt, .eml). Maximum 4 images and 2 documents per process.</span></label><div class="drop"><input type="file" id="f-files" data-p="'+pid+'" accept="image/*,.pdf,.txt,.eml" multiple></div><div class="files" id="flist">'+filesHtml(pid)+'</div><div class="err" id="ferr" hidden></div></div>';
+  h+='<p class="note" id="evst">'+evStatus(pid)+' Card numbers and personal ID numbers in the text are removed automatically.</p>';
+  var last=S.et===list.length-1;
+  return h+navRow('Back',last?'Continue to score':'Next process',true,'',last?'next':'nexte');
+}
+function evStatus(pid){ var e=evOf(pid),w=evWords(pid),nf=e.files.filter(function(f){ return f.kind!=='text'; }).length; return hasEvidence(pid)?'Process with evidence ('+w+' words, '+nf+' files).':'Insufficient evidence ('+w+' words, '+nf+' files).'; }
+function seal(score){
+  var b=band(score),r=74,C=2*Math.PI*r,off=C*(1-score/100),ticks='',col='var(--'+(b.cls==='ok'?'pine':(b.cls==='mid'?'amber':'brick'))+')';
+  for(var t=0;t<60;t++){ var an=t*6*Math.PI/180,r1=t%5===0?86:89; ticks+='<line x1="'+(100+r1*Math.sin(an)).toFixed(2)+'" y1="'+(100-r1*Math.cos(an)).toFixed(2)+'" x2="'+(100+94*Math.sin(an)).toFixed(2)+'" y2="'+(100-94*Math.cos(an)).toFixed(2)+'" stroke="var(--soft)" stroke-width="'+(t%5===0?1.6:.8)+'"/>'; }
+  return '<svg class="seal" viewBox="0 0 200 200" role="img" aria-label="SBR score '+score+' out of 100">'+ticks+'<circle cx="100" cy="100" r="'+r+'" fill="none" stroke="var(--line)" stroke-width="9"/><circle cx="100" cy="100" r="'+r+'" fill="none" stroke="'+col+'" stroke-width="9" stroke-dasharray="'+C.toFixed(2)+'" stroke-dashoffset="'+off.toFixed(2)+'" transform="rotate(-90 100 100)"/><text class="num" x="100" y="112" text-anchor="middle">'+score+'</text><text class="of" x="100" y="134" text-anchor="middle">out of 100</text></svg>';
+}
+function bars(R){ var h='<div class="bars">'; R.procs.forEach(function(p){ var bb=band(p.score); h+='<div class="bar"><span>'+esc(p.name)+'</span><div class="trk"><div class="fil '+bb.cls+'" style="width:'+p.score+'%"></div></div><span class="v">'+p.score+'</span></div>'; p.caps.forEach(function(c){ h+='<div class="err" style="margin:0 0 6px">Cap '+c.cap+': '+esc(c.why)+'</div>'; }); }); return h+'</div>'; }
+function ul(a){ return '<ul>'+a.map(function(x){ return '<li>'+esc(x)+'</li>'; }).join('')+'</ul>'; }
+function v4(){
+  var h='<h2>Score and recommendations</h2>';
+  if(!S.analyzed){
+    h+='<p class="lede">The analysis reads each process\'s evidence, compares it with what you declared, flags the gaps and calculates the score. If information is missing, it asks you questions.</p><div class="box"><b>What will be analysed</b>'+ul(procs().map(function(id){ return PROCS[id].n+': '+evStatus(id); }))+'</div>';
+    h+='<div id="runlog" class="note" role="status" aria-live="polite"></div>';
+    return h+navRow('Back',S.busy?'Analysing...':'Analyse the evidence and calculate the score',!S.busy,'','run');
+  }
+  var R=compute(),b=band(R.company);
+  h+='<div class="verdict"><div>'+seal(R.company)+'</div><div><p><span class="pill '+b.cls+'">'+b.label+'</span><span class="pill neutral">Trust level: '+R.level+'</span><span class="pill neutral">Evidence analysis: '+(S.mode==='ai'?'SBR AI':'demo mode')+'</span></p><p style="margin:0">The score runs from 0 to 100; a higher score means lower operational risk. Analysis round: '+S.round+'.</p></div></div>';
+  if(S.mode!=='ai') h+='<div class="box mid"><b>Demo mode</b>The AI analysis is not available right now. A simplified local analysis of the text ran; images and PDF documents were not read. The score is based mainly on the declared answers.</div>';
+  if(S.prevScore!==null&&S.changes.length){ var dl=R.company-S.prevScore; h+='<div class="change"><b>What changed the score: from '+S.prevScore+' to '+R.company+' ('+(dl>0?'+':'')+dl+')</b><ul>'+S.changes.map(function(c){ return '<li><b>'+esc(c.p)+', '+esc(c.dim)+'</b>: the assessed level went from '+c.from+' to '+c.to+(c.note?'. '+esc(c.note):'')+'</li>'; }).join('')+'</ul></div>'; }
+  else if(S.prevScore!==null) h+='<div class="change"><b>The score stayed '+R.company+'</b>The new answers did not change the assessed levels.</div>';
+  if(R.notes.length) h+='<div class="box"><b>Adjustments applied to the company score</b>'+ul(R.notes)+'</div>';
+  h+='<h3>Score by process</h3>'+bars(R);
+  h+='<h3>What came out of the evidence analysis</h3>';
+  R.procs.forEach(function(p){
+    var e=evOf(p.id),it=[];
+    if(e.summary) it.push(e.summary);
+    p.reduced.forEach(function(x){ it.push('Assessment reduced after evidence ('+x.from+' to '+x.to+'): '+x.t+(x.note?' '+x.note:'')); });
+    e.incons.forEach(function(x){ it.push('Inconsistency: '+x); });
+    e.gaps.forEach(function(x){ it.push('Gap: '+x); });
+    if(!hasEvidence(p.id)) it.push('Without sufficient evidence, the level stays "Declared".');
+    h+='<div class="pc"><b>'+esc(p.name)+' ('+p.score+')</b>'+(it.length?ul(it):'<div class="meta">No observations.</div>')+'</div>';
+  });
+  var pend=[]; procs().forEach(function(id){ evOf(id).fq.forEach(function(q,i){ pend.push({pid:id,i:i,q:q}); }); });
+  if(pend.length){
+    h+='<h3>Clarifications needed</h3><p class="note">Answer what you know, then re-analyse. The answers can change the score, and I will show you how.</p>';
+    pend.forEach(function(x){ h+='<div class="fq"><div class="qt">'+esc(x.q.q)+'</div><div class="qw">'+esc(PROCS[x.pid].n)+(x.q.why?'. '+esc(x.q.why):'')+'</div><input type="text" data-fq="'+x.pid+'" data-i="'+x.i+'" value="'+esc(x.q.a)+'" aria-label="'+esc(x.q.q)+'"></div>'; });
+    h+='<div class="nav" style="border:0;padding-top:6px"><button type="button" class="btn pine" data-act="run" id="rerun"'+(S.busy?' disabled':'')+'>Re-analyse with the answers</button><span class="note" id="runlog" role="status" aria-live="polite"></span></div>';
+  } else h+='<div id="runlog" class="note" role="status" aria-live="polite"></div>';
+  h+='<h3>Priority improvement plan</h3>';
+  if(!R.plan.length) h+='<p>All levels are at maximum. Keep the controls and repeat the assessment periodically.</p>';
+  else{ h+='<ol class="plan">'; R.plan.slice(0,8).forEach(function(x,i){ h+='<li><b>'+esc(x.pn)+'</b>'+esc(x.f)+'<div class="meta">Dimension: '+esc(x.dim)+'. Current situation: '+esc(x.cur)+'. Recommended timeframe: '+(i<3?'immediately, within 30 days':(i<6?'within 1-3 months':'within 3-6 months'))+'.</div></li>'; }); h+='</ol>'; }
+  return h+navRow('Back to evidence','Continue to verification',true,'');
+}
+function viewAudit(){
+  var R=compute(),A=S.audit,tm=new Date(); tm.setDate(tm.getDate()+1);
+  var h='<h2>Verification with the human evaluator</h2><p class="lede">The last step of the assessment is verification by an SBR evaluator. It can take the company from the "'+R.level+'" level to the "Validated" level.</p>';
+  h+='<div class="verif"><div class="av" aria-hidden="true">'+esc(VERIFIER.name.split(' ').map(function(x){ return x.charAt(0); }).join(''))+'</div><div><b>'+esc(VERIFIER.name)+'</b><span>'+esc(VERIFIER.role)+'</span></div></div>';
+  h+='<h3>How the verification works</h3><ol class="how"><li>The evaluator analyses the evidence file and the generated report.</li><li>They discuss with the process owners the processes where the score is weak or capped.</li><li>They cross-check the key information with public sources, in compliance with personal-data legislation.</li><li>They issue the validated report and, if the conditions are met, the SBR Verified mark.</li></ol>';
+  h+='<h3>Choose the time</h3><div class="row2"><div class="field"><label for="a-date">Preferred date <span class="hint">Monday to Friday, from tomorrow onwards</span></label><input type="date" id="a-date" min="'+isoDate(tm)+'" value="'+esc(A.date)+'"></div><div class="field"><label for="a-slot">Time slot <span class="hint">Romania time</span></label><select id="a-slot"><option value="">Choose</option>';
+  SLOTS.forEach(function(o){ h+='<option'+(A.slot===o?' selected':'')+'>'+o+'</option>'; });
+  h+='</select></div></div><div class="field"><span class="lab">Format</span><div class="opts" style="grid-template-columns:repeat(2,1fr);max-width:420px">';
+  ['Online','On the company\'s premises'].forEach(function(o){ h+='<label class="opt"><input type="radio" name="a-mode" value="'+o+'"'+(A.mode===o?' checked':'')+'><span>'+o+'</span></label>'; });
+  h+='</div></div><div class="row2"><div class="field"><label for="a-name">Contact person</label><input type="text" id="a-name" autocomplete="name" value="'+esc(A.name)+'"></div><div class="field"><label for="a-email">E-mail</label><input type="text" id="a-email" inputmode="email" autocomplete="email" value="'+esc(A.email)+'"></div></div>';
+  h+='<div class="field" style="max-width:420px"><label for="a-phone">Phone <span class="hint">Optional</span></label><input type="text" id="a-phone" inputmode="tel" autocomplete="tel" value="'+esc(A.phone)+'"></div>';
+  h+='<div class="field"><label style="font-weight:400"><input type="checkbox" id="a-consent"'+(A.consent?' checked':'')+'> I agree that the data in this request and the assessment summary may be sent to the SBR verifier to schedule the verification.</label></div>';
+  h+='<h3>Request summary</h3><div class="field"><label for="req-out" class="note">This text goes to the verifier</label><textarea id="req-out" readonly></textarea></div><div id="audit-actions" class="actions"></div><p class="note" id="audit-note"></p>';
+  return h+navRow('Back to score','Continue to report',true,'');
+}
+function refreshAudit(){
+  var out=$('req-out'),box=$('audit-actions'),nt=$('audit-note'); if(!out||!box) return;
+  var pr=auditProblems(),txt=reqText(); out.value=txt;
+  if(pr.length){ box.innerHTML='<button type="button" class="btn" disabled>Send the request to the verifier</button>'; nt.textContent='Still to be completed: '+pr.join(', ')+'.'; return; }
+  var hh='<button type="button" class="btn pine" data-act="sendreq">Send the request to the verifier</button><button type="button" class="btn sec" data-act="copyreq">Copy the request</button>';
+  if(VERIFIER.email) hh+='<a class="btn sec" href="mailto:'+encodeURIComponent(VERIFIER.email).replace('%40','@')+'?subject='+encodeURIComponent('SBR Verified verification request: '+S.profile.name)+'&body='+encodeURIComponent(txt)+'">Send by e-mail</a>';
+  if(VERIFIER.telegram) hh+='<a class="btn sec" href="'+esc(VERIFIER.telegram)+'" target="_blank" rel="noopener">Open SBR Telegram</a>';
+  box.innerHTML=hh;
+  nt.innerHTML=(S.sent==='ok'?'<span class="ok-t">The request has been recorded. The verifier will confirm the appointment with a reply.</span>':(S.sent==='fail'?'<span class="err">The request could not be sent automatically. Copy it and send it by Telegram or e-mail.</span>':'The appointment is confirmed by the verifier with a reply.'))+'<br><span class="ok-t" id="copied"></span>';
+}
+function sendReq(){ S.sent='pending'; var n=$('audit-note'); if(n) n.innerHTML='<span class="spin"></span>Sending...'; saveRemote('audit_request').then(function(ok){ S.sent=ok?'ok':'fail'; refreshAudit(); }); }
+function copyReq(){
+  var ta=$('req-out'),m=$('copied'); if(!ta) return;
+  function ok(){ if(m) m.textContent='The request was copied.'; }
+  function fb(){ ta.focus(); ta.select(); var d=false; try{ d=document.execCommand('copy'); }catch(e){} if(d) ok(); else if(m) m.textContent='The text is selected. Copy it manually.'; }
+  if(navigator.clipboard&&navigator.clipboard.writeText) navigator.clipboard.writeText(ta.value).then(ok,fb); else fb();
+}
+function narrative(R){
+  var b=band(R.company),so=R.procs.slice().sort(function(x,y){ return y.score-x.score; }),best=so[0],worst=so[so.length-1],capped=R.procs.filter(function(p){ return p.caps.length; }),nev=R.procs.filter(function(p){ return p.evidence; }).length,red=0;
+  R.procs.forEach(function(p){ red+=p.reduced.length; });
+  var t=[];
+  t.push(S.profile.name+' is a company in the field "'+NICHES[S.niche].n+'"'+(S.profile.emp?', with '+S.profile.emp+' employees,':'')+' that went through the SBR Verified route on '+R.procs.length+' processes: '+R.procs.map(function(p){ return p.name; }).join(', ')+'.');
+  t.push('The company score is '+R.company+' out of 100 ('+b.label.toLowerCase()+'). The strongest process is "'+best.name+'" ('+best.score+'), and the most exposed is "'+worst.name+'" ('+worst.score+').');
+  if(capped.length) t.push('For '+capped.map(function(p){ return '"'+p.name+'"'; }).join(', ')+' the score is capped: the same person can approve, execute and control the relationship with a third party, which is the most important point to correct, regardless of the other controls.');
+  t.push('Evidence was provided for '+nev+' of '+R.procs.length+' processes.'+(red?' The evidence analysis reduced '+red+' declared assessments, because the evidence did not confirm them.':' The evidence analysis did not reduce any declared assessment.'));
+  t.push(R.elig?'The company meets the conditions for moving to the "Validated" level, through verification by a human SBR evaluator.':'To be eligible for the SBR Verified mark, the company still has to resolve: '+R.blockers.map(function(x){ return x.replace(/\.$/,'').toLowerCase(); }).join('; ')+'.');
+  return t;
+}
+function v6(){
+  var R=compute(),b=band(R.company),now=new Date().toLocaleDateString(SBR.loc),h='<div class="story-rep">';
+  h+='<p class="eyebrow" style="margin:0 0 8px">SBR Verified report</p><p class="firm">'+esc(S.profile.name)+'</p><p class="meta">'+(S.profile.cui?'Tax ID (CUI) '+esc(S.profile.cui)+' · ':'')+esc(NICHES[S.niche].n)+' · Assessment dated '+now+'</p>';
+  h+='<div class="verdict"><div>'+seal(R.company)+'</div><div><p><span class="pill '+b.cls+'">'+b.label+'</span><span class="pill neutral">Trust level: '+R.level+'</span><span class="pill neutral">Human verification: '+(S.sent==='ok'?'appointment requested':'pending')+'</span></p><p class="meta" style="margin:0">Score from 0 to 100; higher means lower operational risk.</p></div></div>';
+  h+='<h3>The story of the assessment</h3>'+narrative(R).map(function(x){ return '<p>'+esc(x)+'</p>'; }).join('');
+  h+=(R.elig?'<div class="box ok"><b>Eligible for the SBR Verified assessment</b>The score, process and evidence conditions are met.</div>':'<div class="box mid"><b>Not yet eligible for the SBR Verified mark</b>'+ul(R.blockers)+'</div>');
+  if(R.notes.length) h+='<div class="box"><b>Adjustments applied to the company score</b>'+ul(R.notes)+'</div>';
+  h+='<h3>Result by process</h3>'+bars(R);
+  h+='<h3>Map of dimensions</h3><p class="note">The score of each dimension, for each process (0-100).</p><div class="scroll"><table class="heat"><thead><tr><th>Process</th>'+DIMS.map(function(d){ return '<th>'+d.short+'</th>'; }).join('')+'</tr></thead><tbody>';
+  R.procs.forEach(function(p){ h+='<tr><td>'+esc(p.name)+'</td>'+DIMS.map(function(d){ var v=Math.round(p.d[d.id]); return '<td class="c '+band(v).cls+'">'+v+'</td>'; }).join('')+'</tr>'; });
+  h+='</tbody></table></div><h3>Evidence and analysis</h3>';
+  R.procs.forEach(function(p){ var e=evOf(p.id),it=[]; if(e.summary) it.push(e.summary); p.reduced.forEach(function(x){ it.push('Assessment reduced after evidence: '+x.t); }); e.gaps.forEach(function(x){ it.push('Gap: '+x); }); h+='<div class="pc"><b>'+esc(p.name)+'</b><div class="meta">'+esc(evStatus(p.id))+'</div>'+(it.length?ul(it):'')+'<div class="meta">Related requirements (to be checked with a specialist): '+esc(PROCS[p.id].req)+'</div></div>'; });
+  h+='<h3>Recommendations, in order of impact</h3>';
+  if(R.plan.length){ h+='<ol class="plan">'; R.plan.forEach(function(x,i){ h+='<li><b>'+esc(x.pn)+'</b>'+esc(x.f)+'<div class="meta">Dimension: '+esc(x.dim)+'. Current situation: '+esc(x.cur)+'. Recommended timeframe: '+(i<3?'immediately, within 30 days':(i<7?'within 1-3 months':'within 3-6 months'))+'.</div></li>'; }); h+='</ol>'; } else h+='<p>All levels are at maximum.</p>';
+  h+='<h3>Methodology</h3><div class="method"><p>Each process is assessed on six dimensions: '+DIMS.map(function(d){ return d.name.split(',')[0]+' '+d.w+'%'; }).join(', ')+'. The dependence dimension has three sub-scores: internal key people 30%, external third parties 30%, intermediaries and hidden relationships 40%. Declared levels are compared with the evidence, and the assessment is reduced when the evidence does not support it.</p><p>Capping rules: a process score cannot exceed 40 if the same person can approve, execute and control the relationship with a third party, and cannot exceed 50 if the process has neither a procedure nor controls. The company score is the weighted average of the processes, with a penalty for concentrating dependence on key people.</p><p>Trust levels: “Declared”, “Documented” (evidence for all processes) and “Validated” (verification by an SBR evaluator and cross-checking with public sources).</p><p><b>Limits.</b> The assessment is based on the information and evidence provided by the company. It is not an audit, certification or guarantee and does not prove the absence of fraud. Risk indicators point to structures that allow abuse; they do not accuse people.</p></div></div>';
+  h+='<div class="actions noprint"><button type="button" class="btn" data-act="print">Print the report</button><button type="button" class="btn sec" data-act="edit">Edit the answers</button><button type="button" class="btn sec" data-act="reset">Start over</button></div>';
+  return h;
+}
+function render(scroll){
+  var rail='';
+  STN.forEach(function(l,i){ var cls=(i===S.st?'on':(i<S.st?'done':'')); rail+='<li class="'+cls+'"><button type="button" data-act="go" data-i="'+i+'"'+(i>S.max?' disabled':'')+(i===S.st?' aria-current="step"':'')+'><span class="dot">'+(i<S.st?'&#10003;':(i+1))+'</span>'+esc(l)+'</button></li>'; });
+  $('rail').innerHTML=rail;
+  var fn=[v0,v1,v2,v3,v4,viewAudit,v6][S.st]; $('stage').innerHTML=fn();
+  if(S.st===5) refreshAudit();
+  if(scroll){ var t=$('traseu'); if(t&&t.scrollIntoView) t.scrollIntoView({block:'start'}); }
+}
+function updateNext(){
+  var btn=$('btn-next'),pg=$('prog'); if(!btn) return;
+  if(S.st===0){ var ok=profileOk(); btn.disabled=!ok; pg.textContent=ok?'':'Fill in the company name and tick the consent.'; }
+  else if(S.st===1){ btn.disabled=!S.niche; }
+  else if(S.st===2){ var pid=procs()[S.pt],c=answeredCount(pid),n=buildQs(pid).length; btn.disabled=(c!==n); pg.textContent=c+' of '+n+' answers completed'; }
+}
+function go(n,scroll){ S.st=n; S.max=Math.max(S.max,n); save(); render(scroll!==false); }
+
+/* ---------- events ---------- */
+var stage=$('stage');
+stage.addEventListener('input',function(e){
+  var t=e.target;
+  if(t.id==='f-name') S.profile.name=t.value;
+  else if(t.id==='f-cui') S.profile.cui=t.value;
+  else if(t.id==='f-human'){ S.profile.human=t.value; var er=$('e-human'); if(er) er.hidden=!isNaN(humanVal()); }
+  else if(t.id==='f-note'){ evOf(t.dataset.p).text=t.value; var s=$('evst'); if(s) s.textContent=evStatus(t.dataset.p)+' Card numbers and personal ID numbers in the text are removed automatically.'; }
+  else if(t.dataset&&t.dataset.fq){ evOf(t.dataset.fq).fq[+t.dataset.i].a=t.value; }
+  else if(t.id==='a-name'||t.id==='a-email'||t.id==='a-phone'){ var mp={'a-name':'name','a-email':'email','a-phone':'phone'}; S.audit[mp[t.id]]=t.value; S.sent=''; save(); refreshAudit(); return; }
+  else return;
+  save(); updateNext();
+});
+stage.addEventListener('change',function(e){
+  var t=e.target;
+  if(t.id==='f-emp'){ S.profile.emp=t.value; save(); return; }
+  if(t.id==='f-consent'){ S.profile.consent=t.checked; save(); updateNext(); return; }
+  if(t.name==='niche'){ if(S.niche!==t.value){ S.niche=t.value; S.ans={}; S.ev={}; S.analyzed=false; S.pt=0; S.et=0; S.round=0; S.max=Math.min(S.max,1); } save(); updateNext(); return; }
+  if(t.id==='a-date'){ S.audit.date=t.value; S.sent=''; save(); refreshAudit(); return; }
+  if(t.id==='a-slot'){ S.audit.slot=t.value; S.sent=''; save(); refreshAudit(); return; }
+  if(t.name==='a-mode'){ S.audit.mode=t.value; S.sent=''; save(); refreshAudit(); return; }
+  if(t.id==='a-consent'){ S.audit.consent=t.checked; S.sent=''; save(); refreshAudit(); return; }
+  if(t.dataset&&t.dataset.k){ var p=t.dataset.p; S.ans[p]=S.ans[p]||{}; S.ans[p][t.dataset.k]=Number(t.value); S.analyzed=S.analyzed; save(); updateNext(); return; }
+  if(t.id==='f-files'){ addFiles(t); }
+});
+function addFiles(inp){
+  var pid=inp.dataset.p,e=evOf(pid),er=$('ferr'),fs=Array.prototype.slice.call(inp.files||[]); er.hidden=true;
+  fs.forEach(function(f){
+    var imgs=e.files.filter(function(x){ return x.kind==='image'; }).length,docs=e.files.filter(function(x){ return x.kind!=='image'; }).length,isImg=/^image\//.test(f.type);
+    if(isImg&&imgs>=4){ er.textContent='Maximum 4 images per process.'; er.hidden=false; return; }
+    if(!isImg&&docs>=2){ er.textContent='Maximum 2 documents per process.'; er.hidden=false; return; }
+    SBR.readFile(f).then(function(x){ e.files.push(x); $('flist').innerHTML=filesHtml(pid); var s=$('evst'); if(s) s.textContent=evStatus(pid); }).catch(function(x){ er.textContent=x.message; er.hidden=false; });
+  });
+  inp.value='';
+}
+document.addEventListener('click',function(ev){
+  var b=ev.target.closest('[data-act]'); if(!b||b.disabled) return;
+  var act=b.dataset.act,st=S.st;
+  if(act==='next'){ go(st+1); }
+  else if(act==='back'){ if(st===2&&S.pt>0){ S.pt--; render(true); } else if(st===3&&S.et>0){ S.et--; render(true); } else if(st>0) go(st-1); }
+  else if(act==='nextp'){ S.pt++; save(); render(true); }
+  else if(act==='nexte'){ S.et++; save(); render(true); }
+  else if(act==='tabp'){ S.pt=+b.dataset.i; render(false); }
+  else if(act==='tabe'){ S.et=+b.dataset.i; render(false); }
+  else if(act==='go'){ var i=+b.dataset.i; if(i<=S.max) go(i); }
+  else if(act==='rmf'){ evOf(b.dataset.p).files.splice(+b.dataset.i,1); $('flist').innerHTML=filesHtml(b.dataset.p); var s=$('evst'); if(s) s.textContent=evStatus(b.dataset.p); }
+  else if(act==='run'){ if(!allAnswered()){ return; } runAnalysis(); var bt=$('btn-next'); if(bt){ bt.disabled=true; bt.textContent='Analysing...'; } }
+  else if(act==='sendreq'){ sendReq(); }
+  else if(act==='copyreq'){ copyReq(); }
+  else if(act==='print'){ try{ window.print(); }catch(e){} }
+  else if(act==='edit'){ S.pt=0; go(2); }
+  else if(act==='reset'){ S=Object.assign(S,{niche:null,profile:{name:'',cui:'',emp:'',human:'',consent:false},ans:{},ev:{},st:0,max:0,pt:0,et:0,round:0,analyzed:false,mode:'',busy:false,log:[],prevScore:null,changes:[],audit:newAudit(),sent:''}); try{ localStorage.removeItem(KEY); }catch(e){} render(true); }
+});
+SBR.init();
+load();
+if(S.st>6||(S.st>0&&!S.niche)) S.st=0;
+render(false);
+})();
+
+}
+(function(){
+  var TT={ro:"SBR Verified: evaluarea proceselor firmei",en:"SBR Verified: assessment of a company's processes"},DD={ro:"SBR Verified: traseu de audit digital pentru firme, de la profil si procese la dovezi, scor, verificare si raport.",en:"SBR Verified: a digital audit route for companies, from profile and processes to evidence, score, verification and report."};
+  var tpl=document.getElementById('tpl-'+SBR_LANG);
+  document.getElementById('root').appendChild(tpl.content.cloneNode(true));
+  document.documentElement.lang=SBR_LANG; document.title=TT[SBR_LANG];
+  var md=document.querySelector('meta[name=description]'); if(md) md.setAttribute('content',DD[SBR_LANG]);
+  (SBR_LANG==='en'?runEN:runRO)();
+})();
+</script>
+<foreignObject></foreignObject>
+</body>
+</html>

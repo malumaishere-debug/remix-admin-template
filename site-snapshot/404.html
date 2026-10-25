@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="ro">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<meta name="robots" content="noindex">
+<title data-i18n="error.404.title">404 - Pagina nu a fost gasita | SBR</title>
+<script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+<script src="/js/i18n.js?v=5"></script>
+<script src="/js/nav-universal.js?v=13"></script>
+<style>
+body{margin:0;background:#0a0a0a;color:#e8e8e8;font-family:-apple-system,system-ui,Segoe UI,Helvetica,sans-serif;min-height:100vh;display:flex;align-items:center;justify-content:center;padding:80px 24px 40px}
+.e{max-width:680px;text-align:center}
+.code{font-family:'Bebas Neue','Arial Narrow',sans-serif;font-size:clamp(120px,18vw,220px);line-height:.9;color:#C0392B;margin:0 0 8px;letter-spacing:4px}
+.label{font-family:Consolas,monospace;font-size:11px;letter-spacing:5px;color:#666;text-transform:uppercase;margin-bottom:24px}
+h1{font-family:'Bebas Neue',sans-serif;font-size:clamp(32px,5vw,56px);color:#fff;margin:0 0 14px;letter-spacing:1px;font-weight:normal}
+p{color:#aaa;font-size:16px;line-height:1.6;margin:0 0 30px}
+.btns{display:flex;gap:12px;justify-content:center;flex-wrap:wrap}
+.b{font-family:Consolas,monospace;font-size:11px;letter-spacing:3px;padding:13px 24px;border:1px solid rgba(255,255,255,.15);color:#aaa;text-decoration:none;text-transform:uppercase;transition:all .15s}
+.b:hover{color:#fff;border-color:#C0392B}
+.b.p{background:#C0392B;color:#fff;border-color:#C0392B}
+.b.p:hover{background:#E74C3C;color:#fff}
+.q{font-family:Consolas,monospace;font-size:10px;letter-spacing:3px;color:#444;margin-top:50px;text-transform:uppercase}
+</style>
+</head>
+<body>
+<div class="e">
+  <div class="code">404</div>
+  <div class="label" data-i18n="error.404.label">PAGE NOT FOUND · SBR.SYSTEMS</div>
+  <h1 data-i18n="error.404.h1">Pagina nu a fost gasita</h1>
+  <p data-i18n="error.404.text">Adresa cautata nu exista sau a fost mutata. Daca ai ajuns aici dintr-un link, te rugam sa ne anunti. Intre timp, poti continua de aici:</p>
+  <div class="btns">
+    <a href="/" class="b p" data-i18n="error.back-home">▶ Pagina principala</a>
+    <a href="/quiz" class="b" data-i18n="error.try-diagnostic">Diagnostic gratuit</a>
+    <a href="/contact" class="b" data-i18n="error.contact">Raporteaza problema</a>
+  </div>
+  <div class="q" data-i18n="error.quote">CLARITY OVER PANIC</div>
+</div>
+
+</body>
+</html>

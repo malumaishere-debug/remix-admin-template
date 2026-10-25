@@ -1,0 +1,760 @@
+<!DOCTYPE html>
+<html lang="ro">
+<head>
+<meta charset="UTF-8">
+<!-- Google Analytics 4 (Consent Mode v2) — nu colecteaza pana la consimtamant -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-9WT1GRKEGB"></script>
+<script>
+window.dataLayer=window.dataLayer||[];function gtag(){dataLayer.push(arguments);}
+gtag('js',new Date());
+gtag('consent','default',{'ad_storage':'denied','ad_user_data':'denied','ad_personalization':'denied','analytics_storage':'denied'});
+try{var _c=JSON.parse(localStorage.getItem('sbr_cookie_consent')||'null');if(_c&&_c.type==='all'){gtag('consent','update',{'analytics_storage':'granted'});}}catch(e){}
+gtag('config','G-9WT1GRKEGB',{anonymize_ip:true});
+</script>
+<!-- End GA4 -->
+<script src="js/nav-universal.js?v=13"></script>
+<script src="/js/i18n.js?v=5"></script>
+
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>SBR CODEX — Termeni și Condiții Produs</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Playfair+Display:ital,wght@0,400;1,400&family=IBM+Plex+Mono:wght@400;500&family=Lato:wght@300;400;700&display=swap" rel="stylesheet" media="print" onload="this.media='all'">
+  <noscript><link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Playfair+Display:ital,wght@0,400;1,400&family=IBM+Plex+Mono:wght@400;500&family=Lato:wght@300;400;700&display=swap" rel="stylesheet"></noscript>
+<style>
+/* ── SBR Universal Nav ── */
+.sbr-nav{position:fixed;top:0;left:0;right:0;z-index:1000;height:58px;display:flex;align-items:center;justify-content:space-between;padding:0 clamp(18px,4vw,56px);background:rgba(8,8,8,.97);backdrop-filter:blur(20px);-webkit-backdrop-filter:blur(20px);border-bottom:1px solid rgba(192,57,43,.12)}
+.nav-logo{font-family:'Bebas Neue',sans-serif;font-size:22px;letter-spacing:5px;color:#e2e2e2;cursor:pointer;display:flex;align-items:center;gap:4px;text-decoration:none;flex-shrink:0}
+.nav-logo .dot{color:#C0392B}
+.nav-logo-sub{font-family:'IBM Plex Mono',monospace;font-size:7px;letter-spacing:2px;color:#333;text-transform:uppercase;margin-left:6px;margin-top:2px}
+.nav-links{display:flex;align-items:center;gap:20px}
+.nav-link{font-family:'IBM Plex Mono',monospace;font-size:9px;letter-spacing:2px;color:#444;text-transform:uppercase;text-decoration:none;transition:color .15s}
+.nav-link:hover,.nav-link.active{color:#aaa}
+.nav-right{display:flex;align-items:center;gap:8px;margin-left:auto}
+.btn-nav-ghost{font-family:'IBM Plex Mono',monospace;font-size:9px;letter-spacing:2px;text-transform:uppercase;background:transparent;border:1px solid rgba(255,255,255,.08);color:#444;padding:8px 14px;cursor:pointer;text-decoration:none;transition:all .18s;white-space:nowrap;display:inline-flex;align-items:center}
+.btn-nav-ghost:hover{border-color:rgba(192,57,43,.4);color:#aaa}
+.btn-nav-solid{font-family:'IBM Plex Mono',monospace;font-size:9px;letter-spacing:2px;text-transform:uppercase;background:#C0392B;color:#fff;border:none;padding:9px 18px;cursor:pointer;text-decoration:none;transition:background .18s;white-space:nowrap;display:inline-flex;align-items:center}
+.btn-nav-solid:hover{background:#E74C3C}
+#scroll-progress{position:fixed;top:0;left:0;height:2px;background:#C0392B;width:0%;z-index:9999;pointer-events:none}
+@media(max-width:700px){.nav-links{display:none}}
+@media(max-width:480px){.btn-nav-ghost:not(:last-of-type){display:none}}
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+html{scroll-behavior:smooth}
+body{font-family:'Lato',sans-serif;background:#0A0A0A;color:#fff;overflow-x:hidden}
+:root{--red:#C0392B;--redL:#E74C3C;--dark:#111111;--dark2:#1A1A1A;--cx:#3498DB;--cx-d:rgba(52,152,219,.09)}
+::-webkit-scrollbar{width:4px}::-webkit-scrollbar-track{background:#111}::-webkit-scrollbar-thumb{background:var(--cx)}
+a{text-decoration:none;color:inherit}
+
+/* Product badge: CODEX uses blue accent */
+:root{--accent:#3498DB;--accent-d:rgba(52,152,219,.08);--accent-b:rgba(52,152,219,.18)}
+
+#scroll-progress{position:fixed;top:0;left:0;height:2px;background:var(--accent);z-index:2000;width:0;pointer-events:none;transition:width .1s linear}
+
+#nav{position:fixed;top:0;left:0;right:0;z-index:1000;height:60px;display:flex;align-items:center;justify-content:space-between;padding:0 36px;background:rgba(10,10,10,.97);backdrop-filter:blur(20px);border-bottom:1px solid rgba(52,152,219,.15)}
+.nav-logo{font-family:'Bebas Neue',sans-serif;font-size:26px;letter-spacing:4px;cursor:pointer;display:flex;align-items:center}
+.nav-logo span{color:var(--red)}
+.nav-logo-sub{font-family:'IBM Plex Mono',monospace;font-size:8px;letter-spacing:2px;color:#888;text-transform:uppercase;margin-left:10px;margin-top:2px}
+#nav-right{display:flex;align-items:center;gap:18px}
+.nb{background:none;border:none;font-size:10px;letter-spacing:2px;text-transform:uppercase;color:#bbb;padding:4px 0;transition:color .2s;display:inline-block}
+.nb:hover{color:var(--accent)}
+.nb-ghost{background:transparent;border:1px solid rgba(255,255,255,.12);color:#bbb;font-size:10px;letter-spacing:2px;text-transform:uppercase;padding:8px 16px;transition:all .2s}
+.nb-ghost:hover{border-color:var(--accent);color:var(--accent)}
+
+.product-bar{background:var(--accent-d);border-bottom:1px solid var(--accent-b);padding:10px 36px;display:flex;align-items:center;gap:16px;margin-top:60px}
+.pb-badge{font-family:'IBM Plex Mono',monospace;font-size:8px;letter-spacing:3px;text-transform:uppercase;color:var(--accent);padding:3px 10px;border:1px solid var(--accent-b);background:rgba(52,152,219,.06)}
+.pb-name{font-family:'IBM Plex Mono',monospace;font-size:9px;letter-spacing:1px;color:#555}
+
+.doc-hero{padding:80px 60px 56px;background:radial-gradient(ellipse 60% 50% at 50% 50%,rgba(52,152,219,.05) 0%,transparent 70%);border-bottom:1px solid rgba(52,152,219,.1);position:relative;overflow:hidden}
+.doc-hero-grid{position:absolute;inset:0;background-image:linear-gradient(rgba(52,152,219,.02) 1px,transparent 1px),linear-gradient(90deg,rgba(52,152,219,.02) 1px,transparent 1px);background-size:60px 60px;mask-image:radial-gradient(ellipse 80% 80% at 50% 50%,black 20%,transparent 100%)}
+.doc-hero-inner{position:relative;max-width:900px;margin:0 auto}
+.doc-eyebrow{font-family:'IBM Plex Mono',monospace;font-size:10px;letter-spacing:4px;color:var(--accent);text-transform:uppercase;display:flex;align-items:center;gap:12px;margin-bottom:16px}
+.doc-eyebrow::before{content:'';display:block;width:28px;height:1px;background:var(--accent)}
+.doc-title{font-family:'Bebas Neue',sans-serif;font-size:clamp(44px,8vw,88px);line-height:.9;margin-bottom:16px}
+.doc-title em{color:var(--accent);font-style:normal}
+.doc-subtitle{font-family:'Playfair Display',serif;font-style:italic;font-size:16px;color:#555;max-width:600px;line-height:1.7;margin-top:16px}
+.doc-meta{display:flex;gap:28px;margin-top:24px;flex-wrap:wrap}
+.doc-meta-item{font-family:'IBM Plex Mono',monospace;font-size:10px;color:#555;letter-spacing:1px;display:flex;align-items:center;gap:8px}
+.doc-meta-item::before{content:'—';color:var(--accent)}
+
+.doc-layout{max-width:1160px;margin:0 auto;padding:60px 60px 100px;display:grid;grid-template-columns:220px 1fr;gap:70px;align-items:start}
+
+.doc-toc{position:sticky;top:90px}
+.doc-toc-label{font-family:'IBM Plex Mono',monospace;font-size:9px;letter-spacing:3px;color:var(--accent);text-transform:uppercase;margin-bottom:16px;display:flex;align-items:center;gap:10px}
+.doc-toc-label::before{content:'';display:block;width:16px;height:1px;background:var(--accent)}
+.toc-item{display:block;font-family:'IBM Plex Mono',monospace;font-size:9px;letter-spacing:1px;color:#555;padding:7px 0 7px 14px;border-left:2px solid transparent;cursor:pointer;transition:all .15s;line-height:1.4}
+.toc-item:hover{color:#bbb;border-left-color:rgba(52,152,219,.3)}
+.toc-item.active{color:var(--accent);border-left-color:var(--accent)}
+.related-terms-box{margin-top:32px;padding:14px;background:rgba(52,152,219,.05);border:1px solid var(--accent-b)}
+.rtb-label{font-family:'IBM Plex Mono',monospace;font-size:8px;letter-spacing:2px;color:#555;text-transform:uppercase;margin-bottom:8px}
+.rtb-link{display:block;font-family:'IBM Plex Mono',monospace;font-size:9px;color:var(--accent);letter-spacing:1px;margin-bottom:6px;transition:opacity .2s}
+.rtb-link:hover{opacity:.7}
+
+.doc-section{margin-bottom:56px;scroll-margin-top:90px}
+.doc-section-num{font-family:'IBM Plex Mono',monospace;font-size:9px;letter-spacing:3px;color:var(--accent);text-transform:uppercase;margin-bottom:8px;display:flex;align-items:center;gap:10px}
+.doc-section-num::before{content:'';display:block;width:20px;height:1px;background:var(--accent)}
+.doc-section-title{font-family:'Bebas Neue',sans-serif;font-size:32px;margin-bottom:20px;line-height:1;color:#fff}
+.doc-section-title em{color:var(--accent);font-style:normal}
+.doc-body{font-size:14px;color:#888;line-height:2}
+.doc-body p{margin-bottom:16px}
+.doc-body p:last-child{margin-bottom:0}
+.doc-body strong{color:#ccc;font-weight:600}
+.doc-body a{color:var(--accent);text-decoration:underline;text-underline-offset:3px}
+.doc-body ul{list-style:none;display:flex;flex-direction:column;gap:8px;margin:12px 0}
+.doc-body ul li{display:flex;align-items:flex-start;gap:12px;font-size:13px;color:#888;line-height:1.8}
+.doc-body ul li::before{content:'—';color:var(--accent);flex-shrink:0;font-family:'IBM Plex Mono',monospace;margin-top:2px}
+.doc-body ol{list-style:none;counter-reset:ol-counter;display:flex;flex-direction:column;gap:8px;margin:12px 0}
+.doc-body ol li{display:flex;align-items:flex-start;gap:12px;counter-increment:ol-counter;font-size:13px;color:#888;line-height:1.8}
+.doc-body ol li::before{content:counter(ol-counter,decimal-leading-zero);color:var(--accent);flex-shrink:0;font-family:'IBM Plex Mono',monospace;font-size:10px;margin-top:4px}
+.doc-highlight{background:rgba(52,152,219,.05);border-left:2px solid var(--accent);padding:16px 20px;margin:18px 0;font-family:'Playfair Display',serif;font-style:italic;font-size:14px;color:#888;line-height:1.8}
+.doc-table{width:100%;border-collapse:collapse;margin:16px 0;font-size:12px}
+.doc-table th{font-family:'IBM Plex Mono',monospace;font-size:8px;letter-spacing:2px;text-transform:uppercase;color:var(--accent);padding:10px 14px;border-bottom:1px solid rgba(52,152,219,.2);text-align:left}
+.doc-table td{padding:10px 14px;border-bottom:1px solid rgba(255,255,255,.04);color:#888;line-height:1.7}
+.doc-table tr:hover td{background:rgba(255,255,255,.01)}
+.doc-divider{height:1px;background:linear-gradient(90deg,rgba(52,152,219,.2),transparent);margin:40px 0}
+.price-badge{display:inline-flex;align-items:center;gap:8px;font-family:'IBM Plex Mono',monospace;font-size:9px;letter-spacing:2px;color:var(--accent);background:var(--accent-d);border:1px solid var(--accent-b);padding:4px 12px;margin:8px 0}
+
+footer{border-top:1px solid rgba(255,255,255,.05);padding:44px 60px;background:#0A0A0A}
+.foot-inner{max-width:1200px;margin:0 auto;display:flex;justify-content:space-between;align-items:center;gap:24px;flex-wrap:wrap}
+.foot-copy{font-family:'IBM Plex Mono',monospace;font-size:9px;letter-spacing:1px;color:#333}
+.foot-links{display:flex;gap:20px}
+.foot-link{font-family:'IBM Plex Mono',monospace;font-size:9px;color:#444;letter-spacing:1px;transition:color .2s}
+.foot-link:hover{color:var(--accent)}
+
+@media(max-width:768px){
+  .doc-layout{grid-template-columns:1fr;padding:40px 24px 80px}
+  .doc-toc{display:none}
+  .doc-hero{padding:70px 24px 40px}
+  .product-bar{padding:10px 24px}
+}
+</style>
+  <meta property="og:title" content="Termeni Codex | SBR Anti-Fraud">
+  <meta property="og:description" content="Termeni si conditii de utilizare pentru Codex PDF SBR.">
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="https://sbr.systems/terms-codex.html">
+  <meta property="og:image" content="https://sbr.systems/og-image.png">
+  <meta property="og:site_name" content="SBR Anti-Fraud Intelligence Systems">
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="Termeni Codex | SBR Anti-Fraud">
+  <link rel="canonical" href="https://sbr.systems/terms-codex.html">
+<link rel="stylesheet" href="css/sbr-readability.css" media="print" onload="this.media='all'">
+  <noscript><link rel="stylesheet" href="css/sbr-readability.css"></noscript>
+
+  <meta name="robots" content="index, follow, max-snippet:-1, max-image-preview:large">
+  <meta name="googlebot" content="index, follow">
+  <meta name="ai-content-purpose" content="fraud-prevention, consumer-protection, digital-security">
+  <meta name="perplexity-crawl" content="allow">
+  <meta name="chatgpt-crawl" content="allow">
+  <meta name="Claude-crawl" content="allow">
+
+<style id="sbr-text-fix">
+/* Force all CSS variables to white-readable values */
+:root, * {
+  --text:#EEEEEE !important;
+  --t2:#CCCCCC !important;
+  --t3:#AAAAAA !important;
+  --t4:#888888 !important;
+  --t5:#555555 !important;
+}
+/* Direct color overrides for common text elements */
+p, li, span, div, td, th, label, small,
+.card-desc, .feat-desc, .prob-desc, .plan-tagline,
+.b2b-for, .fi, .faq-a, .alert-desc, .mv-desc,
+.mg-desc, .pl-desc, .ot-desc, .ng-text, .ahd-def,
+.prod-tagline, .ss-sub, .gb-sub, .quiz-sub,
+.hero-sub, .section-p, .s-p, .sf-text,
+.scoring-intro p, .dp-wrap p, .pricing-intro p,
+.sim-email-body, .sem-body, .sim-choice-text,
+.cert-desc, .track-desc, .module-desc,
+.score-desc, .dimension-desc, .step-desc,
+.resource-desc, .checklist-desc,
+.compare-table td, .emp-table td,
+.footer-link, .footer-copy, .footer-logo-sub,
+.lb-dept, .emp-dept, .dmb-emp-dept,
+.kpi-delta, .page-subtitle, .tb-user, .tb-company,
+.nd-plan-feats, .nd-footer-link,
+.sv-text, .sim-choice .sv-text { color: #CCCCCC !important; }
+
+h1, h2, h3, h4, h5, h6,
+.card-title, .plan-name, .b2b-name, .nd-plan-name,
+.page-title, .ch-h1, .hero-h1, .section-h2, .s-h,
+.fc-h, .ac-h, .quiz-h, .ms-copy h2, .ss-h,
+.ot-title, .mv-title, .mg-title, .pl-title,
+.alert-title, .emp-name, .dmb-emp-name,
+.lb-name, .prof-name, .panel-title,
+.feat-name, .prod-name,
+.gb-h { color: #FFFFFF !important; }
+
+.nav-link { color: #CCCCCC !important; }
+.nav-link:hover, .nav-link.active { color: #FFFFFF !important; }
+.btn-nav-ghost { color: #CCCCCC !important; }
+</style>
+<style id="sbr-force-colors">
+/* Override elements with hardcoded dark colors */
+.card-desc{color:#CCCCCC !important}
+.plan-tagline,.b2b-for,.fi{color:#CCCCCC !important}
+.faq-a,.faq-answer{color:#CCCCCC !important}
+.alert-desc,.sim-email-body,.sem-body{color:#CCCCCC !important}
+.mv-desc,.mg-desc,.pl-desc,.ot-desc,.ng-text,.ahd-def{color:#CCCCCC !important}
+.prod-tagline,.ss-sub,.gb-sub,.quiz-sub{color:#CCCCCC !important}
+.hero-sub,.s-p,.section-p,.fc-sub,.ac-sub{color:#CCCCCC !important}
+.prob-desc,.prob-a{color:#CCCCCC !important}
+.feat-desc,.nd-plan-feats{color:#CCCCCC !important}
+.scoring-intro p,.dp-wrap p,.pricing-intro p{color:#CCCCCC !important}
+p,li,td:not([class*="risk"]):not([class*="rc"]):not([class*="rh"]){color:#CCCCCC !important}
+h1,h2,h3,h4,h5,h6,.card-title,.plan-name,.b2b-name,.page-title{color:#FFFFFF !important}
+.nav-link{color:#CCCCCC !important}
+.nav-link:hover,.nav-link.active{color:#FFFFFF !important}
+.btn-nav-ghost{color:#CCCCCC !important}
+.compare-table td{color:#CCCCCC !important}
+.compare-table td.feature-name,.compare-table .feat-name{color:#DDDDDD !important}
+.emp-name,.lb-name,.dmb-emp-name{color:#EEEEEE !important}
+.emp-dept,.lb-dept,.dmb-emp-dept{color:#AAAAAA !important}
+.alert-title,.panel-title{color:#FFFFFF !important}
+</style>
+<script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+<style id="sbr-footer-final">
+.sbr-footer{
+  background:#060606 !important;border-top:1px solid rgba(255,255,255,.04) !important;
+  padding:16px clamp(16px,4vw,48px) !important;display:flex !important;
+  align-items:center !important;justify-content:space-between !important;
+  gap:14px !important;flex-wrap:wrap !important;
+}
+.footer-logo{font-family:'Bebas Neue',sans-serif;font-size:16px !important;letter-spacing:4px !important;color:#fff !important}
+.footer-logo span{color:#C0392B !important}
+.footer-links{display:flex !important;align-items:center !important;gap:20px !important}
+.footer-link{font-family:'IBM Plex Mono',monospace !important;font-size:8px !important;letter-spacing:1px !important;color:#3a3a3a !important;text-transform:uppercase !important;text-decoration:none !important;transition:color .15s !important;white-space:nowrap !important}
+.footer-link:hover{color:#888 !important}
+.footer-copy{font-family:'IBM Plex Mono',monospace !important;font-size:7px !important;color:#222 !important;white-space:nowrap !important}
+@media(max-width:560px){
+  .sbr-footer{flex-direction:column !important;align-items:flex-start !important;gap:8px !important;padding:12px 16px !important}
+  .footer-links{gap:12px !important}
+  .footer-copy{font-size:6px !important}
+}
+</style>
+<style id="sbr-social-icons">
+/* Hide old text-based social bar */
+#sbr-social-bar, .sbr-social-bar { display: none !important; }
+/* Floating icon-only social pill */
+#sbr-sw {
+  position: fixed; right: 14px; top: 50%; transform: translateY(-50%);
+  z-index: 800; display: flex; flex-direction: column; gap: 6px;
+}
+.sbr-sw-a {
+  display: flex; align-items: center; justify-content: center;
+  width: 36px; height: 36px; border-radius: 50%;
+  background: rgba(255,255,255,.04); border: 1px solid rgba(255,255,255,.08);
+  text-decoration: none; cursor: pointer;
+  transition: background .2s, border-color .2s, transform .2s;
+  backdrop-filter: blur(10px); -webkit-backdrop-filter: blur(10px);
+  font-size: 14px; line-height: 1;
+}
+.sbr-sw-a:hover {
+  background: rgba(192,57,43,.15); border-color: rgba(192,57,43,.3);
+  transform: scale(1.12);
+}
+/* Mobile — bottom strip icon only */
+@media(max-width: 680px) {
+  #sbr-sw {
+    position: fixed; bottom: 0; left: 0; right: 0; top: auto; transform: none;
+    flex-direction: row; gap: 0; border-radius: 0;
+    background: rgba(6,6,6,.97); border-top: 1px solid rgba(255,255,255,.05);
+    backdrop-filter: blur(20px); -webkit-backdrop-filter: blur(20px);
+    padding-bottom: env(safe-area-inset-bottom, 0); height: 50px;
+  }
+  .sbr-sw-a {
+    flex: 1; width: auto; height: 50px; border-radius: 0; border: none;
+    border-right: 1px solid rgba(255,255,255,.04); background: transparent;
+    font-size: 16px;
+  }
+  .sbr-sw-a:last-child { border-right: none; }
+  .sbr-sw-a:hover { transform: none; background: rgba(192,57,43,.07); }
+  body { padding-bottom: 50px !important; }
+}
+/* Kill any text labels */
+.sbr-sw-l { display: none !important; }
+</style>
+<style id="sbr-fc">
+/* Force all common text elements to white-ish */
+p,li,td,th,label,small,figcaption,dd,dt,
+.card-desc,.plan-tagline,.b2b-for,.fi,.faq-a,.faq-answer,
+.alert-desc,.mv-desc,.mg-desc,.pl-desc,.ot-desc,.ng-text,
+.prod-tagline,.ss-sub,.gb-sub,.quiz-sub,.hero-sub,
+.s-p,.section-p,.fc-sub,.ac-sub,.feat-desc,
+.sim-email-body,.sem-body,.sf-text,
+.nd-plan-feats,.prob-desc,.prob-a,
+.pf-lead,.pf-desc,.pf-text,
+.score-desc,.dimension-desc,
+.cert-desc,.track-desc,.module-desc,
+.checklist-desc,.step-desc,.resource-desc,
+[class*="-desc"],[class*="-sub"],[class*="-text"],[class*="-body"],
+[class*="-copy"],[class*="-content"],[class*="-lead"]{
+  color:#CCCCCC!important;
+}
+h1,h2,h3,h4,h5,h6,
+.card-title,.plan-name,.b2b-name,.page-title,
+.section-h2,.s-h,.ch-h1,.hero-h1,.fc-h,.ac-h,.quiz-h,
+.ot-title,.mv-title,.mg-title,.pl-title,.alert-title,
+.panel-title,.emp-name,.lb-name,.feat-name,.prod-name,
+[class*="-title"]:not(.lock-title):not(.sn-dd-section):not(.sm-label){
+  color:#FFFFFF!important;
+}
+.nav-link,.sn-link,.sn-dd-link{color:#CCCCCC!important;}
+.nav-link:hover,.nav-link.active,.sn-link:hover,.sn-dd-link:hover{color:#FFFFFF!important;}
+.footer-link{color:#3a3a3a!important;}
+.footer-link:hover{color:#888!important;}
+.footer-copy{color:#222!important;}
+/* Mobile menu links — RED, not blue/inherit */
+.sm-link{color:#EEEEEE!important;}
+.sm-link:hover{color:#C0392B!important;}
+.sm-link > span:first-child{color:#EEEEEE!important;}
+.sm-link-sub{color:#444!important;}
+.sm-small-link{color:#666!important;}
+.sm-small-link:hover{color:#EEEEEE!important;}
+/* Kill any blue link inheritance in mobile menu */
+#sbr-menu a{color:#EEEEEE!important;}
+#sbr-menu a:hover{color:#C0392B!important;}
+/* Desktop nav links */
+.sn-link{color:#AAAAAA!important;}
+.sn-link:hover{color:#EEEEEE!important;}
+.sn-dd-link{color:#888!important;}
+.sn-dd-link:hover{color:#EEEEEE!important;background:rgba(192,57,43,.06)!important;}
+/* sbrN nav elements — white, never blue */
+#sbrN a,#sbrN button,.sbrN-btn{color:#aaa!important;text-decoration:none!important}
+#sbrN a:hover,#sbrN button:hover,.sbrN-btn:hover{color:#eee!important}
+.sbrN-cta,.sbrN-cta:hover{color:#fff!important}
+.dd-link{color:inherit!important;text-decoration:none!important}
+.dd-link-title{color:#eee!important}
+.dd-link-sub{color:#555!important}
+.mob-link{color:#eee!important;text-decoration:none!important}
+.mob-link:hover{color:#C0392B!important}
+.mob-small-link{color:#555!important;text-decoration:none!important}
+.snl-btn,.snl-btn *{color:#aaa!important}
+
+</style>
+<style id="sbr-font-nuclear">
+/* ═══ NUCLEAR WHITE TEXT OVERRIDE ═══════════════════════════════
+   Targets every element that could have dark gray text.
+   Does NOT touch: buttons, badges, risk labels, nav CTAs
+═══════════════════════════════════════════════════════════════ */
+
+/* Base: all body text → white-ish */
+body, body *:not(button):not(.sn-cta):not(.cta-primary):not(.btn-nav-solid)
+  :not(.card-risk):not(.rb-c):not(.rb-h):not(.rb-m):not(.rb-l)
+  :not(.chk):not(.cross):not(.lock-plan):not(.gb-plan-badge)
+  :not([class*="badge"]) {
+  -webkit-font-smoothing: antialiased !important;
+}
+
+/* Paragraph text, list items, descriptions */
+p { color: #DDDDDD !important; font-size: max(14px, 1em) !important; line-height: 1.85 !important; }
+li { color: #DDDDDD !important; font-size: max(13px, 0.9em) !important; line-height: 1.75 !important; }
+span:not([class*="risk"]):not([class*="badge"]):not(.dot):not(.sn-sbr):not(.sn-af):not(.sn-dot) { color: inherit !important; }
+td, th { color: #CCCCCC !important; }
+label { color: #CCCCCC !important; }
+small { color: #AAAAAA !important; }
+
+/* Specific content classes - all the variants we've seen */
+.card-desc, .plan-tagline, .b2b-for, .b2b-feat,
+.fi, .fi.yes, .feat-desc, .nd-plan-feats,
+.faq-a, .faq-answer, .faq-body,
+.alert-desc, .dmb-alert-text,
+.mv-desc, .mg-desc, .pl-desc, .ot-desc, .ng-text,
+.prob-desc, .prob-a, .prob-q,
+.ahd-def, .dc-desc, .dim-desc,
+.prod-tagline, .hero-sub, .s-p, .section-p,
+.fc-sub, .ac-sub, .quiz-sub, .ah-tagline,
+.gb-sub, .pq-text, .ss-sub, .scoring-intro p,
+.sim-email-body, .sem-body, .sf-text,
+.feat-desc, .step-desc, .checklist-desc, .resource-desc,
+.cert-desc, .track-desc, .module-desc,
+.pf-lead, .pf-desc, .pf-text, .pf-body,
+.score-desc, .dimension-desc,
+.dp-wrap p, .pricing-intro p,
+.rec-desc, .sg-sub, .sh-sub,
+.about-text, .team-bio, .mission-text,
+.sbi-fill + *, [class*="-desc"],
+[class*="-sub"]:not([class*="hero-sub"]),
+[class*="-body"]:not(#sbr-menu):not(#sbr-nav):not(.card-body) { color: #CCCCCC !important; }
+
+/* Headings - full white */
+h1, h2, h3, h4, h5, h6 { color: #FFFFFF !important; }
+.card-title, .plan-name, .b2b-name, .nd-plan-name,
+.page-title, .section-h2, .s-h, .ch-h1, .hero-h1,
+.fc-h, .ac-h, .quiz-h, .ss-h, .sh-h1,
+.ot-title, .mv-title, .mg-title, .pl-title,
+.alert-title, .panel-title, .emp-name, .lb-name,
+.feat-name, .prod-name, .gb-h,
+.dc-name, .rec-title, .fe-title, .sg-h,
+.sm-link > span:first-child { color: #FFFFFF !important; }
+
+/* Nav */
+.sn-link { color: #BBBBBB !important; }
+.sn-link:hover { color: #FFFFFF !important; }
+.sn-dd-link { color: #AAAAAA !important; }
+.sn-dd-link:hover { color: #EEEEEE !important; }
+.sn-af { color: #DDDDDD !important; }
+
+/* Footer */
+.footer-link { color: #444 !important; }
+.footer-link:hover { color: #999 !important; }
+.footer-copy { color: #2a2a2a !important; }
+.footer-logo { color: #FFFFFF !important; }
+
+/* Secondary labels */
+.card-cat, .prod-code, .cs-code, .kpi-label, .hs-l, .hstat-l,
+.section-eyebrow, .s-eyebrow, .ah-eyebrow, .hero-eyebrow,
+.cf-label, .sm-link-sub, .sm-small-link,
+.sm-label, .nd-plan-price, .b2b-period, .plan-period,
+.dc-sub, .sbi-name, .dc-indicators .dc-indicator,
+.sh-pill-word, .stl-name, .fe-desc, .cc-label { color: #AAAAAA !important; }
+
+/* Dashboard */
+.emp-name, .lb-name, .dmb-emp-name { color: #EEEEEE !important; }
+.emp-dept, .lb-dept, .dmb-emp-dept, .cs-name { color: #BBBBBB !important; }
+
+/* Monospace elements */
+.card-id, .sim-from, .sem-row-val, .sim-cat-label { color: #BBBBBB !important; }
+
+/* Tag entry / pattern */
+.tag-entry { color: #CCCCCC !important; font-size: 9px !important; }
+
+/* Sidebar count */
+.cs-count { color: #777 !important; }
+
+/* Compare table */
+.compare-table td { color: #CCCCCC !important; }
+.compare-table .feat-name { color: #EEEEEE !important; font-weight: 700 !important; }
+
+/* Input fields */
+input:not([type="submit"]):not([type="button"]):not([type="reset"]),
+textarea, select { color: #EEEEEE !important; }
+input::placeholder, textarea::placeholder { color: #555 !important; }
+</style>
+
+<style id="sbr-red-override">
+/* Replace all blue nav/UI accents with red */
+.nd-plan-badge.blue{background:rgba(192,57,43,.1)!important;color:var(--red)!important}
+.nd-plan-tier.blue{color:var(--red)!important}
+.sh-plan-badge:nth-child(1){color:var(--red)!important}
+.sh-plan-badge:nth-child(1) .spb-dot{background:var(--red)!important}
+.pb-name.professional,.pb-name.premium{background:rgba(192,57,43,.1)!important;color:var(--red)!important}
+.fe-badge.pro{background:rgba(192,57,43,.1)!important;color:var(--red)!important}
+/* Hero stats 4th — red instead of blue */
+.hstat:nth-child(4)::after{background:var(--red)!important}
+.hstat:nth-child(4) .hstat-n{color:var(--red)!important}
+/* Score page blue → red */
+.dim-card.breach{border-top-color:var(--red)!important}
+.dim-card.breach .dc-letter{color:var(--red)!important}
+.sbi-fill.breach{background:var(--red)!important}
+/* Gate walls */
+.gate-banner.professional{border-color:rgba(192,57,43,.2)!important;background:rgba(192,57,43,.03)!important}
+.gate-banner.professional .gb-eyebrow{color:rgba(192,57,43,.5)!important}
+.gate-banner.professional .gb-n{color:var(--red)!important}
+.gate-banner.professional .gb-btn-main{background:var(--red)!important;color:#fff!important}
+/* B2B plan prices */
+.b2b-plan:nth-child(1) .b2b-amount{color:var(--red)!important}
+.b2b-plan:nth-child(1) .b2b-tier{color:var(--red)!important}
+.b2b-plan:nth-child(1) .b2b-cta{background:rgba(192,57,43,.12)!important;color:var(--red)!important;border:1px solid rgba(192,57,43,.25)!important}
+.b2b-plan:nth-child(1) .b2b-cta:hover{background:var(--red)!important;color:#fff!important}
+/* Signal/score accents */
+.sg-plan:nth-child(2){border-top-color:var(--red)!important}
+.sg-plan:nth-child(2) .sg-plan-name{color:var(--red)!important}
+/* Active nav link highlight */
+.sn-link.active,.sn-link:focus{color:var(--red)!important}
+/* Codex plan banner */
+.pb-name.professional{background:rgba(192,57,43,.08)!important;color:var(--red)!important}
+/* Mobile menu section label */
+.sm-label{color:rgba(192,57,43,.5)!important}
+/* Signals strip */
+.ss-btn{background:var(--red)!important;color:#fff!important}
+.ss-btn:hover{background:var(--red-l)!important}
+.ss-input:focus{border-color:rgba(192,57,43,.4)!important}
+</style></head>
+<body>
+<div id="scroll-progress"></div>
+</div>
+<div class="product-bar">
+  <span class="pb-badge">Produs</span>
+  <span class="pb-badge" style="color:var(--cx,#3498DB)">Anti-Fraud Codex</span>
+  <span class="pb-name">Termeni și Condiții specifice produsului &middot; Document individual</span>
+</div>
+
+<!-- HERO -->
+<div class="doc-hero">
+  <div class="doc-hero-grid"></div>
+  <div class="doc-hero-inner">
+    <div class="doc-eyebrow">Termeni Produs</div>
+    <div class="doc-title">CODEX<br><em>Anti-Fraudă</em></div>
+    <div class="doc-subtitle">Termeni și condiții specifice de utilizare a produsului Anti-Fraud Codex — Harta completă a fraudelor digitale.</div>
+    <div class="doc-meta">
+      <div class="doc-meta-item">Versiune 1.0 &middot; 2026</div>
+      <div class="doc-meta-item">Limbă: Română</div>
+      <div class="doc-meta-item">Produs: Anti-Fraud Codex</div>
+      <div class="doc-meta-item">Valabil de la: 1 Ianuarie 2026</div>
+    </div>
+  </div>
+</div>
+
+<div class="doc-layout">
+  <!-- TOC -->
+  <aside class="doc-toc">
+    <div class="doc-toc-label">Cuprins</div>
+    <a class="toc-item active" href="#s1">01 &middot; Descrierea produsului</a>
+    <a class="toc-item" href="#s2">02 &middot; Prețuri și planuri</a>
+    <a class="toc-item" href="#s3">03 &middot; Licență de utilizare</a>
+    <a class="toc-item" href="#s4">04 &middot; Restricții de utilizare</a>
+    <a class="toc-item" href="#s5">05 &middot; Natura conținutului</a>
+    <a class="toc-item" href="#s6">06 &middot; Drepturi de autor</a>
+    <a class="toc-item" href="#s7">07 &middot; Actualizări și acces</a>
+    <a class="toc-item" href="#s8">08 &middot; Limitarea răspunderii</a>
+    <a class="toc-item" href="#s9">09 &middot; Politica de rambursare</a>
+    <a class="toc-item" href="#s10">10 &middot; Dispoziții finale</a>
+    <div class="related-terms-box">
+      <div class="rtb-label">Documente conexe</div>
+      <a href="terms.html" class="rtb-link">&rarr; Termeni generali SBR</a>
+      <a href="terms-afis.html" class="rtb-link">&rarr; Termeni AFIS</a>
+      <a href="terms-postfraud.html" class="rtb-link">&rarr; Termeni Post-Fraud</a>
+      <a href="privacy.html" class="rtb-link">&rarr; Politica de confidențialitate</a>
+    </div>
+  </aside>
+
+  <!-- CONTENT -->
+  <main>
+
+    <div class="doc-highlight">
+      Acești termeni se aplică exclusiv produsului <strong>Anti-Fraud Codex</strong> și completează Termenii Generali SBR. În caz de conflict, termenii specifici produsului au prioritate.
+    </div>
+
+    <div class="doc-section" id="s1">
+      <div class="doc-section-num">01</div>
+      <div class="doc-section-title">Descrierea <em>produsului</em></div>
+      <div class="doc-body">
+        <p><strong>Anti-Fraud Codex</strong> este un produs digital de referință, structurat ca o bază de date documentată a tipologiilor de fraudă digitală. Produsul conține:</p>
+        <ul>
+          <li>300+ tipologii de fraudă documentate în format standard</li>
+          <li>18 categorii de risc organizate sistematic</li>
+          <li>Mecanismele exacte ale fiecărei fraude</li>
+          <li>Semnalele de alarmă per tipologie</li>
+          <li>Reacții practice recomandate pentru fiecare caz</li>
+          <li>Scenarii documentate specifice pieței românești</li>
+          <li>Glosar de termeni anti-fraudă</li>
+        </ul>
+        <p><strong>Natura produsului.</strong> Codexul Anti-Fraudă este o <em>resursă de înțelegere</em>, nu un sistem operațional de prevenție. El descrie și explică fenomenul fraudei — nu execută proceduri, nu generează scoruri de risc și nu înlocuiește acțiunea autorităților.</p>
+        <div class="price-badge">300+ tipologii &middot; 18 categorii &middot; Acces permanent</div>
+        <p>Conținutul este disponibil exclusiv online, prin platforma SBR, în funcție de planul ales. Versiunile PDF descărcabile sunt disponibile conform planului.</p>
+      </div>
+    </div>
+
+    <div class="doc-divider"></div>
+
+    <div class="doc-section" id="s2">
+      <div class="doc-section-num">02</div>
+      <div class="doc-section-title">Prețuri și <em>planuri</em></div>
+      <div class="doc-body">
+        <p>Anti-Fraud Codex este disponibil prin următoarele planuri SBR Personal:</p>
+        <table class="doc-table">
+          <thead><tr><th>Plan</th><th>Preț</th><th>Acces Codex</th><th>Tip plată</th></tr></thead>
+          <tbody>
+            <tr><td><strong>Essential</strong></td><td>99 RON</td><td>50 tipologii de bază</td><td>Unică &middot; Permanent</td></tr>
+            <tr><td><strong>Professional</strong></td><td>250 RON</td><td>300+ tipologii complete</td><td>Unică &middot; Permanent</td></tr>
+            <tr><td><strong>Premium</strong></td><td>449 RON</td><td>300+ tipologii + AFIS Intelligence</td><td>Unică &middot; Permanent</td></tr>
+            <tr><td><strong>Codex individual</strong></td><td>Conform platformei</td><td>Acces individual la Codex</td><td>Unică &middot; Permanent</td></tr>
+          </tbody>
+        </table>
+        <p>Prețurile sunt exprimate în RON și includ TVA acolo unde este aplicabil. SBR îți rezervă dreptul de a modifica prețurile cu notificare prealabilă de minimum 15 zile. Modificările de preț nu afectează achizițiile deja efectuate.</p>
+        <p><strong>Procesarea plăților.</strong> Tranzacțiile sunt procesate prin furnizori terți de servicii de plată (Stripe sau echivalent). SBR nu stochează datele cardului tău de credit.</p>
+      </div>
+    </div>
+
+    <div class="doc-divider"></div>
+
+    <div class="doc-section" id="s3">
+      <div class="doc-section-num">03</div>
+      <div class="doc-section-title">Licența de <em>utilizare</em></div>
+      <div class="doc-body">
+        <p>Prin achiziționarea accesului la Anti-Fraud Codex, îți acordăm o licență <strong>neexclusivă, netransferabilă, personală</strong> de utilizare a conținutului, în condițiile prezentului document.</p>
+        <p><strong>Ce poți face cu Codexul:</strong></p>
+        <ul>
+          <li>Consulta conținutul pentru uz personal de protecție anti-fraudă</li>
+          <li>Descărca versiunile PDF pentru uz personal (dacă planul include această opțiune)</li>
+          <li>Partaja <em>referințe</em> la tipologii (nu conținut integral) cu menționarea sursei SBR</li>
+          <li>Utiliza informațiile din Codex ca bază pentru educație personală sau profesională</li>
+        </ul>
+        <p>Licența este limitată la o singură persoană fizică și nu poate fi cedată, sublicențiată sau transferată fără acordul scris al SBR.</p>
+      </div>
+    </div>
+
+    <div class="doc-divider"></div>
+
+    <div class="doc-section" id="s4">
+      <div class="doc-section-num">04</div>
+      <div class="doc-section-title">Restricții de <em>utilizare</em></div>
+      <div class="doc-body">
+        <p>Utilizatorul se obligă să <strong>nu</strong>:</p>
+        <ol>
+          <li>Reproduce, distribui sau revinde conținutul Codexului, integral sau parțial, fără acordul scris al SBR</li>
+          <li>Partaja credențialele de acces cu alte persoane</li>
+          <li>Extrage, indexa sau agrega automat conținutul platformei prin orice mijloace tehnice (scraping, crawling, API neautorizat)</li>
+          <li>Utiliza conținutul Codexului pentru a facilita activități frauduloase sau ilegale</li>
+          <li>Crea produse derivate sau opere secundare bazate pe Codex fără aprobare scrisă</li>
+          <li>Publica sau redistribui fișele tipologiilor pe platforme externe (blog, social media, cursuri)</li>
+          <li>Prezenta conținutul SBR ca lucrare proprie</li>
+        </ol>
+        <p>Încălcarea oricăreia dintre aceste restricții poate duce la suspendarea imediată a accesului și, după caz, la acțiuni legale.</p>
+      </div>
+    </div>
+
+    <div class="doc-divider"></div>
+
+    <div class="doc-section" id="s5">
+      <div class="doc-section-num">05</div>
+      <div class="doc-section-title">Natura <em>conținutului</em></div>
+      <div class="doc-body">
+        <div class="doc-highlight">Codexul Anti-Fraudă este o resursă educativă și informativă. Nu este și nu va fi interpretat ca un aviz juridic, consultanță financiară sau garanție de protecție totală împotriva fraudelor.</div>
+        <p><strong>Principiu editorial fundamental.</strong> Codexul descrie și explică — nu prescrie și nu garantează. Conținutul are rolul de a dezvolta capacitatea utilizatorului de a recunoaște riscuri, nu de a oferi protecție absolută sau certitudini juridice.</p>
+        <p>Informațiile din Codex sunt furnizate cu bună-credință, pe baza cercetării și documentării echipei SBR. Cu toate acestea:</p>
+        <ul>
+          <li>Fraudele evoluează constant; Codexul reflectă cunoștințele disponibile la data ediției</li>
+          <li>Nu toate tipologiile pot fi acoperite exhaustiv</li>
+          <li>Experiența individuală cu o fraudă poate diferi de descrierea tipologică</li>
+          <li>Conținutul nu înlocuiește consultanța juridică sau raportarea la autorități</li>
+        </ul>
+        <p>SBR actualizează Codexul periodic; utilizatorii cu acces permanent beneficiază de actualizările majore ale ediției achiziționate.</p>
+      </div>
+    </div>
+
+    <div class="doc-divider"></div>
+
+    <div class="doc-section" id="s6">
+      <div class="doc-section-num">06</div>
+      <div class="doc-section-title">Drepturi de <em>autor</em></div>
+      <div class="doc-body">
+        <p>Întregul conținut al produsului Anti-Fraud Codex — inclusiv structura, clasificările, fișele tipologiilor, textele, grafica și denumirile — este proprietatea intelectuală exclusivă a <strong>SBR Anti-Fraud Systems / Structura Brevis Rector</strong>.</p>
+        <p>Conținutul este protejat de legislația română și internațională privind dreptul de autor (Legea nr. 8/1996 cu modificările ulterioare, Directiva UE 2019/790). Reproducerea neautorizată constituie infracțiune.</p>
+        <p>Numele <strong>„Anti-Fraud Codex"</strong>, <strong>„CODEX&trade;"</strong>, <strong>„SBR Codex"</strong> și structura documentului sunt mărci înregistrate sau în curs de înregistrare. Utilizarea acestor denumiri fără acordul scris al SBR este interzisă.</p>
+        <p>Achiziționarea accesului nu transferă drepturile de autor, ci acordă exclusiv dreptul de utilizare personală descris la articolul 3.</p>
+      </div>
+    </div>
+
+    <div class="doc-divider"></div>
+
+    <div class="doc-section" id="s7">
+      <div class="doc-section-num">07</div>
+      <div class="doc-section-title">Actualizări și <em>acces</em></div>
+      <div class="doc-body">
+        <p><strong>Acces permanent.</strong> Achizițiile planurilor Essential, Professional și Premium acordă acces permanent la versiunea achiziționată a Codexului. „Permanent" înseamnă pentru toată durata funcționării platformei SBR, sau până la retragerea produsului cu notificare prealabilă de 90 de zile.</p>
+        <p><strong>Actualizări de conținut.</strong> SBR poate actualiza conținutul Codexului (adăugare tipologii noi, corecturi, reorganizare) fără notificare prealabilă. Actualizările majore de ediție (ex. trecerea de la Ediția 2026 la Ediția 2027) pot necesita o achiziție separată sau un upgrade la preț redus.</p>
+        <p><strong>Disponibilitate.</strong> SBR depune eforturi rezonabile pentru a menține platforma disponibilă 99% din timp, dar nu garantează disponibilitatea neîntreruptă. Întreruperile planificate sau de urgență nu constituie o încălcare a termenilor.</p>
+        <p><strong>Modificarea produsului.</strong> SBR îți rezervă dreptul de a modifica structura, conținutul sau funcționalitățile Codexului pentru îmbunătățirea produsului, cu condiția menținerii valorii educative esențiale.</p>
+      </div>
+    </div>
+
+    <div class="doc-divider"></div>
+
+    <div class="doc-section" id="s8">
+      <div class="doc-section-num">08</div>
+      <div class="doc-section-title">Limitarea <em>răspunderii</em></div>
+      <div class="doc-body">
+        <div class="doc-highlight">SBR nu poate fi ținut răspunzător pentru deciziile luate pe baza informațiilor din Codex, pentru pierderile financiare suferite în urma unei fraude sau pentru orice daune indirecte legate de utilizarea sau neutilizarea produsului.</div>
+        <p>Răspunderea maximă a SBR în legătură cu produsul Anti-Fraud Codex este limitată la <strong>suma plătită de utilizator</strong> pentru achiziție.</p>
+        <p>SBR nu răspunde pentru:</p>
+        <ul>
+          <li>Fraude care au loc în ciuda consultării Codexului</li>
+          <li>Decizii financiare sau juridice luate pe baza informațiilor din Codex</li>
+          <li>Pierderi cauzate de tipologii de fraudă neincluse în Codex</li>
+          <li>Utilizarea incorectă sau incompletă a informațiilor furnizate</li>
+          <li>Daune cauzate de terți care au accesat conținutul prin divulgarea neautorizată a credențialelor</li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="doc-divider"></div>
+
+    <div class="doc-section" id="s9">
+      <div class="doc-section-num">09</div>
+      <div class="doc-section-title">Politica de <em>rambursare</em></div>
+      <div class="doc-body">
+        <p>Datorită naturii digitale a produsului (acces imediat la conținut), politica generală este <strong>fără rambursare</strong> după accesarea conținutului.</p>
+        <p>Excepții în care rambursarea poate fi acordată, la discreția SBR:</p>
+        <ul>
+          <li>Dubla plată accidentală pentru același plan</li>
+          <li>Erori tehnice dovedite care au împiedicat complet accesarea conținutului</li>
+          <li>Solicitări formulate în primele 24 de ore de la achiziție, cu condiția neaccesării conținutului</li>
+        </ul>
+        <p>Solicitările de rambursare se transmit la <strong>contact@sbr.systems</strong> cu subiectul „Rambursare Codex" și cu detaliile tranzacției. SBR va răspunde în maximum 5 zile lucrătoare.</p>
+      </div>
+    </div>
+
+    <div class="doc-divider"></div>
+
+    <div class="doc-section" id="s10">
+      <div class="doc-section-num">10</div>
+      <div class="doc-section-title">Dispoziții <em>finale</em></div>
+      <div class="doc-body">
+        <p><strong>Relația cu Termenii Generali.</strong> Prezentul document este un addendum la Termenii și Condițiile Generale SBR disponibile la <a href="terms.html">sbr.systems/terms</a>. Termenii generali se aplică în toate aspectele neprevăzute de prezentul document.</p>
+        <p><strong>Legea aplicabilă.</strong> Prezentul document este guvernat de legislația română. Litigiile se soluționează pe cale amiabilă în primă instanță, sau prin instanțele competente din România.</p>
+        <p><strong>Modificări.</strong> SBR poate modifica acești termeni cu notificare prealabilă de 15 zile prin email sau pe platformă. Continuarea utilizării după data modificării constituie acceptare.</p>
+        <p><strong>Contact.</strong> Pentru orice aspecte legate de prezentul document: <a href="mailto:contact@sbr.systems">contact@sbr.systems</a></p>
+        <p style="color:#444;font-family:'IBM Plex Mono',monospace;font-size:10px;margin-top:32px;">Ultima actualizare: Ianuarie 2026 &middot; SBR Anti-Fraud Systems &middot; Structura Brevis Rector</p>
+      </div>
+    </div>
+
+  </main>
+</div>
+
+<footer class="sbr-footer">
+  <div style="display:flex;align-items:center"><div class="footer-logo">SBR<span>.</span></div></div>
+  <div class="footer-copy">&copy; 2026 Structura Brevis Rector&trade;</div>
+  <nav class="footer-links">
+    <a href="am-fost-inselat.html" class="footer-link" data-en="Been scammed?">Am fost înșelat</a>
+    <a href="unde-raportezi-frauda.html" class="footer-link" data-en="Report fraud">Raportează frauda</a>
+    <a href="phishing-cum-recunosti.html" class="footer-link">Phishing</a>
+    <a href="codex.html" class="footer-link">Codex</a>
+    <a href="terms.html" class="footer-link">Termeni</a>
+    <a href="privacy.html" class="footer-link">Privacy &amp; Cookies</a>
+    <a href="gdpr.html" class="footer-link">GDPR</a>
+  </nav>
+</footer>
+
+<script>
+window.addEventListener('scroll', function() {
+  const el = document.getElementById('scroll-progress');
+  const pct = (window.scrollY / (document.body.scrollHeight - window.innerHeight)) * 100;
+  if (el) el.style.width = pct + '%';
+  document.querySelectorAll('.doc-section').forEach(s => {
+    const rect = s.getBoundingClientRect();
+    if(rect.top<=100&&rect.bottom>=100){
+      document.querySelectorAll('.toc-item').forEach(function(t){t.classList.toggle('active',t.getAttribute('href')==='#'+s.id);});
+    }
+  });
+},{passive:true});
+</script>
+
+<script id="sbr-color-fix">
+(function(){
+  function fix(){
+    var r=document.documentElement;
+    r.style.setProperty('--text','#EEEEEE');
+    r.style.setProperty('--t1','#EEEEEE');
+    r.style.setProperty('--t2','#CCCCCC');
+    r.style.setProperty('--t3','#AAAAAA');
+    r.style.setProperty('--t4','#888888');
+    r.style.setProperty('--t5','#555555');
+    r.style.setProperty('--T2','#CCCCCC');
+    r.style.setProperty('--T3','#AAAAAA');
+  }
+  fix();
+  document.addEventListener('DOMContentLoaded',fix);
+  setTimeout(fix,100);
+})();
+</script>
+<div id="sbr-sw" aria-label="Social Media">
+  <a class="sbr-sw-a" href="https://instagram.com/sbr_antifraud" target="_blank" rel="noopener" title="Instagram @sbr_antifraud">&#128248;</a>
+  <a class="sbr-sw-a" href="https://tiktok.com/@structurabrevisrector" target="_blank" rel="noopener" title="TikTok @structurabrevisrector">&#127925;</a>
+  <a class="sbr-sw-a" href="https://t.me/sbrorator" target="_blank" rel="noopener" title="Telegram t.me/sbrorator">&#9992;&#65039;</a>
+  <a class="sbr-sw-a" href="https://pin.it/7yO6KnjsW" target="_blank" rel="noopener" title="Pinterest">&#128204;</a>
+</div>
+<script src="js/cookie-consent.js"></script>
+
+</body>
+</html>

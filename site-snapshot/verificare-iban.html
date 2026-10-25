@@ -1,0 +1,169 @@
+<!DOCTYPE html>
+<html lang="ro">
+<head>
+<meta charset="UTF-8">
+<!-- Google Analytics 4 (Consent Mode v2) — nu colecteaza pana la consimtamant -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-9WT1GRKEGB"></script>
+<script>
+window.dataLayer=window.dataLayer||[];function gtag(){dataLayer.push(arguments);}
+gtag('js',new Date());
+gtag('consent','default',{'ad_storage':'denied','ad_user_data':'denied','ad_personalization':'denied','analytics_storage':'denied'});
+try{var _c=JSON.parse(localStorage.getItem('sbr_cookie_consent')||'null');if(_c&&_c.type==='all'){gtag('consent','update',{'analytics_storage':'granted'});}}catch(e){}
+gtag('config','G-9WT1GRKEGB',{anonymize_ip:true});
+</script>
+<!-- End GA4 -->
+<script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+<script src="js/i18n.js?v=5"></script>
+<script src="js/nav-universal.js?v=13"></script>
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>IBAN Checker | Verifică formatul și cifrele de control ale unui IBAN | SBR</title>
+<meta name="description" content="Verifică formatul IBAN, țara și cifrele de control (MOD 97) direct în browser. IBAN-ul nu este trimis nicăieri. Un IBAN valid nu dovedește cine deține contul.">
+<meta name="robots" content="index, follow, max-image-preview:large">
+<link rel="canonical" href="https://sbr.systems/verificare-iban.html">
+<meta property="og:title" content="IBAN Checker | Verifică formatul și cifrele de control ale unui IBAN | SBR">
+<meta property="og:description" content="Verifică formatul IBAN, țara și cifrele de control (MOD 97) direct în browser. IBAN-ul nu este trimis nicăieri. Un IBAN valid nu dovedește cine deține contul.">
+<meta property="og:url" content="https://sbr.systems/verificare-iban.html">
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="SBR Systems">
+<meta property="og:image" content="https://sbr.systems/og-image.jpg">
+<meta property="og:locale" content="ro_RO">
+<meta name="twitter:card" content="summary_large_image">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Lato:wght@400;700;900&family=IBM+Plex+Mono:wght@400;500&family=Playfair+Display:ital,wght@1,400&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="css/risk.css?v=3">
+<script type="application/ld+json">
+{
+ "@context": "https://schema.org",
+ "@type": "WebPage",
+ "name": "IBAN Checker",
+ "description": "Verifică formatul IBAN, țara și cifrele de control (MOD 97) direct în browser. IBAN-ul nu este trimis nicăieri. Un IBAN valid nu dovedește cine deține contul.",
+ "url": "https://sbr.systems/verificare-iban.html",
+ "inLanguage": "ro",
+ "isPartOf": {
+  "@id": "https://sbr.systems/#website"
+ },
+ "publisher": {
+  "@id": "https://sbr.systems/#organization"
+ },
+ "mainEntity": {
+  "@type": "WebApplication",
+  "name": "SBR IBAN Checker",
+  "applicationCategory": "SecurityApplication",
+  "operatingSystem": "Any",
+  "offers": {
+   "@type": "Offer",
+   "price": "0",
+   "priceCurrency": "RON"
+  }
+ }
+}
+</script>
+
+</head>
+<body class="rk">
+<a class="rk-skip" href="#main" data-en="Skip to content">Sari la conținut</a>
+
+<main id="main">
+<section class="rk-toolhead">
+  <div class="rk-wrap">
+    <nav class="rk-crumbs" aria-label="Breadcrumb"><a href="index.html" data-en="SBR">SBR</a> / <a href="verificare.html" data-en="Verification">Verificare</a> / <span aria-current="page" data-en="IBAN Checker">IBAN Checker</span></nav>
+    <h1 data-en="IBAN Checker">IBAN Checker</h1>
+    <p data-en="Checks the IBAN format, country and check digits, with extra bank information only when supported by reliable data." class="rk-lead">Verifică formatul IBAN, țara și cifrele de control, cu informații bancare suplimentare numai atunci când sunt susținute de date fiabile.</p>
+  </div>
+</section>
+<section class="rk-sec rk-sec--deep" style="border-top:0">
+  <div class="rk-wrap">
+    <div class="rk-panel">
+      <form class="rk-form" id="iban-form" method="post" action="verificare-iban.html" novalidate autocomplete="off">
+        <label for="iban-input" data-en="The IBAN to check">IBAN-ul de verificat</label>
+        <div class="rk-form__row">
+          <input class="rk-input" id="iban-input" name="iban" type="text" inputmode="text" spellcheck="false" autocapitalize="characters" autocomplete="off" aria-describedby="iban-hint" placeholder="RO49 AAAA 1B31 0075 9384 0000">
+          <button class="rk-btn rk-btn--solid" type="submit" data-en="Check the IBAN">Verifică IBAN-ul</button>
+        </div>
+        <p class="rk-hint" id="iban-hint" data-en="With or without spaces. The check runs in your browser: the IBAN is not sent, stored or put in the address bar.">Cu sau fără spații. Verificarea rulează în browserul tău: IBAN-ul nu este trimis, salvat sau pus în bara de adrese.</p>
+        <p class="rk-hint"><span data-en="Try an example (public sample IBANs):">Încearcă un exemplu (IBAN-uri de probă publice):</span> <button type="button" class="rk-link" style="background:none;border:0;padding:6px 2px;cursor:pointer;font:inherit" data-example="RO49AAAA1B31007593840000">RO valid</button> &middot; <button type="button" class="rk-link" style="background:none;border:0;padding:6px 2px;cursor:pointer;font:inherit" data-example="DE89370400440532013000">DE valid</button> &middot; <span data-en="with a wrong check digit:">cu cifră de control greșită:</span> <button type="button" class="rk-link" style="background:none;border:0;padding:6px 2px;cursor:pointer;font:inherit" data-example="RO48AAAA1B31007593840000">RO48…</button></p>
+      </form>
+      <div class="rk-result" id="iban-result" hidden aria-live="polite"></div>
+      <noscript><p class="rk-notice" data-en="This tool needs JavaScript. Without it, nothing is checked or sent.">Instrumentul are nevoie de JavaScript. Fără el, nu se verifică și nu se trimite nimic.</p></noscript>
+    </div>
+    <div class="rk-cols" style="margin-top:44px">
+      <div class="rk-card">
+        <h2 data-en="What we check" style="font-size:1.35rem">Ce verificăm</h2>
+        <ul class="rk-steps-nxt" style="padding-left:1.1em;margin:0"><li data-en="The allowed characters and the country prefix.">Caracterele permise și prefixul de țară.</li><li data-en="The correct length and structure for that country.">Lungimea și structura corecte pentru țara respectivă.</li><li data-en="The check digits, recomputed with MOD 97 (ISO 7064).">Cifrele de control, recalculate cu MOD 97 (ISO 7064).</li><li data-en="The bank code, only when the country includes it in the format and the data is reliable.">Codul băncii, doar când țara îl include în format și datele sunt fiabile.</li></ul>
+      </div>
+      <div class="rk-card">
+        <h2 data-en="What it cannot do" style="font-size:1.35rem">Ce nu poate face</h2>
+        <ul class="rk-steps-nxt" style="padding-left:1.1em;margin:0"><li data-en="It does not show who owns the account or confirm that it exists.">Nu arată cine deține contul și nu confirmă că el există.</li><li data-en="It does not tell you whether a payment is legitimate. Scammers use valid IBANs.">Nu spune dacă o plată este legitimă. Escrocii folosesc IBAN-uri valide.</li><li data-en="It does not check lists of accounts reported for fraud.">Nu verifică liste de conturi raportate pentru fraudă.</li></ul>
+      </div>
+    </div>
+  </div>
+</section>
+<section class="rk-sec rk-sec--ox" aria-labelledby="h-next">
+  <div class="rk-wrap rk-final">
+    <h2 data-en="After the check: understand the pattern" id="h-next">După verificare: înțelege tiparul</h2>
+    <p data-en="A result shows you one clue. Codex, AFIS and Signals help you recognise the pattern behind it, and the Post-Fraud guide walks you through the next steps." class="rk-lead">Un rezultat îți arată un indiciu. Codex, AFIS și Signals te ajută să recunoști tiparul din spatele lui, iar ghidul Post-Fraud te duce prin pașii următori.</p>
+    <div class="rk-actions">
+      <a class="rk-btn rk-btn--solid" href="index.html#preturi" data-upgrade-cta="choose_level" data-placement="tool_footer" data-en="Choose your protection level">Alege nivelul de protecție</a>
+      <a class="rk-btn" href="verificare.html" data-en="All free tools">Toate instrumentele gratuite</a>
+    </div>
+    
+  </div>
+</section>
+</main>
+
+<footer class="rk-foot">
+  <div class="rk-wrap">
+    <div class="rk-foot__grid">
+      <div>
+        <h4>SBR Systems</h4>
+        <p class="rk-muted" data-en="Anti-fraud intelligence system. Independent: not a public authority and not legal advice.">Sistem de intelligence anti-fraudă. Independent: nu este o autoritate publică și nu oferă consultanță juridică.</p>
+        <p class="rk-muted" style="margin-top:10px">SBR SYSTEMS GS S.R.L, Brașov, România<br><a href="mailto:contact@sbr.systems">contact@sbr.systems</a></p>
+      </div>
+      <div>
+        <h4 data-en="Free tools">Instrumente gratuite</h4>
+        <ul>
+          <li><a href="verificare-link.html" data-en="Link &amp; Website Checker">Link &amp; Website Checker</a></li>
+          <li><a href="verificare-iban.html">IBAN Checker</a></li>
+          <li><a href="verificare-media.html">Deepfake Checker</a></li>
+          <li><a href="metodologie.html" data-en="Methodology">Metodologie</a></li>
+        </ul>
+      </div>
+      <div>
+        <h4 data-en="Products">Produse</h4>
+        <ul>
+          <li><a href="codex.html">Codex</a></li>
+          <li><a href="afis.html">AFIS</a></li>
+          <li><a href="quiz.html">SBR Score</a></li>
+          <li><a href="signals.html">Signals</a></li>
+          <li><a href="postfraud.html">Post-Fraud</a></li>
+          <li><a href="index.html#preturi" data-en="Pricing">Prețuri</a></li>
+        </ul>
+      </div>
+      <div>
+        <h4 data-en="Help and legal">Ajutor și legal</h4>
+        <ul>
+          <li><a href="am-fost-inselat.html" data-en="Been scammed?">Am fost înșelat</a></li>
+          <li><a href="unde-raportezi-frauda.html" data-en="Report fraud">Unde raportezi frauda</a></li>
+          <li><a href="terms.html" data-en="Terms">Termeni</a></li>
+          <li><a href="privacy.html" data-en="Privacy &amp; cookies">Confidențialitate și cookies</a></li>
+          <li><a href="gdpr.html">GDPR</a></li>
+          <li><a href="politica-returnare.html" data-en="Refund policy">Politica de returnare</a></li>
+          <li><a href="contact.html">Contact</a></li>
+        </ul>
+      </div>
+    </div>
+    <div class="rk-foot__legal">
+      <span>&copy; 2026 SBR SYSTEMS GS S.R.L</span>
+      <span><a href="https://instagram.com/sbr_antifraud" rel="noopener">Instagram</a> &nbsp; <a href="https://tiktok.com/@structurabrevisrector" rel="noopener">TikTok</a> &nbsp; <a href="https://t.me/sbrorator" rel="noopener">Telegram</a></span>
+    </div>
+  </div>
+</footer>
+<script src="js/risk/ui.js?v=3"></script>
+<script src="js/risk/analytics.js?v=1"></script>
+<script src="js/risk/sbr-risk-iban.js?v=1"></script>
+<script src="js/risk/iban-page.js?v=2"></script>
+<script src="js/cookie-consent.js"></script>
+
+</body>
+</html>

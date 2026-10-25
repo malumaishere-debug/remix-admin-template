@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="ro">
+<head>
+<meta charset="UTF-8">
+<script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+<script src="/js/i18n.js?v=5"></script>
+<script src="/js/nav-universal.js?v=13"></script>
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="description" data-i18n-attr="content" data-i18n="subscription-terms.sub" content="Reguli aplicabile abonamentelor recurente SBR: cicluri de facturare, reinnoire automata, modificare, anulare, suspendare.">
+<meta name="robots" content="index, follow">
+<meta property="og:title" data-i18n-attr="content" data-i18n="subscription-terms.h1" content="SBR - Termeni de Abonament">
+<meta property="og:locale" content="ro_RO">
+<link rel="canonical" href="https://sbr.systems/subscription-terms">
+<title data-i18n="subscription-terms.h1">SBR - Termeni de Abonament</title>
+<link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=IBM+Plex+Mono:wght@400;500&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
+<style>
+:root{--c-red:#C0392B;--c-red-hi:#E74C3C;--c-bg:#0a0a0a;--c-fg:#e8e8e8;--c-mute:#888;--c-line:rgba(255,255,255,.08)}
+*{box-sizing:border-box;margin:0;padding:0}
+body{font-family:'Inter',system-ui,sans-serif;background:var(--c-bg);color:var(--c-fg);line-height:1.7;font-size:15px}
+.legal-wrap{max-width:880px;margin:80px auto 100px;padding:0 clamp(20px,5vw,40px)}
+.legal-eyebrow{font-family:'IBM Plex Mono',monospace;font-size:10px;letter-spacing:4px;color:var(--c-red);text-transform:uppercase;margin-bottom:18px}
+.legal-h1{font-family:'Bebas Neue',sans-serif;font-size:clamp(38px,6vw,72px);line-height:1;color:#fff;margin-bottom:14px;letter-spacing:1px}
+.legal-sub{font-size:16px;color:var(--c-mute);margin-bottom:42px;padding-bottom:24px;border-bottom:1px solid var(--c-line)}
+.legal-meta{display:flex;gap:24px;flex-wrap:wrap;font-family:'IBM Plex Mono',monospace;font-size:11px;color:var(--c-mute);text-transform:uppercase;letter-spacing:2px;margin-top:14px}
+.legal-meta strong{color:#eaeaea;display:block;font-weight:500;letter-spacing:1px;text-transform:none;margin-top:3px;font-family:'Inter',sans-serif;font-size:13px}
+.legal h2{font-family:'Bebas Neue',sans-serif;font-size:28px;color:#fff;margin:48px 0 14px;letter-spacing:1px;padding-left:14px;border-left:3px solid var(--c-red)}
+.legal h3{font-family:'IBM Plex Mono',monospace;font-size:11px;letter-spacing:3px;color:var(--c-red);text-transform:uppercase;margin:32px 0 10px}
+.legal p{margin:0 0 14px;color:#cfcfcf}
+.legal ul,.legal ol{margin:8px 0 16px 22px;color:#cfcfcf}
+.legal ul li,.legal ol li{margin:6px 0}
+.legal strong{color:#fff;font-weight:600}
+.legal a{color:var(--c-red);text-decoration:none;border-bottom:1px solid rgba(192,57,43,.3);transition:border-color .15s}
+.legal a:hover{border-bottom-color:var(--c-red)}
+.legal table{width:100%;border-collapse:collapse;margin:18px 0;font-size:13px}
+.legal th,.legal td{border:1px solid var(--c-line);padding:10px 12px;text-align:left;vertical-align:top}
+.legal th{background:rgba(255,255,255,.03);color:#fff;font-weight:500;font-family:'IBM Plex Mono',monospace;font-size:10px;letter-spacing:2px;text-transform:uppercase}
+.legal-callout{background:rgba(192,57,43,.05);border-left:3px solid var(--c-red);padding:18px 22px;margin:24px 0;border-radius:0 4px 4px 0}
+.legal-callout p:last-child{margin-bottom:0}
+.legal-footer-meta{margin-top:60px;padding-top:24px;border-top:1px solid var(--c-line);font-size:12px;color:var(--c-mute);font-family:'IBM Plex Mono',monospace;letter-spacing:1px}
+.legal-toc{background:rgba(255,255,255,.02);border:1px solid var(--c-line);padding:18px 22px;margin:24px 0 40px;border-radius:4px}
+.legal-toc-label{font-family:'IBM Plex Mono',monospace;font-size:10px;letter-spacing:3px;color:var(--c-red);text-transform:uppercase;margin-bottom:10px}
+.legal-toc ol{margin:0;list-style:decimal;list-style-position:inside;color:#aaa}
+.legal-toc li{margin:5px 0;font-size:13px}
+.legal-toc a{color:#bbb;border-bottom:none}
+.legal-toc a:hover{color:var(--c-red)}
+footer.legal-footer{padding:40px 24px;text-align:center;border-top:1px solid var(--c-line);background:#000;color:var(--c-mute);font-family:'IBM Plex Mono',monospace;font-size:11px;letter-spacing:2px}
+footer.legal-footer a{color:var(--c-mute);text-decoration:none;margin:0 8px;border-bottom:none}
+footer.legal-footer a:hover{color:#eee}
+</style>
+</head>
+<body>
+<main class="legal-wrap legal">
+  <div class="legal-eyebrow" data-i18n="subscription-terms.eyebrow">Document oficial · Termeni abonament</div>
+  <h1 class="legal-h1" data-i18n="subscription-terms.h1">Termeni de Abonament</h1>
+  <div class="legal-sub" data-i18n="subscription-terms.sub">Reguli aplicabile abonamentelor recurente SBR: cicluri de facturare, reinnoire automata, modificare, anulare, suspendare.</div>
+  <!-- BODY -->
+  <div class="legal-toc"><div class="legal-toc-label" data-i18n="legal.toc">Cuprins</div><ol><li><a href="#plans" data-i18n="subscription-terms.toc.plans">Planuri disponibile</a></li><li><a href="#billing" data-i18n="subscription-terms.toc.billing">Facturare</a></li><li><a href="#renewal" data-i18n="subscription-terms.toc.renewal">Reinnoire automata</a></li><li><a href="#cancel" data-i18n="subscription-terms.toc.cancel">Anulare</a></li><li><a href="#price-change" data-i18n="subscription-terms.toc.price-change">Modificari de pret</a></li><li><a href="#suspension" data-i18n="subscription-terms.toc.suspension">Suspendare cont</a></li><li><a href="#data" data-i18n="subscription-terms.toc.data">Date dupa anulare</a></li><li><a href="#contact" data-i18n="subscription-terms.toc.contact">Contact billing</a></li></ol></div><section id="plans"><h2 data-i18n="subscription-terms.plans.title">Planuri disponibile</h2><table><tr><th>Plan</th><th>Cicluri</th><th>Reinnoire</th><th>Anulare</th></tr><tr><td>SBR Signals</td><td>Lunar / 6 luni / 12 luni</td><td>Automata</td><td>Oricand</td></tr><tr><td>SBR Personal</td><td>Lunar / Anual</td><td>Automata</td><td>Oricand</td></tr><tr><td>SBR Business</td><td>Lunar / Anual</td><td>Automata</td><td>Cu preaviz 30 zile</td></tr></table></section><section id="billing"><h2 data-i18n="subscription-terms.billing.title">Facturare</h2><ul><li>Primul cont este debitat la confirmarea comenzii.</li><li>Urmatoarele cicluri sunt debitate automat in ziua aniversara a abonarii.</li><li>Factura fiscala este emisa electronic, transmisa pe email si disponibila in dashboard.</li><li>Preturile sunt in RON sau EUR (conform alegerii la checkout) si includ TVA pentru consumatori din Romania.</li></ul></section><section id="renewal"><h2 data-i18n="subscription-terms.renewal.title">Reinnoire automata</h2><p>Abonamentele se reinnoiesc <strong>automat</strong> la sfarsitul fiecarui ciclu, la pretul in vigoare in acel moment. Te notificam prin email cu <strong>7 zile inainte</strong> de reinnoire pentru abonamentele anuale (3 zile pentru lunare).</p><p>Pentru a evita reinnoirea, anuleaza din dashboard cu <strong>cel putin 24 de ore</strong> inainte de data reinnoirii.</p></section><section id="cancel"><h2 data-i18n="subscription-terms.cancel.title">Anulare</h2><ul><li><strong>Anuleaza oricand</strong> din dashboard: Settings &rarr; Subscription &rarr; Cancel.</li><li>Accesul ramane activ <strong>pana la sfarsitul perioadei platite</strong>.</li><li>Nu se aplica rambursare proportionala pentru perioada neutilizata (cu exceptiile descrise in <a href='/refund'>Refund Policy</a>).</li><li>Putem reactiva contul daca te razgandesti inainte de expirare, fara cost.</li></ul></section><section id="price-change"><h2 data-i18n="subscription-terms.price-change.title">Modificari de pret</h2><p>Putem modifica preturile cu o notificare prealabila de <strong>minim 30 de zile</strong>, transmisa prin email. Pretul actual se aplica pana la sfarsitul ciclului curent. Poti anula gratuit daca nu accepti noul pret.</p></section><section id="suspension"><h2 data-i18n="subscription-terms.suspension.title">Suspendare cont</h2><p>Putem suspenda contul pentru: facturi neplatite (dupa 7 zile de grace period), incalcare AUP, frauda suspectata. Te notificam prin email inainte. Dupa rezolvare, contul se reactiveaza automat.</p></section><section id="data"><h2 data-i18n="subscription-terms.data.title">Date dupa anulare</h2><p>Datele personale raman stocate timp de <strong>30 de zile</strong> dupa expirarea abonamentului, pentru a permite reactivarea usoara. Apoi sunt anonimizate sau sterse (cu exceptia datelor obligatorii de pastrat - facturi, conform legii contabilitatii).</p></section><section id="contact"><h2 data-i18n="subscription-terms.contact.title">Contact billing</h2><p>Email: <a href="mailto:billing@sbr.systems">billing@sbr.systems</a> &middot; Dashboard: <a href='/dashboard'>sbr.systems/dashboard</a></p></section>
+  <div class="legal-footer-meta">
+    <span data-i18n="legal.last-updated">Ultima actualizare</span>: 23 Mai 2026
+    &nbsp;·&nbsp;
+    <span data-i18n="legal.version">Versiune</span>: 1.0
+    &nbsp;·&nbsp;
+    <span data-i18n="legal.contact-questions">Întrebări</span>:
+    <a href="mailto:legal@sbr.systems">legal@sbr.systems</a>
+  </div>
+</main>
+<footer class="legal-footer">
+  <div>© 2026 SBR Systems GS S.R.L. <span data-i18n="footer.all-rights">Toate drepturile rezervate.</span></div>
+  <div style="margin-top:10px">
+    <a href="/privacy" data-i18n="footer.privacy">Politica de confidențialitate</a> ·
+    <a href="/terms" data-i18n="footer.terms">Termeni</a> ·
+    <a href="/gdpr" data-i18n="footer.gdpr">GDPR</a> ·
+    <a href="/cookies" data-i18n="footer.cookies">Cookies</a> ·
+    <a href="/refund" data-i18n="footer.refund">Refund</a> ·
+    <a href="/subscription-terms" data-i18n="footer.subscription">Subscription Terms</a>
+  </div>
+</footer>
+
+</body>
+</html>

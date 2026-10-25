@@ -9,7 +9,8 @@ Nu am avut acces la Stripe, Google Analytics, Supabase (ca administrator), Hosti
 |---|---|
 | Acest repository (`remix-admin-template`) | Șablonul standard Netlify „Remix admin” (o demonstrație cu o tabelă `members`). **Nu este codul site-ului sbr.systems.** |
 | Site-ul live | Fișiere HTML statice găzduite la **Hostinger** (hPanel, LiteSpeed), în spatele **Cloudflare**. Codul sursă nu e în niciun repository Git la care am acces. |
-| Consecință | Nu pot publica nimic direct pe site. Pregătesc modificări testate, iar tu le copiezi pe Hostinger, sau mutăm site-ul în Git (vezi blocajul B1 din `decisions-and-blockers.md`). |
+| Copie a codului (2026-10-25) | `site-snapshot/`: 217 fișiere (pagini RO și `/en/`, JS, CSS, traduceri, componenta C2PA), descărcate doar prin citire de pe site-ul public cu `sbr/ops/mirror_site.py`, cu modificările Cloudflare eliminate. Lipsesc fișierele care există doar pe server (`.htaccess`, eventual PHP, fișiere nelegate de nicăieri). **Nu se urcă peste site.** |
+| Consecință | Pot citi și modifica acum codul în Git, dar publicarea pe Hostinger rămâne manuală până la conectarea Git Deploy (blocajul B1). |
 
 ## 2. Componente tehnice identificate
 
@@ -65,6 +66,13 @@ Nu am avut acces la Stripe, Google Analytics, Supabase (ca administrator), Hosti
 - 18 pagini au lipsuri: fără `canonical`, fără `meta description` sau cu un număr greșit de `h1`. Lista completă se generează zilnic de `sbr/ops/daily-check.mjs`.
 - 12 pagini legate intern nu sunt în sitemap (`login`, `register`, `dashboard`, `sbr-ai`, `verified`, `codex-page`, `cost-optimization` etc.). Unele trebuie să rămână neindexate (dashboard, login); `sbr-ai` și `verified` sunt candidate pentru sitemap.
 
-## 7. Date care lipsesc
+## 7. Probleme tehnice găsite la copierea site-ului
+
+- **„Soft 404” pe tot serverul:** orice adresă inexistentă (pagină, CSS, JS, imagine) răspunde cu codul 200 și pagina de eroare. Google raportează asta ca „soft 404”, iar fișierele lipsă nu apar ca erori în niciun monitor obișnuit.
+- **Imaginile de previzualizare lipsesc:** `og-image.jpg` (~12 pagini), `og-image.png` (~23 pagini) și `og-sbr.jpg` (~6 pagini) nu există. Linkurile distribuite pe WhatsApp, Facebook sau LinkedIn apar fără imagine, deci primesc mai puține clicuri.
+- **`css/codex-interactive.css` lipsește**, deși e folosit de 19 pagini Codex. Partea interactivă a acestor pagini poate fi afișată fără stil.
+- Lipsesc și `img/chat-bg.jpg` (pe `sbr-ai.html`) și o captură de ecran folosită pe `resources.html`.
+
+## 8. Date care lipsesc
 
 Vânzări, venit, abonamente, rambursări, trafic real (cele „~200 vizitatori/zi” nu sunt verificate), rată de conversie, listă de e-mailuri, tichete de suport. Toate necesită accesele din `decisions-and-blockers.md`.

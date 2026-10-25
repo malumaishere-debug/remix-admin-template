@@ -1,0 +1,1613 @@
+<!DOCTYPE html>
+<html lang="ro">
+<head>
+<meta charset="UTF-8">
+<!-- Google Analytics 4 (Consent Mode v2) — nu colecteaza pana la consimtamant -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-9WT1GRKEGB"></script>
+<script>
+window.dataLayer=window.dataLayer||[];function gtag(){dataLayer.push(arguments);}
+gtag('js',new Date());
+gtag('consent','default',{'ad_storage':'denied','ad_user_data':'denied','ad_personalization':'denied','analytics_storage':'denied'});
+try{var _c=JSON.parse(localStorage.getItem('sbr_cookie_consent')||'null');if(_c&&_c.type==='all'){gtag('consent','update',{'analytics_storage':'granted'});}}catch(e){}
+gtag('config','G-9WT1GRKEGB',{anonymize_ip:true});
+</script>
+<!-- End GA4 -->
+<script src="js/nav-universal.js?v=13"></script>
+<script src="/js/i18n.js?v=5"></script>
+
+  <meta name="description" content="Resurse SBR: PDF-uri, ghiduri si documente anti-frauda disponibile pentru contul tau.">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>SBR Resources — Template-uri & Documente Anti-Fraudă</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Playfair+Display:ital,wght@0,400;1,400&family=IBM+Plex+Mono:wght@300;400;500&family=Lato:wght@300;400;700&display=swap" rel="stylesheet" media="print" onload="this.media='all'">
+  <noscript><link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Playfair+Display:ital,wght@0,400;1,400&family=IBM+Plex+Mono:wght@300;400;500&family=Lato:wght@300;400;700&display=swap" rel="stylesheet"></noscript>
+<style>
+/* ── SBR Universal Nav ── */
+.sbr-nav{position:fixed;top:0;left:0;right:0;z-index:1000;height:58px;display:flex;align-items:center;justify-content:space-between;padding:0 clamp(18px,4vw,56px);background:rgba(8,8,8,.97);backdrop-filter:blur(20px);-webkit-backdrop-filter:blur(20px);border-bottom:1px solid rgba(192,57,43,.12)}
+.nav-logo{font-family:'Bebas Neue',sans-serif;font-size:22px;letter-spacing:5px;color:#e2e2e2;cursor:pointer;display:flex;align-items:center;gap:4px;text-decoration:none;flex-shrink:0}
+.nav-logo .dot{color:#C0392B}
+.nav-logo-sub{font-family:'IBM Plex Mono',monospace;font-size:7px;letter-spacing:2px;color:#333;text-transform:uppercase;margin-left:6px;margin-top:2px}
+.nav-links{display:flex;align-items:center;gap:20px}
+.nav-link{font-family:'IBM Plex Mono',monospace;font-size:9px;letter-spacing:2px;color:#444;text-transform:uppercase;text-decoration:none;transition:color .15s}
+.nav-link:hover,.nav-link.active{color:#aaa}
+.nav-right{display:flex;align-items:center;gap:8px;margin-left:auto}
+.btn-nav-ghost{font-family:'IBM Plex Mono',monospace;font-size:9px;letter-spacing:2px;text-transform:uppercase;background:transparent;border:1px solid rgba(255,255,255,.08);color:#444;padding:8px 14px;cursor:pointer;text-decoration:none;transition:all .18s;white-space:nowrap;display:inline-flex;align-items:center}
+.btn-nav-ghost:hover{border-color:rgba(192,57,43,.4);color:#aaa}
+.btn-nav-solid{font-family:'IBM Plex Mono',monospace;font-size:9px;letter-spacing:2px;text-transform:uppercase;background:#C0392B;color:#fff;border:none;padding:9px 18px;cursor:pointer;text-decoration:none;transition:background .18s;white-space:nowrap;display:inline-flex;align-items:center}
+.btn-nav-solid:hover{background:#E74C3C}
+#scroll-progress{position:fixed;top:0;left:0;height:2px;background:#C0392B;width:0%;z-index:9999;pointer-events:none}
+@media(max-width:700px){.nav-links{display:none}}
+@media(max-width:480px){.btn-nav-ghost:not(:last-of-type){display:none}}
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+html{scroll-behavior:smooth}
+body{font-family:'Lato',sans-serif;background:#0A0A0A;color:#e0e0e0;min-height:100vh;overflow-x:hidden}
+:root{
+  --red:#C0392B;--redL:#E74C3C;
+  --dark:#111;--dark2:#1A1A1A;--dark3:#222;
+  --gray:#888;--gray2:#666;--gray3:#444;
+}
+::-webkit-scrollbar{width:3px}::-webkit-scrollbar-thumb{background:var(--red)}
+a{text-decoration:none;color:inherit}
+
+/* NAV */
+#nav{position:fixed;top:0;left:0;right:0;z-index:1000;height:60px;display:flex;align-items:center;justify-content:space-between;padding:0 36px;background:rgba(10,10,10,.97);backdrop-filter:blur(20px);border-bottom:1px solid rgba(192,57,43,.15)}
+.nav-logo{font-family:'Bebas Neue',sans-serif;font-size:26px;letter-spacing:4px;cursor:pointer;display:flex;align-items:center}
+.nav-logo span{color:var(--red)}
+.nav-logo-sub{font-family:'IBM Plex Mono',monospace;font-size:8px;letter-spacing:2px;color:#aaa;text-transform:uppercase;margin-left:10px;margin-top:2px}
+#nav-right{display:flex;align-items:center;gap:20px}
+.nb{font-size:10px;letter-spacing:2px;text-transform:uppercase;color:#aaa;padding:4px 0;transition:color .2s}
+.nb:hover{color:var(--red)}
+.nb-solid{background:var(--red);border:none;color:#fff;font-family:'IBM Plex Mono',monospace;font-size:9px;letter-spacing:2px;text-transform:uppercase;padding:8px 16px;cursor:pointer;transition:background .2s}
+.nb-solid:hover{background:var(--redL)}
+#nav-hamburger{display:none;flex-direction:column;gap:5px;cursor:pointer;padding:6px}
+.hb-line{display:block;width:22px;height:2px;background:#bbb;transition:all .3s}
+
+/* HERO */
+.resources-hero{padding:100px 60px 70px;background:linear-gradient(180deg,#0A0A0A 0%,#0F0505 100%);position:relative;overflow:hidden;border-bottom:1px solid rgba(192,57,43,.12)}
+.rh-grid{position:absolute;inset:0;background-image:linear-gradient(rgba(192,57,43,.03) 1px,transparent 1px),linear-gradient(90deg,rgba(192,57,43,.03) 1px,transparent 1px);background-size:60px 60px;mask-image:radial-gradient(ellipse 80% 80% at 50% 50%,black 20%,transparent 100%)}
+.rh-inner{position:relative;max-width:1200px;margin:0 auto}
+.rh-eyebrow{font-family:'IBM Plex Mono',monospace;font-size:10px;letter-spacing:4px;color:var(--red);text-transform:uppercase;display:flex;align-items:center;gap:14px;margin-bottom:20px}
+.rh-eyebrow::before{content:'';display:block;width:32px;height:1px;background:var(--red)}
+.rh-title{font-family:'Bebas Neue',sans-serif;font-size:clamp(54px,10vw,130px);line-height:.88;letter-spacing:2px;margin-bottom:20px}
+.rh-title .r{color:var(--red);display:block}
+.rh-title .w{color:#fff;display:block}
+.rh-sub{font-family:'Playfair Display',serif;font-style:italic;font-size:clamp(14px,1.6vw,18px);color:#999;max-width:580px;line-height:1.7;margin-bottom:40px}
+.rh-notice{display:inline-flex;align-items:center;gap:12px;background:rgba(192,57,43,.06);border:1px solid rgba(192,57,43,.2);padding:12px 20px;font-family:'IBM Plex Mono',monospace;font-size:10px;letter-spacing:1px;color:#888}
+.rh-notice span{color:var(--red)}
+
+/* CATEGORIES NAV */
+.cat-nav{background:var(--dark);border-bottom:1px solid rgba(255,255,255,.04);position:sticky;top:60px;z-index:100;overflow-x:auto;scrollbar-width:none}
+.cat-nav::-webkit-scrollbar{display:none}
+.cat-nav-inner{display:flex;max-width:1200px;margin:0 auto;padding:0 60px}
+.cat-btn{font-family:'IBM Plex Mono',monospace;font-size:9px;letter-spacing:2px;text-transform:uppercase;color:#777;padding:14px 18px;border-bottom:2px solid transparent;cursor:pointer;transition:all .2s;white-space:nowrap;background:none;border-top:none;border-left:none;border-right:none}
+.cat-btn:hover{color:#bbb}
+.cat-btn.on{color:var(--red);border-bottom-color:var(--red)}
+
+/* MAIN LAYOUT */
+.res-main{max-width:1200px;margin:0 auto;padding:60px 60px 100px}
+
+.res-section{margin-bottom:80px;scroll-margin-top:120px}
+.res-section-header{margin-bottom:32px;display:flex;align-items:flex-end;justify-content:space-between;gap:20px}
+.rsh-left{}
+.rsh-num{font-family:'IBM Plex Mono',monospace;font-size:9px;letter-spacing:3px;color:var(--red);text-transform:uppercase;margin-bottom:6px;display:flex;align-items:center;gap:10px}
+.rsh-num::before{content:'';display:block;width:20px;height:1px;background:var(--red)}
+.rsh-title{font-family:'Bebas Neue',sans-serif;font-size:40px;color:#fff;line-height:1}
+.rsh-title em{color:var(--red);font-style:normal}
+.rsh-desc{font-family:'Playfair Display',serif;font-style:italic;font-size:14px;color:#aaa;margin-top:6px;line-height:1.6}
+.rsh-badge{font-family:'IBM Plex Mono',monospace;font-size:8px;letter-spacing:2px;color:var(--red);background:rgba(192,57,43,.08);border:1px solid rgba(192,57,43,.2);padding:5px 12px;text-transform:uppercase;white-space:nowrap;flex-shrink:0}
+
+.res-divider{height:1px;background:linear-gradient(90deg,rgba(192,57,43,.15),transparent);margin-bottom:28px}
+
+/* DOCUMENT CARDS */
+.doc-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(340px,1fr));gap:2px}
+.doc-card{background:var(--dark2);padding:28px 26px;border-top:2px solid rgba(192,57,43,.12);transition:all .25s;cursor:pointer;position:relative;overflow:hidden}
+.doc-card:hover{background:var(--dark3);border-top-color:var(--red)}
+.dc-tag{font-family:'IBM Plex Mono',monospace;font-size:8px;letter-spacing:3px;color:var(--red);text-transform:uppercase;margin-bottom:10px;display:flex;align-items:center;gap:8px}
+.dc-tag::before{content:'';display:block;width:12px;height:1px;background:var(--red)}
+.dc-title{font-family:'Bebas Neue',sans-serif;font-size:22px;color:#fff;margin-bottom:8px;line-height:1.1}
+.dc-desc{font-size:12px;color:#aaa;line-height:1.8;margin-bottom:16px}
+.dc-features{display:flex;flex-direction:column;gap:4px;margin-bottom:18px}
+.dc-feat{font-family:'IBM Plex Mono',monospace;font-size:9px;color:#777;letter-spacing:.5px;display:flex;align-items:center;gap:8px}
+.dc-feat::before{content:'—';color:var(--red);font-size:8px}
+.dc-action{display:flex;gap:8px;align-items:center}
+.dc-btn{font-family:'IBM Plex Mono',monospace;font-size:9px;letter-spacing:2px;text-transform:uppercase;padding:8px 16px;border:1px solid rgba(192,57,43,.3);color:var(--red);background:transparent;cursor:pointer;transition:all .2s}
+.dc-btn:hover,.dc-btn.primary{background:var(--red);border-color:var(--red);color:#fff}
+.dc-icon{position:absolute;bottom:-8px;right:12px;font-size:72px;opacity:.03;pointer-events:none;line-height:1}
+
+/* TEMPLATE VIEWER */
+.tpl-viewer{display:none;background:#0D0D0D;border:1px solid rgba(192,57,43,.15);margin-top:2px}
+.tpl-viewer.open{display:block}
+.tv-header{display:flex;align-items:center;justify-content:space-between;padding:16px 24px;border-bottom:1px solid rgba(255,255,255,.04)}
+.tv-title{font-family:'IBM Plex Mono',monospace;font-size:9px;letter-spacing:3px;color:var(--red);text-transform:uppercase}
+.tv-actions{display:flex;gap:8px}
+.tv-btn{font-family:'IBM Plex Mono',monospace;font-size:8px;letter-spacing:2px;text-transform:uppercase;padding:6px 12px;border:1px solid rgba(255,255,255,.06);color:#aaa;background:transparent;cursor:pointer;transition:all .2s}
+.tv-btn:hover{border-color:var(--red);color:var(--red)}
+.tv-content{padding:32px 36px;font-size:13px;color:#aaa;line-height:2;white-space:pre-wrap;font-family:'Lato',sans-serif;max-height:600px;overflow-y:auto}
+.tv-content .field{color:var(--redL);font-weight:600;font-style:italic}
+.tv-content .section-title{font-family:'IBM Plex Mono',monospace;font-size:10px;letter-spacing:3px;color:var(--red);text-transform:uppercase;margin:20px 0 8px;display:block}
+.tv-content .legal-bold{color:#ccc;font-weight:600}
+.tv-copy-notice{padding:10px 36px;background:rgba(192,57,43,.04);border-top:1px solid rgba(192,57,43,.1);font-family:'IBM Plex Mono',monospace;font-size:9px;color:#777;letter-spacing:1px}
+
+/* SCRIPT CARDS */
+.script-card{background:var(--dark2);margin-bottom:2px;border-left:2px solid rgba(192,57,43,.2);transition:all .2s}
+.script-card:hover{border-left-color:var(--red)}
+.sc-header{padding:20px 24px;display:flex;align-items:center;justify-content:space-between;cursor:pointer}
+.sc-left{display:flex;align-items:center;gap:16px}
+.sc-num{font-family:'Bebas Neue',sans-serif;font-size:32px;color:rgba(192,57,43,.15);line-height:1}
+.sc-info{}
+.sc-tag{font-family:'IBM Plex Mono',monospace;font-size:8px;letter-spacing:3px;color:var(--red);text-transform:uppercase;margin-bottom:3px}
+.sc-title{font-family:'Bebas Neue',sans-serif;font-size:20px;color:#fff;line-height:1.1}
+.sc-toggle{font-family:'IBM Plex Mono',monospace;font-size:10px;color:var(--red);transition:transform .2s}
+.sc-body{display:none;padding:0 24px 24px;border-top:1px solid rgba(255,255,255,.04)}
+.sc-body.open{display:block}
+.sc-step{display:flex;gap:16px;margin-bottom:14px;padding:12px;background:rgba(192,57,43,.04)}
+.sc-step-n{font-family:'Bebas Neue',sans-serif;font-size:22px;color:rgba(192,57,43,.3);line-height:1;flex-shrink:0;width:28px}
+.sc-step-text{font-size:13px;color:#aaa;line-height:1.7}
+.sc-step-text strong{color:#bbb;display:block;font-family:'IBM Plex Mono',monospace;font-size:10px;letter-spacing:1px;text-transform:uppercase;margin-bottom:4px}
+
+/* TIPS */
+.tips-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:2px;background:rgba(192,57,43,.06)}
+.tip-card{background:var(--dark2);padding:28px 24px}
+.tip-icon{font-size:28px;margin-bottom:14px;display:block}
+.tip-title{font-family:'Bebas Neue',sans-serif;font-size:20px;color:#fff;margin-bottom:8px}
+.tip-desc{font-size:12px;color:#aaa;line-height:1.8}
+
+/* FRAUD REPORT FORM */
+.fir-grid{display:grid;grid-template-columns:1fr 1fr;gap:2px}
+.fir-section{background:var(--dark2);padding:24px}
+.fir-section.full{grid-column:1/-1}
+.fir-label{font-family:'IBM Plex Mono',monospace;font-size:8px;letter-spacing:3px;color:var(--red);text-transform:uppercase;margin-bottom:12px;display:flex;align-items:center;gap:8px}
+.fir-label::before{content:'';display:block;width:14px;height:1px;background:var(--red)}
+.fir-field{margin-bottom:12px}
+.fir-field label{display:block;font-family:'IBM Plex Mono',monospace;font-size:9px;letter-spacing:1px;color:#aaa;text-transform:uppercase;margin-bottom:5px}
+.fir-field input,.fir-field textarea,.fir-field select{width:100%;background:#111;border:1px solid rgba(255,255,255,.07);color:#bbb;font-family:'Lato',sans-serif;font-size:13px;padding:10px 12px;transition:border-color .2s;resize:vertical}
+.fir-field input:focus,.fir-field textarea:focus,.fir-field select:focus{outline:none;border-color:rgba(192,57,43,.4)}
+.fir-field textarea{min-height:80px}
+.fir-field select option{background:#111}
+.fir-btn{width:100%;background:var(--red);border:none;color:#fff;font-family:'IBM Plex Mono',monospace;font-size:9px;letter-spacing:2px;text-transform:uppercase;padding:14px;cursor:pointer;transition:background .2s;margin-top:16px}
+.fir-btn:hover{background:var(--redL)}
+.fir-note{font-family:'IBM Plex Mono',monospace;font-size:8px;color:#666;letter-spacing:1px;margin-top:8px;text-align:center}
+
+/* ESCALATION */
+.esc-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:2px;background:rgba(192,57,43,.05)}
+.esc-card{background:var(--dark2);padding:24px;border-bottom:2px solid transparent;transition:all .2s}
+.esc-card:hover{border-bottom-color:var(--red)}
+.esc-step{font-family:'Bebas Neue',sans-serif;font-size:44px;color:rgba(192,57,43,.08);line-height:1;margin-bottom:10px}
+.esc-inst{font-family:'IBM Plex Mono',monospace;font-size:9px;letter-spacing:2px;color:var(--red);text-transform:uppercase;margin-bottom:6px}
+.esc-name{font-family:'Bebas Neue',sans-serif;font-size:18px;color:#fff;margin-bottom:6px}
+.esc-desc{font-size:11px;color:#aaa;line-height:1.7;margin-bottom:10px}
+.esc-when{font-family:'IBM Plex Mono',monospace;font-size:9px;color:#666;letter-spacing:.5px;line-height:1.6;padding-top:8px;border-top:1px solid rgba(255,255,255,.04)}
+.esc-when span{color:var(--red)}
+
+/* CTA BAR */
+.cta-bar{background:linear-gradient(135deg,#0F0505,#150808);border:1px solid rgba(192,57,43,.2);padding:44px 60px;margin-top:60px;display:flex;align-items:center;justify-content:space-between;gap:40px}
+.cta-left .cta-tag{font-family:'IBM Plex Mono',monospace;font-size:9px;letter-spacing:3px;color:var(--red);text-transform:uppercase;margin-bottom:8px}
+.cta-left .cta-title{font-family:'Bebas Neue',sans-serif;font-size:clamp(28px,4vw,48px);color:#fff;line-height:1;margin-bottom:8px}
+.cta-left .cta-desc{font-size:14px;color:#aaa;line-height:1.6;max-width:500px}
+.cta-right{display:flex;flex-direction:column;gap:10px;flex-shrink:0}
+.cta-price{font-family:'Bebas Neue',sans-serif;font-size:52px;color:#fff;line-height:1;text-align:right}
+.cta-price span{color:var(--red)}
+.cta-price-sub{font-family:'IBM Plex Mono',monospace;font-size:9px;color:#aaa;letter-spacing:1px;text-align:right;margin-bottom:8px}
+.cta-btn{background:var(--red);border:none;color:#fff;font-family:'IBM Plex Mono',monospace;font-size:9px;letter-spacing:2px;text-transform:uppercase;padding:12px 28px;cursor:pointer;transition:background .2s}
+.cta-btn:hover{background:var(--redL)}
+
+footer{border-top:1px solid rgba(255,255,255,.05);padding:44px 60px;background:#0A0A0A}
+.foot-inner{max-width:1200px;margin:0 auto;display:flex;justify-content:space-between;align-items:center;gap:24px;flex-wrap:wrap}
+.foot-copy{font-family:'IBM Plex Mono',monospace;font-size:9px;letter-spacing:1px;color:#666}
+.foot-links{display:flex;gap:20px}
+.foot-link{font-family:'IBM Plex Mono',monospace;font-size:9px;color:#777;letter-spacing:1px;transition:color .2s}
+.foot-link:hover{color:var(--red)}
+
+@media(max-width:900px){
+  .doc-grid{grid-template-columns:1fr}
+  .tips-grid,.esc-grid{grid-template-columns:1fr 1fr}
+  .fir-grid{grid-template-columns:1fr}
+  .fir-section.full{grid-column:1}
+  .cta-bar{flex-direction:column;padding:32px}
+  .res-main{padding:40px 24px 80px}
+  .resources-hero{padding:80px 24px 50px}
+  .cat-nav-inner{padding:0 24px}
+}
+@media(max-width:600px){
+  .tips-grid,.esc-grid{grid-template-columns:1fr}
+  #nav-right{display:none}
+}
+/* ── LANG SWITCHER ── */
+#lang-switcher{position:relative;margin-left:6px}
+.lang-btn{display:flex;align-items:center;gap:5px;cursor:pointer;padding:5px 10px;border:1px solid rgba(255,255,255,.07);background:transparent;transition:all .2s;font-family:'IBM Plex Mono',monospace;font-size:9px;letter-spacing:2px;color:#aaa;user-select:none}
+.lang-btn:hover{border-color:var(--red);color:var(--red)}
+.lang-flag{font-size:13px;line-height:1}.lang-code{font-size:9px;letter-spacing:2px;text-transform:uppercase}.lang-arrow{font-size:8px;opacity:.5;margin-left:1px}
+.lang-dropdown{display:none;position:absolute;top:calc(100% + 6px);right:0;background:#111;border:1px solid rgba(255,255,255,.07);min-width:78px;z-index:9999;box-shadow:0 8px 24px rgba(0,0,0,.7)}
+.lang-dropdown.open{display:block}
+.lang-opt{display:flex;align-items:center;gap:8px;padding:9px 14px;font-family:'IBM Plex Mono',monospace;font-size:9px;letter-spacing:2px;color:#777;cursor:pointer;transition:all .15s;white-space:nowrap}
+.lang-opt:hover{background:rgba(192,57,43,.08);color:#fff}
+.lang-opt.lang-active{color:var(--red);background:rgba(192,57,43,.05)}
+</style>
+  
+  <meta name="robots" content="index, follow">
+  <meta property="og:title" content="Resurse SBR — Descarcari si Documente">
+  <meta property="og:description" content="Resurse SBR: PDF-uri, ghiduri si documente anti-frauda disponibile pentru contul tau.">
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="https://sbr.systems/resources.html">
+  <meta property="og:image" content="https://sbr.systems/og-image.png">
+  <meta property="og:site_name" content="SBR Anti-Fraud Intelligence Systems">
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="Resurse SBR — Descarcari si Documente">
+  <meta name="twitter:description" content="Resurse SBR: PDF-uri, ghiduri si documente anti-frauda disponibile pentru contul tau.">
+  <link rel="canonical" href="https://sbr.systems/resources.html">
+<link rel="stylesheet" href="css/sbr-readability.css" media="print" onload="this.media='all'">
+  <noscript><link rel="stylesheet" href="css/sbr-readability.css"></noscript>
+
+<style id="sbr-text-fix">
+/* Force all CSS variables to white-readable values */
+:root, * {
+  --text:#EEEEEE !important;
+  --t2:#CCCCCC !important;
+  --t3:#AAAAAA !important;
+  --t4:#888888 !important;
+  --t5:#555555 !important;
+}
+/* Direct color overrides for common text elements */
+p, li, span, div, td, th, label, small,
+.card-desc, .feat-desc, .prob-desc, .plan-tagline,
+.b2b-for, .fi, .faq-a, .alert-desc, .mv-desc,
+.mg-desc, .pl-desc, .ot-desc, .ng-text, .ahd-def,
+.prod-tagline, .ss-sub, .gb-sub, .quiz-sub,
+.hero-sub, .section-p, .s-p, .sf-text,
+.scoring-intro p, .dp-wrap p, .pricing-intro p,
+.sim-email-body, .sem-body, .sim-choice-text,
+.cert-desc, .track-desc, .module-desc,
+.score-desc, .dimension-desc, .step-desc,
+.resource-desc, .checklist-desc,
+.compare-table td, .emp-table td,
+.footer-link, .footer-copy, .footer-logo-sub,
+.lb-dept, .emp-dept, .dmb-emp-dept,
+.kpi-delta, .page-subtitle, .tb-user, .tb-company,
+.nd-plan-feats, .nd-footer-link,
+.sv-text, .sim-choice .sv-text { color: #CCCCCC !important; }
+
+h1, h2, h3, h4, h5, h6,
+.card-title, .plan-name, .b2b-name, .nd-plan-name,
+.page-title, .ch-h1, .hero-h1, .section-h2, .s-h,
+.fc-h, .ac-h, .quiz-h, .ms-copy h2, .ss-h,
+.ot-title, .mv-title, .mg-title, .pl-title,
+.alert-title, .emp-name, .dmb-emp-name,
+.lb-name, .prof-name, .panel-title,
+.feat-name, .prod-name,
+.gb-h { color: #FFFFFF !important; }
+
+.nav-link { color: #CCCCCC !important; }
+.nav-link:hover, .nav-link.active { color: #FFFFFF !important; }
+.btn-nav-ghost { color: #CCCCCC !important; }
+</style>
+<style id="sbr-force-colors">
+/* Override elements with hardcoded dark colors */
+.card-desc{color:#CCCCCC !important}
+.plan-tagline,.b2b-for,.fi{color:#CCCCCC !important}
+.faq-a,.faq-answer{color:#CCCCCC !important}
+.alert-desc,.sim-email-body,.sem-body{color:#CCCCCC !important}
+.mv-desc,.mg-desc,.pl-desc,.ot-desc,.ng-text,.ahd-def{color:#CCCCCC !important}
+.prod-tagline,.ss-sub,.gb-sub,.quiz-sub{color:#CCCCCC !important}
+.hero-sub,.s-p,.section-p,.fc-sub,.ac-sub{color:#CCCCCC !important}
+.prob-desc,.prob-a{color:#CCCCCC !important}
+.feat-desc,.nd-plan-feats{color:#CCCCCC !important}
+.scoring-intro p,.dp-wrap p,.pricing-intro p{color:#CCCCCC !important}
+p,li,td:not([class*="risk"]):not([class*="rc"]):not([class*="rh"]){color:#CCCCCC !important}
+h1,h2,h3,h4,h5,h6,.card-title,.plan-name,.b2b-name,.page-title{color:#FFFFFF !important}
+.nav-link{color:#CCCCCC !important}
+.nav-link:hover,.nav-link.active{color:#FFFFFF !important}
+.btn-nav-ghost{color:#CCCCCC !important}
+.compare-table td{color:#CCCCCC !important}
+.compare-table td.feature-name,.compare-table .feat-name{color:#DDDDDD !important}
+.emp-name,.lb-name,.dmb-emp-name{color:#EEEEEE !important}
+.emp-dept,.lb-dept,.dmb-emp-dept{color:#AAAAAA !important}
+.alert-title,.panel-title{color:#FFFFFF !important}
+</style>
+<script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+<style id="sbr-footer-final">
+.sbr-footer{
+  background:#060606 !important;border-top:1px solid rgba(255,255,255,.04) !important;
+  padding:16px clamp(16px,4vw,48px) !important;display:flex !important;
+  align-items:center !important;justify-content:space-between !important;
+  gap:14px !important;flex-wrap:wrap !important;
+}
+.footer-logo{font-family:'Bebas Neue',sans-serif;font-size:16px !important;letter-spacing:4px !important;color:#fff !important}
+.footer-logo span{color:#C0392B !important}
+.footer-links{display:flex !important;align-items:center !important;gap:20px !important}
+.footer-link{font-family:'IBM Plex Mono',monospace !important;font-size:8px !important;letter-spacing:1px !important;color:#3a3a3a !important;text-transform:uppercase !important;text-decoration:none !important;transition:color .15s !important;white-space:nowrap !important}
+.footer-link:hover{color:#888 !important}
+.footer-copy{font-family:'IBM Plex Mono',monospace !important;font-size:7px !important;color:#222 !important;white-space:nowrap !important}
+@media(max-width:560px){
+  .sbr-footer{flex-direction:column !important;align-items:flex-start !important;gap:8px !important;padding:12px 16px !important}
+  .footer-links{gap:12px !important}
+  .footer-copy{font-size:6px !important}
+}
+</style>
+<style id="sbr-social-icons">
+/* Hide old text-based social bar */
+#sbr-social-bar, .sbr-social-bar { display: none !important; }
+/* Floating icon-only social pill */
+#sbr-sw {
+  position: fixed; right: 14px; top: 50%; transform: translateY(-50%);
+  z-index: 800; display: flex; flex-direction: column; gap: 6px;
+}
+.sbr-sw-a {
+  display: flex; align-items: center; justify-content: center;
+  width: 36px; height: 36px; border-radius: 50%;
+  background: rgba(255,255,255,.04); border: 1px solid rgba(255,255,255,.08);
+  text-decoration: none; cursor: pointer;
+  transition: background .2s, border-color .2s, transform .2s;
+  backdrop-filter: blur(10px); -webkit-backdrop-filter: blur(10px);
+  font-size: 14px; line-height: 1;
+}
+.sbr-sw-a:hover {
+  background: rgba(192,57,43,.15); border-color: rgba(192,57,43,.3);
+  transform: scale(1.12);
+}
+/* Mobile — bottom strip icon only */
+@media(max-width: 680px) {
+  #sbr-sw {
+    position: fixed; bottom: 0; left: 0; right: 0; top: auto; transform: none;
+    flex-direction: row; gap: 0; border-radius: 0;
+    background: rgba(6,6,6,.97); border-top: 1px solid rgba(255,255,255,.05);
+    backdrop-filter: blur(20px); -webkit-backdrop-filter: blur(20px);
+    padding-bottom: env(safe-area-inset-bottom, 0); height: 50px;
+  }
+  .sbr-sw-a {
+    flex: 1; width: auto; height: 50px; border-radius: 0; border: none;
+    border-right: 1px solid rgba(255,255,255,.04); background: transparent;
+    font-size: 16px;
+  }
+  .sbr-sw-a:last-child { border-right: none; }
+  .sbr-sw-a:hover { transform: none; background: rgba(192,57,43,.07); }
+  body { padding-bottom: 50px !important; }
+}
+/* Kill any text labels */
+.sbr-sw-l { display: none !important; }
+</style>
+<style id="sbr-fc">
+/* Force all common text elements to white-ish */
+p,li,td,th,label,small,figcaption,dd,dt,
+.card-desc,.plan-tagline,.b2b-for,.fi,.faq-a,.faq-answer,
+.alert-desc,.mv-desc,.mg-desc,.pl-desc,.ot-desc,.ng-text,
+.prod-tagline,.ss-sub,.gb-sub,.quiz-sub,.hero-sub,
+.s-p,.section-p,.fc-sub,.ac-sub,.feat-desc,
+.sim-email-body,.sem-body,.sf-text,
+.nd-plan-feats,.prob-desc,.prob-a,
+.pf-lead,.pf-desc,.pf-text,
+.score-desc,.dimension-desc,
+.cert-desc,.track-desc,.module-desc,
+.checklist-desc,.step-desc,.resource-desc,
+[class*="-desc"],[class*="-sub"],[class*="-text"],[class*="-body"],
+[class*="-copy"],[class*="-content"],[class*="-lead"]{
+  color:#CCCCCC!important;
+}
+h1,h2,h3,h4,h5,h6,
+.card-title,.plan-name,.b2b-name,.page-title,
+.section-h2,.s-h,.ch-h1,.hero-h1,.fc-h,.ac-h,.quiz-h,
+.ot-title,.mv-title,.mg-title,.pl-title,.alert-title,
+.panel-title,.emp-name,.lb-name,.feat-name,.prod-name,
+[class*="-title"]:not(.lock-title):not(.sn-dd-section):not(.sm-label){
+  color:#FFFFFF!important;
+}
+.nav-link,.sn-link,.sn-dd-link{color:#CCCCCC!important;}
+.nav-link:hover,.nav-link.active,.sn-link:hover,.sn-dd-link:hover{color:#FFFFFF!important;}
+.footer-link{color:#3a3a3a!important;}
+.footer-link:hover{color:#888!important;}
+.footer-copy{color:#222!important;}
+/* Mobile menu links — RED, not blue/inherit */
+.sm-link{color:#EEEEEE!important;}
+.sm-link:hover{color:#C0392B!important;}
+.sm-link > span:first-child{color:#EEEEEE!important;}
+.sm-link-sub{color:#444!important;}
+.sm-small-link{color:#666!important;}
+.sm-small-link:hover{color:#EEEEEE!important;}
+/* Kill any blue link inheritance in mobile menu */
+#sbr-menu a{color:#EEEEEE!important;}
+#sbr-menu a:hover{color:#C0392B!important;}
+/* Desktop nav links */
+.sn-link{color:#AAAAAA!important;}
+.sn-link:hover{color:#EEEEEE!important;}
+.sn-dd-link{color:#888!important;}
+.sn-dd-link:hover{color:#EEEEEE!important;background:rgba(192,57,43,.06)!important;}
+/* sbrN nav elements — white, never blue */
+#sbrN a,#sbrN button,.sbrN-btn{color:#aaa!important;text-decoration:none!important}
+#sbrN a:hover,#sbrN button:hover,.sbrN-btn:hover{color:#eee!important}
+.sbrN-cta,.sbrN-cta:hover{color:#fff!important}
+.dd-link{color:inherit!important;text-decoration:none!important}
+.dd-link-title{color:#eee!important}
+.dd-link-sub{color:#555!important}
+.mob-link{color:#eee!important;text-decoration:none!important}
+.mob-link:hover{color:#C0392B!important}
+.mob-small-link{color:#555!important;text-decoration:none!important}
+.snl-btn,.snl-btn *{color:#aaa!important}
+
+</style>
+<style id="sbr-font-nuclear">
+/* ═══ NUCLEAR WHITE TEXT OVERRIDE ═══════════════════════════════
+   Targets every element that could have dark gray text.
+   Does NOT touch: buttons, badges, risk labels, nav CTAs
+═══════════════════════════════════════════════════════════════ */
+
+/* Base: all body text → white-ish */
+body, body *:not(button):not(.sn-cta):not(.cta-primary):not(.btn-nav-solid)
+  :not(.card-risk):not(.rb-c):not(.rb-h):not(.rb-m):not(.rb-l)
+  :not(.chk):not(.cross):not(.lock-plan):not(.gb-plan-badge)
+  :not([class*="badge"]) {
+  -webkit-font-smoothing: antialiased !important;
+}
+
+/* Paragraph text, list items, descriptions */
+p { color: #DDDDDD !important; font-size: max(14px, 1em) !important; line-height: 1.85 !important; }
+li { color: #DDDDDD !important; font-size: max(13px, 0.9em) !important; line-height: 1.75 !important; }
+span:not([class*="risk"]):not([class*="badge"]):not(.dot):not(.sn-sbr):not(.sn-af):not(.sn-dot) { color: inherit !important; }
+td, th { color: #CCCCCC !important; }
+label { color: #CCCCCC !important; }
+small { color: #AAAAAA !important; }
+
+/* Specific content classes - all the variants we've seen */
+.card-desc, .plan-tagline, .b2b-for, .b2b-feat,
+.fi, .fi.yes, .feat-desc, .nd-plan-feats,
+.faq-a, .faq-answer, .faq-body,
+.alert-desc, .dmb-alert-text,
+.mv-desc, .mg-desc, .pl-desc, .ot-desc, .ng-text,
+.prob-desc, .prob-a, .prob-q,
+.ahd-def, .dc-desc, .dim-desc,
+.prod-tagline, .hero-sub, .s-p, .section-p,
+.fc-sub, .ac-sub, .quiz-sub, .ah-tagline,
+.gb-sub, .pq-text, .ss-sub, .scoring-intro p,
+.sim-email-body, .sem-body, .sf-text,
+.feat-desc, .step-desc, .checklist-desc, .resource-desc,
+.cert-desc, .track-desc, .module-desc,
+.pf-lead, .pf-desc, .pf-text, .pf-body,
+.score-desc, .dimension-desc,
+.dp-wrap p, .pricing-intro p,
+.rec-desc, .sg-sub, .sh-sub,
+.about-text, .team-bio, .mission-text,
+.sbi-fill + *, [class*="-desc"],
+[class*="-sub"]:not([class*="hero-sub"]),
+[class*="-body"]:not(#sbr-menu):not(#sbr-nav):not(.card-body) { color: #CCCCCC !important; }
+
+/* Headings - full white */
+h1, h2, h3, h4, h5, h6 { color: #FFFFFF !important; }
+.card-title, .plan-name, .b2b-name, .nd-plan-name,
+.page-title, .section-h2, .s-h, .ch-h1, .hero-h1,
+.fc-h, .ac-h, .quiz-h, .ss-h, .sh-h1,
+.ot-title, .mv-title, .mg-title, .pl-title,
+.alert-title, .panel-title, .emp-name, .lb-name,
+.feat-name, .prod-name, .gb-h,
+.dc-name, .rec-title, .fe-title, .sg-h,
+.sm-link > span:first-child { color: #FFFFFF !important; }
+
+/* Nav */
+.sn-link { color: #BBBBBB !important; }
+.sn-link:hover { color: #FFFFFF !important; }
+.sn-dd-link { color: #AAAAAA !important; }
+.sn-dd-link:hover { color: #EEEEEE !important; }
+.sn-af { color: #DDDDDD !important; }
+
+/* Footer */
+.footer-link { color: #444 !important; }
+.footer-link:hover { color: #999 !important; }
+.footer-copy { color: #2a2a2a !important; }
+.footer-logo { color: #FFFFFF !important; }
+
+/* Secondary labels */
+.card-cat, .prod-code, .cs-code, .kpi-label, .hs-l, .hstat-l,
+.section-eyebrow, .s-eyebrow, .ah-eyebrow, .hero-eyebrow,
+.cf-label, .sm-link-sub, .sm-small-link,
+.sm-label, .nd-plan-price, .b2b-period, .plan-period,
+.dc-sub, .sbi-name, .dc-indicators .dc-indicator,
+.sh-pill-word, .stl-name, .fe-desc, .cc-label { color: #AAAAAA !important; }
+
+/* Dashboard */
+.emp-name, .lb-name, .dmb-emp-name { color: #EEEEEE !important; }
+.emp-dept, .lb-dept, .dmb-emp-dept, .cs-name { color: #BBBBBB !important; }
+
+/* Monospace elements */
+.card-id, .sim-from, .sem-row-val, .sim-cat-label { color: #BBBBBB !important; }
+
+/* Tag entry / pattern */
+.tag-entry { color: #CCCCCC !important; font-size: 9px !important; }
+
+/* Sidebar count */
+.cs-count { color: #777 !important; }
+
+/* Compare table */
+.compare-table td { color: #CCCCCC !important; }
+.compare-table .feat-name { color: #EEEEEE !important; font-weight: 700 !important; }
+
+/* Input fields */
+input:not([type="submit"]):not([type="button"]):not([type="reset"]),
+textarea, select { color: #EEEEEE !important; }
+input::placeholder, textarea::placeholder { color: #555 !important; }
+</style>
+
+<style id="sbr-red-override">
+/* Replace all blue nav/UI accents with red */
+.nd-plan-badge.blue{background:rgba(192,57,43,.1)!important;color:var(--red)!important}
+.nd-plan-tier.blue{color:var(--red)!important}
+.sh-plan-badge:nth-child(1){color:var(--red)!important}
+.sh-plan-badge:nth-child(1) .spb-dot{background:var(--red)!important}
+.pb-name.professional,.pb-name.premium{background:rgba(192,57,43,.1)!important;color:var(--red)!important}
+.fe-badge.pro{background:rgba(192,57,43,.1)!important;color:var(--red)!important}
+/* Hero stats 4th — red instead of blue */
+.hstat:nth-child(4)::after{background:var(--red)!important}
+.hstat:nth-child(4) .hstat-n{color:var(--red)!important}
+/* Score page blue → red */
+.dim-card.breach{border-top-color:var(--red)!important}
+.dim-card.breach .dc-letter{color:var(--red)!important}
+.sbi-fill.breach{background:var(--red)!important}
+/* Gate walls */
+.gate-banner.professional{border-color:rgba(192,57,43,.2)!important;background:rgba(192,57,43,.03)!important}
+.gate-banner.professional .gb-eyebrow{color:rgba(192,57,43,.5)!important}
+.gate-banner.professional .gb-n{color:var(--red)!important}
+.gate-banner.professional .gb-btn-main{background:var(--red)!important;color:#fff!important}
+/* B2B plan prices */
+.b2b-plan:nth-child(1) .b2b-amount{color:var(--red)!important}
+.b2b-plan:nth-child(1) .b2b-tier{color:var(--red)!important}
+.b2b-plan:nth-child(1) .b2b-cta{background:rgba(192,57,43,.12)!important;color:var(--red)!important;border:1px solid rgba(192,57,43,.25)!important}
+.b2b-plan:nth-child(1) .b2b-cta:hover{background:var(--red)!important;color:#fff!important}
+/* Signal/score accents */
+.sg-plan:nth-child(2){border-top-color:var(--red)!important}
+.sg-plan:nth-child(2) .sg-plan-name{color:var(--red)!important}
+/* Active nav link highlight */
+.sn-link.active,.sn-link:focus{color:var(--red)!important}
+/* Codex plan banner */
+.pb-name.professional{background:rgba(192,57,43,.08)!important;color:var(--red)!important}
+/* Mobile menu section label */
+.sm-label{color:rgba(192,57,43,.5)!important}
+/* Signals strip */
+.ss-btn{background:var(--red)!important;color:#fff!important}
+.ss-btn:hover{background:var(--red-l)!important}
+.ss-input:focus{border-color:rgba(192,57,43,.4)!important}
+</style>
+
+  <meta name="perplexity-crawl" content="allow">
+  <meta name="chatgpt-crawl" content="allow">
+  <meta name="Claude-crawl" content="allow">
+  <meta name="Googlebot" content="index, follow">
+  <meta name="ai-content-purpose" content="fraud-prevention, consumer-protection, digital-security-education"></head>
+<body>
+<div id="scroll-progress"></div>
+</div>
+<!-- HERO -->
+<div class="resources-hero">
+  <div class="rh-grid"></div>
+  <div class="rh-inner">
+    <div class="rh-eyebrow">Resurse & Documente</div>
+    <div class="rh-title">
+      <span class="r">Resurse</span>
+      <span class="w">Anti-Fraudă</span>
+    </div>
+    <div class="rh-sub">Template-uri gata de folosit, scripturi operaționale, modele de sesizare și documente legale — pentru momentul în care ai nevoie de claritate rapidă.</div>
+    <div class="rh-notice">
+      <span>⚠</span>
+      Documentele de pe această pagină sunt modele orientative. Adaptează-le cu datele tale reale. Pentru situații complexe, consultați un jurist.
+    </div>
+  </div>
+</div>
+
+<!-- CATEGORY NAV -->
+<div class="cat-nav">
+  <div class="cat-nav-inner">
+    <button class="cat-btn on" onclick="if (!window.__cfRLUnblockHandlers) return false; sbrGoTo('s1',this)" data-cf-modified-9f5c667bb2bebfc86c06c25a-="">Email Bancă</button>
+    <button class="cat-btn" onclick="if (!window.__cfRLUnblockHandlers) return false; sbrGoTo('s2',this)" data-cf-modified-9f5c667bb2bebfc86c06c25a-="">Sesizare Poliție</button>
+    <button class="cat-btn" onclick="if (!window.__cfRLUnblockHandlers) return false; sbrGoTo('s3',this)" data-cf-modified-9f5c667bb2bebfc86c06c25a-="">Notificare Platforme</button>
+    <button class="cat-btn" onclick="if (!window.__cfRLUnblockHandlers) return false; sbrGoTo('s4',this)" data-cf-modified-9f5c667bb2bebfc86c06c25a-="">Fraud Report</button>
+    <button class="cat-btn" onclick="if (!window.__cfRLUnblockHandlers) return false; sbrGoTo('s5',this)" data-cf-modified-9f5c667bb2bebfc86c06c25a-="">Documentare</button>
+    <button class="cat-btn" onclick="if (!window.__cfRLUnblockHandlers) return false; sbrGoTo('s6',this)" data-cf-modified-9f5c667bb2bebfc86c06c25a-="">Scripturi Apel</button>
+    <button class="cat-btn" onclick="if (!window.__cfRLUnblockHandlers) return false; sbrGoTo('s7',this)" data-cf-modified-9f5c667bb2bebfc86c06c25a-="">Template-uri Legale</button>
+    <button class="cat-btn" onclick="if (!window.__cfRLUnblockHandlers) return false; sbrGoTo('s8',this)" data-cf-modified-9f5c667bb2bebfc86c06c25a-="">Escaladare</button>
+  </div>
+</div>
+
+
+<!-- NOT LOGGED IN GATE -->
+<div data-ms-content="!members" style="min-height:70vh;display:flex;align-items:center;justify-content:center;padding:60px 20px;text-align:center">
+  <div>
+    <div style="font-family:'Bebas Neue',sans-serif;font-size:72px;color:rgba(192,57,43,.08);line-height:1;margin-bottom:0">🔒</div>
+    <div style="font-family:'IBM Plex Mono',monospace;font-size:9px;letter-spacing:4px;color:var(--red);text-transform:uppercase;margin-bottom:14px;display:flex;align-items:center;justify-content:center;gap:10px"><span style="display:block;width:20px;height:1px;background:var(--red)"></span>Acces restricționat</div>
+    <div style="font-family:'Bebas Neue',sans-serif;font-size:clamp(36px,6vw,64px);color:#fff;line-height:.9;margin-bottom:16px">Resurse Anti-Fraudă</div>
+    <p style="font-size:14px;color:#aaa;max-width:440px;margin:0 auto 28px;line-height:1.7">Template-urile, scripturile și documentele SBR sunt disponibile exclusiv utilizatorilor cu cont activ — indiferent de planul ales.</p>
+    <div style="display:flex;gap:12px;justify-content:center;flex-wrap:wrap">
+      <button onclick="if (!window.__cfRLUnblockHandlers) return false; location.href='register.html'" style="background:var(--red);border:none;color:#fff;font-family:'IBM Plex Mono',monospace;font-size:9px;letter-spacing:2px;text-transform:uppercase;padding:13px 28px;cursor:pointer" data-cf-modified-9f5c667bb2bebfc86c06c25a-="">Creează cont gratuit &rarr;</button>
+      <button onclick="if (!window.__cfRLUnblockHandlers) return false; location.href='login.html'" style="background:transparent;border:1px solid rgba(255,255,255,.1);color:#aaa;font-family:'IBM Plex Mono',monospace;font-size:9px;letter-spacing:2px;text-transform:uppercase;padding:12px 22px;cursor:pointer" data-cf-modified-9f5c667bb2bebfc86c06c25a-="">Am deja cont</button>
+    </div>
+    <p style="font-family:'IBM Plex Mono',monospace;font-size:9px;color:#666;margin-top:20px;letter-spacing:1px">Cont gratuit &middot; Orice plan &middot; Acces imediat</p>
+  </div>
+</div>
+
+<!-- LOGGED IN CONTENT -->
+<div data-ms-content="members">
+<div class="res-main">
+
+  <!-- SECTION 1: EMAIL BANCĂ -->
+  <div class="res-section" id="s1">
+    <div class="res-section-header">
+      <div class="rsh-left">
+        <div class="rsh-num">01</div>
+        <div class="rsh-title">Email către <em>Bancă</em></div>
+        <div class="rsh-desc">Structură clară, formulare legale corecte — cerere de blocare și investigare tranzacție frauduloasă</div>
+      </div>
+      <div class="rsh-badge">Prioritate maximă &middot; Acționează în &lt;4h</div>
+    </div>
+    <div class="res-divider"></div>
+
+    <div class="doc-grid">
+      <!-- Card 1: Blocare urgenta -->
+      <div>
+        <div class="doc-card" onclick="if (!window.__cfRLUnblockHandlers) return false; toggleTemplate('tpl-email-1')" data-cf-modified-9f5c667bb2bebfc86c06c25a-="">
+          <div class="dc-tag">Email urgent</div>
+          <div class="dc-title">CERERE BLOCARE TRANZACȚIE FRAUDULOASĂ</div>
+          <div class="dc-desc">Cerere formală de blocare imediată și investigare a unui transfer efectuat fără consimțământ. Formulare legală corectă pentru departamentul de securitate.</div>
+          <div class="dc-features">
+            <div class="dc-feat">Referință la OUG 99/2006 și PSD2</div>
+            <div class="dc-feat">Termen legal de răspuns (15 zile)</div>
+            <div class="dc-feat">Solicitare rambursare specifică</div>
+            <div class="dc-feat">Mențiune escaladare BNR</div>
+          </div>
+          <div class="dc-action">
+            <button class="dc-btn primary">Deschide template</button>
+            <button class="dc-btn" onclick="if (!window.__cfRLUnblockHandlers) return false; event.stopPropagation();copyTemplate('tpl-email-1')" data-cf-modified-9f5c667bb2bebfc86c06c25a-="">Copiază</button>
+          </div>
+          <div class="dc-icon">📧</div>
+        </div>
+        <div class="tpl-viewer" id="tpl-email-1">
+          <div class="tv-header">
+            <div class="tv-title">Template — Cerere Blocare Tranzacție</div>
+            <div class="tv-actions">
+              <button class="tv-btn" onclick="if (!window.__cfRLUnblockHandlers) return false; copyTemplate('tpl-email-1')" data-cf-modified-9f5c667bb2bebfc86c06c25a-="">Copiază tot</button>
+              <button class="tv-btn" onclick="if (!window.__cfRLUnblockHandlers) return false; toggleTemplate('tpl-email-1')" data-cf-modified-9f5c667bb2bebfc86c06c25a-="">Închide ✕</button>
+            </div>
+          </div>
+          <div class="tv-content" id="content-tpl-email-1">
+<span class="section-title">CÂMPURI DE COMPLETAT (marcat cu [ ])</span>
+Către: <span class="field">[adresa email oficială a băncii — securitate / reclamații]</span>
+Cc: <span class="field">[sucursala ta, dacă ai adresa]</span>
+Subiect: <span class="field">URGENT — Cerere blocare și investigare tranzacție frauduloasă — Cont [IBAN] — [DATA FRAUDEI]</span>
+
+───────────────────────────────────────────────
+
+Stimate Departament Securitate / Reclamații,
+
+Subsemnatul/a <span class="field">[PRENUME NUME]</span>, CNP <span class="field">[CNP]</span>, titular al contului IBAN <span class="field">[IBAN COMPLET]</span>, vă adresez prezenta cerere de <span class="legal-bold">BLOCARE URGENTĂ și INVESTIGARE</span> a tranzacției frauduloase descrise mai jos.
+
+<span class="section-title">DATE INCIDENT</span>
+Data și ora fraudei: <span class="field">[ZZ/LL/AAAA, ora aproximativă]</span>
+Suma transferată fără consimțământ: <span class="field">[SUMA ÎN RON / EUR / altă monedă]</span>
+Contul/IBAN destinatar (fraudator): <span class="field">[dacă îl cunoști]</span>
+Banca destinatară (dacă știi): <span class="field">[dacă o cunoști]</span>
+Referința tranzacției: <span class="field">[numărul tranzacției din extrasul de cont]</span>
+Tipul fraudei: <span class="field">[phishing / acces neautorizat / escrocherie / altele]</span>
+
+<span class="section-title">DESCRIEREA INCIDENTULUI</span>
+<span class="field">[Descrie pe scurt ce s-a întâmplat: ai primit un mesaj / apel, ai accesat un link, ți s-au cerut date, etc.]</span>
+
+<span class="section-title">DOCUMENTE ATAȘATE</span>
+□ Capturi ecran conversații / mesaje
+□ Extrasul de cont cu tranzacția în cauză
+□ Copie sesizare poliție (dacă a fost depusă)
+□ Alte dovezi relevante
+
+<span class="section-title">SOLICITĂRI FORMALE</span>
+1. Blocarea <span class="legal-bold">imediată</span> a tranzacției / contului destinatar, în măsura posibilului tehnic
+2. Inițierea procedurii de <span class="legal-bold">recuperare / rambursare</span> în conformitate cu OUG 99/2006, art. 226-227 și Directiva UE PSD2 (2015/2366)
+3. Furnizarea în scris a unui <span class="legal-bold">număr de referință</span> al reclamației și a termenului de soluționare
+4. Comunicarea informațiilor disponibile privind contul destinatar, necesare pentru sesizarea organelor de urmărire penală
+
+Solicit soluționarea prezentei cereri în termenul legal de <span class="legal-bold">15 zile lucrătoare</span>. Vă informez că, în absența unui răspuns satisfăcător, voi escalada situația la <span class="legal-bold">Banca Națională a României</span> (BNR) și la <span class="legal-bold">ANPC</span>.
+
+Cu respect,
+
+<span class="field">[PRENUME NUME]</span>
+Tel: <span class="field">[număr de telefon]</span>
+Email: <span class="field">[adresa ta de email]</span>
+Data: <span class="field">[ZZ/LL/AAAA]</span>
+
+───────────────────────────────────────────────
+Nota: Păstrați o copie a acestui email și orice răspuns primit. Nu ștergeți nicio comunicare.
+          </div>
+          <div class="tv-copy-notice">© SBR Anti-Fraud Systems &middot; Adaptat pentru uz personal &middot; Nu redistribui</div>
+        </div>
+      </div>
+
+      <!-- Card 2: Follow-up -->
+      <div>
+        <div class="doc-card" onclick="if (!window.__cfRLUnblockHandlers) return false; toggleTemplate('tpl-email-2')" data-cf-modified-9f5c667bb2bebfc86c06c25a-="">
+          <div class="dc-tag">Follow-up</div>
+          <div class="dc-title">SOLICITARE CONFIRMARE & ESCALADARE</div>
+          <div class="dc-desc">Email de urmărire dacă banca nu răspunde în termenul legal. Ton ferm, referințe juridice clare. Se trimite după 15 zile lucrătoare fără răspuns.</div>
+          <div class="dc-features">
+            <div class="dc-feat">Referință la sesizarea inițială</div>
+            <div class="dc-feat">Mențiune ANPC și BNR</div>
+            <div class="dc-feat">Termen final de 5 zile</div>
+            <div class="dc-feat">Ton formal-ferm</div>
+          </div>
+          <div class="dc-action">
+            <button class="dc-btn primary">Deschide template</button>
+            <button class="dc-btn" onclick="if (!window.__cfRLUnblockHandlers) return false; event.stopPropagation();copyTemplate('tpl-email-2')" data-cf-modified-9f5c667bb2bebfc86c06c25a-="">Copiază</button>
+          </div>
+          <div class="dc-icon">🔔</div>
+        </div>
+        <div class="tpl-viewer" id="tpl-email-2">
+          <div class="tv-header">
+            <div class="tv-title">Template — Follow-up / Escaladare Bancă</div>
+            <div class="tv-actions">
+              <button class="tv-btn" onclick="if (!window.__cfRLUnblockHandlers) return false; copyTemplate('tpl-email-2')" data-cf-modified-9f5c667bb2bebfc86c06c25a-="">Copiază tot</button>
+              <button class="tv-btn" onclick="if (!window.__cfRLUnblockHandlers) return false; toggleTemplate('tpl-email-2')" data-cf-modified-9f5c667bb2bebfc86c06c25a-="">Închide ✕</button>
+            </div>
+          </div>
+          <div class="tv-content" id="content-tpl-email-2">
+Subiect: ESCALADARE — Reclamație nr. <span class="field">[REF RECLAMAȚIE]</span> — Tranzacție frauduloasă nerezolvată
+
+Stimate Departament Reclamații / Conducere <span class="field">[NUMELE BĂNCII]</span>,
+
+Revin cu prezentul email în legătură cu reclamația înregistrată în data de <span class="field">[DATA RECLAMAȚIEI INIȚIALE]</span>, cu numărul de referință <span class="field">[REF]</span>, privind tranzacția frauduloasă de <span class="field">[SUMA]</span> efectuată din contul meu IBAN <span class="field">[IBAN]</span>.
+
+<span class="legal-bold">Termenul legal de soluționare (15 zile lucrătoare) a expirat</span> fără să fi primit un răspuns complet / satisfăcător din partea instituției dumneavoastră.
+
+Vă solicit un răspuns formal și definitiv în termen de <span class="legal-bold">5 zile lucrătoare</span> de la data prezentului email.
+
+În absența unui răspuns, voi înainta reclamație formală la:
+• <span class="legal-bold">Banca Națională a României (BNR)</span> — Direcția Supraveghere
+• <span class="legal-bold">ANPC</span> — Autoritatea Națională pentru Protecția Consumatorilor
+• <span class="legal-bold">IGPR</span> — Inspectoratul General al Poliției Române (dacă nu a fost deja sesizată)
+
+Datele de contact și documentația completă sunt disponibile și vor fi transmise simultan tuturor instituțiilor menționate.
+
+Cu respect,
+<span class="field">[PRENUME NUME]</span> &middot; <span class="field">[EMAIL]</span> &middot; <span class="field">[TELEFON]</span> &middot; Data: <span class="field">[ZZ/LL/AAAA]</span>
+          </div>
+          <div class="tv-copy-notice">© SBR Anti-Fraud Systems &middot; Adaptat pentru uz personal &middot; Nu redistribui</div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- SECTION 2: SESIZARE POLIȚIE -->
+  <div class="res-section" id="s2">
+    <div class="res-section-header">
+      <div class="rsh-left">
+        <div class="rsh-num">02</div>
+        <div class="rsh-title">Sesizare către <em>Poliție</em></div>
+        <div class="rsh-desc">Format corect, formulare oficiale — ce detalii trebuie incluse obligatoriu</div>
+      </div>
+      <div class="rsh-badge">Format oficial IGPR</div>
+    </div>
+    <div class="res-divider"></div>
+
+    <div class="doc-grid">
+      <div>
+        <div class="doc-card" onclick="if (!window.__cfRLUnblockHandlers) return false; toggleTemplate('tpl-pol-1')" data-cf-modified-9f5c667bb2bebfc86c06c25a-="">
+          <div class="dc-tag">Sesizare penală</div>
+          <div class="dc-title">PLÂNGERE PENALĂ — FRAUDĂ INFORMATICĂ</div>
+          <div class="dc-desc">Model de plângere penală pentru infracțiuni informatice (fraudă online, phishing, acces neautorizat). Conform Codului Penal art. 249-252.</div>
+          <div class="dc-features">
+            <div class="dc-feat">Referință Cod Penal (art. 249-252)</div>
+            <div class="dc-feat">Structura corectă: petent, faptă, probe</div>
+            <div class="dc-feat">Listă probe și anexe</div>
+            <div class="dc-feat">Solicitare efectuare cercetări</div>
+          </div>
+          <div class="dc-action">
+            <button class="dc-btn primary">Deschide template</button>
+            <button class="dc-btn" onclick="if (!window.__cfRLUnblockHandlers) return false; event.stopPropagation();copyTemplate('tpl-pol-1')" data-cf-modified-9f5c667bb2bebfc86c06c25a-="">Copiază</button>
+          </div>
+          <div class="dc-icon">🚔</div>
+        </div>
+        <div class="tpl-viewer" id="tpl-pol-1">
+          <div class="tv-header">
+            <div class="tv-title">Template — Plângere Penală Poliție</div>
+            <div class="tv-actions">
+              <button class="tv-btn" onclick="if (!window.__cfRLUnblockHandlers) return false; copyTemplate('tpl-pol-1')" data-cf-modified-9f5c667bb2bebfc86c06c25a-="">Copiază tot</button>
+              <button class="tv-btn" onclick="if (!window.__cfRLUnblockHandlers) return false; toggleTemplate('tpl-pol-1')" data-cf-modified-9f5c667bb2bebfc86c06c25a-="">Închide ✕</button>
+            </div>
+          </div>
+          <div class="tv-content" id="content-tpl-pol-1">
+<span class="section-title">ADRESARE</span>
+Către: Inspectoratul de Poliție Județean <span class="field">[JUDEȚUL]</span> / Secția de Poliție nr. <span class="field">[nr.]</span>
+Sau: Direcția de Investigare a Infracțiunilor de Criminalitate Organizată și Terorism — DIICOT (pentru fraude mari)
+
+PLÂNGERE PENALĂ
+
+<span class="section-title">DATE PETENT (PERSOANA CARE DEPUNE PLÂNGEREA)</span>
+Subsemnatul/a: <span class="field">[PRENUME NUME COMPLET]</span>
+CNP: <span class="field">[CNP]</span>
+Domiciliu: <span class="field">[ADRESA COMPLETĂ]</span>
+Telefon: <span class="field">[TELEFON]</span>
+Email: <span class="field">[EMAIL]</span>
+
+<span class="section-title">OBIECTUL PLÂNGERII</span>
+Formulez prezenta plângere împotriva <span class="legal-bold">autorului/autorilor necunoscuți</span> (sau: <span class="field">[DATE SUSPECT dacă le cunoști]</span>) pentru săvârșirea infracțiunii de:
+
+□ Fraudă informatică — art. 249 Cod Penal
+□ Acces ilegal la un sistem informatic — art. 360 Cod Penal
+□ Interceptarea ilegală a unei transmisii de date — art. 361 Cod Penal
+□ Înșelăciune — art. 244 Cod Penal
+□ Alte infracțiuni: <span class="field">[specifică]</span>
+
+<span class="section-title">DESCRIEREA FAPTEI</span>
+În data de <span class="field">[ZZ/LL/AAAA]</span>, în jurul orei <span class="field">[ORA]</span>, am <span class="field">[descrie exact ce s-a întâmplat: ai primit un mesaj, ai accesat un link, ai fost contactat de o persoană care se prezenta ca..., etc.]</span>
+
+Ca urmare a acestor acțiuni:
+- Mi-au fost sustrași/e <span class="field">[SUMA și MONEDA]</span> din contul bancar <span class="field">[IBAN / descriere cont]</span>
+- Transferul a avut loc la data de <span class="field">[DATA]</span>, ora <span class="field">[ORA]</span>
+- Contul destinatar: <span class="field">[IBAN destinatar dacă îl cunoști]</span>
+- Prejudiciul total: <span class="field">[SUMA]</span>
+
+<span class="section-title">DATE SUSPECT (dacă le cunoști)</span>
+Număr de telefon folosit: <span class="field">[număr]</span>
+Email folosit: <span class="field">[email fraudulent]</span>
+Platformă folosită: <span class="field">[WhatsApp / OLX / alte platforme]</span>
+Alte date de identificare: <span class="field">[orice alte detalii relevante]</span>
+
+<span class="section-title">PROBE ȘI MIJLOACE DE PROBĂ ANEXATE</span>
+Anexez prezentei plângeri:
+□ Capturi ecran ale conversațiilor (Anexa 1)
+□ Extrasul de cont cu tranzacția frauduloasă (Anexa 2)
+□ Copii SMS/email-uri primite (Anexa 3)
+□ Înregistrări audio/video (dacă există) (Anexa 4)
+□ Copie buletin/act identitate
+□ Alte documente: <span class="field">[enumeră]</span>
+
+<span class="section-title">SOLICITĂRI</span>
+Solicit efectuarea cercetărilor necesare pentru:
+1. Identificarea și tragerea la răspundere penală a autorului/autorilor
+2. Recuperarea prejudiciului de <span class="field">[SUMA]</span>
+3. Luarea tuturor măsurilor legale pentru prevenirea prejudicierii altor persoane
+
+Declar pe propria răspundere că datele din prezenta plângere sunt reale și complete.
+
+Data: <span class="field">[ZZ/LL/AAAA]</span>
+Semnătura: ___________________
+<span class="field">[PRENUME NUME]</span>
+
+⚠ IMPORTANT: Depune plângerea fizic la secția de poliție și solicită NUMĂRUL DE DOSAR și CONFIRMAREA ÎNREGISTRĂRII. Fă poze la documentele depuse.
+          </div>
+          <div class="tv-copy-notice">© SBR Anti-Fraud Systems &middot; Model orientativ &middot; Consulți un jurist pentru cazuri complexe</div>
+        </div>
+      </div>
+
+      <div>
+        <div class="doc-card" onclick="if (!window.__cfRLUnblockHandlers) return false; toggleTemplate('tpl-pol-2')" data-cf-modified-9f5c667bb2bebfc86c06c25a-="">
+          <div class="dc-tag">Ghid practic</div>
+          <div class="dc-title">CE SĂ FACI ȘI SĂ NU FACI LA POLIȚIE</div>
+          <div class="dc-desc">Ghid pas cu pas pentru depunerea eficientă a plângerii. Ce să aduci, ce să spui, ce documente să ceri, ce erori comune să eviți.</div>
+          <div class="dc-features">
+            <div class="dc-feat">Lista documentelor necesare</div>
+            <div class="dc-feat">Ordinea prezentării informațiilor</div>
+            <div class="dc-feat">Ce să ceri la final</div>
+            <div class="dc-feat">Erori frecvente de evitat</div>
+          </div>
+          <div class="dc-action">
+            <button class="dc-btn primary">Citește ghidul</button>
+          </div>
+          <div class="dc-icon">📋</div>
+        </div>
+        <div class="tpl-viewer" id="tpl-pol-2">
+          <div class="tv-header">
+            <div class="tv-title">Ghid practic — Sesizare Poliție</div>
+            <div class="tv-actions">
+              <button class="tv-btn" onclick="if (!window.__cfRLUnblockHandlers) return false; toggleTemplate('tpl-pol-2')" data-cf-modified-9f5c667bb2bebfc86c06c25a-="">Închide ✕</button>
+            </div>
+          </div>
+          <div class="tv-content" id="content-tpl-pol-2">
+<span class="section-title">ÎNAINTE DE A MERGE LA POLIȚIE — PREGĂTIRE</span>
+✓ Printează toate dovezile (nu te baza pe telefonul care poate fi descărcat)
+✓ Aduce plângerea scrisă (template de mai sus, completat)
+✓ Aduce buletinul / cartea de identitate originală
+✓ Aduce extrasul de cont cu tranzacția marcată
+✓ Notează toate datele relevante pe hârtie (IBAN, sume, date)
+✓ Dacă ai înregistrări audio — copiază-le pe USB
+
+<span class="section-title">LA POLIȚIE — CUM PREZINȚI SITUAȚIA</span>
+1. Spune clar de la început: "Vreau să depun o plângere penală pentru fraudă informatică"
+2. Prezintă cronologic: ce ai primit &rarr; ce ai făcut &rarr; ce s-a întâmplat &rarr; când ai realizat frauda
+3. Nu adăuga detalii irelevante — rămâi la fapte, date, sume
+4. Dacă ești întrerupt sau redus — insistă: "Vreau să depun plângerea scrisă pe care am pregătit-o"
+5. Cere să se consemneze TOTUL în procesul-verbal
+
+<span class="section-title">CE TREBUIE SĂ OBȚII OBLIGATORIU</span>
+✓ Numărul DOSARULUI penal
+✓ Confirmarea SCRISĂ sau ștampilată a înregistrării
+✓ Datele ofițerului sau ale agentului care preia cazul
+✓ Informații despre termenul de soluționare
+
+<span class="section-title">ERORI FRECVENTE DE EVITAT</span>
+✗ Nu merge fără plângerea scrisă — depinzi de disponibilitatea polițistului
+✗ Nu accepta "facem noi notiță" fără confirmare scrisă
+✗ Nu pleca fără numărul dosarului
+✗ Nu șterge conversațiile cu escrocii până la finalizarea dosarului
+✗ Nu dezvălui că nu ai mai mult de suma fraudată (nu vrei să pari că nu merită efortul)
+✗ Nu descrie emoțional — rămâi factual și precis
+          </div>
+          <div class="tv-copy-notice">© SBR Anti-Fraud Systems</div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- SECTION 3: NOTIFICARE PLATFORME -->
+  <div class="res-section" id="s3">
+    <div class="res-section-header">
+      <div class="rsh-left">
+        <div class="rsh-num">03</div>
+        <div class="rsh-title">Notificare <em>Platforme</em></div>
+        <div class="rsh-desc">Cerere blocare cont fraudator pe OLX, Binance, Meta, WhatsApp — atașezi dovezi, limbaj corect</div>
+      </div>
+      <div class="rsh-badge">OLX &middot; Binance &middot; Meta &middot; WhatsApp</div>
+    </div>
+    <div class="res-divider"></div>
+
+    <div class="doc-grid">
+      <div>
+        <div class="doc-card" onclick="if (!window.__cfRLUnblockHandlers) return false; toggleTemplate('tpl-platf-1')" data-cf-modified-9f5c667bb2bebfc86c06c25a-="">
+          <div class="dc-tag">OLX / Marketplace</div>
+          <div class="dc-title">RAPORTARE CONT FRAUDATOR — MARKETPLACE</div>
+          <div class="dc-desc">Model de notificare pentru platforme de anunțuri (OLX, Facebook Marketplace, etc.) — cerere blocare cont și retragere anunțuri frauduloase.</div>
+          <div class="dc-features">
+            <div class="dc-feat">URL / ID cont de raportat</div>
+            <div class="dc-feat">Descrierea schemei de fraudă</div>
+            <div class="dc-feat">Solicitare blocare și investigare</div>
+            <div class="dc-feat">Mențiune cooperare cu poliția</div>
+          </div>
+          <div class="dc-action">
+            <button class="dc-btn primary">Deschide template</button>
+            <button class="dc-btn" onclick="if (!window.__cfRLUnblockHandlers) return false; event.stopPropagation();copyTemplate('tpl-platf-1')" data-cf-modified-9f5c667bb2bebfc86c06c25a-="">Copiază</button>
+          </div>
+          <div class="dc-icon">🛒</div>
+        </div>
+        <div class="tpl-viewer" id="tpl-platf-1">
+          <div class="tv-header">
+            <div class="tv-title">Template — Notificare Marketplace (OLX / similar)</div>
+            <div class="tv-actions">
+              <button class="tv-btn" onclick="if (!window.__cfRLUnblockHandlers) return false; copyTemplate('tpl-platf-1')" data-cf-modified-9f5c667bb2bebfc86c06c25a-="">Copiază tot</button>
+              <button class="tv-btn" onclick="if (!window.__cfRLUnblockHandlers) return false; toggleTemplate('tpl-platf-1')" data-cf-modified-9f5c667bb2bebfc86c06c25a-="">Închide ✕</button>
+            </div>
+          </div>
+          <div class="tv-content" id="content-tpl-platf-1">
+Subiect: URGENT — Fraud Report / Cont fraudator confirmat — <span class="field">[URL sau ID CONT]</span>
+
+Hello / Salut Echipa <span class="field">[OLX / Marketplace]</span>,
+
+I am writing to report a confirmed fraud incident facilitated through your platform.
+
+<span class="section-title">FRAUD DETAILS</span>
+Fraudulent account / listing URL: <span class="field">[URL complet al contului sau anunțului]</span>
+Fraudster's username: <span class="field">[username dacă îl cunoști]</span>
+Date of incident: <span class="field">[ZZ/LL/AAAA]</span>
+Amount lost: <span class="field">[SUMA și MONEDA]</span>
+Payment method used: <span class="field">[transfer bancar / card / altele]</span>
+
+<span class="section-title">DESCRIPTION</span>
+The user contacted me regarding <span class="field">[TIPUL ANUNȚULUI]</span>. After initial contact, they requested payment via <span class="field">[METODA]</span> and then <span class="field">[DESCRIE CE S-A ÎNTÂMPLAT: nu a mai răspuns / a trimis marfă falsă / etc.]</span>.
+
+I have reported this incident to the Romanian Police (case number: <span class="field">[NR. DOSAR dacă l-ai obținut]</span>) and to my bank.
+
+<span class="section-title">ACTION REQUESTED</span>
+1. Immediate suspension of the fraudulent account
+2. Removal of all listings by this user
+3. Preservation of all user data for law enforcement cooperation
+4. Confirmation of the action taken
+
+Attached: <span class="field">[capturi ecran conversație, dovada plății, etc.]</span>
+
+Best regards,
+<span class="field">[PRENUME NUME]</span>
+Email: <span class="field">[EMAIL]</span>
+Phone: <span class="field">[TELEFON]</span>
+          </div>
+          <div class="tv-copy-notice">© SBR Anti-Fraud Systems</div>
+        </div>
+      </div>
+
+      <div>
+        <div class="doc-card" onclick="if (!window.__cfRLUnblockHandlers) return false; toggleTemplate('tpl-platf-2')" data-cf-modified-9f5c667bb2bebfc86c06c25a-="">
+          <div class="dc-tag">Crypto / Binance</div>
+          <div class="dc-title">RAPORTARE FRAUDĂ — PLATFORME CRYPTO</div>
+          <div class="dc-desc">Model de raportare pentru platforme cripto (Binance, Crypto.com, etc.). Include informații tehnice necesare pentru investigații blockchain.</div>
+          <div class="dc-features">
+            <div class="dc-feat">Adresă wallet destinatară</div>
+            <div class="dc-feat">Hash tranzacție blockchain</div>
+            <div class="dc-feat">Solicitare freeze fonduri</div>
+            <div class="dc-feat">Cooperare investigație KYC</div>
+          </div>
+          <div class="dc-action">
+            <button class="dc-btn primary">Deschide template</button>
+            <button class="dc-btn" onclick="if (!window.__cfRLUnblockHandlers) return false; event.stopPropagation();copyTemplate('tpl-platf-2')" data-cf-modified-9f5c667bb2bebfc86c06c25a-="">Copiază</button>
+          </div>
+          <div class="dc-icon">🔐</div>
+        </div>
+        <div class="tpl-viewer" id="tpl-platf-2">
+          <div class="tv-header">
+            <div class="tv-title">Template — Raportare Fraudă Crypto</div>
+            <div class="tv-actions">
+              <button class="tv-btn" onclick="if (!window.__cfRLUnblockHandlers) return false; copyTemplate('tpl-platf-2')" data-cf-modified-9f5c667bb2bebfc86c06c25a-="">Copiază tot</button>
+              <button class="tv-btn" onclick="if (!window.__cfRLUnblockHandlers) return false; toggleTemplate('tpl-platf-2')" data-cf-modified-9f5c667bb2bebfc86c06c25a-="">Închide ✕</button>
+            </div>
+          </div>
+          <div class="tv-content" id="content-tpl-platf-2">
+Subiect: URGENT — Fraud Report — Unauthorized Transaction — Account Freeze Request
+
+To: <span class="field">[support@binance.com sau echipa de securitate a platformei]</span>
+
+Dear <span class="field">[Binance / Platform]</span> Security Team,
+
+I am writing to urgently report a cryptocurrency fraud incident and request an immediate freeze on the following account/wallet.
+
+<span class="section-title">INCIDENT DETAILS</span>
+Date of incident: <span class="field">[ZZ/LL/AAAA]</span>
+Amount sent: <span class="field">[SUMA în crypto: ex. 0.05 BTC / 500 USDT]</span>
+Recipient wallet address: <span class="field">[ADRESA WALLET DESTINATARĂ COMPLETĂ]</span>
+Transaction hash (TXID): <span class="field">[HASH-ul tranzacției de pe blockchain]</span>
+Network: <span class="field">[BTC / ETH / BNB / altele]</span>
+Fraudster's account ID (if known): <span class="field">[ID cont pe platformă]</span>
+
+<span class="section-title">FRAUD DESCRIPTION</span>
+<span class="field">[Descrie: investment scam / romance scam / impersonation / altele. Cum te-au contactat, ce promisiuni au făcut, cum ai trimis fondurile]</span>
+
+<span class="section-title">ACTIONS TAKEN</span>
+□ Police report filed: Yes / No — Case number: <span class="field">[dacă există]</span>
+□ Local law enforcement notified: Yes / No
+
+<span class="section-title">REQUESTED ACTIONS</span>
+1. IMMEDIATE freeze of the recipient account/wallet
+2. Preservation of all KYC data associated with the account for law enforcement
+3. Cooperation with Romanian Police investigation (case reference available)
+4. Written confirmation of actions taken
+
+Note: Crypto fraud recovery is time-critical. Funds may be moved within hours. Immediate action is essential.
+
+Regards,
+<span class="field">[PRENUME NUME]</span> | Email: <span class="field">[EMAIL]</span> | Date: <span class="field">[DATA]</span>
+          </div>
+          <div class="tv-copy-notice">© SBR Anti-Fraud Systems</div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- SECTION 4: FRAUD INCIDENT REPORT -->
+  <div class="res-section" id="s4">
+    <div class="res-section-header">
+      <div class="rsh-left">
+        <div class="rsh-num">04</div>
+        <div class="rsh-title">Fraud Incident <em>Report</em></div>
+        <div class="rsh-desc">Fișa completă — ce s-a întâmplat, când, ce sumă, ce conturi. Util pentru poliție, bancă, organizare personală.</div>
+      </div>
+      <div class="rsh-badge">Completează imediat după incident</div>
+    </div>
+    <div class="res-divider"></div>
+
+    <div class="fir-grid">
+      <div class="fir-section">
+        <div class="fir-label">Date victimă</div>
+        <div class="fir-field"><label>Nume complet</label><input type="text" placeholder="Prenume Nume"></div>
+        <div class="fir-field"><label>Telefon de contact</label><input type="text" placeholder="+40 7XX XXX XXX"></div>
+        <div class="fir-field"><label>Email</label><input type="text" placeholder="email@exemplu.com"></div>
+        <div class="fir-field"><label>Județ / Localitate</label><input type="text" placeholder="ex. București, Sector 3"></div>
+      </div>
+
+      <div class="fir-section">
+        <div class="fir-label">Date incident</div>
+        <div class="fir-field"><label>Data incidentului</label><input type="date"></div>
+        <div class="fir-field"><label>Ora aproximativă</label><input type="time"></div>
+        <div class="fir-field"><label>Suma pierdută (RON / EUR / Crypto)</label><input type="text" placeholder="ex. 2.500 RON"></div>
+        <div class="fir-field"><label>Tipul fraudei</label>
+          <select>
+            <option>-- Selectează --</option>
+            <option>Phishing (email / SMS fals)</option>
+            <option>Vishing (apel telefonic fals)</option>
+            <option>Fraudă marketplace (OLX, etc.)</option>
+            <option>Investment scam (crypto, forex)</option>
+            <option>Romance scam</option>
+            <option>BEC (Business Email Compromise)</option>
+            <option>Impersonare bancă / autoritate</option>
+            <option>Acces neautorizat cont</option>
+            <option>Altele</option>
+          </select>
+        </div>
+      </div>
+
+      <div class="fir-section">
+        <div class="fir-label">Date financiare</div>
+        <div class="fir-field"><label>IBAN cont debitat (al tău)</label><input type="text" placeholder="RO49 AAAA 1B31 0075 9384 0000"></div>
+        <div class="fir-field"><label>IBAN / Wallet destinatar (escrocul)</label><input type="text" placeholder="IBAN sau adresă crypto"></div>
+        <div class="fir-field"><label>Banca destinatară (dacă știi)</label><input type="text" placeholder="ex. ING, BCR, etc."></div>
+        <div class="fir-field"><label>Referința tranzacției</label><input type="text" placeholder="din extrasul de cont"></div>
+      </div>
+
+      <div class="fir-section">
+        <div class="fir-label">Date suspect</div>
+        <div class="fir-field"><label>Telefon folosit de escroc</label><input type="text" placeholder="+40 ..."></div>
+        <div class="fir-field"><label>Email folosit</label><input type="text" placeholder="email fraudulent"></div>
+        <div class="fir-field"><label>Platformă de contact</label><input type="text" placeholder="WhatsApp / OLX / Email / altele"></div>
+        <div class="fir-field"><label>Identitate pretinsă</label><input type="text" placeholder="ex. angajat bancă, cumpărător, investitor"></div>
+      </div>
+
+      <div class="fir-section full">
+        <div class="fir-label">Descrierea incidentului</div>
+        <div class="fir-field"><label>Ce s-a întâmplat exact (cronologic)</label>
+          <textarea placeholder="1. Am primit un mesaj / apel de la...&#10;2. Mi s-a cerut să...&#10;3. Am accesat / transferat / furnizat...&#10;4. Am realizat frauda când..."></textarea>
+        </div>
+        <div class="fir-field"><label>Ce acțiuni ai luat până acum</label>
+          <textarea placeholder="- Am sunat banca la...&#10;- Am blocat cardul...&#10;- Am depus plângere la poliție (nr. dosar: ...)"></textarea>
+        </div>
+        <div class="fir-field"><label>Probe disponibile (bifează)</label>
+          <div style="display:flex;flex-wrap:wrap;gap:10px;margin-top:6px">
+            <label style="display:flex;align-items:center;gap:6px;font-size:12px;color:#999"><input type="checkbox"> Capturi ecran conversații</label>
+            <label style="display:flex;align-items:center;gap:6px;font-size:12px;color:#999"><input type="checkbox"> Extras de cont</label>
+            <label style="display:flex;align-items:center;gap:6px;font-size:12px;color:#999"><input type="checkbox"> SMS-uri / email-uri</label>
+            <label style="display:flex;align-items:center;gap=6px;font-size:12px;color:#999"><input type="checkbox"> Înregistrări audio/video</label>
+            <label style="display:flex;align-items:center;gap:6px;font-size:12px;color:#999"><input type="checkbox"> Anunț fraudulos (screenshot)</label>
+            <label style="display:flex;align-items:center;gap:6px;font-size:12px;color:#999"><input type="checkbox"> Contract / document fals</label>
+          </div>
+        </div>
+        <button class="fir-btn" onclick="if (!window.__cfRLUnblockHandlers) return false; printReport()" data-cf-modified-9f5c667bb2bebfc86c06c25a-="">📄 Printează / Salvează Raportul</button>
+        <div class="fir-note">Datele completate nu sunt transmise nicăieri — procesul este local în browserul tău</div>
+      </div>
+    </div>
+  </div>
+
+  <!-- SECTION 5: DOCUMENTARE -->
+  <div class="res-section" id="s5">
+    <div class="res-section-header">
+      <div class="rsh-left">
+        <div class="rsh-num">05</div>
+        <div class="rsh-title">Ghid de <em>Documentare</em></div>
+        <div class="rsh-desc">Mereu documentează totul — cum, ce și de ce</div>
+      </div>
+      <div class="rsh-badge">Regula de aur — documentează imediat</div>
+    </div>
+    <div class="res-divider"></div>
+
+    <div class="tips-grid">
+      <div class="tip-card">
+        <span class="tip-icon">📸</span>
+        <div class="tip-title">Poze & Screenshot-uri</div>
+        <div class="tip-desc">Fă capturi ecran imediat — înainte ca escrocul să șteargă mesajele. Include header-ul email-ului (expeditor complet), nu doar corpul. Fă poze ecranului cu telefonul dacă nu ai altă variantă.</div>
+      </div>
+      <div class="tip-card">
+        <span class="tip-icon">🎙️</span>
+        <div class="tip-title">Înregistrează Conversațiile</div>
+        <div class="tip-desc">Dacă ești în apel cu escrocul și realizezi situația — înregistrează. În România, înregistrarea unei conversații la care participi este legală pentru uz personal și ca probă. Activează înregistrarea din aplicația telefonului.</div>
+      </div>
+      <div class="tip-card">
+        <span class="tip-icon">💬</span>
+        <div class="tip-title">Nu Șterge Nimic</div>
+        <div class="tip-desc">Chiar dacă ești supărat sau rușinat — nu șterge conversațiile cu escrocii. Sunt probe esențiale pentru dosar. Dacă ți se cere să "ștergi pentru siguranță" — este o altă tactică de manipulare.</div>
+      </div>
+      <div class="tip-card">
+        <span class="tip-icon">📁</span>
+        <div class="tip-title">Organizează Probele</div>
+        <div class="tip-desc">Creează un dosar local (nu doar în cloud) cu: screenshots numerotate cronologic, extrasele de cont, orice documente primite. Denumește fișierele cu data: "20260115_screenshot_conversatie_01.jpg"</div>
+      </div>
+      <div class="tip-card">
+        <span class="tip-icon">⏱️</span>
+        <div class="tip-title">Cronologia Exactă</div>
+        <div class="tip-desc">Notează imediat cronologia exactă: ora primirii mesajului, ora transferului, ora la care ai realizat frauda. Memoria se alterează rapid în situații stresante. Scrie acum.</div>
+      </div>
+      <div class="tip-card">
+        <span class="tip-icon">🔒</span>
+        <div class="tip-title">Backup Imediat</div>
+        <div class="tip-desc">Fă backup la toate probele pe cel puțin 2 suporturi diferite (email personal + USB / drive extern). Nu te baza exclusiv pe telefonul care poate fi pierdut sau resetat.</div>
+      </div>
+    </div>
+  </div>
+
+  <!-- SECTION 6: SCRIPTURI APEL -->
+  <div class="res-section" id="s6">
+    <div class="res-section-header">
+      <div class="rsh-left">
+        <div class="rsh-num">06</div>
+        <div class="rsh-title">Scripturi de <em>Apel</em></div>
+        <div class="rsh-desc">Ce să spui, în ce ordine, cum să insisti — la bancă și la poliție</div>
+      </div>
+      <div class="rsh-badge">Ține această pagină deschisă în timp ce suni</div>
+    </div>
+    <div class="res-divider"></div>
+
+    <div class="script-card">
+      <div class="sc-header" onclick="if (!window.__cfRLUnblockHandlers) return false; toggleScript('sc1')" data-cf-modified-9f5c667bb2bebfc86c06c25a-="">
+        <div class="sc-left">
+          <div class="sc-num">01</div>
+          <div class="sc-info">
+            <div class="sc-tag">Script apel</div>
+            <div class="sc-title">APEL BANCĂ — Raportare fraudă urgentă</div>
+          </div>
+        </div>
+        <div class="sc-toggle" id="toggle-sc1">▸ Extinde</div>
+      </div>
+      <div class="sc-body" id="sc1">
+        <div class="sc-step">
+          <div class="sc-step-n">1</div>
+          <div class="sc-step-text"><strong>Deschide apelul</strong>"Bună ziua. Vreau să raportez urgent o tranzacție frauduloasă efectuată din contul meu. Este o situație urgentă — vă rog să mă conectați cu departamentul de securitate sau de reclamații."</div>
+        </div>
+        <div class="sc-step">
+          <div class="sc-step-n">2</div>
+          <div class="sc-step-text"><strong>Dacă te țin în așteptare lungă</strong>"Înțeleg că pot fi și alți clienți. Totuși, în cazul fraudei bancare, cu cât se acționează mai rapid, cu atât cresc șansele de recuperare. Suma este de [SUMA] și tranzacția a avut loc astăzi / ieri."</div>
+        </div>
+        <div class="sc-step">
+          <div class="sc-step-n">3</div>
+          <div class="sc-step-text"><strong>Când ești preluat</strong>"Bună ziua. Mă numesc [NUME]. Am contul [ultimele 4 cifre]. La data de [DATA], în jurul orei [ORA], a fost efectuată o tranzacție neautorizată de [SUMA] din contul meu. Nu eu am autorizat această tranzacție. Solicit blocarea imediată și deschiderea unui caz de investigație."</div>
+        </div>
+        <div class="sc-step">
+          <div class="sc-step-n">4</div>
+          <div class="sc-step-text"><strong>Dacă ți se spune că nu se poate face nimic</strong>"Conform OUG 99/2006 și Directivei PSD2, banca are obligația de a investiga tranzacțiile neautorizate. Solicit formal deschiderea unui caz și numărul de referință al reclamației mele."</div>
+        </div>
+        <div class="sc-step">
+          <div class="sc-step-n">5</div>
+          <div class="sc-step-text"><strong>La final, obligatoriu cere</strong>"Vă rog să îmi comunicați: 1) numărul de referință al cazului meu, 2) termenul de soluționare, 3) dacă există ceva ce pot face suplimentar. Mulțumesc." — Notează imediat ce îți comunică.</div>
+        </div>
+      </div>
+    </div>
+
+    <div class="script-card">
+      <div class="sc-header" onclick="if (!window.__cfRLUnblockHandlers) return false; toggleScript('sc2')" data-cf-modified-9f5c667bb2bebfc86c06c25a-="">
+        <div class="sc-left">
+          <div class="sc-num">02</div>
+          <div class="sc-info">
+            <div class="sc-tag">Script apel</div>
+            <div class="sc-title">APEL POLIȚIE (112 sau numărul secției)</div>
+          </div>
+        </div>
+        <div class="sc-toggle" id="toggle-sc2">▸ Extinde</div>
+      </div>
+      <div class="sc-body" id="sc2">
+        <div class="sc-step">
+          <div class="sc-step-n">1</div>
+          <div class="sc-step-text"><strong>Dacă suni la 112 (urgență)</strong>"Bună ziua. Vreau să raportez o fraudă bancară în desfășurare / confirmată. Suma este semnificativă și tranzacția a avut loc în ultimele [X] ore. Unde pot merge să depun plângerea imediat?"</div>
+        </div>
+        <div class="sc-step">
+          <div class="sc-step-n">2</div>
+          <div class="sc-step-text"><strong>Dacă suni la secția de poliție</strong>"Bună ziua. Mă numesc [NUME]. Vreau să depun o plângere penală pentru fraudă informatică / înșelăciune. Am pregătit documentația completă. Care este programul pentru depunere sau pot veni acum?"</div>
+        </div>
+        <div class="sc-step">
+          <div class="sc-step-n">3</div>
+          <div class="sc-step-text"><strong>Ce să NU faci la telefon</strong>Nu da detalii prea lungi la telefon — păstrează-le pentru depunerea fizică. Nu cere estimări de recuperare — nu pot promite nimic. Nu descrie emoțional — rămâi factual: date, sume, cont.</div>
+        </div>
+        <div class="sc-step">
+          <div class="sc-step-n">4</div>
+          <div class="sc-step-text"><strong>Dacă ești refuzat sau minimizat</strong>"Înțeleg, dar am obligația legală și dorința de a raporta. Frauda informatică este infracțiune conform Codului Penal. Solicit să îmi comunicați numele dumneavoastră pentru a ști cum să mă adresez în scris, dacă este necesar."</div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- SECTION 7: TEMPLATE-URI LEGALE -->
+  <div class="res-section" id="s7">
+    <div class="res-section-header">
+      <div class="rsh-left">
+        <div class="rsh-num">07</div>
+        <div class="rsh-title">Template-uri <em>Legale</em></div>
+        <div class="rsh-desc">Declarație pe proprie răspundere, model tranzacție frauduloasă, limbaj semi-legal</div>
+      </div>
+      <div class="rsh-badge">Documente gata de folosit</div>
+    </div>
+    <div class="res-divider"></div>
+
+    <div class="doc-grid">
+      <div>
+        <div class="doc-card" onclick="if (!window.__cfRLUnblockHandlers) return false; toggleTemplate('tpl-legal-1')" data-cf-modified-9f5c667bb2bebfc86c06c25a-="">
+          <div class="dc-tag">Declarație</div>
+          <div class="dc-title">DECLARAȚIE PE PROPRIE RĂSPUNDERE</div>
+          <div class="dc-desc">Model de declarație pe proprie răspundere privind tranzacția frauduloasă. Utilă pentru bancă, poliție sau ca document de sine stătător.</div>
+          <div class="dc-features">
+            <div class="dc-feat">Format legal recunoscut</div>
+            <div class="dc-feat">Clauza de asumare răspundere</div>
+            <div class="dc-feat">Loc semnătură și dată</div>
+          </div>
+          <div class="dc-action">
+            <button class="dc-btn primary">Deschide template</button>
+            <button class="dc-btn" onclick="if (!window.__cfRLUnblockHandlers) return false; event.stopPropagation();copyTemplate('tpl-legal-1')" data-cf-modified-9f5c667bb2bebfc86c06c25a-="">Copiază</button>
+          </div>
+          <div class="dc-icon">✍️</div>
+        </div>
+        <div class="tpl-viewer" id="tpl-legal-1">
+          <div class="tv-header">
+            <div class="tv-title">Template — Declarație pe proprie răspundere</div>
+            <div class="tv-actions">
+              <button class="tv-btn" onclick="if (!window.__cfRLUnblockHandlers) return false; copyTemplate('tpl-legal-1')" data-cf-modified-9f5c667bb2bebfc86c06c25a-="">Copiază tot</button>
+              <button class="tv-btn" onclick="if (!window.__cfRLUnblockHandlers) return false; toggleTemplate('tpl-legal-1')" data-cf-modified-9f5c667bb2bebfc86c06c25a-="">Închide ✕</button>
+            </div>
+          </div>
+          <div class="tv-content" id="content-tpl-legal-1">
+DECLARAȚIE PE PROPRIE RĂSPUNDERE
+
+Subsemnatul/a <span class="field">[PRENUME NUME COMPLET]</span>, cetățean/ă român/ă, CNP <span class="field">[CNP]</span>, domiciliat/ă în <span class="field">[ADRESA COMPLETĂ]</span>, posesor/posesoare a BI/CI seria <span class="field">[SERIE]</span>, nr. <span class="field">[NUMĂR]</span>,
+
+declar pe propria răspundere că:
+
+1. În data de <span class="field">[ZZ/LL/AAAA]</span>, din contul bancar IBAN <span class="field">[IBAN COMPLET]</span>, deschis la <span class="field">[DENUMIREA BĂNCII]</span>, a fost efectuat un transfer bancar în valoare de <span class="field">[SUMA ȘI MONEDA]</span> în favoarea contului/beneficiarului <span class="field">[CONT DESTINATAR]</span>.
+
+2. Acest transfer NU a fost autorizat de mine și a fost efectuat ca urmare a unor acțiuni de <span class="field">[tip fraudă: phishing / manipulare / acces neautorizat / etc.]</span>.
+
+3. De îndată ce am realizat situația, am notificat banca la data de <span class="field">[DATA]</span> și am depus plângere la organele de poliție (nr. dosar: <span class="field">[dacă există]</span>).
+
+4. Informațiile declarate mai sus sunt adevărate și complete. Declar că sunt conștient/ă de consecințele penale ale declarațiilor false.
+
+Dată în <span class="field">[LOCALITATE]</span>, la data de <span class="field">[ZZ/LL/AAAA]</span>.
+
+Semnătura: ___________________________
+<span class="field">[PRENUME NUME]</span>
+          </div>
+          <div class="tv-copy-notice">© SBR Anti-Fraud Systems &middot; Consultă un jurist pentru situații complexe</div>
+        </div>
+      </div>
+
+      <div>
+        <div class="doc-card" onclick="if (!window.__cfRLUnblockHandlers) return false; toggleTemplate('tpl-legal-2')" data-cf-modified-9f5c667bb2bebfc86c06c25a-="">
+          <div class="dc-tag">Tranzacție frauduloasă</div>
+          <div class="dc-title">CONTESTAȚIE TRANZACȚIE NEAUTORIZATĂ</div>
+          <div class="dc-desc">Model formal de contestație adresată băncii pentru o tranzacție neautorizată. Include referințe la PSD2 și legislația europeană de protecție.</div>
+          <div class="dc-features">
+            <div class="dc-feat">Referință PSD2 art. 73</div>
+            <div class="dc-feat">Solicitare rambursare 10 zile</div>
+            <div class="dc-feat">Prezumția de neautorizare</div>
+            <div class="dc-feat">Limbaj juridic corect</div>
+          </div>
+          <div class="dc-action">
+            <button class="dc-btn primary">Deschide template</button>
+            <button class="dc-btn" onclick="if (!window.__cfRLUnblockHandlers) return false; event.stopPropagation();copyTemplate('tpl-legal-2')" data-cf-modified-9f5c667bb2bebfc86c06c25a-="">Copiază</button>
+          </div>
+          <div class="dc-icon">⚖️</div>
+        </div>
+        <div class="tpl-viewer" id="tpl-legal-2">
+          <div class="tv-header">
+            <div class="tv-title">Template — Contestație Tranzacție Neautorizată</div>
+            <div class="tv-actions">
+              <button class="tv-btn" onclick="if (!window.__cfRLUnblockHandlers) return false; copyTemplate('tpl-legal-2')" data-cf-modified-9f5c667bb2bebfc86c06c25a-="">Copiază tot</button>
+              <button class="tv-btn" onclick="if (!window.__cfRLUnblockHandlers) return false; toggleTemplate('tpl-legal-2')" data-cf-modified-9f5c667bb2bebfc86c06c25a-="">Închide ✕</button>
+            </div>
+          </div>
+          <div class="tv-content" id="content-tpl-legal-2">
+CONTESTAȚIE PRIVIND TRANZACȚIE DE PLATĂ NEAUTORIZATĂ
+
+Către: <span class="field">[DENUMIREA BĂNCII]</span> — Departament Reclamații / Serviciul Clienți
+Data: <span class="field">[ZZ/LL/AAAA]</span>
+
+Subsemnatul/a <span class="field">[PRENUME NUME]</span>, CNP <span class="field">[CNP]</span>, titular al contului IBAN <span class="field">[IBAN]</span>,
+
+formulez prezenta CONTESTAȚIE împotriva tranzacției de plată neautorizate efectuate din contul meu, în condițiile Legii nr. 209/2019 privind serviciile de plată (transpunerea Directivei PSD2 / 2015/2366/UE).
+
+<span class="section-title">DETALII TRANZACȚIE CONTESTATĂ</span>
+Data tranzacției: <span class="field">[ZZ/LL/AAAA]</span>
+Suma: <span class="field">[SUMA ȘI MONEDA]</span>
+Beneficiar: <span class="field">[IBAN / DENUMIRE DESTINATAR]</span>
+Referință tranzacție: <span class="field">[nr. din extrasul de cont]</span>
+
+<span class="section-title">TEMEIUL LEGAL</span>
+Conform art. 73 din Legea 209/2019, în cazul unei tranzacții de plată neautorizate, prestatorul de servicii de plată (banca) este obligat să ramburseze utilizatorului suma aferentă tranzacției neautorizate imediat ce este posibil și, în orice caz, până la sfârșitul zilei lucrătoare următoare zilei în care a luat cunoștință de incidentul de securitate sau a fost notificat.
+
+Declar că nu am autorizat această tranzacție și că am luat toate măsurile rezonabile pentru protejarea credențialelor de securitate ale contului meu.
+
+<span class="section-title">SOLICITĂRI</span>
+1. Rambursarea imediată a sumei de <span class="field">[SUMA]</span> conform prevederilor legale
+2. Investigarea tranzacției și identificarea cauzei
+3. Furnizarea unei confirmări scrise privind cursul acțiunilor întreprinse
+
+Înțeleg că banca poate solicita investigații suplimentare, însă solicit comunicarea unui termen clar și a pașilor următori.
+
+Atașez: Declarație pe proprie răspundere &middot; Extrasul de cont &middot; Alte dovezi disponibile
+
+Cu respect,
+<span class="field">[PRENUME NUME]</span>
+Semnătura: _______________ &middot; Data: <span class="field">[ZZ/LL/AAAA]</span>
+          </div>
+          <div class="tv-copy-notice">© SBR Anti-Fraud Systems &middot; Consultă un jurist specializat pentru cazuri complexe</div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- SECTION 8: ESCALADARE -->
+  <div class="res-section" id="s8">
+    <div class="res-section-header">
+      <div class="rsh-left">
+        <div class="rsh-num">08</div>
+        <div class="rsh-title">Escaladare <em>Caz</em></div>
+        <div class="rsh-desc">Dacă banca nu răspunde — la ANPC, BNR, IGPR. Model diferit în funcție de țară.</div>
+      </div>
+      <div class="rsh-badge">Pasul final — când nicio altă cale nu funcționează</div>
+    </div>
+    <div class="res-divider"></div>
+
+    <div class="esc-grid">
+      <div class="esc-card">
+        <div class="esc-step">01</div>
+        <div class="esc-inst">Prima sesizare</div>
+        <div class="esc-name">Banca Ta</div>
+        <div class="esc-desc">Reclamație internă la departamentul de reclamații al băncii. Termen legal de răspuns: 15 zile lucrătoare.</div>
+        <div class="esc-when"><span>Când?</span> Imediat după incident &middot; Termenul: 15 zile lucrătoare</div>
+      </div>
+      <div class="esc-card">
+        <div class="esc-step">02</div>
+        <div class="esc-inst">Escaladare</div>
+        <div class="esc-name">BNR</div>
+        <div class="esc-desc">Banca Națională a României — pentru litigii nesoluționate cu băncile. Depui online pe site-ul BNR sau fizic.</div>
+        <div class="esc-when"><span>Când?</span> Dacă banca nu răspunde sau răspunsul e nesatisfăcător &middot; bnr.ro</div>
+      </div>
+      <div class="esc-card">
+        <div class="esc-step">03</div>
+        <div class="esc-inst">Protecția consumatorului</div>
+        <div class="esc-name">ANPC</div>
+        <div class="esc-desc">Autoritatea Națională pentru Protecția Consumatorilor — pentru servicii financiare abuzive sau refuz de rambursare.</div>
+        <div class="esc-when"><span>Când?</span> Dacă banca refuză rambursarea la care ai dreptul legal &middot; anpc.ro</div>
+      </div>
+      <div class="esc-card">
+        <div class="esc-step">04</div>
+        <div class="esc-inst">Organul penal</div>
+        <div class="esc-name">IGPR / DIICOT</div>
+        <div class="esc-desc">Poliția Română sau DIICOT pentru fraude mari / organizate. Depui plângere la secție sau online la politiaromana.ro.</div>
+        <div class="esc-when"><span>Când?</span> Oricând pentru aspectul penal — paralel cu demersurile la bancă &middot; politiaromana.ro</div>
+      </div>
+    </div>
+
+    <div style="margin-top:2px;background:#111;border:1px solid rgba(255,255,255,.05);padding:24px">
+      <div style="font-family:'IBM Plex Mono',monospace;font-size:9px;letter-spacing:3px;color:var(--red);text-transform:uppercase;margin-bottom:14px;display:flex;align-items:center;gap:10px"><span style="display:block;width:16px;height:1px;background:var(--red)"></span>Alte țări — escaladare</div>
+      <div style="display:grid;grid-template-columns:repeat(3,1fr);gap:16px">
+        <div>
+          <div style="font-family:'IBM Plex Mono',monospace;font-size:9px;color:var(--red);letter-spacing:1px;margin-bottom:6px">🇬🇧 UK</div>
+          <div style="font-size:12px;color:#aaa;line-height:1.7">Financial Ombudsman Service &middot; Action Fraud (actionfraud.police.uk)</div>
+        </div>
+        <div>
+          <div style="font-family:'IBM Plex Mono',monospace;font-size:9px;color:var(--red);letter-spacing:1px;margin-bottom:6px">🇩🇪 Germania</div>
+          <div style="font-size:12px;color:#aaa;line-height:1.7">BaFin (bafin.de) &middot; Bundeskriminalamt (bka.de)</div>
+        </div>
+        <div>
+          <div style="font-family:'IBM Plex Mono',monospace;font-size:9px;color:var(--red);letter-spacing:1px;margin-bottom:6px">🇫🇷 Franța</div>
+          <div style="font-size:12px;color:#aaa;line-height:1.7">ACPR &middot; cybermalveillance.gouv.fr</div>
+        </div>
+        <div>
+          <div style="font-family:'IBM Plex Mono',monospace;font-size:9px;color:var(--red);letter-spacing:1px;margin-bottom:6px">🇪🇸 Spania</div>
+          <div style="font-size:12px;color:#aaa;line-height:1.7">Banco de España &middot; Guardia Civil (fraudes online)</div>
+        </div>
+        <div>
+          <div style="font-family:'IBM Plex Mono',monospace;font-size:9px;color:var(--red);letter-spacing:1px;margin-bottom:6px">🇮🇹 Italia</div>
+          <div style="font-size:12px;color:#aaa;line-height:1.7">Arbitro Bancario Finanziario &middot; Polizia Postale</div>
+        </div>
+        <div>
+          <div style="font-family:'IBM Plex Mono',monospace;font-size:9px;color:var(--red);letter-spacing:1px;margin-bottom:6px">🌍 EU General</div>
+          <div style="font-size:12px;color:#aaa;line-height:1.7">Europol (europol.europa.eu) &middot; ENISA &middot; EBA</div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- CTA BAR -->
+  <div class="cta-bar">
+    <div class="cta-left">
+      <div class="cta-tag">Ecosistem complet</div>
+      <div class="cta-title">Post-Fraud Framework&trade;<br>— 8 pași. Control total.</div>
+      <div class="cta-desc">Ai nevoie de mai mult decât template-uri. Post-Fraud Framework&trade; îți oferă un sistem complet de navigare a crizei post-fraudă — pas cu pas, de la stop la recuperare.</div>
+    </div>
+    <div class="cta-right">
+      <div class="cta-price">69<span> RON</span></div>
+      <div class="cta-price-sub">Plată unică &middot; Acces permanent</div>
+      <button class="cta-btn" onclick="if (!window.__cfRLUnblockHandlers) return false; location.href='postfraud.html'" data-cf-modified-9f5c667bb2bebfc86c06c25a-="">Activează Post-Fraud Framework &rarr;</button>
+      <a href="terms-postfraud.html" style="font-family:'IBM Plex Mono',monospace;font-size:8px;color:#777;letter-spacing:1px;text-align:center;margin-top:4px">Termeni și condiții produs</a>
+    </div>
+  </div>
+
+</div>
+
+</div><!-- end members -->
+
+<footer class="sbr-footer">
+  <div style="display:flex;align-items:center"><div class="footer-logo">SBR<span>.</span></div></div>
+  <div class="footer-copy">&copy; 2026 Structura Brevis Rector&trade;</div>
+  <nav class="footer-links">
+    <a href="am-fost-inselat.html" class="footer-link" data-en="Been scammed?">Am fost înșelat</a>
+    <a href="unde-raportezi-frauda.html" class="footer-link" data-en="Report fraud">Raportează frauda</a>
+    <a href="phishing-cum-recunosti.html" class="footer-link">Phishing</a>
+    <a href="codex.html" class="footer-link">Codex</a>
+    <a href="terms.html" class="footer-link">Termeni</a>
+    <a href="privacy.html" class="footer-link">Privacy &amp; Cookies</a>
+    <a href="gdpr.html" class="footer-link">GDPR</a>
+  </nav>
+</footer>
+
+<script>
+function toggleTemplate(id) {
+  const el = document.getElementById(id);
+  if (!el) return;
+  el.classList.toggle('open');
+}
+
+function toggleScript(id) {
+  const body = document.getElementById(id);
+  const toggle = document.getElementById('toggle-' + id);
+  if (!body) return;
+  const isOpen = body.classList.toggle('open');
+  if (toggle) toggle.textContent = isOpen ? '▾ Restrânge' : '▸ Extinde';
+}
+
+function copyTemplate(id) {
+  const contentId = 'content-' + id;
+  const el = document.getElementById(contentId);
+  if (!el) return;
+  const text = el.innerText || el.textContent;
+  if (navigator.clipboard) {
+    navigator.clipboard.writeText(text).then(() => {
+      showCopyFeedback();
+    }).catch(() => fallbackCopy(text));
+  } else {
+    fallbackCopy(text);
+  }
+}
+
+function fallbackCopy(text) {
+  const ta = document.createElement('textarea');
+  ta.value = text;
+  ta.style.position = 'fixed';
+  ta.style.opacity = '0';
+  document.body.appendChild(ta);
+  ta.focus();
+  ta.select();
+  try { document.execCommand('copy'); showCopyFeedback(); } catch(e) {}
+  document.body.removeChild(ta);
+}
+
+function showCopyFeedback() {
+  const msg = document.createElement('div');
+  msg.textContent = '✓ Copiat în clipboard';
+  msg.style.cssText = 'position:fixed;bottom:24px;right:24px;background:#C0392B;color:#fff;font-family:IBM Plex Mono,monospace;font-size:11px;letter-spacing:2px;padding:12px 20px;z-index:9999;animation:fadeInUp .3s ease';
+  document.body.appendChild(msg);
+  setTimeout(() => msg.remove(), 2500);
+}
+
+function printReport() {
+  window.print();
+}
+
+function sbrGoTo(id, btn) {
+  document.querySelectorAll('.cat-btn').forEach(b => b.classList.remove('on'));
+  btn.classList.add('on');
+  const el = document.getElementById(id);
+  if (el) el.scrollIntoView({behavior:'smooth', block:'start'});
+}
+
+// Sticky category indicator on scroll
+window.addEventListener('scroll', function() {
+  const sections = document.querySelectorAll('.res-section');
+  const catBtns = document.querySelectorAll('.cat-btn');
+  let current = -1;
+  sections.forEach((s, i) => {
+    const rect = s.getBoundingClientRect();
+    if (rect.top <= 160) current = i;
+  });
+  if (current >= 0 && sections.length === catBtns.length) {
+    catBtns.forEach((b, i) => b.classList.toggle('on', i === current));
+  }
+}, {passive: true});
+</script>
+
+<script id="sbr-color-fix">
+(function(){
+  function fix(){
+    var r=document.documentElement;
+    r.style.setProperty('--text','#EEEEEE');
+    r.style.setProperty('--t1','#EEEEEE');
+    r.style.setProperty('--t2','#CCCCCC');
+    r.style.setProperty('--t3','#AAAAAA');
+    r.style.setProperty('--t4','#888888');
+    r.style.setProperty('--t5','#555555');
+    r.style.setProperty('--T2','#CCCCCC');
+    r.style.setProperty('--T3','#AAAAAA');
+  }
+  fix();
+  document.addEventListener('DOMContentLoaded',fix);
+  setTimeout(fix,100);
+})();
+</script>
+<div id="sbr-sw" aria-label="Social Media">
+  <a class="sbr-sw-a" href="https://instagram.com/sbr_antifraud" target="_blank" rel="noopener" title="Instagram @sbr_antifraud">&#128248;</a>
+  <a class="sbr-sw-a" href="https://tiktok.com/@structurabrevisrector" target="_blank" rel="noopener" title="TikTok @structurabrevisrector">&#127925;</a>
+  <a class="sbr-sw-a" href="https://t.me/sbrorator" target="_blank" rel="noopener" title="Telegram t.me/sbrorator">&#9992;&#65039;</a>
+  <a class="sbr-sw-a" href="https://pin.it/7yO6KnjsW" target="_blank" rel="noopener" title="Pinterest">&#128204;</a>
+</div>
+<script src="js/cookie-consent.js"></script>
+
+</body>
+</html>

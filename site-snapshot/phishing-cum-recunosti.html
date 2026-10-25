@@ -1,0 +1,179 @@
+<!DOCTYPE html>
+<html lang="ro">
+<head>
+<meta charset="UTF-8">
+<!-- Google Analytics 4 (Consent Mode v2) — nu colecteaza pana la consimtamant -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-9WT1GRKEGB"></script>
+<script>
+window.dataLayer=window.dataLayer||[];function gtag(){dataLayer.push(arguments);}
+gtag('js',new Date());
+gtag('consent','default',{'ad_storage':'denied','ad_user_data':'denied','ad_personalization':'denied','analytics_storage':'denied'});
+try{var _c=JSON.parse(localStorage.getItem('sbr_cookie_consent')||'null');if(_c&&_c.type==='all'){gtag('consent','update',{'analytics_storage':'granted'});}}catch(e){}
+gtag('config','G-9WT1GRKEGB',{anonymize_ip:true});
+</script>
+<!-- End GA4 -->
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Phishing — Cum Recunoști un Email sau SMS Fals în 5 Secunde | SBR</title>
+<meta name="description" content="Verificarea de 5 secunde care demască phishing-ul: expeditorul real, destinația linkului, natura cererii. Smishing, vishing, quishing și phishing cu AI — plus ce faci dacă ai introdus deja datele.">
+<meta name="robots" content="index, follow, max-snippet:-1, max-image-preview:large">
+<link rel="canonical" href="https://sbr.systems/phishing-cum-recunosti.html">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Phishing — Cum Recunoști un Email sau SMS Fals în 5 Secunde | SBR">
+<meta property="og:description" content="Verificarea de 5 secunde care demască phishing-ul: expeditorul real, destinația linkului, natura cererii. Smishing, vishing, quishing și phishing cu AI — plus ce faci dacă ai introdus deja datele.">
+<meta property="og:url" content="https://sbr.systems/phishing-cum-recunosti.html">
+<meta name="twitter:card" content="summary">
+<script src="js/nav-universal.js?v=13"></script>
+<script src="/js/i18n.js?v=5"></script>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=IBM+Plex+Mono:wght@300;400;500&family=Lato:wght@300;400;700;900&display=swap" rel="stylesheet" media="print" onload="this.media='all'">
+<noscript><link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=IBM+Plex+Mono:wght@300;400;500&family=Lato:wght@300;400;700;900&display=swap" rel="stylesheet"></noscript>
+<link rel="stylesheet" href="css/sbr-articles.css">
+<link rel="stylesheet" href="css/sbr-readability.css" media="print" onload="this.media='all'">
+<noscript><link rel="stylesheet" href="css/sbr-readability.css"></noscript>
+<script type="application/ld+json">{"@context": "https://schema.org", "@type": "FAQPage", "mainEntity": [{"@type": "Question", "name": "Ce este phishing-ul?", "acceptedAnswer": {"@type": "Answer", "text": "Un mesaj care imită o entitate de încredere (bancă, curier, instituție) pentru a te păcăli să introduci credențiale sau date de card pe o pagină clonată. Se verifică în 5 secunde: expeditorul real, destinația linkului și natura cererii."}}, {"@type": "Question", "name": "Am dat click pe un link de phishing dar nu am introdus date. Ce risc am?", "acceptedAnswer": {"@type": "Answer", "text": "Pe telefoane moderne, riscul simplului click e mic. Nu instala nimic oferit de pagină, închide tabul și scanează cu antivirus pe computer. Pericolul real e introducerea datelor."}}, {"@type": "Question", "name": "Cum verific un link pe telefon?", "acceptedAnswer": {"@type": "Answer", "text": "Apasă lung pe link pentru previzualizarea URL-ului complet și citește domeniul real — partea dinaintea ultimului punct de dinainte de primul slash."}}]}</script>
+</head>
+<body>
+<div id="scroll-progress"></div>
+<nav id="sbr-nav">
+  <a href="index.html" class="sn-logo" aria-label="SBR Home">
+    <span class="sn-sbr">SBR</span><span class="sn-dot">.</span>
+    <span class="sn-af">Anti-Fraud</span>
+  </a>
+  <div class="sn-links">
+    <div class="sn-item">
+      <button class="sn-link" aria-haspopup="true">Planuri <span class="arr">&#9662;</span></button>
+      <div class="sn-dd" style="min-width:280px">
+        <div class="sn-dd-section">Personal</div>
+        <a href="personal.html" class="sn-dd-link"><span class="sn-dd-dot"></span>Essential &mdash; 99 RON (plat&#259; unic&#259;)</a>
+        <a href="personal.html" class="sn-dd-link"><span class="sn-dd-dot"></span>Professional &mdash; 250 RON (plat&#259; unic&#259;)</a>
+        <a href="personal.html" class="sn-dd-link"><span class="sn-dd-dot"></span>Premium &mdash; 449 RON (plat&#259; unic&#259;)</a>
+        <div class="sn-dd-section">Business</div>
+        <a href="business.html" class="sn-dd-link"><span class="sn-dd-dot"></span>Basic &mdash; 99 EUR (plat&#259; unic&#259;)</a>
+        <a href="business.html" class="sn-dd-link"><span class="sn-dd-dot"></span>Pro &mdash; 499 EUR (plat&#259; unic&#259;)</a>
+        <a href="business.html" class="sn-dd-link"><span class="sn-dd-dot"></span>Enterprise &mdash; 5.000 EUR+</a>
+      </div>
+    </div>
+    <a href="signals.html" class="sn-link">Signals</a>
+    <div class="sn-item">
+      <button class="sn-link" aria-haspopup="true">Post-Fraud <span class="arr">&#9662;</span></button>
+      <div class="sn-dd">
+        <a href="postfraud.html" class="sn-dd-link"><span class="sn-dd-dot"></span>Overview</a>
+        <a href="postfraud-checklist.html" class="sn-dd-link"><span class="sn-dd-dot"></span>Checklist 72h</a>
+        <a href="postfraud-reclamatii.html" class="sn-dd-link"><span class="sn-dd-dot"></span>Reclama&#x21b;ii</a>
+        <a href="postfraud-chargeback.html" class="sn-dd-link"><span class="sn-dd-dot"></span>Chargeback</a>
+        <a href="postfraud-psihologie.html" class="sn-dd-link"><span class="sn-dd-dot"></span>Psihologie</a>
+        <a href="postfraud-investigare.html" class="sn-dd-link"><span class="sn-dd-dot"></span>Investigare</a>
+      </div>
+    </div>
+    <a href="codex.html" class="sn-link">Codex</a>
+    <div class="sn-item">
+      <button class="sn-link" aria-haspopup="true">Mai mult <span class="arr">&#9662;</span></button>
+      <div class="sn-dd">
+        <a href="afis.html" class="sn-dd-link"><span class="sn-dd-dot"></span>AFIS</a>
+        <a href="quiz.html" class="sn-dd-link"><span class="sn-dd-dot"></span>Diagnostic</a>
+        <a href="score.html" class="sn-dd-link"><span class="sn-dd-dot"></span>SBR Score</a>
+        <a href="institute.html" class="sn-dd-link"><span class="sn-dd-dot"></span>Institute</a>
+        <a href="about.html" class="sn-dd-link"><span class="sn-dd-dot"></span>Despre noi</a>
+        <a href="faq.html" class="sn-dd-link"><span class="sn-dd-dot"></span>FAQ</a>
+      </div>
+    </div>
+  </div>
+  <div class="sn-right">
+    <a href="login.html" class="sn-ghost desktop-only" data-nav="guest-only">Login</a>
+    <a href="dashboard.html" class="sn-ghost desktop-only" data-nav="auth-only" style="display:none">Dashboard</a>
+    <a href="quiz.html" class="sn-cta">Diagnostic &rarr;</a>
+    <button id="sbr-burger" aria-label="Meniu" onclick="if (!window.__cfRLUnblockHandlers) return false; sbrToggleMenu(this)" aria-expanded="false" data-cf-modified-18164c83d7cd9f58c56d9bb0-="">
+      <span></span><span></span><span></span>
+    </button>
+  </div>
+</nav>
+
+<header class="gd-hero">
+  <div class="gd-hero-inner">
+    <div class="gd-eyebrow" data-en="FREE GUIDE · PHISHING">GHID GRATUIT · PHISHING</div>
+    <h1 class="gd-h1" data-en="HOW TO SPOT PHISHING IN 5 SECONDS">CUM RECUNOȘTI PHISHING-UL ÎN 5 SECUNDE</h1>
+    <p class="gd-lead" data-en="The email from “the bank”, the SMS from “the courier”, the “unpaid” fine — three places to look and not a single wrong click.">Emailul de la „bancă&quot;, SMS-ul de la „curier&quot;, amenda „neplătită&quot; — trei locuri unde te uiți și niciun click greșit.</p>
+    <div class="gd-meta"><span>SBR ANTI-FRAUD</span><span data-en="UPDATED 2026">ACTUALIZAT 2026</span><span data-en="FREE GUIDE">GHID GRATUIT</span></div>
+  </div>
+</header>
+
+<main class="gd-body">
+
+<p data-en="Phishing is the front door of almost every digital fraud: the email from the 'bank', the SMS from the 'courier', the 'you have a fine' message. One click, one form — and your credentials work against you. Here is how you spot it in 5 seconds.">Phishing-ul e ușa de intrare a aproape oricărei fraude digitale: emailul de la „bancă", SMS-ul de la „curier", mesajul „aveți o amendă". Un click, un formular — și credențialele tale lucrează împotriva ta. Iată cum îl recunoști în 5 secunde.</p>
+
+<h2 data-en="The 5-second check — 3 places to look">Verificarea de 5 secunde — 3 locuri unde te uiți</h2>
+<ol>
+<li><b data-en="The sender:">Expeditorul:</b> <span data-en="the display name is decoration; look at the actual address. 'BCR' can send from client@bcr-verificare.info — the real domain is the part before the last dot: bcr-verificare.info, not bcr.ro.">numele afișat e decor; uită-te la adresa reală. „BCR" poate trimite de la client@bcr-verificare.info — domeniul real e partea dinaintea ultimului punct: bcr-verificare.info, nu bcr.ro.</span></li>
+<li><b data-en="The link:">Linkul:</b> <span data-en="hover (or long-press on phone) BEFORE clicking. rnicrosoft.com, paypa1.com, bcr.ro.client-check.top — 1-2 swapped characters or a foreign domain glued at the end.">hover (sau apasă lung pe telefon) ÎNAINTE de click. rnicrosoft.com, paypa1.com, bcr.ro.client-check.top — 1-2 caractere schimbate sau un domeniu străin lipit la final.</span></li>
+<li><b data-en="The ask:">Cererea:</b> <span data-en="urgency + data + threat = phishing. 'Account blocked in 24h', 'pay 2.5 RON customs fee', 'confirm your card'. Institutions never ask for full card data or codes via link.">urgență + date + amenințare = phishing. „Cont blocat în 24h", „achitați taxa vamală 2,5 lei", „confirmați cardul". Instituțiile nu cer niciodată date complete de card sau coduri prin link.</span></li>
+</ol>
+
+<h2 data-en="Today's dominant forms">Formele dominante azi</h2>
+<ul>
+<li><b>Smishing</b> — <span data-en="SMS from 'couriers' (2.5 RON customs), 'banks', 'ANAF'. Short link, mobile-perfect cloned page.">SMS de la „curieri" (taxă vamală 2,5 lei), „bănci", „ANAF". Link scurt, pagină clonată perfect pentru mobil.</span></li>
+<li><b>Vishing</b> — <span data-en="the phone call from the 'bank security department': your account is under attack, transfer the money to a 'safe account'. The safe account is the scammer's.">apelul de la „departamentul de siguranță al băncii": contul tău e atacat, mută banii într-un „cont sigur". Contul sigur e al escrocului.</span></li>
+<li><b>Quishing</b> — <span data-en="QR codes on fake parking notices, invoices, restaurant tables — the QR hides the URL entirely.">coduri QR pe notificări false de parcare, facturi, mese de restaurant — QR-ul ascunde URL-ul complet.</span></li>
+<li><b data-en="AI phishing">Phishing cu AI</b> — <span data-en="flawless Romanian, personalized with your real data from breaches. The 'bad grammar' rule is dead — check the domain, not the spelling.">română impecabilă, personalizat cu datele tale reale din breșe. Regula „greșelilor gramaticale" a murit — verifică domeniul, nu ortografia.</span></li>
+</ul>
+<p><a href="codex-phishing.html" data-en="All 23 phishing typologies, documented in the Codex →">Toate cele 23 de tipologii de phishing, documentate în Codex →</a></p>
+
+<div class="gd-alert"><b data-en="The universal rule:">Regula universală:</b> <span data-en="never enter the site through the received link. Open the app or type the address yourself. This one habit kills 95% of phishing attacks.">nu intra niciodată pe site prin linkul primit. Deschide aplicația sau tastează tu adresa. Obiceiul ăsta unic omoară 95% din atacurile de phishing.</span></div>
+
+<h2 data-en="Clicked? Entered data? Do this now">Ai dat click? Ai introdus date? Fă asta acum</h2>
+<ul>
+<li data-en="Entered card data → call the bank, block the card, dispute.">Ai introdus date de card → sună la bancă, blochează cardul, contestă.</li>
+<li data-en="Entered a password → change it NOW on the real site + everywhere you reused it + enable 2FA.">Ai introdus o parolă → schimb-o ACUM pe site-ul real + oriunde ai refolosit-o + activează 2FA.</li>
+<li data-en="Just clicked, entered nothing → low risk on modern phones; don't install anything the page offers, close the tab, run an antivirus scan on PCs.">Doar ai dat click, nu ai introdus nimic → risc mic pe telefoane moderne; nu instala nimic din ce oferă pagina, închide tabul, scanează cu antivirus pe PC.</li>
+<li data-en="Report the message: forward the SMS/email to your bank's fraud address and to DNSC (1911 / pnris.dnsc.ro).">Raportează mesajul: redirecționează SMS-ul/emailul către adresa de fraudă a băncii și către DNSC (1911 / pnris.dnsc.ro).</li>
+</ul>
+<p><a href="am-fost-inselat.html" data-en="Full emergency protocol →">Protocolul complet de urgență →</a></p>
+
+<h2 data-en="Frequently asked questions">Întrebări frecvente</h2>
+<div class="gd-faq">
+<details><summary data-en="What is phishing, in one sentence?">Ce este phishing-ul, într-o singură frază?</summary><p data-en="A message impersonating a trusted entity to trick you into giving credentials, card data or money on a cloned page.">Un mesaj care se dă drept o entitate de încredere ca să te păcălească să dai credențiale, date de card sau bani pe o pagină clonată.</p></details>
+<details><summary data-en="How do I check a link on my phone, where I can't hover?">Cum verific un link pe telefon, unde nu am hover?</summary><p data-en="Long-press the link — the full URL appears in a preview. Read the real domain: the part right before the last dot before the first '/'.">Apasă lung pe link — URL-ul complet apare în previzualizare. Citește domeniul real: partea imediat dinaintea ultimului punct de dinainte de primul „/".</p></details>
+<details><summary data-en="I only clicked the link, didn't enter anything. Am I infected?">Doar am dat click pe link, nu am introdus nimic. Sunt infectat?</summary><p data-en="On modern phones, mere clicking rarely infects. Danger: entering data or installing what the page offers. Close the tab, don't install anything, scan PCs with antivirus.">Pe telefoane moderne, simplul click rar infectează. Pericolul: introducerea datelor sau instalarea a ce oferă pagina. Închide tabul, nu instala nimic, scanează PC-urile cu antivirus.</p></details>
+</div>
+
+<div class="gd-nl">
+  <h3 data-en="One fraud alert per month. Free.">O alertă de fraudă pe lună. Gratuit.</h3>
+  <p data-en="Subscribe to SBR Signals and receive the monthly report with active frauds in Romania — before they reach you. No card, no obligations.">Abonează-te la SBR Signals și primești raportul lunar cu fraudele active din România — înainte să ajungă la tine. Fără card, fără obligații.</p>
+  <a href="signals.html" data-en="Get free Signals →">Primește Signals gratuit →</a>
+</div>
+</main>
+
+<section class="gd-related">
+  <h2 data-en="Keep reading">Citește mai departe</h2>
+  <div class="gd-rel-grid">
+<a href="codex-phishing.html"><span class="rl" data-en="CODEX">CODEX</span><span data-en="Phishing &amp; Identity — 23 typologies">Phishing &amp; Identity — 23 tipologii</span></a>
+<a href="escrocherii-whatsapp.html"><span class="rl" data-en="GUIDE">GHID</span><span data-en="WhatsApp scams">Escrocheriile de pe WhatsApp</span></a>
+<a href="frauda-card-bancar.html"><span class="rl" data-en="GUIDE">GHID</span><span data-en="Card fraud — your rights">Frauda cu cardul — drepturile tale</span></a>
+<a href="quiz.html"><span class="rl" data-en="TEST">TEST</span><span data-en="Test your vulnerability — 60 sec">Testează-ți vulnerabilitatea — 60 sec</span></a>
+  </div>
+</section>
+
+<footer class="sbr-footer">
+  <div style="display:flex;align-items:center"><div class="footer-logo">SBR<span>.</span></div></div>
+  <div class="footer-copy">&copy; 2026 Structura Brevis Rector&trade;</div>
+  <nav class="footer-links">
+    <a href="am-fost-inselat.html" class="footer-link" data-en="Been scammed?">Am fost înșelat</a>
+    <a href="unde-raportezi-frauda.html" class="footer-link" data-en="Report fraud">Raportează frauda</a>
+    <a href="phishing-cum-recunosti.html" class="footer-link">Phishing</a>
+    <a href="codex.html" class="footer-link">Codex</a>
+    <a href="terms.html" class="footer-link">Termeni</a>
+    <a href="privacy.html" class="footer-link">Privacy</a>
+    <a href="gdpr.html" class="footer-link">GDPR</a>
+  </nav>
+</footer>
+
+<script id="sbr-color-fix">
+(function(){function fix(){var r=document.documentElement;r.style.setProperty('--text','#EEEEEE');r.style.setProperty('--t2','#CCCCCC');r.style.setProperty('--t3','#AAAAAA');r.style.setProperty('--t4','#888888');r.style.setProperty('--t5','#555555');}fix();document.addEventListener('DOMContentLoaded',fix);})();
+</script>
+<script>
+window.addEventListener('scroll',function(){var h=document.documentElement.scrollHeight-window.innerHeight;var sp=document.getElementById('scroll-progress');if(sp&&h>0)sp.style.width=Math.round(window.scrollY/h*100)+'%';},{passive:true});
+</script>
+  <script src="js/cookie-consent.js"></script>
+
+</body>
+</html>

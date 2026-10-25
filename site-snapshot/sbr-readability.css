@@ -1,0 +1,332 @@
+
+/* ═══ Exclude new nav (sbrN) from all color overrides ═════ */
+#sbrN, #sbrN *, #sbrN-mob, #sbrN-mob * {
+  color: inherit !important;
+}
+#sbrN a, #sbrN button { color: #999 !important; }
+#sbrN a:hover, #sbrN button:hover { color: #eee !important; }
+.sbrN-btn { color: #999 !important; }
+.sbrN-btn:hover { color: #eee !important; }
+.sbrN-cta { color: #fff !important; background: #C0392B !important; }
+.dd-link, .dd-link-title, .dd-link-sub { color: inherit !important; }
+.dd-link { color: #ccc !important; }
+.dd-link-title { color: #eee !important; }
+.dd-link-sub { color: #555 !important; }
+.dd-link:hover .dd-link-title { color: #fff !important; }
+.mob-link { color: #eee !important; }
+.mob-link:hover { color: #C0392B !important; }
+.mob-small-link { color: #555 !important; }
+.mob-small-link:hover { color: #aaa !important; }
+.snl-btn { color: #aaa !important; }
+.snl-opt { color: #555 !important; }
+.snl-opt:hover { color: #eee !important; }
+.snl-opt.sel { color: #C0392B !important; }
+
+/**
+ * SBR Global Readability v2
+ * Alb opac pe tot site-ul. Font mai clar, mai mare unde e mic.
+ * Nu atinge background-ul sau tema.
+ */
+
+/* ══ RESET CORE TEXT COLORS ═══════════════════════════════════════ */
+
+/* Absolut tot bodyul - alb opac de baza */
+body, body * {
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+/* Toate elementele text - default alb opac */
+body p,
+body li,
+body span:not(.dot):not(.card-risk):not(.risk-badge):not(.rb-c):not(.rb-h):not(.rb-m):not(.rb-l):not(.sb-item-badge):not(.chk):not(.cross):not(.partial):not(.plan-featured-badge):not(.b2b-badge):not(.nd-plan-badge):not(.lock-plan):not(.pb-plan-name),
+body div:not([class*="background"]):not([class*="bg"]),
+body td,
+body th,
+body dt,
+body dd,
+body blockquote,
+body label,
+body small,
+body figcaption {
+  color: #E8E8E8;
+}
+
+/* ══ HEADINGS — ALB PUR ══════════════════════════════════════════ */
+h1, h2, h3, h4, h5, h6,
+.hero-h1, .section-h2, .section-h, .s-h, .ms-copy h2,
+.fc-h, .ac-h, .quiz-h, .ah-name,
+.card-title, .plan-name, .b2b-name, .nd-plan-name,
+.page-title, .ch-h1, .biz-hero .hero-h1,
+.hstat-n, .hs-n, .hstat-n, .kpi-value,
+.gb-locked-count, .gi-score, .psb-num, .lb-score,
+.ri-h, .score-n, .ss-h, .ah-name span,
+.faq-title, .compare-title, .gb-h,
+.prof-name, .dmh-right, .panel-title,
+[class*="-title"]:not(.lock-title):not(.alert-title),
+[class*="-name"]:not(.cs-name):not(.lb-name):not(.dmb-emp-name) {
+  color: #FFFFFF !important;
+}
+
+/* ══ SECONDARY TEXT — ALB CLAR ═══════════════════════════════════ */
+.hero-sub, .hero-tagline,
+.section-p, .s-p, .ms-copy p,
+.prob-desc, .prob-a, .prob-q,
+.card-desc, .plan-tagline, .b2b-for, .b2b-feat,
+.fi, .feature-list .fi,
+.sf-text, .sim-email-body, .sem-body,
+.alert-desc, .dmb-alert-text,
+.mv-desc, .mg-desc, .pl-desc, .ot-desc, .ng-text,
+.ahd-def, .scoring-intro p, .dp-wrap p,
+.fc-sub, .ac-sub, .quiz-sub, .ah-tagline,
+.pq-text, .gb-sub, .pd-desc,
+.faq-a, .faq-answer,
+.sim-feedback .sf-text,
+.df-desc, .prod-tagline, .feat-desc,
+.ss-sub, .pricing-intro p,
+.sc-desc, .cert-desc, .track-desc,
+.footer-link,
+.emp-name, .lb-name, .dmb-emp-name,
+.compare-table td,
+.compare-table td.feature-name,
+.emp-table td,
+p, li, td {
+  color: #DDDDDD !important;
+}
+
+/* ══ TERTIARY TEXT — VIZIBIL ══════════════════════════════════════ */
+.nav-link,
+.nav-item-btn,
+.btn-nav-ghost,
+.card-cat, .nd-plan-tier,
+.prod-code, .cs-code,
+.kpi-label, .hs-l, .hstat-l,
+.section-eyebrow, .s-eyebrow, .ah-eyebrow,
+.hero-eyebrow, .fc-eyebrow, .ac-eyebrow, .quiz-label,
+.cf-label, .mg-num,
+.plan-for, .plan-period, .b2b-period,
+.feat-code, .feat-period,
+.tb-company, .tb-user, .tb-plan,
+.footer-copy, .footer-logo-sub,
+.page-subtitle, .sim-from, .sim-question,
+.sim-timer-label, .sim-meta-tag,
+.qm-item, .quiz-meta .qm-item,
+.ot-title, .mv-title, .pl-title, .mg-title,
+.sc-handle, .sc-action, .social-link,
+.counter, .card-id, .card-num,
+.settings-section-title, .sf-label,
+.panel-badge, .action-btn,
+.ss-note, .ss2-wrap div,
+.ahd-word,
+.rl-label, .rl-range,
+.compare-table th,
+.cs-name,
+small, .small {
+  color: #BBBBBB !important;
+}
+
+/* Mono / code */
+.fm, code, pre,
+[class*="mono"], [class*="Mono"],
+.card-id, .sim-email-from, .sem-row-val,
+.sim-cat-label, .sli-cat,
+.plan-tier, .b2b-tier {
+  color: #CCCCCC !important;
+}
+
+/* ══ SMALL TEXT SIZING ════════════════════════════════════════════ */
+
+/* Min 11px pentru text foarte mic */
+.cs-code, .card-id, .card-num,
+.kpi-label, .hstat-l, .hs-l,
+.section-eyebrow, .s-eyebrow,
+.cf-label, .feat-code,
+.mg-num + .mg-title,
+.sim-from, .sem-row-label,
+.panel-title, .dmb-label,
+.sb-section-label {
+  font-size: max(8px, 0.7em);
+}
+
+/* Body text - minim 13px */
+.card-desc,
+.prob-desc, .prob-a,
+.alert-desc, .faq-a,
+.mv-desc, .mg-desc, .pl-desc, .ot-desc,
+.feat-desc, .prod-tagline, .b2b-for,
+.sim-email-body, .sem-body,
+.sf-text, .gb-sub, .ss-sub, .ah-tagline {
+  font-size: max(13px, 0.85em) !important;
+  line-height: 1.75 !important;
+}
+
+/* Main body paragraphs - 14-15px */
+.section-p, .s-p, .ms-copy p,
+.fc-sub, .ac-sub, .quiz-sub,
+.hero-sub, .pricing-intro p,
+.scoring-intro p, .dp-wrap p,
+body p:not([class]) {
+  font-size: max(14px, 0.9em) !important;
+  line-height: 1.85 !important;
+}
+
+/* ══ SPECIFIC COMPONENT FIXES ═════════════════════════════════════ */
+
+/* Nav */
+.nav-link { color: #C0C0C0 !important; }
+.nav-link:hover, .nav-link.active { color: #FFFFFF !important; }
+.nav-item-btn { color: #BBBBBB !important; }
+.nav-item-btn:hover { color: #FFFFFF !important; }
+.btn-nav-ghost { color: #CCCCCC !important; border-color: rgba(255,255,255,.15) !important; }
+
+/* Logo subtitle */
+.nav-logo-sub { color: #666 !important; }
+
+/* Cards */
+.card-title { color: #FFFFFF !important; font-size: max(16px, 1em) !important; }
+.card-desc { color: #CCCCCC !important; font-size: 12.5px !important; line-height: 1.7 !important; }
+.cf-extraction { color: #DDDDDD !important; font-size: 10px !important; }
+.tag-entry { color: #CCCCCC !important; }
+.tag-pat { color: rgba(220,100,90,.95) !important; }
+
+/* Sidebar */
+.cs-name { color: #CCCCCC !important; font-size: 8.5px !important; }
+.cs-count { color: #888 !important; }
+.cs-code { color: #888 !important; font-size: 7.5px !important; }
+
+/* Plan cards */
+.plan-tagline { color: #CCCCCC !important; font-size: 14px !important; }
+.plan-for { color: #BBBBBB !important; font-size: 13px !important; }
+.b2b-feat { color: #CCCCCC !important; font-size: 13px !important; }
+.b2b-for { color: #BBBBBB !important; font-size: 13px !important; }
+
+/* Feature list */
+.fi { color: #CCCCCC !important; font-size: 13px !important; }
+
+/* FAQ */
+.faq-q, .faq-question { color: #EEEEEE !important; font-size: 12px !important; }
+.faq-a, .faq-answer { color: #CCCCCC !important; font-size: 13px !important; line-height: 1.8 !important; }
+
+/* Compare table */
+.compare-table td { color: #CCCCCC !important; font-size: 12px !important; }
+.compare-table td.feature-name { color: #EEEEEE !important; font-weight: 600; }
+.compare-table th { color: #AAAAAA !important; }
+
+/* KPIs / Scores */
+.kpi-value { color: inherit !important; }
+.kpi-label { color: #AAAAAA !important; font-size: 7.5px !important; }
+.kpi-delta { color: #AAAAAA !important; font-size: 9px !important; }
+
+/* Alerts */
+.alert-title { color: #FFFFFF !important; font-size: 9px !important; }
+.alert-desc { color: #CCCCCC !important; font-size: 11.5px !important; }
+
+/* Dashboard */
+.emp-name { color: #EEEEEE !important; font-size: 12.5px !important; }
+.emp-dept { color: #AAAAAA !important; font-size: 8px !important; }
+.dmb-emp-name { color: #EEEEEE !important; }
+.dmb-emp-dept { color: #AAAAAA !important; }
+
+/* Profile dims */
+.dd-desc { color: #CCCCCC !important; font-size: 10px !important; }
+
+/* Settings */
+.sf-toggle-label { color: #EEEEEE !important; font-size: 13px !important; }
+.sf-toggle-sub { color: #AAAAAA !important; font-size: 11px !important; }
+
+/* Footer */
+.footer-logo { color: #FFFFFF !important; }
+.footer-logo-sub { color: #777 !important; font-size: 8px !important; }
+.footer-link { color: #AAAAAA !important; font-size: 12px !important; }
+.footer-link:hover { color: #FFFFFF !important; }
+.footer-copy { color: #666 !important; font-size: 11px !important; }
+
+/* Gate walls */
+.gb-sub { color: #CCCCCC !important; font-size: 14px !important; }
+.gb-feat-label { color: #AAAAAA !important; }
+
+/* About page specific */
+.ahd-def { color: #BBBBBB !important; font-size: 12px !important; }
+.ot-desc { color: #BBBBBB !important; font-size: 13px !important; }
+.ng-text { color: #CCCCCC !important; font-size: 13px !important; line-height: 1.85 !important; }
+.pl-desc { color: #CCCCCC !important; font-size: 13px !important; }
+
+/* Home page */
+.prod-tagline { color: #CCCCCC !important; font-size: 13px !important; }
+.hstat-l { color: #AAAAAA !important; font-size: 8px !important; }
+.mv-desc { color: #CCCCCC !important; font-size: 13px !important; }
+
+/* Signals / forms */
+.ss-sub { color: #CCCCCC !important; font-size: 14px !important; }
+.ss-note { color: #AAAAAA !important; font-size: 9px !important; }
+.ss-note a { color: #CCCCCC !important; }
+
+/* Post-fraud pages */
+.checklist-item, .step-title { color: #EEEEEE !important; }
+.step-desc, .resource-desc, .checklist-desc { color: #CCCCCC !important; font-size: 13px !important; }
+
+/* Institute */
+.cert-title { color: #FFFFFF !important; }
+.cert-desc, .module-desc, .track-desc { color: #CCCCCC !important; font-size: 13px !important; }
+
+/* Score page */
+.score-desc, .dimension-desc { color: #CCCCCC !important; font-size: 14px !important; }
+
+/* Quiz */
+.quiz-choice-text, .sv-text { color: #DDDDDD !important; font-size: 13px !important; }
+
+/* Signals page */
+.signal-desc, .signal-title { color: #EEEEEE !important; }
+
+/* Social links */
+.social-link { color: #AAAAAA !important; }
+.social-link:hover { color: #FFFFFF !important; }
+.social-handle { color: #777 !important; }
+.sc-handle { color: #888 !important; font-size: 9px !important; }
+.sc-platform { color: #FFFFFF !important; }
+.sc-action { color: rgba(192,57,43,.7) !important; }
+
+/* Inputs */
+input, textarea, select {
+  color: #EEEEEE !important;
+}
+input::placeholder, textarea::placeholder {
+  color: #666 !important;
+}
+
+/* Links in content */
+a[href]:not(.btn-nav-ghost):not(.btn-nav-solid):not(.nav-link):not(.footer-link):not(.nav-item-btn):not(.cta-primary):not(.cta-secondary):not([class*="btn"]):not([class*="cta"]):not(.sc-card):not(.social-link):not(.nd-footer-link):not(.nd-plan):not(.prod-card) {
+  color: #EEEEEE !important;
+}
+
+/* Breadcrumbs / eyebrows / labels - keep at dim but readable */
+.section-eyebrow::before,
+.s-eyebrow::before,
+.ah-eyebrow::before,
+.hero-eyebrow::before { background: rgba(192,57,43,.5) !important; }
+
+/* ══ KEEP COLORED ELEMENTS INTACT ════════════════════════════════ */
+
+/* Risk badges - keep colors */
+.card-risk { color: #fff !important; }
+.rb-c { color: var(--red) !important; background: rgba(192,57,43,.12) !important; }
+.rb-h { color: #E67E22 !important; }
+.rb-m { color: #B8A500 !important; }
+.rb-l { color: #27AE60 !important; }
+.rc { color: #C0392B !important; }
+.rh { color: #E67E22 !important; }
+.rm { color: #B8A500 !important; }
+.rl { color: #27AE60 !important; }
+
+/* Keep accent colors */
+.chk { color: #27AE60 !important; }
+.cross { color: #444 !important; }
+.partial { color: #E67E22 !important; }
+
+/* Buttons keep their colors */
+.btn-nav-solid, .cta-primary, .gb-btn-main,
+.action-btn.red, .plan-cta.blue,
+.b2b-plan.featured .b2b-cta { color: #fff !important; }
+
+/* Tag patterns - keep red tint */
+.tag-pat { color: rgba(220,100,90,.95) !important; }

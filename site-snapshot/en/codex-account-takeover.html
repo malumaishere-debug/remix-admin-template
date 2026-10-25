@@ -1,0 +1,549 @@
+<!DOCTYPE html>
+<html lang="ro">
+<head>
+<meta charset="UTF-8">
+<!-- Google Analytics 4 (Consent Mode v2) — nu colecteaza pana la consimtamant -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-9WT1GRKEGB"></script>
+<script>
+window.dataLayer=window.dataLayer||[];function gtag(){dataLayer.push(arguments);}
+gtag('js',new Date());
+gtag('consent','default',{'ad_storage':'denied','ad_user_data':'denied','ad_personalization':'denied','analytics_storage':'denied'});
+try{var _c=JSON.parse(localStorage.getItem('sbr_cookie_consent')||'null');if(_c&&_c.type==='all'){gtag('consent','update',{'analytics_storage':'granted'});}}catch(e){}
+gtag('config','G-9WT1GRKEGB',{anonymize_ip:true});
+</script>
+<!-- End GA4 -->
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Account Takeover — 16 tipologii de fraudă documentate | SBR Codex</title>
+<meta name="description" content="Contul tău e valoros: email, bancă, social media. Preluarea de cont (ATO) e industria care le fură — prin SIM swap, cookie theft sau parole recycled. Fiecare…">
+<meta name="robots" content="index, follow, max-snippet:-1, max-image-preview:large">
+<link rel="canonical" href="https://sbr.systems/codex-account-takeover.html">
+<meta property="og:type" content="website">
+<meta property="og:title" content="Account Takeover — SBR Codex | Atlasul Fraudelor Digitale">
+<meta property="og:description" content="Contul tău e valoros: email, bancă, social media. Preluarea de cont (ATO) e industria care le fură — prin SIM swap, cookie theft sau parole recycled. Fiecare…">
+<meta property="og:url" content="https://sbr.systems/codex-account-takeover.html">
+<meta name="twitter:card" content="summary">
+<script src="js/nav-universal.js?v=13"></script>
+<script src="/js/i18n.js?v=5"></script>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=IBM+Plex+Mono:wght@300;400;500&family=Lato:wght@300;400;700;900&display=swap" rel="stylesheet" media="print" onload="this.media='all'">
+<noscript><link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=IBM+Plex+Mono:wght@300;400;500&family=Lato:wght@300;400;700;900&display=swap" rel="stylesheet"></noscript>
+<link rel="stylesheet" href="css/codex.css">
+<link rel="stylesheet" href="css/sbr-readability.css" media="print" onload="this.media='all'">
+<noscript><link rel="stylesheet" href="css/sbr-readability.css"></noscript>
+<script type="application/ld+json">{"@context": "https://schema.org", "@type": "ItemList", "name": "SBR Codex — Account Takeover", "numberOfItems": 16, "itemListElement": [{"@type": "ListItem", "position": 1, "name": "Credential Stuffing"}, {"@type": "ListItem", "position": 2, "name": "Brute Force Attack"}, {"@type": "ListItem", "position": 3, "name": "SIM Swapping"}, {"@type": "ListItem", "position": 4, "name": "Account Recovery Hijack"}, {"@type": "ListItem", "position": 5, "name": "Session Token Hijacking"}, {"@type": "ListItem", "position": 6, "name": "Man-in-the-Middle Auth"}, {"@type": "ListItem", "position": 7, "name": "Pass-the-Hash Attack"}, {"@type": "ListItem", "position": 8, "name": "Kerberoasting"}, {"@type": "ListItem", "position": 9, "name": "Password Spray"}, {"@type": "ListItem", "position": 10, "name": "Fake Login Page Redirect"}, {"@type": "ListItem", "position": 11, "name": "MFA Fatigue Attack"}, {"@type": "ListItem", "position": 12, "name": "Real-Time Phishing Proxy"}, {"@type": "ListItem", "position": 13, "name": "Device Trust Bypass"}, {"@type": "ListItem", "position": 14, "name": "IT Helpdesk Social Engineering"}, {"@type": "ListItem", "position": 15, "name": "Watering Hole Attack"}, {"@type": "ListItem", "position": 16, "name": "Account Aggregation Compromise"}]}</script>
+<script type="application/ld+json">{"@context": "https://schema.org", "@type": "BreadcrumbList", "itemListElement": [{"@type": "ListItem", "position": 1, "name": "Acasă", "item": "https://sbr.systems/"}, {"@type": "ListItem", "position": 2, "name": "Codex", "item": "https://sbr.systems/codex.html"}, {"@type": "ListItem", "position": 3, "name": "Account Takeover", "item": "https://sbr.systems/codex-account-takeover.html"}]}</script>
+<style>:root{--cat-color:#E74C3C}</style>
+<link rel="stylesheet" href="css/codex-interactive.css">
+</head>
+<body>
+<div id="scroll-progress"></div>
+<nav id="sbr-nav">
+  <a href="index.html" class="sn-logo" aria-label="SBR Home">
+    <span class="sn-sbr">SBR</span><span class="sn-dot">.</span>
+    <span class="sn-af">Anti-Fraud</span>
+  </a>
+  <div class="sn-links">
+    <div class="sn-item">
+      <button class="sn-link" aria-haspopup="true">Planuri <span class="arr">&#9662;</span></button>
+      <div class="sn-dd" style="min-width:280px">
+        <div class="sn-dd-section">Personal</div>
+        <a href="personal.html" class="sn-dd-link"><span class="sn-dd-dot"></span>Essential &mdash; 99 RON (plat&#259; unic&#259;)</a>
+        <a href="personal.html" class="sn-dd-link"><span class="sn-dd-dot"></span>Professional &mdash; 250 RON (plat&#259; unic&#259;)</a>
+        <a href="personal.html" class="sn-dd-link"><span class="sn-dd-dot"></span>Premium &mdash; 449 RON (plat&#259; unic&#259;)</a>
+        <div class="sn-dd-section">Business</div>
+        <a href="business.html" class="sn-dd-link"><span class="sn-dd-dot"></span>Basic &mdash; 99 EUR (plat&#259; unic&#259;)</a>
+        <a href="business.html" class="sn-dd-link"><span class="sn-dd-dot"></span>Pro &mdash; 499 EUR (plat&#259; unic&#259;)</a>
+        <a href="business.html" class="sn-dd-link"><span class="sn-dd-dot"></span>Enterprise &mdash; 5.000 EUR+</a>
+      </div>
+    </div>
+    <a href="signals.html" class="sn-link">Signals</a>
+    <div class="sn-item">
+      <button class="sn-link" aria-haspopup="true">Post-Fraud <span class="arr">&#9662;</span></button>
+      <div class="sn-dd">
+        <a href="postfraud.html" class="sn-dd-link"><span class="sn-dd-dot"></span>Overview</a>
+        <a href="postfraud-checklist.html" class="sn-dd-link"><span class="sn-dd-dot"></span>Checklist 72h</a>
+        <a href="postfraud-reclamatii.html" class="sn-dd-link"><span class="sn-dd-dot"></span>Reclama&#x21b;ii</a>
+        <a href="postfraud-chargeback.html" class="sn-dd-link"><span class="sn-dd-dot"></span>Chargeback</a>
+        <a href="postfraud-psihologie.html" class="sn-dd-link"><span class="sn-dd-dot"></span>Psihologie</a>
+        <a href="postfraud-investigare.html" class="sn-dd-link"><span class="sn-dd-dot"></span>Investigare</a>
+      </div>
+    </div>
+    <a href="codex.html" class="sn-link">Codex</a>
+    <div class="sn-item">
+      <button class="sn-link" aria-haspopup="true">Mai mult <span class="arr">&#9662;</span></button>
+      <div class="sn-dd">
+        <a href="afis.html" class="sn-dd-link"><span class="sn-dd-dot"></span>AFIS</a>
+        <a href="quiz.html" class="sn-dd-link"><span class="sn-dd-dot"></span>Diagnostic</a>
+        <a href="score.html" class="sn-dd-link"><span class="sn-dd-dot"></span>SBR Score</a>
+        <a href="institute.html" class="sn-dd-link"><span class="sn-dd-dot"></span>Institute</a>
+        <a href="about.html" class="sn-dd-link"><span class="sn-dd-dot"></span>Despre noi</a>
+        <a href="faq.html" class="sn-dd-link"><span class="sn-dd-dot"></span>FAQ</a>
+      </div>
+    </div>
+  </div>
+  <div class="sn-right">
+    <a href="login.html" class="sn-ghost desktop-only" data-nav="guest-only">Login</a>
+    <a href="dashboard.html" class="sn-ghost desktop-only" data-nav="auth-only" style="display:none">Dashboard</a>
+    <a href="quiz.html" class="sn-cta">Diagnostic &rarr;</a>
+    <button id="sbr-burger" aria-label="Meniu" onclick="if (!window.__cfRLUnblockHandlers) return false; sbrToggleMenu(this)" aria-expanded="false" data-cf-modified-57fc4c7926d66390b0df4515-="">
+      <span></span><span></span><span></span>
+    </button>
+  </div>
+</nav>
+
+<header class="cdx-hero" style="--cat-color:#E74C3C">
+  <div class="cdx-hero-inner">
+    <div class="cdx-crumb"><a href="index.html" data-en="Home">Acasă</a> / <a href="codex.html">Codex</a> / <span style="color:#E74C3C">ATO</span></div>
+    <div class="cdx-code">ATO · C02</div>
+    <h1 class="cdx-h1">Account Takeover</h1>
+    <p class="cdx-intro" data-en="Your account is valuable: email, bank, social media. Account Takeover (ATO) is the industry that steals them — through SIM swaps, cookie theft or recycled passwords. Each entry shows you exactly where they get in.">Contul tău e valoros: email, bancă, social media. Preluarea de cont (ATO) e industria care le fură — prin SIM swap, cookie theft sau parole recycled. Fiecare fișă îți arată exact pe unde intră.</p>
+    <div class="cdx-stats">
+      <div class="cdx-stat"><b>16</b><span data-en="documented typologies">tipologii documentate</span></div>
+      <div class="cdx-stat"><b>13</b><span data-en="critical risk">risc critic</span></div>
+      <div class="cdx-stat"><b>3</b><span data-en="high risk">risc ridicat</span></div>
+      <div class="cdx-stat"><b>2026</b><span data-en="edition">ediția</span></div>
+    </div>
+  </div>
+</header>
+
+<main class="cdx-body" style="--cat-color:#E74C3C">
+<article class="atlas-card" data-catnum="1" data-cat="C02" data-risk="CRITIC" data-num="24" data-tier="essential" data-search="ato-001 credential stuffing account takeover & credentials" style="--cat-color:#E74C3C">
+  <div class="ac-sidebar">
+    <div class="acs-id">ATO-001</div>
+    <div class="acs-num">#24</div>
+    <div class="acs-risk-badge rc" data-en="Critical">Critic</div>
+    <div class="acs-risk-bar"><div class="acs-risk-fill" style="height:100%;background:#C0392B"></div></div>
+  </div>
+  <div class="ac-main">
+    <div class="ac-title">Credential Stuffing</div>
+    <div class="ac-cat" style="color:#E74C3C">ACCOUNT TAKEOVER & CREDENTIALS</div>
+    <div class="ac-vectors">
+      <div class="acv-block"><div class="acv-label">Entry Vector</div><div class="acv-tags"><span class="atag-entry">Web</span><span class="atag-entry">App</span></div></div>
+      <div class="acv-block"><div class="acv-label">Manipulation</div><div class="acv-tags"><span class="atag-pat">&mdash;</span></div></div>
+      <div class="acv-block"><div class="acv-label">Extraction</div><div class="acv-extraction" data-en="Account access via leaked data">Acces conturi cu date scurse</div></div>
+    </div>
+    <div class="ac-desc">Atacatorul achizitioneaza baze de date cu credentiale scurse (email + parola) din incidente anterioare — HaveIBeenPwned indexeaza peste 12 miliarde de conturi compromise. Un script automat testeaza aceste combinatii pe sute de platforme simultan. Rata de succes: 0.1-2%, dar la 1 miliard de incercari asta inseamna 1-20 milioane de conturi compromise. Functioneaza exclusiv pe utilizatorii care refolosesc parola. Protectie absoluta: parola unica per platforma. Managere de parole (Bitwarden, 1Password) rezolva problema complet.</div>
+  </div>
+  <div class="ac-intel"><div class="aci-row"><div class="aci-k" data-en="HOW IT REACHES YOU">CUM TE ABORDEAZĂ</div><div class="aci-v" data-en="You land on a legitimate-looking website — via search, an ad or a received link. The difference is in the details.">Ajungi pe un site care arată legitim — din căutare, reclamă sau link primit. Diferența e în detalii.</div></div><div class="aci-row aci-watch"><div class="aci-k aci-k-warn" data-en="WATCH FOR — 3 SIGNALS">FII ATENT LA — 3 SEMNALE</div><ul class="aci-list"><li data-en="A URL with swapped letters or an odd domain (.shop, .top, .xyz)">URL cu litere schimbate sau domeniu ciudat (.shop, .top, .xyz)</li><li data-en="A brand-new site, no history, no verifiable contact details">Site nou, fără istoric, fără date de contact verificabile</li><li data-en="Limited payment methods: transfer, crypto or cash only">Metode de plată limitate: doar transfer, crypto sau ramburs</li></ul></div></div>
+  <div class="atlas-lock-overlay" data-lock-tier="essential">
+    <div class="alo-icon">&#128274;</div>
+    <div class="alo-plan" data-en="Essential — 99 RON (one-time)">Essential — 99 RON (plată unică)</div>
+    <div class="alo-text" data-en="Available in Essential plan">Disponibil din planul Essential</div>
+    <a href="personal.html" class="alo-btn" data-en="Upgrade &rarr;">Upgrade &rarr;</a>
+  </div>
+</article>
+<article class="atlas-card" data-catnum="2" data-cat="C02" data-risk="RIDICAT" data-num="25" data-tier="essential" data-search="ato-002 brute force attack account takeover & credentials" style="--cat-color:#E74C3C">
+  <div class="ac-sidebar">
+    <div class="acs-id">ATO-002</div>
+    <div class="acs-num">#25</div>
+    <div class="acs-risk-badge rh" data-en="High">Ridicat</div>
+    <div class="acs-risk-bar"><div class="acs-risk-fill" style="height:72%;background:#E67E22"></div></div>
+  </div>
+  <div class="ac-main">
+    <div class="ac-title">Brute Force Attack</div>
+    <div class="ac-cat" style="color:#E74C3C">ACCOUNT TAKEOVER & CREDENTIALS</div>
+    <div class="ac-vectors">
+      <div class="acv-block"><div class="acv-label">Entry Vector</div><div class="acv-tags"><span class="atag-entry">Web</span><span class="atag-entry">App</span></div></div>
+      <div class="acv-block"><div class="acv-label">Manipulation</div><div class="acv-tags"><span class="atag-pat">&mdash;</span></div></div>
+      <div class="acv-block"><div class="acv-label">Extraction</div><div class="acv-extraction" data-en="Forced account access">Acces forțat cont</div></div>
+    </div>
+    <div class="ac-desc">Atacatorul testeaza sistematic combinatii de parole comune ('123456', 'parola123', 'romania2024') pe un cont specific sau pe mii de conturi simultan. Varianta 'password spray' testeaza o singura parola pe mii de conturi — evita blocarea prin limitarea tentativelor per cont. Atacul este automatizat si foloseste retele de proxy pentru a masca originea. Eficient mai ales pe sisteme corporate cu politici slabe de parole. Conturile vizate: email corporate, VPN, platforme financiare, panouri de administrare.</div>
+  </div>
+  <div class="ac-intel"><div class="aci-row"><div class="aci-k" data-en="HOW IT REACHES YOU">CUM TE ABORDEAZĂ</div><div class="aci-v" data-en="You land on a legitimate-looking website — via search, an ad or a received link. The difference is in the details.">Ajungi pe un site care arată legitim — din căutare, reclamă sau link primit. Diferența e în detalii.</div></div><div class="aci-row aci-watch"><div class="aci-k aci-k-warn" data-en="WATCH FOR — 3 SIGNALS">FII ATENT LA — 3 SEMNALE</div><ul class="aci-list"><li data-en="A URL with swapped letters or an odd domain (.shop, .top, .xyz)">URL cu litere schimbate sau domeniu ciudat (.shop, .top, .xyz)</li><li data-en="A brand-new site, no history, no verifiable contact details">Site nou, fără istoric, fără date de contact verificabile</li><li data-en="Limited payment methods: transfer, crypto or cash only">Metode de plată limitate: doar transfer, crypto sau ramburs</li></ul></div></div>
+  <div class="atlas-lock-overlay" data-lock-tier="essential">
+    <div class="alo-icon">&#128274;</div>
+    <div class="alo-plan" data-en="Essential — 99 RON (one-time)">Essential — 99 RON (plată unică)</div>
+    <div class="alo-text" data-en="Available in Essential plan">Disponibil din planul Essential</div>
+    <a href="personal.html" class="alo-btn" data-en="Upgrade &rarr;">Upgrade &rarr;</a>
+  </div>
+</article>
+<article class="atlas-card" data-catnum="3" data-cat="C02" data-risk="CRITIC" data-num="26" data-tier="essential" data-search="ato-003 sim swapping account takeover & credentials" style="--cat-color:#E74C3C">
+  <div class="ac-sidebar">
+    <div class="acs-id">ATO-003</div>
+    <div class="acs-num">#26</div>
+    <div class="acs-risk-badge rc" data-en="Critical">Critic</div>
+    <div class="acs-risk-bar"><div class="acs-risk-fill" style="height:100%;background:#C0392B"></div></div>
+  </div>
+  <div class="ac-main">
+    <div class="ac-title">SIM Swapping</div>
+    <div class="ac-cat" style="color:#E74C3C">ACCOUNT TAKEOVER & CREDENTIALS</div>
+    <div class="ac-vectors">
+      <div class="acv-block"><div class="acv-label">Entry Vector</div><div class="acv-tags"><span class="atag-entry" data-en="Phone">Telefon</span></div></div>
+      <div class="acv-block"><div class="acv-label">Manipulation</div><div class="acv-tags"><span class="atag-pat" data-en="Authority">Autoritate</span></div></div>
+      <div class="acv-block"><div class="acv-label">Extraction</div><div class="acv-extraction" data-en="Phone number control to accounts">Control număr telefon → conturi</div></div>
+    </div>
+    <div class="ac-desc">Atacatorul contacteaza operatorul de telefonie al victimei si, folosind date personale obtinute anterior (CNP, adresa, raspunsuri la intrebari de securitate), convinge operatorul sa transfere numarul pe un SIM nou. In 15-30 minute, toate SMS-urile victimei ajung la atacator. Imediat: initieaza resetarea prin SMS a tuturor conturilor bancare, email, crypto. SIM swap-ul este prevenit de operatori care cer prezenta fizica sau cod PIN, dar nu toti aplica aceste masuri. Semnal de alarma: telefonul pierde brusc semnal sau afiseaza 'fara serviciu'.</div>
+  </div>
+  <div class="ac-intel"><div class="aci-row"><div class="aci-k" data-en="HOW IT REACHES YOU">CUM TE ABORDEAZĂ</div><div class="aci-v" data-en="You get a direct call. The voice is calm, &quot;professional&quot;, and already knows a few real details about you.">Ești sunat direct. Vocea e calmă, „profesionistă&quot;, și are deja câteva date reale despre tine.</div></div><div class="aci-row"><div class="aci-k" data-en="PSYCHOLOGICAL LEVER">PÂRGHIA PSIHOLOGICĂ</div><div class="aci-v"><div class="aci-manip"><span class="aci-mtag" data-en="Authority">Autoritate</span><span class="aci-mex" data-en="The brain automatically obeys uniforms, titles and institutions — the attacker borrows them.">Creierul ascultă automat de uniformă, funcție și instituție — atacatorul le împrumută.</span></div></div></div><div class="aci-row aci-watch"><div class="aci-k aci-k-warn" data-en="WATCH FOR — 3 SIGNALS">FII ATENT LA — 3 SEMNALE</div><ul class="aci-list"><li data-en="The caller builds pressure: &quot;right now, or you lose the money&quot;">Apelantul creează presiune: „chiar acum, altfel pierzi banii&quot;</li><li data-en="They ask for SMS codes, your PIN, or to install an app">Îți cere coduri din SMS, PIN sau instalarea unei aplicații</li><li data-en="They refuse to let you call back on the institution&#x27;s official number">Refuză să îl suni tu înapoi pe numărul oficial al instituției</li></ul></div></div>
+  <div class="atlas-lock-overlay" data-lock-tier="essential">
+    <div class="alo-icon">&#128274;</div>
+    <div class="alo-plan" data-en="Essential — 99 RON (one-time)">Essential — 99 RON (plată unică)</div>
+    <div class="alo-text" data-en="Available in Essential plan">Disponibil din planul Essential</div>
+    <a href="personal.html" class="alo-btn" data-en="Upgrade &rarr;">Upgrade &rarr;</a>
+  </div>
+</article>
+<article class="atlas-card" data-catnum="4" data-cat="C02" data-risk="CRITIC" data-num="27" data-tier="essential" data-search="ato-004 account recovery hijack account takeover & credentials" style="--cat-color:#E74C3C">
+  <div class="ac-sidebar">
+    <div class="acs-id">ATO-004</div>
+    <div class="acs-num">#27</div>
+    <div class="acs-risk-badge rc" data-en="Critical">Critic</div>
+    <div class="acs-risk-bar"><div class="acs-risk-fill" style="height:100%;background:#C0392B"></div></div>
+  </div>
+  <div class="ac-main">
+    <div class="ac-title">Account Recovery Hijack</div>
+    <div class="ac-cat" style="color:#E74C3C">ACCOUNT TAKEOVER & CREDENTIALS</div>
+    <div class="ac-vectors">
+      <div class="acv-block"><div class="acv-label">Entry Vector</div><div class="acv-tags"><span class="atag-entry">Email</span><span class="atag-entry" data-en="Phone">Telefon</span></div></div>
+      <div class="acv-block"><div class="acv-label">Manipulation</div><div class="acv-tags"><span class="atag-pat" data-en="Authority">Autoritate</span><span class="atag-pat" data-en="Fear">Frică</span></div></div>
+      <div class="acv-block"><div class="acv-label">Extraction</div><div class="acv-extraction" data-en="Full account takeover">Control complet cont</div></div>
+    </div>
+    <div class="ac-desc">Recuperarea contului prin email de backup sau numar de telefon devine un vector de atac cand acestea sunt compromise anterior. Atacatorul reseteaza contul Gmail al victimei → obtine acces la inbox → gaseste emailuri de la banci → reseteaza contul bancar prin 'uitare parola' → preia contul financiar. Lantul de recuperare in cascada poate compromite 5-15 conturi in mai putin de o ora. Vulnerabilitatea fundamentala: securitatea oricarui cont este egala cu securitatea contului de recuperare. Email-ul principal trebuie protejat cu 2FA hardware.</div>
+  </div>
+  <div class="ac-intel"><div class="aci-row"><div class="aci-k" data-en="HOW IT REACHES YOU">CUM TE ABORDEAZĂ</div><div class="aci-v" data-en="You receive an email perfectly imitating a trusted sender — logo, tone, signature.">Primești un email care imită perfect un expeditor de încredere — logo, ton, semnătură.</div></div><div class="aci-row"><div class="aci-k" data-en="PSYCHOLOGICAL LEVER">PÂRGHIA PSIHOLOGICĂ</div><div class="aci-v"><div class="aci-manip"><span class="aci-mtag" data-en="Authority">Autoritate</span><span class="aci-mex" data-en="The brain automatically obeys uniforms, titles and institutions — the attacker borrows them.">Creierul ascultă automat de uniformă, funcție și instituție — atacatorul le împrumută.</span></div><div class="aci-manip"><span class="aci-mtag" data-en="Fear">Frică</span><span class="aci-mex" data-en="The threat (blocked account, criminal file, virus) triggers panic — and panic follows orders.">Amenințarea (cont blocat, dosar penal, virus) activează panica — și panica execută ordine.</span></div></div></div><div class="aci-row aci-watch"><div class="aci-k aci-k-warn" data-en="WATCH FOR — 3 SIGNALS">FII ATENT LA — 3 SEMNALE</div><ul class="aci-list"><li data-en="The sender address differs by 1-2 characters from the official one">Adresa expeditorului diferă cu 1-2 caractere de cea oficială</li><li data-en="The displayed link and the real destination don&#x27;t match (hover to check)">Link-ul afișat și destinația reală nu coincid (verifică prin hover)</li><li data-en="It demands immediate action: &quot;your account will be blocked in 24h&quot;">Cere acțiune imediată: „contul se blochează în 24h&quot;</li></ul></div></div>
+  <div class="atlas-lock-overlay" data-lock-tier="essential">
+    <div class="alo-icon">&#128274;</div>
+    <div class="alo-plan" data-en="Essential — 99 RON (one-time)">Essential — 99 RON (plată unică)</div>
+    <div class="alo-text" data-en="Available in Essential plan">Disponibil din planul Essential</div>
+    <a href="personal.html" class="alo-btn" data-en="Upgrade &rarr;">Upgrade &rarr;</a>
+  </div>
+</article>
+<article class="atlas-card" data-catnum="5" data-cat="C02" data-risk="CRITIC" data-num="28" data-tier="essential" data-search="ato-005 session token hijacking account takeover & credentials" style="--cat-color:#E74C3C">
+  <div class="ac-sidebar">
+    <div class="acs-id">ATO-005</div>
+    <div class="acs-num">#28</div>
+    <div class="acs-risk-badge rc" data-en="Critical">Critic</div>
+    <div class="acs-risk-bar"><div class="acs-risk-fill" style="height:100%;background:#C0392B"></div></div>
+  </div>
+  <div class="ac-main">
+    <div class="ac-title">Session Token Hijacking</div>
+    <div class="ac-cat" style="color:#E74C3C">ACCOUNT TAKEOVER & CREDENTIALS</div>
+    <div class="ac-vectors">
+      <div class="acv-block"><div class="acv-label">Entry Vector</div><div class="acv-tags"><span class="atag-entry">Web</span></div></div>
+      <div class="acv-block"><div class="acv-label">Manipulation</div><div class="acv-tags"><span class="atag-pat">&mdash;</span></div></div>
+      <div class="acv-block"><div class="acv-label">Extraction</div><div class="acv-extraction" data-en="Active session hijacked">Sesiune activă preluată</div></div>
+    </div>
+    <div class="ac-desc">Cookie-urile de sesiune stocate in browser contin token-ul care identifica sesiunea autentificata — fara parola. Daca acest cookie este furat (prin extensii malitioase, XSS, retea Wi-Fi nesecurizata), atacatorul il importa in propriul browser si acceseaza contul ca si cum ar fi utilizatorul autentificat. Nu mai este nevoie de parola sau 2FA. Tehnica este folosita masiv dupa infectia cu malware infostealer care extrage automat toate cookie-urile browserului. Dupa logout sesiunea expira — dar intre autentificari, cookie-ul este activ.</div>
+  </div>
+  <div class="ac-intel"><div class="aci-row"><div class="aci-k" data-en="HOW IT REACHES YOU">CUM TE ABORDEAZĂ</div><div class="aci-v" data-en="You land on a legitimate-looking website — via search, an ad or a received link. The difference is in the details.">Ajungi pe un site care arată legitim — din căutare, reclamă sau link primit. Diferența e în detalii.</div></div><div class="aci-row aci-watch"><div class="aci-k aci-k-warn" data-en="WATCH FOR — 3 SIGNALS">FII ATENT LA — 3 SEMNALE</div><ul class="aci-list"><li data-en="A URL with swapped letters or an odd domain (.shop, .top, .xyz)">URL cu litere schimbate sau domeniu ciudat (.shop, .top, .xyz)</li><li data-en="A brand-new site, no history, no verifiable contact details">Site nou, fără istoric, fără date de contact verificabile</li><li data-en="Limited payment methods: transfer, crypto or cash only">Metode de plată limitate: doar transfer, crypto sau ramburs</li></ul></div></div>
+  <div class="atlas-lock-overlay" data-lock-tier="essential">
+    <div class="alo-icon">&#128274;</div>
+    <div class="alo-plan" data-en="Essential — 99 RON (one-time)">Essential — 99 RON (plată unică)</div>
+    <div class="alo-text" data-en="Available in Essential plan">Disponibil din planul Essential</div>
+    <a href="personal.html" class="alo-btn" data-en="Upgrade &rarr;">Upgrade &rarr;</a>
+  </div>
+</article>
+<article class="atlas-card" data-catnum="6" data-cat="C02" data-risk="CRITIC" data-num="29" data-tier="professional" data-search="ato-006 man-in-the-middle auth account takeover & credentials" style="--cat-color:#E74C3C">
+  <div class="ac-sidebar">
+    <div class="acs-id">ATO-006</div>
+    <div class="acs-num">#29</div>
+    <div class="acs-risk-badge rc" data-en="Critical">Critic</div>
+    <div class="acs-risk-bar"><div class="acs-risk-fill" style="height:100%;background:#C0392B"></div></div>
+  </div>
+  <div class="ac-main">
+    <div class="ac-title">Man-in-the-Middle Auth</div>
+    <div class="ac-cat" style="color:#E74C3C">ACCOUNT TAKEOVER & CREDENTIALS</div>
+    <div class="ac-vectors">
+      <div class="acv-block"><div class="acv-label">Entry Vector</div><div class="acv-tags"><span class="atag-entry">Wi-Fi</span><span class="atag-entry">Web</span></div></div>
+      <div class="acv-block"><div class="acv-label">Manipulation</div><div class="acv-tags"><span class="atag-pat" data-en="Familiarity">Familiaritate</span></div></div>
+      <div class="acv-block"><div class="acv-label">Extraction</div><div class="acv-extraction" data-en="Intercepted credentials">Credențiale interceptate</div></div>
+    </div>
+    <div class="ac-desc">Atacatorul creeaza sau compromite o retea Wi-Fi cu acelasi SSID cu o retea publica cunoscuta ('AeroportOTPeni_Free', 'McDonaldsWifi'). Dispozitivele se conecteaza automat la retele cunoscute. Tot traficul HTTP (si uneori HTTPS prin SSL stripping) trece prin routerul atacatorului. Credentialele introduse in formulare nencriptate sunt capturate in plaintext. Eficient in aeroporturi, cafenele, hoteluri. Protectie: VPN activ pe orice retea publica, evitarea autentificarii pe retele necunoscute.</div>
+  </div>
+  <div class="ac-intel"><div class="aci-row"><div class="aci-k" data-en="HOW IT REACHES YOU">CUM TE ABORDEAZĂ</div><div class="aci-v" data-en="The Wi-Fi network itself is the trap: a fake hotspot with a credible name in an airport, hotel or café.">Rețeaua Wi-Fi în sine e capcana: hotspot fals cu nume credibil în aeroport, hotel sau cafenea.</div></div><div class="aci-row"><div class="aci-k" data-en="PSYCHOLOGICAL LEVER">PÂRGHIA PSIHOLOGICĂ</div><div class="aci-v"><div class="aci-manip"><span class="aci-mtag" data-en="Familiarity">Familiaritate</span><span class="aci-mex" data-en="It seems familiar — a colleague, friend, or brand you use daily — so your guard drops.">Pare cineva cunoscut — coleg, prieten, brand folosit zilnic — deci lași garda jos.</span></div></div></div><div class="aci-row aci-watch"><div class="aci-k aci-k-warn" data-en="WATCH FOR — 3 SIGNALS">FII ATENT LA — 3 SEMNALE</div><ul class="aci-list"><li data-en="An open network with a generic name (&quot;Free_Airport_WiFi&quot;)">Rețea deschisă cu nume generic („Free_Airport_WiFi&quot;)</li><li data-en="It asks for email/password login or a card for &quot;access&quot;">Cere login cu email/parolă sau card pentru „acces&quot;</li><li data-en="Website certificates appear invalid after connecting">Certificatul site-urilor apare invalid după conectare</li></ul></div></div>
+  <div class="atlas-lock-overlay" data-lock-tier="professional">
+    <div class="alo-icon">&#128274;</div>
+    <div class="alo-plan" data-en="Professional — 250 RON (one-time)">Professional — 250 RON (plată unică)</div>
+    <div class="alo-text" data-en="Available in Professional plan">Disponibil din planul Professional</div>
+    <a href="personal.html" class="alo-btn" data-en="Upgrade &rarr;">Upgrade &rarr;</a>
+  </div>
+</article>
+<article class="atlas-card" data-catnum="7" data-cat="C02" data-risk="CRITIC" data-num="30" data-tier="professional" data-search="ato-007 pass-the-hash attack account takeover & credentials" style="--cat-color:#E74C3C">
+  <div class="ac-sidebar">
+    <div class="acs-id">ATO-007</div>
+    <div class="acs-num">#30</div>
+    <div class="acs-risk-badge rc" data-en="Critical">Critic</div>
+    <div class="acs-risk-bar"><div class="acs-risk-fill" style="height:100%;background:#C0392B"></div></div>
+  </div>
+  <div class="ac-main">
+    <div class="ac-title">Pass-the-Hash Attack</div>
+    <div class="ac-cat" style="color:#E74C3C">ACCOUNT TAKEOVER & CREDENTIALS</div>
+    <div class="ac-vectors">
+      <div class="acv-block"><div class="acv-label">Entry Vector</div><div class="acv-tags"><span class="atag-entry" data-en="Network">Rețea</span></div></div>
+      <div class="acv-block"><div class="acv-label">Manipulation</div><div class="acv-tags"><span class="atag-pat">&mdash;</span></div></div>
+      <div class="acv-block"><div class="acv-label">Extraction</div><div class="acv-extraction" data-en="Corporate system access">Acces sisteme corporate</div></div>
+    </div>
+    <div class="ac-desc">Pass-the-Hash exploateaza faptul ca Windows stocheaza hash-ul parolei in memorie pentru autentificari viitoare. Atacatorul extrage hash-ul din memoria unui sistem compromis (folosind Mimikatz sau similar) si il reutilizeaza direct pentru autentificare pe alte sisteme din retea — fara a cunoaste parola in clar. Specific mediilor Active Directory. Un singur sistem compromis poate duce la compromiterea intregului domeniu corporate. Contramasura: Protected Users group, Credential Guard, privilegii minime per utilizator.</div>
+  </div>
+  <div class="ac-intel"><div class="aci-row"><div class="aci-k" data-en="HOW IT REACHES YOU">CUM TE ABORDEAZĂ</div><div class="aci-v" data-en="The attack happens at network level — traffic intercepted or redirected without you seeing anything.">Atacul se întâmplă la nivel de rețea — trafic interceptat sau redirecționat fără să vezi nimic.</div></div><div class="aci-row aci-watch"><div class="aci-k aci-k-warn" data-en="WATCH FOR — 3 SIGNALS">FII ATENT LA — 3 SEMNALE</div><ul class="aci-list"><li data-en="Invalid certificates or unusual HTTPS warnings">Certificate invalide sau avertismente HTTPS neobișnuite</li><li data-en="Redirects to unexpected login pages">Redirectări către pagini de login neașteptate</li><li data-en="Use a VPN on public networks — it kills this entire attack class">Folosește VPN pe rețele publice — elimină clasa întreagă de atac</li></ul></div></div>
+  <div class="atlas-lock-overlay" data-lock-tier="professional">
+    <div class="alo-icon">&#128274;</div>
+    <div class="alo-plan" data-en="Professional — 250 RON (one-time)">Professional — 250 RON (plată unică)</div>
+    <div class="alo-text" data-en="Available in Professional plan">Disponibil din planul Professional</div>
+    <a href="personal.html" class="alo-btn" data-en="Upgrade &rarr;">Upgrade &rarr;</a>
+  </div>
+</article>
+<article class="atlas-card" data-catnum="8" data-cat="C02" data-risk="CRITIC" data-num="31" data-tier="professional" data-search="ato-008 kerberoasting account takeover & credentials" style="--cat-color:#E74C3C">
+  <div class="ac-sidebar">
+    <div class="acs-id">ATO-008</div>
+    <div class="acs-num">#31</div>
+    <div class="acs-risk-badge rc" data-en="Critical">Critic</div>
+    <div class="acs-risk-bar"><div class="acs-risk-fill" style="height:100%;background:#C0392B"></div></div>
+  </div>
+  <div class="ac-main">
+    <div class="ac-title">Kerberoasting</div>
+    <div class="ac-cat" style="color:#E74C3C">ACCOUNT TAKEOVER & CREDENTIALS</div>
+    <div class="ac-vectors">
+      <div class="acv-block"><div class="acv-label">Entry Vector</div><div class="acv-tags"><span class="atag-entry" data-en="Network">Rețea</span></div></div>
+      <div class="acv-block"><div class="acv-label">Manipulation</div><div class="acv-tags"><span class="atag-pat">&mdash;</span></div></div>
+      <div class="acv-block"><div class="acv-label">Extraction</div><div class="acv-extraction" data-en="Enterprise service credentials">Credențiale servicii enterprise</div></div>
+    </div>
+    <div class="ac-desc">Kerberoasting vizeaza conturile de serviciu din Active Directory care au SPN (Service Principal Name) setat. Atacatorul, cu drepturi minime in retea, cere un ticket de serviciu Kerberos pentru aceste conturi — ticket care este criptat cu hash-ul parolei contului. Ticket-ul este exportat si parolele sunt sparte offline prin brute-force, fara a genera alerte in sistem. Dupa cracuire, atacatorul are acces la contul de serviciu — adesea cu privilegii ridicate. Contramasura: parole lungi (25+ caractere) pentru conturi de serviciu.</div>
+  </div>
+  <div class="ac-intel"><div class="aci-row"><div class="aci-k" data-en="HOW IT REACHES YOU">CUM TE ABORDEAZĂ</div><div class="aci-v" data-en="The attack happens at network level — traffic intercepted or redirected without you seeing anything.">Atacul se întâmplă la nivel de rețea — trafic interceptat sau redirecționat fără să vezi nimic.</div></div><div class="aci-row aci-watch"><div class="aci-k aci-k-warn" data-en="WATCH FOR — 3 SIGNALS">FII ATENT LA — 3 SEMNALE</div><ul class="aci-list"><li data-en="Invalid certificates or unusual HTTPS warnings">Certificate invalide sau avertismente HTTPS neobișnuite</li><li data-en="Redirects to unexpected login pages">Redirectări către pagini de login neașteptate</li><li data-en="Use a VPN on public networks — it kills this entire attack class">Folosește VPN pe rețele publice — elimină clasa întreagă de atac</li></ul></div></div>
+  <div class="atlas-lock-overlay" data-lock-tier="professional">
+    <div class="alo-icon">&#128274;</div>
+    <div class="alo-plan" data-en="Professional — 250 RON (one-time)">Professional — 250 RON (plată unică)</div>
+    <div class="alo-text" data-en="Available in Professional plan">Disponibil din planul Professional</div>
+    <a href="personal.html" class="alo-btn" data-en="Upgrade &rarr;">Upgrade &rarr;</a>
+  </div>
+</article>
+<article class="atlas-card" data-catnum="9" data-cat="C02" data-risk="RIDICAT" data-num="32" data-tier="professional" data-search="ato-009 password spray account takeover & credentials" style="--cat-color:#E74C3C">
+  <div class="ac-sidebar">
+    <div class="acs-id">ATO-009</div>
+    <div class="acs-num">#32</div>
+    <div class="acs-risk-badge rh" data-en="High">Ridicat</div>
+    <div class="acs-risk-bar"><div class="acs-risk-fill" style="height:72%;background:#E67E22"></div></div>
+  </div>
+  <div class="ac-main">
+    <div class="ac-title">Password Spray</div>
+    <div class="ac-cat" style="color:#E74C3C">ACCOUNT TAKEOVER & CREDENTIALS</div>
+    <div class="ac-vectors">
+      <div class="acv-block"><div class="acv-label">Entry Vector</div><div class="acv-tags"><span class="atag-entry">Web</span><span class="atag-entry">App</span></div></div>
+      <div class="acv-block"><div class="acv-label">Manipulation</div><div class="acv-tags"><span class="atag-pat">&mdash;</span></div></div>
+      <div class="acv-block"><div class="acv-label">Extraction</div><div class="acv-extraction" data-en="Shared account access">Acces conturi comune</div></div>
+    </div>
+    <div class="ac-desc">In loc de a testa mii de parole pe un singur cont (blocheaza contul), password spray testeaza O singura parola ('Welcome1', 'Toamna2024') pe mii de conturi simultan. Fiecare cont primeste o singura tentativa — sub pragul de blocare. Eficient in organizatii unde utilizatorii aleg parole predictibile, mai ales la onboarding cand li se cere sa schimbe parola initiala. Atacul este lent (o tentativa la 30-60 minute per cont) dar persistent. Detectabil prin analiza log-urilor de autentificare — pattern de autentificari esauate distribuite.</div>
+  </div>
+  <div class="ac-intel"><div class="aci-row"><div class="aci-k" data-en="HOW IT REACHES YOU">CUM TE ABORDEAZĂ</div><div class="aci-v" data-en="You land on a legitimate-looking website — via search, an ad or a received link. The difference is in the details.">Ajungi pe un site care arată legitim — din căutare, reclamă sau link primit. Diferența e în detalii.</div></div><div class="aci-row aci-watch"><div class="aci-k aci-k-warn" data-en="WATCH FOR — 3 SIGNALS">FII ATENT LA — 3 SEMNALE</div><ul class="aci-list"><li data-en="A URL with swapped letters or an odd domain (.shop, .top, .xyz)">URL cu litere schimbate sau domeniu ciudat (.shop, .top, .xyz)</li><li data-en="A brand-new site, no history, no verifiable contact details">Site nou, fără istoric, fără date de contact verificabile</li><li data-en="Limited payment methods: transfer, crypto or cash only">Metode de plată limitate: doar transfer, crypto sau ramburs</li></ul></div></div>
+  <div class="atlas-lock-overlay" data-lock-tier="professional">
+    <div class="alo-icon">&#128274;</div>
+    <div class="alo-plan" data-en="Professional — 250 RON (one-time)">Professional — 250 RON (plată unică)</div>
+    <div class="alo-text" data-en="Available in Professional plan">Disponibil din planul Professional</div>
+    <a href="personal.html" class="alo-btn" data-en="Upgrade &rarr;">Upgrade &rarr;</a>
+  </div>
+</article>
+<article class="atlas-card" data-catnum="10" data-cat="C02" data-risk="RIDICAT" data-num="33" data-tier="professional" data-search="ato-010 fake login page redirect account takeover & credentials" style="--cat-color:#E74C3C">
+  <div class="ac-sidebar">
+    <div class="acs-id">ATO-010</div>
+    <div class="acs-num">#33</div>
+    <div class="acs-risk-badge rh" data-en="High">Ridicat</div>
+    <div class="acs-risk-bar"><div class="acs-risk-fill" style="height:72%;background:#E67E22"></div></div>
+  </div>
+  <div class="ac-main">
+    <div class="ac-title">Fake Login Page Redirect</div>
+    <div class="ac-cat" style="color:#E74C3C">ACCOUNT TAKEOVER & CREDENTIALS</div>
+    <div class="ac-vectors">
+      <div class="acv-block"><div class="acv-label">Entry Vector</div><div class="acv-tags"><span class="atag-entry">Web</span></div></div>
+      <div class="acv-block"><div class="acv-label">Manipulation</div><div class="acv-tags"><span class="atag-pat" data-en="Familiarity">Familiaritate</span></div></div>
+      <div class="acv-block"><div class="acv-label">Extraction</div><div class="acv-extraction" data-en="Credentials via cloned page">Credențiale prin pagină clone</div></div>
+    </div>
+    <div class="ac-desc">Un site legitim are o vulnerabilitate de tip 'open redirect' — permite redirectionarea catre orice URL extern prin parametru in link: legitimate-site.com/redirect?url=phishing-site.com. Atacatorul trimite victimei link-ul legitim, care redirectioneaza automat catre pagina falsa de login. Filtrele antiphishing nu blocheaza linkul initial — este un domeniu legitim. Victima vede URL-ul legitim initial si nu mai verifica dupa redirect. Platforma autentica devine involuntar vector de phishing.</div>
+  </div>
+  <div class="ac-intel"><div class="aci-row"><div class="aci-k" data-en="HOW IT REACHES YOU">CUM TE ABORDEAZĂ</div><div class="aci-v" data-en="You land on a legitimate-looking website — via search, an ad or a received link. The difference is in the details.">Ajungi pe un site care arată legitim — din căutare, reclamă sau link primit. Diferența e în detalii.</div></div><div class="aci-row"><div class="aci-k" data-en="PSYCHOLOGICAL LEVER">PÂRGHIA PSIHOLOGICĂ</div><div class="aci-v"><div class="aci-manip"><span class="aci-mtag" data-en="Familiarity">Familiaritate</span><span class="aci-mex" data-en="It seems familiar — a colleague, friend, or brand you use daily — so your guard drops.">Pare cineva cunoscut — coleg, prieten, brand folosit zilnic — deci lași garda jos.</span></div></div></div><div class="aci-row aci-watch"><div class="aci-k aci-k-warn" data-en="WATCH FOR — 3 SIGNALS">FII ATENT LA — 3 SEMNALE</div><ul class="aci-list"><li data-en="A URL with swapped letters or an odd domain (.shop, .top, .xyz)">URL cu litere schimbate sau domeniu ciudat (.shop, .top, .xyz)</li><li data-en="A brand-new site, no history, no verifiable contact details">Site nou, fără istoric, fără date de contact verificabile</li><li data-en="Limited payment methods: transfer, crypto or cash only">Metode de plată limitate: doar transfer, crypto sau ramburs</li></ul></div></div>
+  <div class="atlas-lock-overlay" data-lock-tier="professional">
+    <div class="alo-icon">&#128274;</div>
+    <div class="alo-plan" data-en="Professional — 250 RON (one-time)">Professional — 250 RON (plată unică)</div>
+    <div class="alo-text" data-en="Available in Professional plan">Disponibil din planul Professional</div>
+    <a href="personal.html" class="alo-btn" data-en="Upgrade &rarr;">Upgrade &rarr;</a>
+  </div>
+</article>
+<article class="atlas-card" data-catnum="11" data-cat="C02" data-risk="CRITIC" data-num="34" data-tier="professional" data-search="ato-011 mfa fatigue attack account takeover & credentials" style="--cat-color:#E74C3C">
+  <div class="ac-sidebar">
+    <div class="acs-id">ATO-011</div>
+    <div class="acs-num">#34</div>
+    <div class="acs-risk-badge rc" data-en="Critical">Critic</div>
+    <div class="acs-risk-bar"><div class="acs-risk-fill" style="height:100%;background:#C0392B"></div></div>
+  </div>
+  <div class="ac-main">
+    <div class="ac-title">MFA Fatigue Attack</div>
+    <div class="ac-cat" style="color:#E74C3C">ACCOUNT TAKEOVER & CREDENTIALS</div>
+    <div class="ac-vectors">
+      <div class="acv-block"><div class="acv-label">Entry Vector</div><div class="acv-tags"><span class="atag-entry">App</span><span class="atag-entry" data-en="Phone">Telefon</span></div></div>
+      <div class="acv-block"><div class="acv-label">Manipulation</div><div class="acv-tags"><span class="atag-pat" data-en="Urgency">Urgență</span></div></div>
+      <div class="acv-block"><div class="acv-label">Extraction</div><div class="acv-extraction" data-en="2FA access via fatigue attack">Acces 2FA prin epuizare</div></div>
+    </div>
+    <div class="ac-desc">Atacatorul initiaza autentificarea victimei pe o platforma — primeste cererea de 2FA pe dispozitivul victimei — si apoi bombardeaza victima cu zeci de cereri de aprobare push 2FA (Microsoft Authenticator, Duo) in intervale scurte. Victima, iritata de notificari sau confuza, apasa 'Aproba' dintr-o greseala sau pentru a le opri. O singura aprobare este suficienta. Varianta sofisticata: atacatorul suna victima simultan, se prezinta ca suport IT si o instruieste sa 'confirme' cererea pentru 'rezolvarea unui incident'. Eficienta ridicata in medii corporate.</div>
+  </div>
+  <div class="ac-intel"><div class="aci-row"><div class="aci-k" data-en="HOW IT REACHES YOU">CUM TE ABORDEAZĂ</div><div class="aci-v" data-en="An app — downloaded outside the official store or disguised as an &quot;update&quot; — does the dirty work.">O aplicație — descărcată din afara magazinului oficial sau strecurată ca „update&quot; — face treaba murdară.</div></div><div class="aci-row"><div class="aci-k" data-en="PSYCHOLOGICAL LEVER">PÂRGHIA PSIHOLOGICĂ</div><div class="aci-v"><div class="aci-manip"><span class="aci-mtag" data-en="Urgency">Urgență</span><span class="aci-mex" data-en="The artificial deadline shuts down critical thinking: you decide in seconds what you&#x27;d normally analyze for hours.">Termenul limită artificial oprește gândirea critică: decizi în secunde ce ai analiza în ore.</span></div></div></div><div class="aci-row aci-watch"><div class="aci-k aci-k-warn" data-en="WATCH FOR — 3 SIGNALS">FII ATENT LA — 3 SEMNALE</div><ul class="aci-list"><li data-en="The app comes from outside the official store (APK, direct link)">Aplicația vine din afara magazinului oficial (APK, link direct)</li><li data-en="It requests permissions unrelated to its function (SMS, accessibility)">Cere permisiuni fără legătură cu funcția ei (SMS, accesibilitate)</li><li data-en="It mimics a known app but lists a different developer">Imită o aplicație cunoscută dar are alt dezvoltator</li></ul></div></div>
+  <div class="atlas-lock-overlay" data-lock-tier="professional">
+    <div class="alo-icon">&#128274;</div>
+    <div class="alo-plan" data-en="Professional — 250 RON (one-time)">Professional — 250 RON (plată unică)</div>
+    <div class="alo-text" data-en="Available in Professional plan">Disponibil din planul Professional</div>
+    <a href="personal.html" class="alo-btn" data-en="Upgrade &rarr;">Upgrade &rarr;</a>
+  </div>
+</article>
+<article class="atlas-card" data-catnum="12" data-cat="C02" data-risk="CRITIC" data-num="35" data-tier="professional" data-search="ato-012 real-time phishing proxy account takeover & credentials" style="--cat-color:#E74C3C">
+  <div class="ac-sidebar">
+    <div class="acs-id">ATO-012</div>
+    <div class="acs-num">#35</div>
+    <div class="acs-risk-badge rc" data-en="Critical">Critic</div>
+    <div class="acs-risk-bar"><div class="acs-risk-fill" style="height:100%;background:#C0392B"></div></div>
+  </div>
+  <div class="ac-main">
+    <div class="ac-title">Real-Time Phishing Proxy</div>
+    <div class="ac-cat" style="color:#E74C3C">ACCOUNT TAKEOVER & CREDENTIALS</div>
+    <div class="ac-vectors">
+      <div class="acv-block"><div class="acv-label">Entry Vector</div><div class="acv-tags"><span class="atag-entry">Web</span></div></div>
+      <div class="acv-block"><div class="acv-label">Manipulation</div><div class="acv-tags"><span class="atag-pat" data-en="Familiarity">Familiaritate</span></div></div>
+      <div class="acv-block"><div class="acv-label">Extraction</div><div class="acv-extraction" data-en="Data + simultaneous session">Date + sesiune simultane</div></div>
+    </div>
+    <div class="ac-desc">Proxy-ul transparent (Evilginx2, Modlishka) se pozitioneaza intre browser si site-ul real. Victima acceseaza proxy-ul crezand ca acceseaza site-ul real. Totul functioneaza normal — login, 2FA, sesiune activa — deoarece proxy-ul relayeaza requesturile catre site-ul real. In paralel, proxy-ul captureza credentialele si token-ul de sesiune activ. Atacatorul primeste sesiunea autentificata in timp real si poate actiona simultan. Detectie aproape imposibila pentru utilizator. Blocat partial de chei de securitate hardware (FIDO2).</div>
+  </div>
+  <div class="ac-intel"><div class="aci-row"><div class="aci-k" data-en="HOW IT REACHES YOU">CUM TE ABORDEAZĂ</div><div class="aci-v" data-en="You land on a legitimate-looking website — via search, an ad or a received link. The difference is in the details.">Ajungi pe un site care arată legitim — din căutare, reclamă sau link primit. Diferența e în detalii.</div></div><div class="aci-row"><div class="aci-k" data-en="PSYCHOLOGICAL LEVER">PÂRGHIA PSIHOLOGICĂ</div><div class="aci-v"><div class="aci-manip"><span class="aci-mtag" data-en="Familiarity">Familiaritate</span><span class="aci-mex" data-en="It seems familiar — a colleague, friend, or brand you use daily — so your guard drops.">Pare cineva cunoscut — coleg, prieten, brand folosit zilnic — deci lași garda jos.</span></div></div></div><div class="aci-row aci-watch"><div class="aci-k aci-k-warn" data-en="WATCH FOR — 3 SIGNALS">FII ATENT LA — 3 SEMNALE</div><ul class="aci-list"><li data-en="A URL with swapped letters or an odd domain (.shop, .top, .xyz)">URL cu litere schimbate sau domeniu ciudat (.shop, .top, .xyz)</li><li data-en="A brand-new site, no history, no verifiable contact details">Site nou, fără istoric, fără date de contact verificabile</li><li data-en="Limited payment methods: transfer, crypto or cash only">Metode de plată limitate: doar transfer, crypto sau ramburs</li></ul></div></div>
+  <div class="atlas-lock-overlay" data-lock-tier="professional">
+    <div class="alo-icon">&#128274;</div>
+    <div class="alo-plan" data-en="Professional — 250 RON (one-time)">Professional — 250 RON (plată unică)</div>
+    <div class="alo-text" data-en="Available in Professional plan">Disponibil din planul Professional</div>
+    <a href="personal.html" class="alo-btn" data-en="Upgrade &rarr;">Upgrade &rarr;</a>
+  </div>
+</article>
+<article class="atlas-card" data-catnum="13" data-cat="C02" data-risk="CRITIC" data-num="36" data-tier="professional" data-search="ato-013 device trust bypass account takeover & credentials" style="--cat-color:#E74C3C">
+  <div class="ac-sidebar">
+    <div class="acs-id">ATO-013</div>
+    <div class="acs-num">#36</div>
+    <div class="acs-risk-badge rc" data-en="Critical">Critic</div>
+    <div class="acs-risk-bar"><div class="acs-risk-fill" style="height:100%;background:#C0392B"></div></div>
+  </div>
+  <div class="ac-main">
+    <div class="ac-title">Device Trust Bypass</div>
+    <div class="ac-cat" style="color:#E74C3C">ACCOUNT TAKEOVER & CREDENTIALS</div>
+    <div class="ac-vectors">
+      <div class="acv-block"><div class="acv-label">Entry Vector</div><div class="acv-tags"><span class="atag-entry">App</span><span class="atag-entry">Web</span></div></div>
+      <div class="acv-block"><div class="acv-label">Manipulation</div><div class="acv-tags"><span class="atag-pat">&mdash;</span></div></div>
+      <div class="acv-block"><div class="acv-label">Extraction</div><div class="acv-extraction" data-en="Access without 2FA on new device">Acces fără 2FA pe device nou</div></div>
+    </div>
+    <div class="ac-desc">Sistemele de 'device trust' marcheaza dispozitivele cunoscute ca de incredere si nu mai cer 2FA la autentificari viitoare. Daca cookie-ul de 'device trust' este furat, atacatorul il importa pe dispozitivul sau si se autentifica fara 2FA. Alternativ, emularea User Agent + caracteristici browser pot face dispozitivul atacatorului sa para 'cunoscut'. Platforma nu detecteaza diferenta. Eficient dupa infestare cu infostealer care extrage atat cookie-urile de sesiune cat si pe cele de device trust.</div>
+  </div>
+  <div class="ac-intel"><div class="aci-row"><div class="aci-k" data-en="HOW IT REACHES YOU">CUM TE ABORDEAZĂ</div><div class="aci-v" data-en="An app — downloaded outside the official store or disguised as an &quot;update&quot; — does the dirty work.">O aplicație — descărcată din afara magazinului oficial sau strecurată ca „update&quot; — face treaba murdară.</div></div><div class="aci-row aci-watch"><div class="aci-k aci-k-warn" data-en="WATCH FOR — 3 SIGNALS">FII ATENT LA — 3 SEMNALE</div><ul class="aci-list"><li data-en="The app comes from outside the official store (APK, direct link)">Aplicația vine din afara magazinului oficial (APK, link direct)</li><li data-en="It requests permissions unrelated to its function (SMS, accessibility)">Cere permisiuni fără legătură cu funcția ei (SMS, accesibilitate)</li><li data-en="It mimics a known app but lists a different developer">Imită o aplicație cunoscută dar are alt dezvoltator</li></ul></div></div>
+  <div class="atlas-lock-overlay" data-lock-tier="professional">
+    <div class="alo-icon">&#128274;</div>
+    <div class="alo-plan" data-en="Professional — 250 RON (one-time)">Professional — 250 RON (plată unică)</div>
+    <div class="alo-text" data-en="Available in Professional plan">Disponibil din planul Professional</div>
+    <a href="personal.html" class="alo-btn" data-en="Upgrade &rarr;">Upgrade &rarr;</a>
+  </div>
+</article>
+<article class="atlas-card" data-catnum="14" data-cat="C02" data-risk="CRITIC" data-num="37" data-tier="professional" data-search="ato-014 it helpdesk social engineering account takeover & credentials" style="--cat-color:#E74C3C">
+  <div class="ac-sidebar">
+    <div class="acs-id">ATO-014</div>
+    <div class="acs-num">#37</div>
+    <div class="acs-risk-badge rc" data-en="Critical">Critic</div>
+    <div class="acs-risk-bar"><div class="acs-risk-fill" style="height:100%;background:#C0392B"></div></div>
+  </div>
+  <div class="ac-main">
+    <div class="ac-title">IT Helpdesk Social Engineering</div>
+    <div class="ac-cat" style="color:#E74C3C">ACCOUNT TAKEOVER & CREDENTIALS</div>
+    <div class="ac-vectors">
+      <div class="acv-block"><div class="acv-label">Entry Vector</div><div class="acv-tags"><span class="atag-entry" data-en="Phone">Telefon</span></div></div>
+      <div class="acv-block"><div class="acv-label">Manipulation</div><div class="acv-tags"><span class="atag-pat" data-en="Authority">Autoritate</span><span class="atag-pat" data-en="Urgency">Urgență</span></div></div>
+      <div class="acv-block"><div class="acv-label">Extraction</div><div class="acv-extraction" data-en="Password reset or admin access">Reset parolă sau acces admin</div></div>
+    </div>
+    <div class="ac-desc">Intr-o companie mare, helpdesk-ul IT primeste sute de cereri zilnic. Atacatorul suna, se prezinta ca angajat (cu date OSINT reale — nume, departament, manager), invoca o urgenta plauzibila: 'Am deadline azi, am uitat parola, managerul meu e in concediu'. Presiunea psihologica — urgenta + autoritate implicita — determina tehnicianul helpdesk sa reseteze parola fara verificare completa. Atacul este mai ales eficient vinerea sau in perioade aglomerate. Contramasura: procedura stricta de verificare identitate, cod PIN cunoscut doar de angajat, aprobare manager.</div>
+  </div>
+  <div class="ac-intel"><div class="aci-row"><div class="aci-k" data-en="HOW IT REACHES YOU">CUM TE ABORDEAZĂ</div><div class="aci-v" data-en="You get a direct call. The voice is calm, &quot;professional&quot;, and already knows a few real details about you.">Ești sunat direct. Vocea e calmă, „profesionistă&quot;, și are deja câteva date reale despre tine.</div></div><div class="aci-row"><div class="aci-k" data-en="PSYCHOLOGICAL LEVER">PÂRGHIA PSIHOLOGICĂ</div><div class="aci-v"><div class="aci-manip"><span class="aci-mtag" data-en="Authority">Autoritate</span><span class="aci-mex" data-en="The brain automatically obeys uniforms, titles and institutions — the attacker borrows them.">Creierul ascultă automat de uniformă, funcție și instituție — atacatorul le împrumută.</span></div><div class="aci-manip"><span class="aci-mtag" data-en="Urgency">Urgență</span><span class="aci-mex" data-en="The artificial deadline shuts down critical thinking: you decide in seconds what you&#x27;d normally analyze for hours.">Termenul limită artificial oprește gândirea critică: decizi în secunde ce ai analiza în ore.</span></div></div></div><div class="aci-row aci-watch"><div class="aci-k aci-k-warn" data-en="WATCH FOR — 3 SIGNALS">FII ATENT LA — 3 SEMNALE</div><ul class="aci-list"><li data-en="The caller builds pressure: &quot;right now, or you lose the money&quot;">Apelantul creează presiune: „chiar acum, altfel pierzi banii&quot;</li><li data-en="They ask for SMS codes, your PIN, or to install an app">Îți cere coduri din SMS, PIN sau instalarea unei aplicații</li><li data-en="They refuse to let you call back on the institution&#x27;s official number">Refuză să îl suni tu înapoi pe numărul oficial al instituției</li></ul></div></div>
+  <div class="atlas-lock-overlay" data-lock-tier="professional">
+    <div class="alo-icon">&#128274;</div>
+    <div class="alo-plan" data-en="Professional — 250 RON (one-time)">Professional — 250 RON (plată unică)</div>
+    <div class="alo-text" data-en="Available in Professional plan">Disponibil din planul Professional</div>
+    <a href="personal.html" class="alo-btn" data-en="Upgrade &rarr;">Upgrade &rarr;</a>
+  </div>
+</article>
+<article class="atlas-card" data-catnum="15" data-cat="C02" data-risk="CRITIC" data-num="38" data-tier="professional" data-search="ato-015 watering hole attack account takeover & credentials" style="--cat-color:#E74C3C">
+  <div class="ac-sidebar">
+    <div class="acs-id">ATO-015</div>
+    <div class="acs-num">#38</div>
+    <div class="acs-risk-badge rc" data-en="Critical">Critic</div>
+    <div class="acs-risk-bar"><div class="acs-risk-fill" style="height:100%;background:#C0392B"></div></div>
+  </div>
+  <div class="ac-main">
+    <div class="ac-title">Watering Hole Attack</div>
+    <div class="ac-cat" style="color:#E74C3C">ACCOUNT TAKEOVER & CREDENTIALS</div>
+    <div class="ac-vectors">
+      <div class="acv-block"><div class="acv-label">Entry Vector</div><div class="acv-tags"><span class="atag-entry">Web</span></div></div>
+      <div class="acv-block"><div class="acv-label">Manipulation</div><div class="acv-tags"><span class="atag-pat" data-en="Familiarity">Familiaritate</span></div></div>
+      <div class="acv-block"><div class="acv-label">Extraction</div><div class="acv-extraction" data-en="Malware or credentials">Malware sau credențiale</div></div>
+    </div>
+    <div class="ac-desc">Atacatorul identifica site-uri vizitate frecvent de o tinta specifica (forumuri de specialitate, furnizori, asociatii profesionale) si compromite unul dintre ele. Orice vizita la site-ul compromis poate instala malware prin vulnerabilitati browser (drive-by download) sau poate servi un formular de login fals. Victima nu a facut nimic suspect — a vizitat un site de incredere folosit de ani de zile. Watering hole este una din tehnicile preferate in atacuri nation-state deoarece ocoleste filtrele corporate care blocheaza site-urile necunoscute.</div>
+  </div>
+  <div class="ac-intel"><div class="aci-row"><div class="aci-k" data-en="HOW IT REACHES YOU">CUM TE ABORDEAZĂ</div><div class="aci-v" data-en="You land on a legitimate-looking website — via search, an ad or a received link. The difference is in the details.">Ajungi pe un site care arată legitim — din căutare, reclamă sau link primit. Diferența e în detalii.</div></div><div class="aci-row"><div class="aci-k" data-en="PSYCHOLOGICAL LEVER">PÂRGHIA PSIHOLOGICĂ</div><div class="aci-v"><div class="aci-manip"><span class="aci-mtag" data-en="Familiarity">Familiaritate</span><span class="aci-mex" data-en="It seems familiar — a colleague, friend, or brand you use daily — so your guard drops.">Pare cineva cunoscut — coleg, prieten, brand folosit zilnic — deci lași garda jos.</span></div></div></div><div class="aci-row aci-watch"><div class="aci-k aci-k-warn" data-en="WATCH FOR — 3 SIGNALS">FII ATENT LA — 3 SEMNALE</div><ul class="aci-list"><li data-en="A URL with swapped letters or an odd domain (.shop, .top, .xyz)">URL cu litere schimbate sau domeniu ciudat (.shop, .top, .xyz)</li><li data-en="A brand-new site, no history, no verifiable contact details">Site nou, fără istoric, fără date de contact verificabile</li><li data-en="Limited payment methods: transfer, crypto or cash only">Metode de plată limitate: doar transfer, crypto sau ramburs</li></ul></div></div>
+  <div class="atlas-lock-overlay" data-lock-tier="professional">
+    <div class="alo-icon">&#128274;</div>
+    <div class="alo-plan" data-en="Professional — 250 RON (one-time)">Professional — 250 RON (plată unică)</div>
+    <div class="alo-text" data-en="Available in Professional plan">Disponibil din planul Professional</div>
+    <a href="personal.html" class="alo-btn" data-en="Upgrade &rarr;">Upgrade &rarr;</a>
+  </div>
+</article>
+<article class="atlas-card" data-catnum="16" data-cat="C02" data-risk="CRITIC" data-num="39" data-tier="professional" data-search="ato-016 account aggregation compromise account takeover & credentials" style="--cat-color:#E74C3C">
+  <div class="ac-sidebar">
+    <div class="acs-id">ATO-016</div>
+    <div class="acs-num">#39</div>
+    <div class="acs-risk-badge rc" data-en="Critical">Critic</div>
+    <div class="acs-risk-bar"><div class="acs-risk-fill" style="height:100%;background:#C0392B"></div></div>
+  </div>
+  <div class="ac-main">
+    <div class="ac-title">Account Aggregation Compromise</div>
+    <div class="ac-cat" style="color:#E74C3C">ACCOUNT TAKEOVER & CREDENTIALS</div>
+    <div class="ac-vectors">
+      <div class="acv-block"><div class="acv-label">Entry Vector</div><div class="acv-tags"><span class="atag-entry">Web</span><span class="atag-entry">App</span></div></div>
+      <div class="acv-block"><div class="acv-label">Manipulation</div><div class="acv-tags"><span class="atag-pat" data-en="Familiarity">Familiaritate</span></div></div>
+      <div class="acv-block"><div class="acv-label">Extraction</div><div class="acv-extraction" data-en="Access to all aggregated accounts">Acces toate conturile agregate</div></div>
+    </div>
+    <div class="ac-desc">Platformele de agregare financiara (Revolut, Curve, aplicatii de budgetare) conecteaza prin Open Banking API toate conturile bancare ale utilizatorului. Compromiterea credentialelor platformei de agregare ofera accesul simultan la datele tuturor bancilor conectate — solduri, istoricul complet al tranzactiilor, tipare de cheltuieli. Chiar fara posibilitatea initierii tranzactiilor (daca platforma permite doar citire), informatiile colectate sunt suficiente pentru atacuri tintite extrem de precise sau pentru inginerie sociala sofisticata.</div>
+  </div>
+  <div class="ac-intel"><div class="aci-row"><div class="aci-k" data-en="HOW IT REACHES YOU">CUM TE ABORDEAZĂ</div><div class="aci-v" data-en="You land on a legitimate-looking website — via search, an ad or a received link. The difference is in the details.">Ajungi pe un site care arată legitim — din căutare, reclamă sau link primit. Diferența e în detalii.</div></div><div class="aci-row"><div class="aci-k" data-en="PSYCHOLOGICAL LEVER">PÂRGHIA PSIHOLOGICĂ</div><div class="aci-v"><div class="aci-manip"><span class="aci-mtag" data-en="Familiarity">Familiaritate</span><span class="aci-mex" data-en="It seems familiar — a colleague, friend, or brand you use daily — so your guard drops.">Pare cineva cunoscut — coleg, prieten, brand folosit zilnic — deci lași garda jos.</span></div></div></div><div class="aci-row aci-watch"><div class="aci-k aci-k-warn" data-en="WATCH FOR — 3 SIGNALS">FII ATENT LA — 3 SEMNALE</div><ul class="aci-list"><li data-en="A URL with swapped letters or an odd domain (.shop, .top, .xyz)">URL cu litere schimbate sau domeniu ciudat (.shop, .top, .xyz)</li><li data-en="A brand-new site, no history, no verifiable contact details">Site nou, fără istoric, fără date de contact verificabile</li><li data-en="Limited payment methods: transfer, crypto or cash only">Metode de plată limitate: doar transfer, crypto sau ramburs</li></ul></div></div>
+  <div class="atlas-lock-overlay" data-lock-tier="professional">
+    <div class="alo-icon">&#128274;</div>
+    <div class="alo-plan" data-en="Professional — 250 RON (one-time)">Professional — 250 RON (plată unică)</div>
+    <div class="alo-text" data-en="Available in Professional plan">Disponibil din planul Professional</div>
+    <a href="personal.html" class="alo-btn" data-en="Upgrade &rarr;">Upgrade &rarr;</a>
+  </div>
+</article>
+</main>
+
+<section class="cdx-cta" id="cdx-gate" style="--cat-color:#E74C3C">
+  <h2 data-en="Unlock all 16 typologies in this category">Deblochează toate cele 16 tipologii din această categorie</h2>
+  <p data-en="Full access to the complete Codex — 300+ documented fraud typologies, cognitive analysis and monthly updates. One-time payment, permanent access.">Acces complet la întregul Codex — 300+ de tipologii documentate, analiză cognitivă și actualizări lunare. Plată unică, acces permanent.</p>
+  <a href="personal.html" class="btn" data-en="See plans →">Vezi planurile →</a>
+</section>
+
+<nav class="cdx-nav2" style="--cat-color:#E74C3C" aria-label="Categorii">
+  <a href="codex-phishing.html"><span class="lbl" data-en="← Previous category">← Categoria anterioară</span><span class="ttl">Phishing & Identity</span></a>
+  <a href="codex.html" style="flex:0 0 auto;display:flex;align-items:center;padding:18px 22px"><span class="ttl" style="font-size:15px" data-en="All">Toate</span></a>
+  <a href="codex-malware.html" class="nx"><span class="lbl" data-en="Next category →">Categoria următoare →</span><span class="ttl">Malware & Remote Access</span></a>
+</nav>
+
+<footer class="sbr-footer">
+  <div style="display:flex;align-items:center"><div class="footer-logo">SBR<span>.</span></div></div>
+  <div class="footer-copy">&copy; 2026 Structura Brevis Rector&trade;</div>
+  <nav class="footer-links">
+    <a href="am-fost-inselat.html" class="footer-link" data-en="Been scammed?">Am fost înșelat</a>
+    <a href="unde-raportezi-frauda.html" class="footer-link" data-en="Report fraud">Raportează frauda</a>
+    <a href="phishing-cum-recunosti.html" class="footer-link">Phishing</a>
+    <a href="codex.html" class="footer-link">Codex</a>
+    <a href="terms.html" class="footer-link">Termeni</a>
+    <a href="privacy.html" class="footer-link">Privacy</a>
+    <a href="gdpr.html" class="footer-link">GDPR</a>
+  </nav>
+</footer>
+
+<script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+<script src="js/nav-auth.js"></script>
+<script src="js/codex-cat.js"></script>
+<script id="sbr-color-fix">
+(function(){function fix(){var r=document.documentElement;r.style.setProperty('--text','#EEEEEE');r.style.setProperty('--t2','#CCCCCC');r.style.setProperty('--t3','#AAAAAA');r.style.setProperty('--t4','#888888');r.style.setProperty('--t5','#555555');}fix();document.addEventListener('DOMContentLoaded',fix);})();
+</script>
+  <script src="js/cookie-consent.js"></script>
+<script src="js/codex-interactive.js" defer></script>
+
+</body>
+</html>

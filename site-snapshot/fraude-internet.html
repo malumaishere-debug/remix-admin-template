@@ -1,0 +1,615 @@
+<!DOCTYPE html>
+<html lang="ro">
+<head>
+<meta charset="UTF-8">
+<!-- Google Analytics 4 (Consent Mode v2) — nu colecteaza pana la consimtamant -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-9WT1GRKEGB"></script>
+<script>
+window.dataLayer=window.dataLayer||[];function gtag(){dataLayer.push(arguments);}
+gtag('js',new Date());
+gtag('consent','default',{'ad_storage':'denied','ad_user_data':'denied','ad_personalization':'denied','analytics_storage':'denied'});
+try{var _c=JSON.parse(localStorage.getItem('sbr_cookie_consent')||'null');if(_c&&_c.type==='all'){gtag('consent','update',{'analytics_storage':'granted'});}}catch(e){}
+gtag('config','G-9WT1GRKEGB',{anonymize_ip:true});
+</script>
+<!-- End GA4 -->
+<script src="js/nav-universal.js?v=13"></script>
+<script src="/js/i18n.js?v=5"></script>
+
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="description" content="Ghid complet despre fraudele pe internet în România: tipuri, mecanisme, statistici, ce faci dacă ai fost fraudat. Verifică-ți profilul de risc gratuit.">
+<meta property="og:title" content="Fraude pe Internet în România | Ghid Complet | SBR Anti-Fraud">
+<meta property="og:description" content="Ghid complet despre fraudele pe internet în România: tipuri, mecanisme, statistici, ce faci dacă ai fost fraudat. Verifică-ți profilul de risc gratuit.">
+<meta property="og:type" content="article">
+<meta property="og:url" content="https://sbr.systems/fraude-internet.html">
+<title>Fraude pe Internet în România | Ghid Complet | SBR Anti-Fraud</title>
+<link rel="canonical" href="https://sbr.systems/fraude-internet.html">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Playfair+Display:ital,wght@1,400&family=IBM+Plex+Mono:wght@300;400;500&family=Lato:wght@300;400;700&display=swap" rel="stylesheet" media="print" onload="this.media='all'">
+  <noscript><link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Playfair+Display:ital,wght@1,400&family=IBM+Plex+Mono:wght@300;400;500&family=Lato:wght@300;400;700&display=swap" rel="stylesheet"></noscript>
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "Article",
+    "headline": "Fraude pe internet în România — ghid complet 2026",
+    "description": "Ghid complet despre fraudele pe internet în România: tipuri, mecanisme, statistici, ce faci dacă ai fost fraudat. Verifică-ți profilul de risc gratuit.",
+    "keywords": "fraude internet Romania, fraude online Romania, am fost fraudat, frauda digitala, escrocherie online Romania",
+    "author": {"@type": "Organization", "name": "SBR Anti-Fraud Intelligence Systems"},
+    "publisher": {"@type": "Organization", "name": "SBR", "url": "https://sbr.systems"},
+    "datePublished": "2026-01-01",
+    "dateModified": "2026-04-11",
+    "url": "https://sbr.systems/fraude-internet.html",
+    "inLanguage": "ro"
+  }
+  </script>
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "FAQPage",
+    "mainEntity": [{"@type":"Question","name":"Care sunt cele mai frecvente fraude online în România?","acceptedAnswer":{"@type":"Answer","text":"Cele mai frecvente: frauda curier OLX (link fals de plată), vishing bancar (apel de la angajat bancar fals), frauda investiții crypto, chirii false pe platforme imobiliare, CEO fraud în companii, impersonare autorități (ANAF, Politie)."}}, {"@type":"Question","name":"Cum raportez o fraudă online în România?","acceptedAnswer":{"@type":"Answer","text":"Depui plângere la Politie (online pe politiaromana.ro sau la secție), sesizezi ANPC pentru fraude comerciale, ASF pentru fraude investiționale, DIICOT pentru fraude organizate. Raportezi și pe platforma unde s-a produs frauda."}}, {"@type":"Question","name":"Am fost fraudat online. Ce fac primul lucru?","acceptedAnswer":{"@type":"Answer","text":"Suni imediat banca pentru blocarea tranzacției și a cardului. Ceri un număr de dosar. Documentezi tot: screenshot-uri, conversații, numere de telefon. Primele ore sunt critice pentru posibilitatea de recuperare."}}, {"@type":"Question","name":"Pot recupera banii pierduți într-o fraudă?","acceptedAnswer":{"@type":"Answer","text":"Depinde de viteza de reacție și tipul de fraudă. Transferurile bancare pot fi blocate dacă contactezi banca rapid (sub 24-48h). Chargeback-ul pe card are termen de 60 zile. Crypto este practic irecuperabil. Depunerea plângerii la Politie ajută procedura de chargeback."}}, {"@type":"Question","name":"Unde raportez un site sau cont de Instagram fraudulos?","acceptedAnswer":{"@type":"Answer","text":"Direct pe platformă (Facebook/Instagram → Raportare), Google Safe Browsing pentru site-uri frauduloase, ANPC pentru magazine online false. Detalii și link-uri directe în secțiunea Raportare Platforme din SBR Post-Fraud."}}]
+  }
+  </script>
+<link rel="stylesheet" href="css/styles.css">
+<style>
+:root{
+  --red:#C0392B;--red-l:#E74C3C;--red-d:#922B21;
+  --red-a20:rgba(192,57,43,.20);--red-a10:rgba(192,57,43,.10);
+  --red-a06:rgba(192,57,43,.06);--red-a03:rgba(192,57,43,.03);
+  --green:#27AE60;--green-a:rgba(39,174,96,.12);
+  --blue:#2980B9;--blue-a:rgba(41,128,185,.12);
+  --amber:#E67E22;--amber-a:rgba(230,126,34,.12);
+  --purple:#8E44AD;--purple-a:rgba(142,68,173,.12);
+  --bg:#080808;--bg-1:#111111;--bg-2:#1A1A1A;--bg-3:#222222;--bg-4:#2A2A2A;
+  --border:rgba(255,255,255,.06);--border-red:rgba(192,57,43,.2);
+  --text:#E2E2E2;--text-2:#AAAAAA;--text-3:#666666;--text-4:#444444;--text-5:#2A2A2A;
+  --f-display:'Bebas Neue',sans-serif;--f-serif:'Playfair Display',serif;
+  --f-mono:'IBM Plex Mono',monospace;--f-body:'Lato',sans-serif;
+  --nav-h:60px;--max-w:1280px;--page-px:clamp(20px,5vw,60px);--page-px-sm:24px;
+  --s1:8px;--s2:16px;--s3:24px;--s4:32px;--s5:40px;--s6:48px;--s7:56px;--s8:64px;--s10:80px;--s12:96px;
+}
+/* Critical body override — works even if styles.css fails to load */
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+html{-webkit-font-smoothing:antialiased;scroll-behavior:smooth}
+body{font-family:'Lato',sans-serif!important;background:#080808!important;color:#E2E2E2!important;overflow-x:hidden}
+a{text-decoration:none;color:inherit}
+::-webkit-scrollbar{width:2px}::-webkit-scrollbar-thumb{background:#C0392B}
+
+.seo-hero{padding:100px var(--page-px) 56px;border-bottom:1px solid var(--border);position:relative;overflow:hidden;background:var(--bg)}
+.seo-hero::before{content:'';position:absolute;inset:0;background:radial-gradient(ellipse 50% 60% at 20% 50%,rgba(192,57,43,.06),transparent 65%);pointer-events:none}
+.seo-eyebrow{font-family:var(--f-mono);font-size:8px;letter-spacing:5px;color:rgba(192,57,43,.6);text-transform:uppercase;display:flex;align-items:center;gap:10px;margin-bottom:14px}
+.seo-eyebrow::before{content:'';display:block;width:6px;height:6px;background:var(--red);border-radius:50%}
+.seo-h1{font-family:var(--f-display);font-size:clamp(48px,7vw,96px);line-height:.88;letter-spacing:1px;color:var(--text);margin-bottom:16px}
+.seo-h1 em{color:var(--red);font-style:normal;display:block}
+.seo-lead{font-family:var(--f-serif);font-style:italic;font-size:clamp(16px,2vw,20px);color:var(--text-3);line-height:1.8;max-width:600px;margin-bottom:28px}
+.seo-cta-wrap{display:flex;align-items:center;flex-wrap:wrap;gap:12px}
+.seo-cta{display:inline-flex;align-items:center;gap:12px;background:var(--red);color:#fff;font-family:var(--f-mono);font-size:10px;letter-spacing:3px;text-transform:uppercase;padding:16px 30px;transition:background .18s}
+.seo-cta:hover{background:var(--red-l)}
+.seo-micro{font-family:var(--f-mono);font-size:9px;letter-spacing:2px;color:var(--text-4);text-transform:uppercase}
+.seo-s{padding:clamp(52px,7vh,80px) var(--page-px);border-bottom:1px solid var(--border)}
+.seo-s:nth-child(even){background:var(--bg-1)}
+.seo-si{max-width:860px;margin:0 auto}
+.seo-h2{font-family:var(--f-display);font-size:clamp(28px,4vw,48px);letter-spacing:1px;color:var(--text);margin-bottom:16px;line-height:.95}
+.seo-body{font-size:clamp(14px,1.7vw,16px);color:var(--text-3);line-height:1.85}
+.seo-body strong{color:var(--text-2)}
+.seo-body ul{margin:14px 0 14px 20px;display:flex;flex-direction:column;gap:6px}
+.seo-body li{line-height:1.65}
+.seo-body p{margin-bottom:14px}
+.seo-body p:last-child{margin-bottom:0}
+.seo-warn{background:rgba(192,57,43,.05);border-left:2px solid var(--red);padding:14px 18px;margin:16px 0;font-size:13px;color:var(--text-3);line-height:1.7}
+.seo-warn strong{color:var(--text-2)}
+.faq-section{padding:clamp(52px,7vh,80px) var(--page-px);background:var(--bg-1);border-bottom:1px solid var(--border)}
+.faq-inner{max-width:860px;margin:0 auto}
+.faq-title{font-family:var(--f-display);font-size:clamp(28px,4vw,44px);letter-spacing:1px;color:var(--text);margin-bottom:clamp(24px,4vh,36px)}
+.faq-item{border-bottom:1px solid var(--border);padding:clamp(16px,2.5vh,22px) 0}
+.faq-item:first-child{border-top:1px solid var(--border)}
+.faq-q{font-family:var(--f-display);font-size:clamp(16px,2.2vw,22px);letter-spacing:.5px;color:var(--text);margin-bottom:8px;line-height:1.1}
+.faq-a{font-size:13px;color:var(--text-3);line-height:1.75}
+.seo-cta-band{padding:clamp(60px,8vh,100px) var(--page-px);text-align:center;background:var(--bg)}
+.seo-cta-band h2{font-family:var(--f-display);font-size:clamp(36px,5.5vw,72px);line-height:.9;color:var(--text);margin-bottom:12px;letter-spacing:1px}
+.seo-cta-band h2 em{color:var(--red);font-style:normal}
+.seo-cta-band p{font-family:var(--f-serif);font-style:italic;font-size:clamp(14px,1.8vw,17px);color:var(--text-3);margin-bottom:28px;max-width:480px;margin-left:auto;margin-right:auto;line-height:1.75}
+@media(max-width:600px){.seo-hero{padding:90px 20px 40px}.seo-s,.faq-section,.seo-cta-band{padding:40px 20px}}
+
+/* ═══ SBR UNIVERSAL NAV + LANG + FOOTER ═══ */
+.sbr-nav{position:fixed;top:0;left:0;right:0;z-index:1000;height:58px;display:flex;align-items:center;justify-content:space-between;padding:0 clamp(20px,5vw,72px);background:rgba(8,8,8,.96);backdrop-filter:blur(16px);-webkit-backdrop-filter:blur(16px);border-bottom:1px solid rgba(255,255,255,.06)}
+.nav-logo{font-family:'Bebas Neue',sans-serif;font-size:22px;letter-spacing:5px;color:#e2e2e2;cursor:pointer;display:flex;align-items:center;gap:4px;text-decoration:none}
+.nav-logo .dot{color:#C0392B}
+.nav-logo-sub{font-family:'IBM Plex Mono',monospace;font-size:7px;letter-spacing:2px;color:#444;text-transform:uppercase;margin-left:6px;margin-top:2px}
+.nav-links{display:flex;align-items:center;gap:22px}
+.nav-link{font-family:'IBM Plex Mono',monospace;font-size:9px;letter-spacing:2px;color:#555;text-transform:uppercase;text-decoration:none;transition:color .15s}
+.nav-link:hover,.nav-link.active{color:#aaa}
+.nav-right{display:flex;align-items:center;gap:8px}
+.btn-nav-ghost{font-family:'IBM Plex Mono',monospace;font-size:9px;letter-spacing:2px;text-transform:uppercase;background:transparent;border:1px solid rgba(255,255,255,.08);color:#555;padding:8px 15px;cursor:pointer;text-decoration:none;transition:all .18s}
+.btn-nav-ghost:hover{border-color:rgba(192,57,43,.4);color:#aaa}
+.btn-nav-solid{font-family:'IBM Plex Mono',monospace;font-size:9px;letter-spacing:2px;text-transform:uppercase;background:#C0392B;color:#fff;border:none;padding:9px 18px;cursor:pointer;text-decoration:none;transition:background .18s;display:inline-flex;align-items:center}
+.btn-nav-solid:hover{background:#E74C3C}
+#sbr-lang-sw{position:relative;margin-left:4px;flex-shrink:0}
+.sbr-lang-btn{display:flex;align-items:center;gap:5px;cursor:pointer;padding:7px 10px;border:1px solid rgba(255,255,255,.07);background:transparent;font-family:'IBM Plex Mono',monospace;font-size:9px;letter-spacing:2px;color:#555;user-select:none;transition:all .18s}
+.sbr-lang-btn:hover{border-color:rgba(192,57,43,.3);color:#aaa}
+.sbr-lang-flag{font-size:13px;line-height:1}
+.sbr-lang-code{text-transform:uppercase}
+.sbr-lang-arrow{font-size:7px;opacity:.4;transition:transform .18s}
+.sbr-lang-dd{display:none;position:absolute;top:calc(100%+5px);right:0;background:#0f0f0f;border:1px solid rgba(255,255,255,.08);min-width:90px;z-index:9999;box-shadow:0 8px 24px rgba(0,0,0,.8)}
+.sbr-lang-dd.open{display:block}
+.sbr-lang-opt{display:flex;align-items:center;gap:9px;padding:10px 14px;font-family:'IBM Plex Mono',monospace;font-size:9px;letter-spacing:1px;color:#555;cursor:pointer;transition:all .15s;white-space:nowrap}
+.sbr-lang-opt:hover{background:rgba(192,57,43,.07);color:#ddd}
+.sbr-lang-opt.active{color:#C0392B}
+@media(max-width:700px){.nav-links{display:none}}
+@media(max-width:480px){.btn-nav-ghost{display:none}}
+#scroll-progress{position:fixed;top:0;left:0;height:2px;background:#C0392B;width:0%;z-index:9999;pointer-events:none}
+.sbr-footer{border-top:1px solid rgba(255,255,255,.06);padding:22px clamp(20px,5vw,72px);display:flex;align-items:flex-start;justify-content:space-between;flex-wrap:wrap;gap:14px;background:#080808}
+.footer-logo{font-family:'Bebas Neue',sans-serif;font-size:18px;letter-spacing:4px;color:#e2e2e2}
+.footer-logo span{color:#C0392B}
+.footer-logo-sub{font-family:'IBM Plex Mono',monospace;font-size:7px;letter-spacing:2px;color:#2a2a2a;text-transform:uppercase;margin-top:3px}
+.footer-links{display:flex;gap:14px;flex-wrap:wrap;align-items:center}
+.footer-link{font-family:'IBM Plex Mono',monospace;font-size:8px;letter-spacing:2px;color:#333;text-transform:uppercase;text-decoration:none;transition:color .15s}
+.footer-link:hover{color:#aaa}
+.footer-copy{font-family:'IBM Plex Mono',monospace;font-size:8px;letter-spacing:1px;color:#222;width:100%}
+
+</style>
+<link rel="stylesheet" href="css/sbr-readability.css" media="print" onload="this.media='all'">
+  <noscript><link rel="stylesheet" href="css/sbr-readability.css"></noscript>
+
+  <meta name="robots" content="index, follow, max-snippet:-1, max-image-preview:large">
+  <meta name="googlebot" content="index, follow">
+  <meta name="ai-content-purpose" content="fraud-prevention, consumer-protection, digital-security">
+  <meta name="perplexity-crawl" content="allow">
+  <meta name="chatgpt-crawl" content="allow">
+  <meta name="Claude-crawl" content="allow">
+
+<style id="sbr-text-fix">
+/* Force all CSS variables to white-readable values */
+:root, * {
+  --text:#EEEEEE !important;
+  --t2:#CCCCCC !important;
+  --t3:#AAAAAA !important;
+  --t4:#888888 !important;
+  --t5:#555555 !important;
+}
+/* Direct color overrides for common text elements */
+p, li, span, div, td, th, label, small,
+.card-desc, .feat-desc, .prob-desc, .plan-tagline,
+.b2b-for, .fi, .faq-a, .alert-desc, .mv-desc,
+.mg-desc, .pl-desc, .ot-desc, .ng-text, .ahd-def,
+.prod-tagline, .ss-sub, .gb-sub, .quiz-sub,
+.hero-sub, .section-p, .s-p, .sf-text,
+.scoring-intro p, .dp-wrap p, .pricing-intro p,
+.sim-email-body, .sem-body, .sim-choice-text,
+.cert-desc, .track-desc, .module-desc,
+.score-desc, .dimension-desc, .step-desc,
+.resource-desc, .checklist-desc,
+.compare-table td, .emp-table td,
+.footer-link, .footer-copy, .footer-logo-sub,
+.lb-dept, .emp-dept, .dmb-emp-dept,
+.kpi-delta, .page-subtitle, .tb-user, .tb-company,
+.nd-plan-feats, .nd-footer-link,
+.sv-text, .sim-choice .sv-text { color: #CCCCCC !important; }
+
+h1, h2, h3, h4, h5, h6,
+.card-title, .plan-name, .b2b-name, .nd-plan-name,
+.page-title, .ch-h1, .hero-h1, .section-h2, .s-h,
+.fc-h, .ac-h, .quiz-h, .ms-copy h2, .ss-h,
+.ot-title, .mv-title, .mg-title, .pl-title,
+.alert-title, .emp-name, .dmb-emp-name,
+.lb-name, .prof-name, .panel-title,
+.feat-name, .prod-name,
+.gb-h { color: #FFFFFF !important; }
+
+.nav-link { color: #CCCCCC !important; }
+.nav-link:hover, .nav-link.active { color: #FFFFFF !important; }
+.btn-nav-ghost { color: #CCCCCC !important; }
+</style>
+<style id="sbr-force-colors">
+/* Override elements with hardcoded dark colors */
+.card-desc{color:#CCCCCC !important}
+.plan-tagline,.b2b-for,.fi{color:#CCCCCC !important}
+.faq-a,.faq-answer{color:#CCCCCC !important}
+.alert-desc,.sim-email-body,.sem-body{color:#CCCCCC !important}
+.mv-desc,.mg-desc,.pl-desc,.ot-desc,.ng-text,.ahd-def{color:#CCCCCC !important}
+.prod-tagline,.ss-sub,.gb-sub,.quiz-sub{color:#CCCCCC !important}
+.hero-sub,.s-p,.section-p,.fc-sub,.ac-sub{color:#CCCCCC !important}
+.prob-desc,.prob-a{color:#CCCCCC !important}
+.feat-desc,.nd-plan-feats{color:#CCCCCC !important}
+.scoring-intro p,.dp-wrap p,.pricing-intro p{color:#CCCCCC !important}
+p,li,td:not([class*="risk"]):not([class*="rc"]):not([class*="rh"]){color:#CCCCCC !important}
+h1,h2,h3,h4,h5,h6,.card-title,.plan-name,.b2b-name,.page-title{color:#FFFFFF !important}
+.nav-link{color:#CCCCCC !important}
+.nav-link:hover,.nav-link.active{color:#FFFFFF !important}
+.btn-nav-ghost{color:#CCCCCC !important}
+.compare-table td{color:#CCCCCC !important}
+.compare-table td.feature-name,.compare-table .feat-name{color:#DDDDDD !important}
+.emp-name,.lb-name,.dmb-emp-name{color:#EEEEEE !important}
+.emp-dept,.lb-dept,.dmb-emp-dept{color:#AAAAAA !important}
+.alert-title,.panel-title{color:#FFFFFF !important}
+</style>
+<script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+<style id="sbr-footer-final">
+.sbr-footer{
+  background:#060606 !important;border-top:1px solid rgba(255,255,255,.04) !important;
+  padding:16px clamp(16px,4vw,48px) !important;display:flex !important;
+  align-items:center !important;justify-content:space-between !important;
+  gap:14px !important;flex-wrap:wrap !important;
+}
+.footer-logo{font-family:'Bebas Neue',sans-serif;font-size:16px !important;letter-spacing:4px !important;color:#fff !important}
+.footer-logo span{color:#C0392B !important}
+.footer-links{display:flex !important;align-items:center !important;gap:20px !important}
+.footer-link{font-family:'IBM Plex Mono',monospace !important;font-size:8px !important;letter-spacing:1px !important;color:#3a3a3a !important;text-transform:uppercase !important;text-decoration:none !important;transition:color .15s !important;white-space:nowrap !important}
+.footer-link:hover{color:#888 !important}
+.footer-copy{font-family:'IBM Plex Mono',monospace !important;font-size:7px !important;color:#222 !important;white-space:nowrap !important}
+@media(max-width:560px){
+  .sbr-footer{flex-direction:column !important;align-items:flex-start !important;gap:8px !important;padding:12px 16px !important}
+  .footer-links{gap:12px !important}
+  .footer-copy{font-size:6px !important}
+}
+</style>
+<style id="sbr-social-icons">
+/* Hide old text-based social bar */
+#sbr-social-bar, .sbr-social-bar { display: none !important; }
+/* Floating icon-only social pill */
+#sbr-sw {
+  position: fixed; right: 14px; top: 50%; transform: translateY(-50%);
+  z-index: 800; display: flex; flex-direction: column; gap: 6px;
+}
+.sbr-sw-a {
+  display: flex; align-items: center; justify-content: center;
+  width: 36px; height: 36px; border-radius: 50%;
+  background: rgba(255,255,255,.04); border: 1px solid rgba(255,255,255,.08);
+  text-decoration: none; cursor: pointer;
+  transition: background .2s, border-color .2s, transform .2s;
+  backdrop-filter: blur(10px); -webkit-backdrop-filter: blur(10px);
+  font-size: 14px; line-height: 1;
+}
+.sbr-sw-a:hover {
+  background: rgba(192,57,43,.15); border-color: rgba(192,57,43,.3);
+  transform: scale(1.12);
+}
+/* Mobile — bottom strip icon only */
+@media(max-width: 680px) {
+  #sbr-sw {
+    position: fixed; bottom: 0; left: 0; right: 0; top: auto; transform: none;
+    flex-direction: row; gap: 0; border-radius: 0;
+    background: rgba(6,6,6,.97); border-top: 1px solid rgba(255,255,255,.05);
+    backdrop-filter: blur(20px); -webkit-backdrop-filter: blur(20px);
+    padding-bottom: env(safe-area-inset-bottom, 0); height: 50px;
+  }
+  .sbr-sw-a {
+    flex: 1; width: auto; height: 50px; border-radius: 0; border: none;
+    border-right: 1px solid rgba(255,255,255,.04); background: transparent;
+    font-size: 16px;
+  }
+  .sbr-sw-a:last-child { border-right: none; }
+  .sbr-sw-a:hover { transform: none; background: rgba(192,57,43,.07); }
+  body { padding-bottom: 50px !important; }
+}
+/* Kill any text labels */
+.sbr-sw-l { display: none !important; }
+</style>
+<style id="sbr-fc">
+/* Force all common text elements to white-ish */
+p,li,td,th,label,small,figcaption,dd,dt,
+.card-desc,.plan-tagline,.b2b-for,.fi,.faq-a,.faq-answer,
+.alert-desc,.mv-desc,.mg-desc,.pl-desc,.ot-desc,.ng-text,
+.prod-tagline,.ss-sub,.gb-sub,.quiz-sub,.hero-sub,
+.s-p,.section-p,.fc-sub,.ac-sub,.feat-desc,
+.sim-email-body,.sem-body,.sf-text,
+.nd-plan-feats,.prob-desc,.prob-a,
+.pf-lead,.pf-desc,.pf-text,
+.score-desc,.dimension-desc,
+.cert-desc,.track-desc,.module-desc,
+.checklist-desc,.step-desc,.resource-desc,
+[class*="-desc"],[class*="-sub"],[class*="-text"],[class*="-body"],
+[class*="-copy"],[class*="-content"],[class*="-lead"]{
+  color:#CCCCCC!important;
+}
+h1,h2,h3,h4,h5,h6,
+.card-title,.plan-name,.b2b-name,.page-title,
+.section-h2,.s-h,.ch-h1,.hero-h1,.fc-h,.ac-h,.quiz-h,
+.ot-title,.mv-title,.mg-title,.pl-title,.alert-title,
+.panel-title,.emp-name,.lb-name,.feat-name,.prod-name,
+[class*="-title"]:not(.lock-title):not(.sn-dd-section):not(.sm-label){
+  color:#FFFFFF!important;
+}
+.nav-link,.sn-link,.sn-dd-link{color:#CCCCCC!important;}
+.nav-link:hover,.nav-link.active,.sn-link:hover,.sn-dd-link:hover{color:#FFFFFF!important;}
+.footer-link{color:#3a3a3a!important;}
+.footer-link:hover{color:#888!important;}
+.footer-copy{color:#222!important;}
+/* Mobile menu links — RED, not blue/inherit */
+.sm-link{color:#EEEEEE!important;}
+.sm-link:hover{color:#C0392B!important;}
+.sm-link > span:first-child{color:#EEEEEE!important;}
+.sm-link-sub{color:#444!important;}
+.sm-small-link{color:#666!important;}
+.sm-small-link:hover{color:#EEEEEE!important;}
+/* Kill any blue link inheritance in mobile menu */
+#sbr-menu a{color:#EEEEEE!important;}
+#sbr-menu a:hover{color:#C0392B!important;}
+/* Desktop nav links */
+.sn-link{color:#AAAAAA!important;}
+.sn-link:hover{color:#EEEEEE!important;}
+.sn-dd-link{color:#888!important;}
+.sn-dd-link:hover{color:#EEEEEE!important;background:rgba(192,57,43,.06)!important;}
+/* sbrN nav elements — white, never blue */
+#sbrN a,#sbrN button,.sbrN-btn{color:#aaa!important;text-decoration:none!important}
+#sbrN a:hover,#sbrN button:hover,.sbrN-btn:hover{color:#eee!important}
+.sbrN-cta,.sbrN-cta:hover{color:#fff!important}
+.dd-link{color:inherit!important;text-decoration:none!important}
+.dd-link-title{color:#eee!important}
+.dd-link-sub{color:#555!important}
+.mob-link{color:#eee!important;text-decoration:none!important}
+.mob-link:hover{color:#C0392B!important}
+.mob-small-link{color:#555!important;text-decoration:none!important}
+.snl-btn,.snl-btn *{color:#aaa!important}
+
+</style>
+<style id="sbr-font-nuclear">
+/* ═══ NUCLEAR WHITE TEXT OVERRIDE ═══════════════════════════════
+   Targets every element that could have dark gray text.
+   Does NOT touch: buttons, badges, risk labels, nav CTAs
+═══════════════════════════════════════════════════════════════ */
+
+/* Base: all body text → white-ish */
+body, body *:not(button):not(.sn-cta):not(.cta-primary):not(.btn-nav-solid)
+  :not(.card-risk):not(.rb-c):not(.rb-h):not(.rb-m):not(.rb-l)
+  :not(.chk):not(.cross):not(.lock-plan):not(.gb-plan-badge)
+  :not([class*="badge"]) {
+  -webkit-font-smoothing: antialiased !important;
+}
+
+/* Paragraph text, list items, descriptions */
+p { color: #DDDDDD !important; font-size: max(14px, 1em) !important; line-height: 1.85 !important; }
+li { color: #DDDDDD !important; font-size: max(13px, 0.9em) !important; line-height: 1.75 !important; }
+span:not([class*="risk"]):not([class*="badge"]):not(.dot):not(.sn-sbr):not(.sn-af):not(.sn-dot) { color: inherit !important; }
+td, th { color: #CCCCCC !important; }
+label { color: #CCCCCC !important; }
+small { color: #AAAAAA !important; }
+
+/* Specific content classes - all the variants we've seen */
+.card-desc, .plan-tagline, .b2b-for, .b2b-feat,
+.fi, .fi.yes, .feat-desc, .nd-plan-feats,
+.faq-a, .faq-answer, .faq-body,
+.alert-desc, .dmb-alert-text,
+.mv-desc, .mg-desc, .pl-desc, .ot-desc, .ng-text,
+.prob-desc, .prob-a, .prob-q,
+.ahd-def, .dc-desc, .dim-desc,
+.prod-tagline, .hero-sub, .s-p, .section-p,
+.fc-sub, .ac-sub, .quiz-sub, .ah-tagline,
+.gb-sub, .pq-text, .ss-sub, .scoring-intro p,
+.sim-email-body, .sem-body, .sf-text,
+.feat-desc, .step-desc, .checklist-desc, .resource-desc,
+.cert-desc, .track-desc, .module-desc,
+.pf-lead, .pf-desc, .pf-text, .pf-body,
+.score-desc, .dimension-desc,
+.dp-wrap p, .pricing-intro p,
+.rec-desc, .sg-sub, .sh-sub,
+.about-text, .team-bio, .mission-text,
+.sbi-fill + *, [class*="-desc"],
+[class*="-sub"]:not([class*="hero-sub"]),
+[class*="-body"]:not(#sbr-menu):not(#sbr-nav):not(.card-body) { color: #CCCCCC !important; }
+
+/* Headings - full white */
+h1, h2, h3, h4, h5, h6 { color: #FFFFFF !important; }
+.card-title, .plan-name, .b2b-name, .nd-plan-name,
+.page-title, .section-h2, .s-h, .ch-h1, .hero-h1,
+.fc-h, .ac-h, .quiz-h, .ss-h, .sh-h1,
+.ot-title, .mv-title, .mg-title, .pl-title,
+.alert-title, .panel-title, .emp-name, .lb-name,
+.feat-name, .prod-name, .gb-h,
+.dc-name, .rec-title, .fe-title, .sg-h,
+.sm-link > span:first-child { color: #FFFFFF !important; }
+
+/* Nav */
+.sn-link { color: #BBBBBB !important; }
+.sn-link:hover { color: #FFFFFF !important; }
+.sn-dd-link { color: #AAAAAA !important; }
+.sn-dd-link:hover { color: #EEEEEE !important; }
+.sn-af { color: #DDDDDD !important; }
+
+/* Footer */
+.footer-link { color: #444 !important; }
+.footer-link:hover { color: #999 !important; }
+.footer-copy { color: #2a2a2a !important; }
+.footer-logo { color: #FFFFFF !important; }
+
+/* Secondary labels */
+.card-cat, .prod-code, .cs-code, .kpi-label, .hs-l, .hstat-l,
+.section-eyebrow, .s-eyebrow, .ah-eyebrow, .hero-eyebrow,
+.cf-label, .sm-link-sub, .sm-small-link,
+.sm-label, .nd-plan-price, .b2b-period, .plan-period,
+.dc-sub, .sbi-name, .dc-indicators .dc-indicator,
+.sh-pill-word, .stl-name, .fe-desc, .cc-label { color: #AAAAAA !important; }
+
+/* Dashboard */
+.emp-name, .lb-name, .dmb-emp-name { color: #EEEEEE !important; }
+.emp-dept, .lb-dept, .dmb-emp-dept, .cs-name { color: #BBBBBB !important; }
+
+/* Monospace elements */
+.card-id, .sim-from, .sem-row-val, .sim-cat-label { color: #BBBBBB !important; }
+
+/* Tag entry / pattern */
+.tag-entry { color: #CCCCCC !important; font-size: 9px !important; }
+
+/* Sidebar count */
+.cs-count { color: #777 !important; }
+
+/* Compare table */
+.compare-table td { color: #CCCCCC !important; }
+.compare-table .feat-name { color: #EEEEEE !important; font-weight: 700 !important; }
+
+/* Input fields */
+input:not([type="submit"]):not([type="button"]):not([type="reset"]),
+textarea, select { color: #EEEEEE !important; }
+input::placeholder, textarea::placeholder { color: #555 !important; }
+</style>
+
+<style id="sbr-red-override">
+/* Replace all blue nav/UI accents with red */
+.nd-plan-badge.blue{background:rgba(192,57,43,.1)!important;color:var(--red)!important}
+.nd-plan-tier.blue{color:var(--red)!important}
+.sh-plan-badge:nth-child(1){color:var(--red)!important}
+.sh-plan-badge:nth-child(1) .spb-dot{background:var(--red)!important}
+.pb-name.professional,.pb-name.premium{background:rgba(192,57,43,.1)!important;color:var(--red)!important}
+.fe-badge.pro{background:rgba(192,57,43,.1)!important;color:var(--red)!important}
+/* Hero stats 4th — red instead of blue */
+.hstat:nth-child(4)::after{background:var(--red)!important}
+.hstat:nth-child(4) .hstat-n{color:var(--red)!important}
+/* Score page blue → red */
+.dim-card.breach{border-top-color:var(--red)!important}
+.dim-card.breach .dc-letter{color:var(--red)!important}
+.sbi-fill.breach{background:var(--red)!important}
+/* Gate walls */
+.gate-banner.professional{border-color:rgba(192,57,43,.2)!important;background:rgba(192,57,43,.03)!important}
+.gate-banner.professional .gb-eyebrow{color:rgba(192,57,43,.5)!important}
+.gate-banner.professional .gb-n{color:var(--red)!important}
+.gate-banner.professional .gb-btn-main{background:var(--red)!important;color:#fff!important}
+/* B2B plan prices */
+.b2b-plan:nth-child(1) .b2b-amount{color:var(--red)!important}
+.b2b-plan:nth-child(1) .b2b-tier{color:var(--red)!important}
+.b2b-plan:nth-child(1) .b2b-cta{background:rgba(192,57,43,.12)!important;color:var(--red)!important;border:1px solid rgba(192,57,43,.25)!important}
+.b2b-plan:nth-child(1) .b2b-cta:hover{background:var(--red)!important;color:#fff!important}
+/* Signal/score accents */
+.sg-plan:nth-child(2){border-top-color:var(--red)!important}
+.sg-plan:nth-child(2) .sg-plan-name{color:var(--red)!important}
+/* Active nav link highlight */
+.sn-link.active,.sn-link:focus{color:var(--red)!important}
+/* Codex plan banner */
+.pb-name.professional{background:rgba(192,57,43,.08)!important;color:var(--red)!important}
+/* Mobile menu section label */
+.sm-label{color:rgba(192,57,43,.5)!important}
+/* Signals strip */
+.ss-btn{background:var(--red)!important;color:#fff!important}
+.ss-btn:hover{background:var(--red-l)!important}
+.ss-input:focus{border-color:rgba(192,57,43,.4)!important}
+</style>
+
+<meta property="og:image" content="https://sbr.systems/og-sbr.jpg">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta name="twitter:image" content="https://sbr.systems/og-sbr.jpg"></head>
+<body>
+<div id="scroll-progress"></div>
+</div>
+</div>
+
+
+<section class="seo-hero">
+  <div style="max-width:860px;margin:0 auto;position:relative;z-index:1">
+    <div class="seo-eyebrow">SBR Anti-Fraud Intelligence</div>
+    <h1 class="seo-h1">Fraude pe internet<em>în România.</em></h1>
+    <p class="seo-lead">România se numără printre țările europene cu cea mai rapidă creștere a fraudelor digitale. Înțelege cum funcționează ecosistemul de fraudă — înainte să devii parte din el.</p>
+    <div class="seo-cta-wrap">
+      <a href="quiz.html" class="seo-cta">
+        Obține diagnosticul tău de risc
+        <svg width="14" height="14" viewBox="0 0 16 16" fill="none"><path d="M3 8h10M9 4l4 4-4 4" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
+      </a>
+      <span class="seo-micro">60 secunde &middot; gratuit</span>
+    </div>
+  </div>
+</section>
+
+
+  <section class="seo-s">
+    <div class="seo-si">
+      <h2 class="seo-h2">Starea fraudelor digitale în România</h2>
+      <div class="seo-body"><p>Fraudele digitale în România au crescut cu peste 40% în ultimii 3 ani, conform datelor CERT-RO și IGPR. Cele mai afectate grupuri: persoane 25-45 ani activi pe platforme de marketplace (OLX, Facebook), pensionari vizați de scheme telefonice, și angajați din companii mici și mijlocii (CEO fraud, BEC).</p><p>Suma medie pierdută per incident: între 500 RON (fraude curier) și 50.000 EUR (fraude investiționale / pig butchering).</p></div>
+    </div>
+  </section>
+  <section class="seo-s">
+    <div class="seo-si">
+      <h2 class="seo-h2">Cele mai frecvente fraude online în România 2026</h2>
+      <div class="seo-body"><p>Documentate și analizate de SBR:</p><ul><li><strong>Frauda curier OLX/Facebook</strong> — link fals de plată curier. Cel mai raportat în România.</li><li><strong>Vishing BCR/BRD</strong> — apel de la "banca ta" cu spoofing de număr</li><li><strong>Frauda investiții crypto</strong> — platforme false de trading, pig butchering</li><li><strong>Frauda imobiliară</strong> — chirii false pe Storia/Imobiliare.ro</li><li><strong>CEO Fraud</strong> — email fals de la "directorul firmei" cu transfer urgent</li><li><strong>Frauda autoritate</strong> — impersonare ANAF, Politie, DIICOT</li></ul></div>
+    </div>
+  </section>
+  <section class="seo-s">
+    <div class="seo-si">
+      <h2 class="seo-h2">De ce funcționează fraudele</h2>
+      <div class="seo-body"><p>Nu pentru că victimele sunt naive. Ci pentru că atacatorii exploatează mecanisme cognitive universale:</p><ul><li><strong>Urgența</strong> — presiunea temporală dezactivează gândirea critică</li><li><strong>Autoritatea</strong> — conformitatea față de autoritate este un reflex social</li><li><strong>Familiaritatea</strong> — o marcă cunoscută reduce vigilența</li><li><strong>Emoția</strong> — frica, speranța, grija față de familie — toate scurtează judecata</li></ul><p>SBR evaluează tocmai aceste dimensiuni comportamentale — nu cunoașterea teoretică, ci comportamentul real sub presiune.</p></div>
+    </div>
+  </section>
+  <section class="seo-s">
+    <div class="seo-si">
+      <h2 class="seo-h2">Ce faci dacă ai fost fraudat</h2>
+      <div class="seo-body"><p>Protocolul SBR Post-Fraud — primele 72 de ore:</p><ul><li>Suni imediat banca (dosar de fraudă + chargeback)</li><li>Documentezi totul: screenshot-uri, conversații, numere de telefon</li><li>Depui plângere la Politie (dosar penal necesar)</li><li>Sesizezi ANPC dacă e fraudă comercială</li><li>Sesizezi ASF dacă e fraudă investițională</li></ul><a href="postfraud.html" style="color:var(--red)">&rarr; Vezi protocolul complet cu template-uri de reclamație</a></div>
+    </div>
+  </section>
+
+<section class="faq-section">
+  <div class="faq-inner">
+    <h2 class="faq-title">Întrebări frecvente</h2>
+    <div class="faq-item">
+      <div class="faq-q">Care sunt cele mai frecvente fraude online în România?</div>
+      <div class="faq-a">Cele mai frecvente: frauda curier OLX (link fals de plată), vishing bancar (apel de la angajat bancar fals), frauda investiții crypto, chirii false pe platforme imobiliare, CEO fraud în companii, impersonare autorități (ANAF, Politie).</div>
+    </div>
+    <div class="faq-item">
+      <div class="faq-q">Cum raportez o fraudă online în România?</div>
+      <div class="faq-a">Depui plângere la Politie (online pe politiaromana.ro sau la secție), sesizezi ANPC pentru fraude comerciale, ASF pentru fraude investiționale, DIICOT pentru fraude organizate. Raportezi și pe platforma unde s-a produs frauda.</div>
+    </div>
+    <div class="faq-item">
+      <div class="faq-q">Am fost fraudat online. Ce fac primul lucru?</div>
+      <div class="faq-a">Suni imediat banca pentru blocarea tranzacției și a cardului. Ceri un număr de dosar. Documentezi tot: screenshot-uri, conversații, numere de telefon. Primele ore sunt critice pentru posibilitatea de recuperare.</div>
+    </div>
+    <div class="faq-item">
+      <div class="faq-q">Pot recupera banii pierduți într-o fraudă?</div>
+      <div class="faq-a">Depinde de viteza de reacție și tipul de fraudă. Transferurile bancare pot fi blocate dacă contactezi banca rapid (sub 24-48h). Chargeback-ul pe card are termen de 60 zile. Crypto este practic irecuperabil. Depunerea plângerii la Politie ajută procedura de chargeback.</div>
+    </div>
+    <div class="faq-item">
+      <div class="faq-q">Unde raportez un site sau cont de Instagram fraudulos?</div>
+      <div class="faq-a">Direct pe platformă (Facebook/Instagram &rarr; Raportare), Google Safe Browsing pentru site-uri frauduloase, ANPC pentru magazine online false. Detalii și link-uri directe în secțiunea Raportare Platforme din SBR Post-Fraud.</div>
+    </div>
+  </div>
+</section>
+
+<section class="seo-cta-band">
+  <h2>Află dacă ești<em>expus acum.</em></h2>
+  <p>Diagnosticul SBR îți arată profilul tău de risc real — nu teorie. Bazat pe comportamentul tău, nu pe statistici generale.</p>
+  <a href="quiz.html" class="seo-cta" style="display:inline-flex">
+    Obține diagnosticul tău de risc
+    <svg width="14" height="14" viewBox="0 0 16 16" fill="none"><path d="M3 8h10M9 4l4 4-4 4" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
+  </a>
+</section>
+
+<footer class="sbr-footer">
+  <div style="display:flex;align-items:center"><div class="footer-logo">SBR<span>.</span></div></div>
+  <div class="footer-copy">&copy; 2026 Structura Brevis Rector&trade;</div>
+  <nav class="footer-links">
+    <a href="am-fost-inselat.html" class="footer-link" data-en="Been scammed?">Am fost înșelat</a>
+    <a href="unde-raportezi-frauda.html" class="footer-link" data-en="Report fraud">Raportează frauda</a>
+    <a href="phishing-cum-recunosti.html" class="footer-link">Phishing</a>
+    <a href="codex.html" class="footer-link">Codex</a>
+    <a href="terms.html" class="footer-link">Termeni</a>
+    <a href="privacy.html" class="footer-link">Privacy &amp; Cookies</a>
+    <a href="gdpr.html" class="footer-link">GDPR</a>
+  </nav>
+</footer>
+<script src="js/nav-auth.js"></script>
+<script>window.addEventListener('scroll',function(){var h=document.documentElement.scrollHeight-window.innerHeight;var sp=document.getElementById('scroll-progress');if(sp&&h>0)sp.style.width=Math.round(window.scrollY/h*100)+'%';},{passive:true});</script>
+<script src="js/early-access.js"></script>
+
+<script id="sbr-color-fix">
+(function(){
+  function fix(){
+    var r=document.documentElement;
+    r.style.setProperty('--text','#EEEEEE');
+    r.style.setProperty('--t1','#EEEEEE');
+    r.style.setProperty('--t2','#CCCCCC');
+    r.style.setProperty('--t3','#AAAAAA');
+    r.style.setProperty('--t4','#888888');
+    r.style.setProperty('--t5','#555555');
+    r.style.setProperty('--T2','#CCCCCC');
+    r.style.setProperty('--T3','#AAAAAA');
+  }
+  fix();
+  document.addEventListener('DOMContentLoaded',fix);
+  setTimeout(fix,100);
+})();
+</script>
+<div id="sbr-sw" aria-label="Social Media">
+  <a class="sbr-sw-a" href="https://instagram.com/sbr_antifraud" target="_blank" rel="noopener" title="Instagram @sbr_antifraud">&#128248;</a>
+  <a class="sbr-sw-a" href="https://tiktok.com/@structurabrevisrector" target="_blank" rel="noopener" title="TikTok @structurabrevisrector">&#127925;</a>
+  <a class="sbr-sw-a" href="https://t.me/sbrorator" target="_blank" rel="noopener" title="Telegram t.me/sbrorator">&#9992;&#65039;</a>
+  <a class="sbr-sw-a" href="https://pin.it/7yO6KnjsW" target="_blank" rel="noopener" title="Pinterest">&#128204;</a>
+</div>
+<script src="js/cookie-consent.js"></script>
+
+</body>
+</html>

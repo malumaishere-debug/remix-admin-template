@@ -1,0 +1,899 @@
+<!DOCTYPE html>
+<html lang="ro">
+<head>
+<meta charset="UTF-8">
+<!-- Google Analytics 4 (Consent Mode v2) — nu colecteaza pana la consimtamant -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-9WT1GRKEGB"></script>
+<script>
+window.dataLayer=window.dataLayer||[];function gtag(){dataLayer.push(arguments);}
+gtag('js',new Date());
+gtag('consent','default',{'ad_storage':'denied','ad_user_data':'denied','ad_personalization':'denied','analytics_storage':'denied'});
+try{var _c=JSON.parse(localStorage.getItem('sbr_cookie_consent')||'null');if(_c&&_c.type==='all'){gtag('consent','update',{'analytics_storage':'granted'});}}catch(e){}
+gtag('config','G-9WT1GRKEGB',{anonymize_ip:true});
+</script>
+<!-- End GA4 -->
+<script src="js/nav-universal.js?v=13"></script>
+<script src="/js/i18n.js?v=5"></script>
+
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="description" content="SBR Systems — Produse individuale descarcabile. AFIS, CODEX si Post-Fraud Framework ca fisiere PDF offline.">
+<title>SBR Systems — Produse Individuale</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Playfair+Display:ital,wght@1,400&family=IBM+Plex+Mono:wght@300;400;500&family=Lato:wght@300;400;700&display=swap" rel="stylesheet" media="print" onload="this.media='all'">
+  <noscript><link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Playfair+Display:ital,wght@1,400&family=IBM+Plex+Mono:wght@300;400;500&family=Lato:wght@300;400;700&display=swap" rel="stylesheet"></noscript>
+<link rel="stylesheet" href="css/styles.css">
+<style>
+:root{
+  --red:#C0392B;--red-l:#E74C3C;--red-d:#922B21;
+  --red-a20:rgba(192,57,43,.20);--red-a10:rgba(192,57,43,.10);
+  --red-a06:rgba(192,57,43,.06);--red-a03:rgba(192,57,43,.03);
+  --green:#27AE60;--green-a:rgba(39,174,96,.12);
+  --blue:#2980B9;--blue-a:rgba(41,128,185,.12);
+  --amber:#E67E22;--amber-a:rgba(230,126,34,.12);
+  --purple:#8E44AD;--purple-a:rgba(142,68,173,.12);
+  --bg:#080808;--bg-1:#111111;--bg-2:#1A1A1A;--bg-3:#222222;--bg-4:#2A2A2A;
+  --border:rgba(255,255,255,.06);--border-red:rgba(192,57,43,.2);
+  --text:#E2E2E2;--text-2:#AAAAAA;--text-3:#666666;--text-4:#444444;--text-5:#2A2A2A;
+  --f-display:'Bebas Neue',sans-serif;--f-serif:'Playfair Display',serif;
+  --f-mono:'IBM Plex Mono',monospace;--f-body:'Lato',sans-serif;
+  --nav-h:60px;--max-w:1280px;--page-px:clamp(20px,5vw,60px);--page-px-sm:24px;
+  --s1:8px;--s2:16px;--s3:24px;--s4:32px;--s5:40px;--s6:48px;--s7:56px;--s8:64px;--s10:80px;--s12:96px;
+}
+/* Critical body override — works even if styles.css fails to load */
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+html{-webkit-font-smoothing:antialiased;scroll-behavior:smooth}
+body{font-family:'Lato',sans-serif!important;background:#080808!important;color:#E2E2E2!important;overflow-x:hidden}
+a{text-decoration:none;color:inherit}
+::-webkit-scrollbar{width:2px}::-webkit-scrollbar-thumb{background:#C0392B}
+
+/* SYSTEMS PAGE */
+.sys-hero{
+  min-height:52vh;display:flex;flex-direction:column;justify-content:flex-end;
+  padding:120px var(--page-px) 56px;border-bottom:1px solid var(--border);
+  position:relative;overflow:hidden;
+}
+.sys-hero::before{
+  content:'SYSTEMS';position:absolute;right:-20px;bottom:-10px;
+  font-family:var(--f-display);font-size:clamp(100px,15vw,220px);
+  color:rgba(255,255,255,.018);letter-spacing:5px;pointer-events:none;line-height:1;
+}
+.sys-eyebrow{font-family:var(--f-mono);font-size:9px;letter-spacing:5px;color:var(--red);text-transform:uppercase;display:flex;align-items:center;gap:10px;margin-bottom:14px}
+.sys-eyebrow::before{content:'';display:block;width:24px;height:1px;background:var(--red)}
+.sys-title{font-family:var(--f-display);font-size:clamp(48px,7vw,96px);line-height:.88;letter-spacing:2px;color:var(--text);margin-bottom:14px}
+.sys-title em{color:var(--red);font-style:normal;display:block}
+.sys-body{font-family:var(--f-serif);font-style:italic;font-size:17px;color:var(--text-3);line-height:1.8;max-width:580px}
+
+/* POSITIONING STRIP */
+.sys-pos{padding:40px var(--page-px);background:var(--bg-1);border-bottom:1px solid var(--border)}
+.sys-pos-inner{max-width:1100px;margin:0 auto;display:grid;grid-template-columns:1fr 1fr 1fr;gap:1px;background:var(--border)}
+.sys-pos-item{background:var(--bg-1);padding:20px 24px}
+.sys-pos-label{font-family:var(--f-mono);font-size:8px;letter-spacing:3px;color:var(--red);text-transform:uppercase;margin-bottom:6px}
+.sys-pos-text{font-size:13px;color:var(--text-3);line-height:1.7}
+
+/* PRODUCT GRID */
+.sys-grid-wrap{max-width:1100px;margin:0 auto;padding:60px var(--page-px) 80px}
+.sys-section-label{font-family:var(--f-mono);font-size:8px;letter-spacing:4px;color:var(--text-4);text-transform:uppercase;margin-bottom:24px;display:flex;align-items:center;gap:12px}
+.sys-section-label::before{content:'';display:block;width:20px;height:1px;background:rgba(255,255,255,.1)}
+.sys-products{display:flex;flex-direction:column;gap:1px;background:var(--border);border:1px solid var(--border);margin-bottom:40px}
+.sys-product{
+  background:var(--bg);
+  display:grid;grid-template-columns:3fr 1fr;
+  transition:background .18s;
+}
+.sys-product:hover{background:var(--bg-1)}
+.sys-product-left{padding:32px 36px;border-right:1px solid var(--border)}
+.sys-product-right{padding:32px 28px;display:flex;flex-direction:column;justify-content:space-between}
+.sys-prod-cat{font-family:var(--f-mono);font-size:8px;letter-spacing:4px;text-transform:uppercase;margin-bottom:10px}
+.sys-prod-cat.afis{color:#2ECC71}
+.sys-prod-cat.codex{color:#3498DB}
+.sys-prod-cat.pf{color:#E67E22}
+.sys-prod-title{font-family:var(--f-display);font-size:clamp(24px,3vw,36px);letter-spacing:1px;color:var(--text);line-height:1;margin-bottom:10px}
+.sys-prod-body{font-size:13px;color:var(--text-3);line-height:1.75;margin-bottom:14px;max-width:520px}
+.sys-prod-includes{display:flex;flex-wrap:wrap;gap:6px}
+.sys-prod-tag{font-family:var(--f-mono);font-size:8px;letter-spacing:1px;color:var(--text-5);text-transform:uppercase;border:1px solid var(--border);padding:3px 9px}
+.sys-price-type{font-family:var(--f-mono);font-size:8px;letter-spacing:2px;color:var(--text-4);text-transform:uppercase;margin-bottom:6px}
+.sys-price{font-family:var(--f-display);font-size:clamp(32px,4vw,52px);color:var(--text);line-height:1;margin-bottom:4px}
+.sys-price.afis{color:#2ECC71}
+.sys-price.codex{color:#3498DB}
+.sys-price.pf{color:#E67E22}
+.sys-price-note{font-family:var(--f-mono);font-size:8px;letter-spacing:1px;color:var(--text-5);margin-bottom:16px}
+.sys-buy-btn{
+  display:block;width:100%;padding:14px;text-align:center;
+  font-family:var(--f-mono);font-size:9px;letter-spacing:2px;text-transform:uppercase;
+  text-decoration:none;transition:all .18s;cursor:pointer;border:none;
+}
+.sys-buy-btn.afis{background:#2ECC71;color:#080808}
+.sys-buy-btn.afis:hover{background:#27AE60}
+.sys-buy-btn.codex{background:#3498DB;color:#fff}
+.sys-buy-btn.codex:hover{background:#2980B9}
+.sys-buy-btn.pf{background:#E67E22;color:#fff}
+.sys-buy-btn.pf:hover{background:#D35400}
+.sys-buy-coming{
+  display:block;width:100%;padding:14px;text-align:center;
+  font-family:var(--f-mono);font-size:9px;letter-spacing:2px;text-transform:uppercase;
+  background:rgba(255,255,255,.03);color:var(--text-5);border:1px solid var(--border);
+}
+.sys-buy-note{font-family:var(--f-mono);font-size:8px;letter-spacing:1px;color:var(--text-5);text-transform:uppercase;text-align:center;margin-top:8px}
+
+/* PLANS SECTION — COMING SOON */
+.sys-plans-section{border:1px solid var(--border);background:var(--bg-1);padding:40px;position:relative;overflow:hidden}
+.sys-plans-section::before{content:'';position:absolute;inset:0;background:repeating-linear-gradient(45deg,transparent,transparent 10px,rgba(255,255,255,.008) 10px,rgba(255,255,255,.008) 11px);pointer-events:none}
+.sys-plans-overlay{position:relative;z-index:1}
+.sys-plans-badge{display:inline-flex;align-items:center;gap:8px;font-family:var(--f-mono);font-size:8px;letter-spacing:4px;color:rgba(192,57,43,.7);text-transform:uppercase;border:1px solid var(--brd-red);padding:6px 14px;margin-bottom:20px}
+.sys-plans-title{font-family:var(--f-display);font-size:clamp(32px,4vw,56px);line-height:.9;color:var(--text);margin-bottom:12px;letter-spacing:1px}
+.sys-plans-title em{color:var(--red);font-style:normal}
+.sys-plans-body{font-family:var(--f-serif);font-style:italic;font-size:15px;color:var(--text-3);line-height:1.75;max-width:540px;margin-bottom:24px}
+.sys-plans-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:1px;background:var(--border);border:1px solid var(--border);margin-bottom:20px}
+.sys-plan-preview{background:var(--bg);padding:20px;opacity:.5}
+.sys-plan-preview-name{font-family:var(--f-display);font-size:18px;letter-spacing:.5px;color:var(--text);margin-bottom:6px}
+.sys-plan-preview-price{font-family:var(--f-display);font-size:32px;color:var(--red);line-height:1;margin-bottom:4px}
+.sys-plan-preview-note{font-family:var(--f-mono);font-size:8px;letter-spacing:1px;color:var(--text-5)}
+.sys-notify-row{display:flex;gap:8px;max-width:440px}
+.sys-notify-inp{flex:1;background:#0d0d0d;border:1px solid var(--border);border-right:none;color:var(--text);font-family:var(--f-mono);font-size:12px;padding:13px 16px;outline:none;transition:border-color .2s}
+.sys-notify-inp:focus{border-color:var(--brd-red)}
+.sys-notify-btn{background:var(--red);color:#fff;font-family:var(--f-mono);font-size:9px;letter-spacing:2px;text-transform:uppercase;padding:13px 18px;border:none;cursor:pointer;transition:background .18s;flex-shrink:0}
+.sys-notify-btn:hover{background:var(--red-l)}
+.sys-notify-note{font-family:var(--f-mono);font-size:9px;letter-spacing:1px;color:var(--text-5);text-transform:uppercase;margin-top:8px}
+
+/* FREE AFIS banner */
+.sys-free-banner{
+  background:linear-gradient(135deg,rgba(46,204,113,.06),rgba(46,204,113,.02));
+  border:1px solid rgba(46,204,113,.2);border-left:3px solid #2ECC71;
+  padding:20px 24px;margin-bottom:1px;display:flex;align-items:center;justify-content:space-between;gap:16px;
+}
+.sys-free-text{font-family:var(--f-mono);font-size:9px;letter-spacing:2px;color:#2ECC71;text-transform:uppercase;margin-bottom:4px}
+.sys-free-sub{font-size:13px;color:var(--text-3)}
+.sys-free-btn{font-family:var(--f-mono);font-size:9px;letter-spacing:2px;color:#2ECC71;text-transform:uppercase;text-decoration:none;border:1px solid rgba(46,204,113,.3);padding:10px 18px;white-space:nowrap;transition:all .18s;flex-shrink:0}
+.sys-free-btn:hover{background:#2ECC71;color:#080808;border-color:#2ECC71}
+
+@media(max-width:800px){
+  .sys-product{grid-template-columns:1fr}
+  .sys-product-left{border-right:none;border-bottom:1px solid var(--border)}
+  .sys-product-right{padding:20px 24px}
+  .sys-plans-grid{grid-template-columns:1fr}
+  .sys-pos-inner{grid-template-columns:1fr}
+  .sys-notify-row{flex-direction:column}
+  .sys-notify-inp{border-right:1px solid var(--border);border-bottom:none}
+}
+@media(max-width:600px){
+  .sys-hero{padding:100px 20px 40px}
+  .sys-grid-wrap{padding:40px 20px 60px}
+  .sys-pos{padding:30px 20px}
+}
+
+/* ═══ SBR UNIVERSAL NAV + LANG + FOOTER ═══ */
+.sbr-nav{position:fixed;top:0;left:0;right:0;z-index:1000;height:58px;display:flex;align-items:center;justify-content:space-between;padding:0 clamp(20px,5vw,72px);background:rgba(8,8,8,.96);backdrop-filter:blur(16px);-webkit-backdrop-filter:blur(16px);border-bottom:1px solid rgba(255,255,255,.06)}
+.nav-logo{font-family:'Bebas Neue',sans-serif;font-size:22px;letter-spacing:5px;color:#e2e2e2;cursor:pointer;display:flex;align-items:center;gap:4px;text-decoration:none}
+.nav-logo .dot{color:#C0392B}
+.nav-logo-sub{font-family:'IBM Plex Mono',monospace;font-size:7px;letter-spacing:2px;color:#444;text-transform:uppercase;margin-left:6px;margin-top:2px}
+.nav-links{display:flex;align-items:center;gap:22px}
+.nav-link{font-family:'IBM Plex Mono',monospace;font-size:9px;letter-spacing:2px;color:#555;text-transform:uppercase;text-decoration:none;transition:color .15s}
+.nav-link:hover,.nav-link.active{color:#aaa}
+.nav-right{display:flex;align-items:center;gap:8px}
+.btn-nav-ghost{font-family:'IBM Plex Mono',monospace;font-size:9px;letter-spacing:2px;text-transform:uppercase;background:transparent;border:1px solid rgba(255,255,255,.08);color:#555;padding:8px 15px;cursor:pointer;text-decoration:none;transition:all .18s}
+.btn-nav-ghost:hover{border-color:rgba(192,57,43,.4);color:#aaa}
+.btn-nav-solid{font-family:'IBM Plex Mono',monospace;font-size:9px;letter-spacing:2px;text-transform:uppercase;background:#C0392B;color:#fff;border:none;padding:9px 18px;cursor:pointer;text-decoration:none;transition:background .18s;display:inline-flex;align-items:center}
+.btn-nav-solid:hover{background:#E74C3C}
+#sbr-lang-sw{position:relative;margin-left:4px;flex-shrink:0}
+.sbr-lang-btn{display:flex;align-items:center;gap:5px;cursor:pointer;padding:7px 10px;border:1px solid rgba(255,255,255,.07);background:transparent;font-family:'IBM Plex Mono',monospace;font-size:9px;letter-spacing:2px;color:#555;user-select:none;transition:all .18s}
+.sbr-lang-btn:hover{border-color:rgba(192,57,43,.3);color:#aaa}
+.sbr-lang-flag{font-size:13px;line-height:1}
+.sbr-lang-code{text-transform:uppercase}
+.sbr-lang-arrow{font-size:7px;opacity:.4;transition:transform .18s}
+.sbr-lang-dd{display:none;position:absolute;top:calc(100%+5px);right:0;background:#0f0f0f;border:1px solid rgba(255,255,255,.08);min-width:90px;z-index:9999;box-shadow:0 8px 24px rgba(0,0,0,.8)}
+.sbr-lang-dd.open{display:block}
+.sbr-lang-opt{display:flex;align-items:center;gap:9px;padding:10px 14px;font-family:'IBM Plex Mono',monospace;font-size:9px;letter-spacing:1px;color:#555;cursor:pointer;transition:all .15s;white-space:nowrap}
+.sbr-lang-opt:hover{background:rgba(192,57,43,.07);color:#ddd}
+.sbr-lang-opt.active{color:#C0392B}
+@media(max-width:700px){.nav-links{display:none}}
+@media(max-width:480px){.btn-nav-ghost{display:none}}
+#scroll-progress{position:fixed;top:0;left:0;height:2px;background:#C0392B;width:0%;z-index:9999;pointer-events:none}
+.sbr-footer{border-top:1px solid rgba(255,255,255,.06);padding:22px clamp(20px,5vw,72px);display:flex;align-items:flex-start;justify-content:space-between;flex-wrap:wrap;gap:14px;background:#080808}
+.footer-logo{font-family:'Bebas Neue',sans-serif;font-size:18px;letter-spacing:4px;color:#e2e2e2}
+.footer-logo span{color:#C0392B}
+.footer-logo-sub{font-family:'IBM Plex Mono',monospace;font-size:7px;letter-spacing:2px;color:#2a2a2a;text-transform:uppercase;margin-top:3px}
+.footer-links{display:flex;gap:14px;flex-wrap:wrap;align-items:center}
+.footer-link{font-family:'IBM Plex Mono',monospace;font-size:8px;letter-spacing:2px;color:#333;text-transform:uppercase;text-decoration:none;transition:color .15s}
+.footer-link:hover{color:#aaa}
+.footer-copy{font-family:'IBM Plex Mono',monospace;font-size:8px;letter-spacing:1px;color:#222;width:100%}
+
+</style>
+  <meta name="robots" content="index, follow">
+  <meta property="og:title" content="SBR Systems — Produse si Acces | Risk Intelligence">
+  <meta property="og:description" content="Toate produsele SBR: AFIS, Codex, Post-Fraud PDF, Signals. Acces Early Access.">
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="https://sbr.systems/systems.html">
+  <meta property="og:image" content="https://sbr.systems/og-image.png">
+  <meta property="og:site_name" content="SBR Anti-Fraud Systems">
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="SBR Systems — Produse si Acces | Risk Intelligence">
+  <meta name="twitter:description" content="Toate produsele SBR: AFIS, Codex, Post-Fraud PDF, Signals. Acces Early Access.">
+  <link rel="canonical" href="https://sbr.systems/systems.html">
+<link rel="stylesheet" href="css/sbr-readability.css" media="print" onload="this.media='all'">
+  <noscript><link rel="stylesheet" href="css/sbr-readability.css"></noscript>
+
+<style id="sbr-text-fix">
+/* Force all CSS variables to white-readable values */
+:root, * {
+  --text:#EEEEEE !important;
+  --t2:#CCCCCC !important;
+  --t3:#AAAAAA !important;
+  --t4:#888888 !important;
+  --t5:#555555 !important;
+}
+/* Direct color overrides for common text elements */
+p, li, span, div, td, th, label, small,
+.card-desc, .feat-desc, .prob-desc, .plan-tagline,
+.b2b-for, .fi, .faq-a, .alert-desc, .mv-desc,
+.mg-desc, .pl-desc, .ot-desc, .ng-text, .ahd-def,
+.prod-tagline, .ss-sub, .gb-sub, .quiz-sub,
+.hero-sub, .section-p, .s-p, .sf-text,
+.scoring-intro p, .dp-wrap p, .pricing-intro p,
+.sim-email-body, .sem-body, .sim-choice-text,
+.cert-desc, .track-desc, .module-desc,
+.score-desc, .dimension-desc, .step-desc,
+.resource-desc, .checklist-desc,
+.compare-table td, .emp-table td,
+.footer-link, .footer-copy, .footer-logo-sub,
+.lb-dept, .emp-dept, .dmb-emp-dept,
+.kpi-delta, .page-subtitle, .tb-user, .tb-company,
+.nd-plan-feats, .nd-footer-link,
+.sv-text, .sim-choice .sv-text { color: #CCCCCC !important; }
+
+h1, h2, h3, h4, h5, h6,
+.card-title, .plan-name, .b2b-name, .nd-plan-name,
+.page-title, .ch-h1, .hero-h1, .section-h2, .s-h,
+.fc-h, .ac-h, .quiz-h, .ms-copy h2, .ss-h,
+.ot-title, .mv-title, .mg-title, .pl-title,
+.alert-title, .emp-name, .dmb-emp-name,
+.lb-name, .prof-name, .panel-title,
+.feat-name, .prod-name,
+.gb-h { color: #FFFFFF !important; }
+
+.nav-link { color: #CCCCCC !important; }
+.nav-link:hover, .nav-link.active { color: #FFFFFF !important; }
+.btn-nav-ghost { color: #CCCCCC !important; }
+</style>
+<style id="sbr-force-colors">
+/* Override elements with hardcoded dark colors */
+.card-desc{color:#CCCCCC !important}
+.plan-tagline,.b2b-for,.fi{color:#CCCCCC !important}
+.faq-a,.faq-answer{color:#CCCCCC !important}
+.alert-desc,.sim-email-body,.sem-body{color:#CCCCCC !important}
+.mv-desc,.mg-desc,.pl-desc,.ot-desc,.ng-text,.ahd-def{color:#CCCCCC !important}
+.prod-tagline,.ss-sub,.gb-sub,.quiz-sub{color:#CCCCCC !important}
+.hero-sub,.s-p,.section-p,.fc-sub,.ac-sub{color:#CCCCCC !important}
+.prob-desc,.prob-a{color:#CCCCCC !important}
+.feat-desc,.nd-plan-feats{color:#CCCCCC !important}
+.scoring-intro p,.dp-wrap p,.pricing-intro p{color:#CCCCCC !important}
+p,li,td:not([class*="risk"]):not([class*="rc"]):not([class*="rh"]){color:#CCCCCC !important}
+h1,h2,h3,h4,h5,h6,.card-title,.plan-name,.b2b-name,.page-title{color:#FFFFFF !important}
+.nav-link{color:#CCCCCC !important}
+.nav-link:hover,.nav-link.active{color:#FFFFFF !important}
+.btn-nav-ghost{color:#CCCCCC !important}
+.compare-table td{color:#CCCCCC !important}
+.compare-table td.feature-name,.compare-table .feat-name{color:#DDDDDD !important}
+.emp-name,.lb-name,.dmb-emp-name{color:#EEEEEE !important}
+.emp-dept,.lb-dept,.dmb-emp-dept{color:#AAAAAA !important}
+.alert-title,.panel-title{color:#FFFFFF !important}
+</style>
+<script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+<style id="sbr-footer-final">
+.sbr-footer{
+  background:#060606 !important;border-top:1px solid rgba(255,255,255,.04) !important;
+  padding:16px clamp(16px,4vw,48px) !important;display:flex !important;
+  align-items:center !important;justify-content:space-between !important;
+  gap:14px !important;flex-wrap:wrap !important;
+}
+.footer-logo{font-family:'Bebas Neue',sans-serif;font-size:16px !important;letter-spacing:4px !important;color:#fff !important}
+.footer-logo span{color:#C0392B !important}
+.footer-links{display:flex !important;align-items:center !important;gap:20px !important}
+.footer-link{font-family:'IBM Plex Mono',monospace !important;font-size:8px !important;letter-spacing:1px !important;color:#3a3a3a !important;text-transform:uppercase !important;text-decoration:none !important;transition:color .15s !important;white-space:nowrap !important}
+.footer-link:hover{color:#888 !important}
+.footer-copy{font-family:'IBM Plex Mono',monospace !important;font-size:7px !important;color:#222 !important;white-space:nowrap !important}
+@media(max-width:560px){
+  .sbr-footer{flex-direction:column !important;align-items:flex-start !important;gap:8px !important;padding:12px 16px !important}
+  .footer-links{gap:12px !important}
+  .footer-copy{font-size:6px !important}
+}
+</style>
+<style id="sbr-social-icons">
+/* Hide old text-based social bar */
+#sbr-social-bar, .sbr-social-bar { display: none !important; }
+/* Floating icon-only social pill */
+#sbr-sw {
+  position: fixed; right: 14px; top: 50%; transform: translateY(-50%);
+  z-index: 800; display: flex; flex-direction: column; gap: 6px;
+}
+.sbr-sw-a {
+  display: flex; align-items: center; justify-content: center;
+  width: 36px; height: 36px; border-radius: 50%;
+  background: rgba(255,255,255,.04); border: 1px solid rgba(255,255,255,.08);
+  text-decoration: none; cursor: pointer;
+  transition: background .2s, border-color .2s, transform .2s;
+  backdrop-filter: blur(10px); -webkit-backdrop-filter: blur(10px);
+  font-size: 14px; line-height: 1;
+}
+.sbr-sw-a:hover {
+  background: rgba(192,57,43,.15); border-color: rgba(192,57,43,.3);
+  transform: scale(1.12);
+}
+/* Mobile — bottom strip icon only */
+@media(max-width: 680px) {
+  #sbr-sw {
+    position: fixed; bottom: 0; left: 0; right: 0; top: auto; transform: none;
+    flex-direction: row; gap: 0; border-radius: 0;
+    background: rgba(6,6,6,.97); border-top: 1px solid rgba(255,255,255,.05);
+    backdrop-filter: blur(20px); -webkit-backdrop-filter: blur(20px);
+    padding-bottom: env(safe-area-inset-bottom, 0); height: 50px;
+  }
+  .sbr-sw-a {
+    flex: 1; width: auto; height: 50px; border-radius: 0; border: none;
+    border-right: 1px solid rgba(255,255,255,.04); background: transparent;
+    font-size: 16px;
+  }
+  .sbr-sw-a:last-child { border-right: none; }
+  .sbr-sw-a:hover { transform: none; background: rgba(192,57,43,.07); }
+  body { padding-bottom: 50px !important; }
+}
+/* Kill any text labels */
+.sbr-sw-l { display: none !important; }
+</style>
+<style id="sbr-fc">
+/* Force all common text elements to white-ish */
+p,li,td,th,label,small,figcaption,dd,dt,
+.card-desc,.plan-tagline,.b2b-for,.fi,.faq-a,.faq-answer,
+.alert-desc,.mv-desc,.mg-desc,.pl-desc,.ot-desc,.ng-text,
+.prod-tagline,.ss-sub,.gb-sub,.quiz-sub,.hero-sub,
+.s-p,.section-p,.fc-sub,.ac-sub,.feat-desc,
+.sim-email-body,.sem-body,.sf-text,
+.nd-plan-feats,.prob-desc,.prob-a,
+.pf-lead,.pf-desc,.pf-text,
+.score-desc,.dimension-desc,
+.cert-desc,.track-desc,.module-desc,
+.checklist-desc,.step-desc,.resource-desc,
+[class*="-desc"],[class*="-sub"],[class*="-text"],[class*="-body"],
+[class*="-copy"],[class*="-content"],[class*="-lead"]{
+  color:#CCCCCC!important;
+}
+h1,h2,h3,h4,h5,h6,
+.card-title,.plan-name,.b2b-name,.page-title,
+.section-h2,.s-h,.ch-h1,.hero-h1,.fc-h,.ac-h,.quiz-h,
+.ot-title,.mv-title,.mg-title,.pl-title,.alert-title,
+.panel-title,.emp-name,.lb-name,.feat-name,.prod-name,
+[class*="-title"]:not(.lock-title):not(.sn-dd-section):not(.sm-label){
+  color:#FFFFFF!important;
+}
+.nav-link,.sn-link,.sn-dd-link{color:#CCCCCC!important;}
+.nav-link:hover,.nav-link.active,.sn-link:hover,.sn-dd-link:hover{color:#FFFFFF!important;}
+.footer-link{color:#3a3a3a!important;}
+.footer-link:hover{color:#888!important;}
+.footer-copy{color:#222!important;}
+/* Mobile menu links — RED, not blue/inherit */
+.sm-link{color:#EEEEEE!important;}
+.sm-link:hover{color:#C0392B!important;}
+.sm-link > span:first-child{color:#EEEEEE!important;}
+.sm-link-sub{color:#444!important;}
+.sm-small-link{color:#666!important;}
+.sm-small-link:hover{color:#EEEEEE!important;}
+/* Kill any blue link inheritance in mobile menu */
+#sbr-menu a{color:#EEEEEE!important;}
+#sbr-menu a:hover{color:#C0392B!important;}
+/* Desktop nav links */
+.sn-link{color:#AAAAAA!important;}
+.sn-link:hover{color:#EEEEEE!important;}
+.sn-dd-link{color:#888!important;}
+.sn-dd-link:hover{color:#EEEEEE!important;background:rgba(192,57,43,.06)!important;}
+/* sbrN nav elements — white, never blue */
+#sbrN a,#sbrN button,.sbrN-btn{color:#aaa!important;text-decoration:none!important}
+#sbrN a:hover,#sbrN button:hover,.sbrN-btn:hover{color:#eee!important}
+.sbrN-cta,.sbrN-cta:hover{color:#fff!important}
+.dd-link{color:inherit!important;text-decoration:none!important}
+.dd-link-title{color:#eee!important}
+.dd-link-sub{color:#555!important}
+.mob-link{color:#eee!important;text-decoration:none!important}
+.mob-link:hover{color:#C0392B!important}
+.mob-small-link{color:#555!important;text-decoration:none!important}
+.snl-btn,.snl-btn *{color:#aaa!important}
+
+</style>
+<style id="sbr-font-nuclear">
+/* ═══ NUCLEAR WHITE TEXT OVERRIDE ═══════════════════════════════
+   Targets every element that could have dark gray text.
+   Does NOT touch: buttons, badges, risk labels, nav CTAs
+═══════════════════════════════════════════════════════════════ */
+
+/* Base: all body text → white-ish */
+body, body *:not(button):not(.sn-cta):not(.cta-primary):not(.btn-nav-solid)
+  :not(.card-risk):not(.rb-c):not(.rb-h):not(.rb-m):not(.rb-l)
+  :not(.chk):not(.cross):not(.lock-plan):not(.gb-plan-badge)
+  :not([class*="badge"]) {
+  -webkit-font-smoothing: antialiased !important;
+}
+
+/* Paragraph text, list items, descriptions */
+p { color: #DDDDDD !important; font-size: max(14px, 1em) !important; line-height: 1.85 !important; }
+li { color: #DDDDDD !important; font-size: max(13px, 0.9em) !important; line-height: 1.75 !important; }
+span:not([class*="risk"]):not([class*="badge"]):not(.dot):not(.sn-sbr):not(.sn-af):not(.sn-dot) { color: inherit !important; }
+td, th { color: #CCCCCC !important; }
+label { color: #CCCCCC !important; }
+small { color: #AAAAAA !important; }
+
+/* Specific content classes - all the variants we've seen */
+.card-desc, .plan-tagline, .b2b-for, .b2b-feat,
+.fi, .fi.yes, .feat-desc, .nd-plan-feats,
+.faq-a, .faq-answer, .faq-body,
+.alert-desc, .dmb-alert-text,
+.mv-desc, .mg-desc, .pl-desc, .ot-desc, .ng-text,
+.prob-desc, .prob-a, .prob-q,
+.ahd-def, .dc-desc, .dim-desc,
+.prod-tagline, .hero-sub, .s-p, .section-p,
+.fc-sub, .ac-sub, .quiz-sub, .ah-tagline,
+.gb-sub, .pq-text, .ss-sub, .scoring-intro p,
+.sim-email-body, .sem-body, .sf-text,
+.feat-desc, .step-desc, .checklist-desc, .resource-desc,
+.cert-desc, .track-desc, .module-desc,
+.pf-lead, .pf-desc, .pf-text, .pf-body,
+.score-desc, .dimension-desc,
+.dp-wrap p, .pricing-intro p,
+.rec-desc, .sg-sub, .sh-sub,
+.about-text, .team-bio, .mission-text,
+.sbi-fill + *, [class*="-desc"],
+[class*="-sub"]:not([class*="hero-sub"]),
+[class*="-body"]:not(#sbr-menu):not(#sbr-nav):not(.card-body) { color: #CCCCCC !important; }
+
+/* Headings - full white */
+h1, h2, h3, h4, h5, h6 { color: #FFFFFF !important; }
+.card-title, .plan-name, .b2b-name, .nd-plan-name,
+.page-title, .section-h2, .s-h, .ch-h1, .hero-h1,
+.fc-h, .ac-h, .quiz-h, .ss-h, .sh-h1,
+.ot-title, .mv-title, .mg-title, .pl-title,
+.alert-title, .panel-title, .emp-name, .lb-name,
+.feat-name, .prod-name, .gb-h,
+.dc-name, .rec-title, .fe-title, .sg-h,
+.sm-link > span:first-child { color: #FFFFFF !important; }
+
+/* Nav */
+.sn-link { color: #BBBBBB !important; }
+.sn-link:hover { color: #FFFFFF !important; }
+.sn-dd-link { color: #AAAAAA !important; }
+.sn-dd-link:hover { color: #EEEEEE !important; }
+.sn-af { color: #DDDDDD !important; }
+
+/* Footer */
+.footer-link { color: #444 !important; }
+.footer-link:hover { color: #999 !important; }
+.footer-copy { color: #2a2a2a !important; }
+.footer-logo { color: #FFFFFF !important; }
+
+/* Secondary labels */
+.card-cat, .prod-code, .cs-code, .kpi-label, .hs-l, .hstat-l,
+.section-eyebrow, .s-eyebrow, .ah-eyebrow, .hero-eyebrow,
+.cf-label, .sm-link-sub, .sm-small-link,
+.sm-label, .nd-plan-price, .b2b-period, .plan-period,
+.dc-sub, .sbi-name, .dc-indicators .dc-indicator,
+.sh-pill-word, .stl-name, .fe-desc, .cc-label { color: #AAAAAA !important; }
+
+/* Dashboard */
+.emp-name, .lb-name, .dmb-emp-name { color: #EEEEEE !important; }
+.emp-dept, .lb-dept, .dmb-emp-dept, .cs-name { color: #BBBBBB !important; }
+
+/* Monospace elements */
+.card-id, .sim-from, .sem-row-val, .sim-cat-label { color: #BBBBBB !important; }
+
+/* Tag entry / pattern */
+.tag-entry { color: #CCCCCC !important; font-size: 9px !important; }
+
+/* Sidebar count */
+.cs-count { color: #777 !important; }
+
+/* Compare table */
+.compare-table td { color: #CCCCCC !important; }
+.compare-table .feat-name { color: #EEEEEE !important; font-weight: 700 !important; }
+
+/* Input fields */
+input:not([type="submit"]):not([type="button"]):not([type="reset"]),
+textarea, select { color: #EEEEEE !important; }
+input::placeholder, textarea::placeholder { color: #555 !important; }
+</style>
+
+<style id="sbr-red-override">
+/* Replace all blue nav/UI accents with red */
+.nd-plan-badge.blue{background:rgba(192,57,43,.1)!important;color:var(--red)!important}
+.nd-plan-tier.blue{color:var(--red)!important}
+.sh-plan-badge:nth-child(1){color:var(--red)!important}
+.sh-plan-badge:nth-child(1) .spb-dot{background:var(--red)!important}
+.pb-name.professional,.pb-name.premium{background:rgba(192,57,43,.1)!important;color:var(--red)!important}
+.fe-badge.pro{background:rgba(192,57,43,.1)!important;color:var(--red)!important}
+/* Hero stats 4th — red instead of blue */
+.hstat:nth-child(4)::after{background:var(--red)!important}
+.hstat:nth-child(4) .hstat-n{color:var(--red)!important}
+/* Score page blue → red */
+.dim-card.breach{border-top-color:var(--red)!important}
+.dim-card.breach .dc-letter{color:var(--red)!important}
+.sbi-fill.breach{background:var(--red)!important}
+/* Gate walls */
+.gate-banner.professional{border-color:rgba(192,57,43,.2)!important;background:rgba(192,57,43,.03)!important}
+.gate-banner.professional .gb-eyebrow{color:rgba(192,57,43,.5)!important}
+.gate-banner.professional .gb-n{color:var(--red)!important}
+.gate-banner.professional .gb-btn-main{background:var(--red)!important;color:#fff!important}
+/* B2B plan prices */
+.b2b-plan:nth-child(1) .b2b-amount{color:var(--red)!important}
+.b2b-plan:nth-child(1) .b2b-tier{color:var(--red)!important}
+.b2b-plan:nth-child(1) .b2b-cta{background:rgba(192,57,43,.12)!important;color:var(--red)!important;border:1px solid rgba(192,57,43,.25)!important}
+.b2b-plan:nth-child(1) .b2b-cta:hover{background:var(--red)!important;color:#fff!important}
+/* Signal/score accents */
+.sg-plan:nth-child(2){border-top-color:var(--red)!important}
+.sg-plan:nth-child(2) .sg-plan-name{color:var(--red)!important}
+/* Active nav link highlight */
+.sn-link.active,.sn-link:focus{color:var(--red)!important}
+/* Codex plan banner */
+.pb-name.professional{background:rgba(192,57,43,.08)!important;color:var(--red)!important}
+/* Mobile menu section label */
+.sm-label{color:rgba(192,57,43,.5)!important}
+/* Signals strip */
+.ss-btn{background:var(--red)!important;color:#fff!important}
+.ss-btn:hover{background:var(--red-l)!important}
+.ss-input:focus{border-color:rgba(192,57,43,.4)!important}
+</style>
+
+  <meta name="perplexity-crawl" content="allow">
+  <meta name="chatgpt-crawl" content="allow">
+  <meta name="Claude-crawl" content="allow">
+  <meta name="Googlebot" content="index, follow">
+  <meta name="ai-content-purpose" content="fraud-prevention, consumer-protection, digital-security-education"></head>
+<body>
+<div id="scroll-progress"></div>
+</div>
+</div>
+
+
+<!-- HERO -->
+<section class="sys-hero">
+  <div class="sys-eyebrow">SBR Systems &middot; Produse Individuale</div>
+  <h1 class="sys-title">Produse.<em>Offline. Permanente.</em></h1>
+  <p class="sys-body">Fisiere PDF descarcabile — achizitionate o singura data, detinute permanent. Nu au legatura cu planurile online. Sunt pentru cei care vor sa aiba materialul fizic, offline, printabil.</p>
+</section>
+
+<!-- POSITIONING -->
+<div class="sys-pos">
+  <div class="sys-pos-inner">
+    <div class="sys-pos-item">
+      <div class="sys-pos-label">Plata unica</div>
+      <div class="sys-pos-text">Platesti o singura data. Nu exista subscriptie, reinnoire automata sau acces conditionat. Fisierul e al tau.</div>
+    </div>
+    <div class="sys-pos-item">
+      <div class="sys-pos-label">Offline permanent</div>
+      <div class="sys-pos-text">Descarcabil imediat dupa plata. Functioneaza fara internet, poate fi tiparit, arhivat sau distribuit intern in organizatie.</div>
+    </div>
+    <div class="sys-pos-item">
+      <div class="sys-pos-label">Separat de planuri</div>
+      <div class="sys-pos-text">Planurile online ofera acces la continut web interactiv. Produsele Systems sunt variante PDF standalone, mai accesibile ca pret.</div>
+    </div>
+  </div>
+</div>
+
+<div class="sys-grid-wrap">
+
+  <!-- FREE BANNER -->
+  <div class="sys-free-banner">
+    <div>
+      <div class="sys-free-text">● AFIS — Acces gratuit online</div>
+      <div class="sys-free-sub">Anti-Fraud Intelligence System este disponibil complet si gratuit pe platforma, pentru toti utilizatorii cu cont.</div>
+    </div>
+    <a href="afis.html" class="sys-free-btn">Acceseaza AFIS Gratuit &rarr;</a>
+  </div>
+
+  <div class="sys-section-label" style="margin-top:32px">Produse descarcabile &middot; PDF offline</div>
+
+  <div class="sys-products">
+
+    <!-- AFIS PDF -->
+    <div class="sys-product">
+      <div class="sys-product-left">
+        <div class="sys-prod-cat afis">AFIS Framework &middot; PDF</div>
+        <div class="sys-prod-title">Anti-Fraud Intelligence System</div>
+        <div class="sys-prod-body">Varianta PDF completa a sistemului cognitiv AFIS. 9 module, cadre de decizie, protocoale comportamentale si Regulile de Aur. Printabil, arhivabil, utilizabil fara internet. Ideal pentru training intern sau utilizare offline.</div>
+        <div class="sys-prod-includes">
+          <span class="sys-prod-tag">9 module complete</span>
+          <span class="sys-prod-tag">Cadre decizionale</span>
+          <span class="sys-prod-tag">Reguli de Aur</span>
+          <span class="sys-prod-tag">Offline</span>
+          <span class="sys-prod-tag">Printabil</span>
+          <span class="sys-prod-tag">Plata unica</span>
+        </div>
+      </div>
+      <div class="sys-product-right">
+        <div>
+          <div class="sys-price-type">Plata unica</div>
+          <div class="sys-price afis">499</div>
+          <div class="sys-price-note">RON &middot; plata unica &middot; acces permanent</div>
+        </div>
+        <div>
+          <button class="sys-buy-btn afis" onclick="if (!window.__cfRLUnblockHandlers) return false; openEarlyAccess('afis')" data-cf-modified-430dcd4918c6fc66c8be1a89-="">Get Early Access</button>
+          <div class="sys-buy-note">Download imediat dupa plata</div>
+        </div>
+      </div>
+    </div>
+
+    <!-- CODEX PDF -->
+    <div class="sys-product">
+      <div class="sys-product-left">
+        <div class="sys-prod-cat codex">SBR CODEX &middot; PDF</div>
+        <div class="sys-prod-title">Atlasul Fraudelor Digitale</div>
+        <div class="sys-prod-body">300+ tipologii documentate de frauda digitala. Fiecare cu: mecanism de atac, profil victima, semnale de detectie si protocol de contraatac. Organizate in 18 categorii. Referinta completa offline pentru profesionisti si organizatii.</div>
+        <div class="sys-prod-includes">
+          <span class="sys-prod-tag">300+ tipologii</span>
+          <span class="sys-prod-tag">18 categorii</span>
+          <span class="sys-prod-tag">Mecanisme atac</span>
+          <span class="sys-prod-tag">Protocoale</span>
+          <span class="sys-prod-tag">Offline</span>
+          <span class="sys-prod-tag">Plata unica</span>
+        </div>
+      </div>
+      <div class="sys-product-right">
+        <div>
+          <div class="sys-price-type">Plata unica</div>
+          <div class="sys-price codex">499</div>
+          <div class="sys-price-note">RON &middot; plata unica &middot; acces permanent</div>
+        </div>
+        <div>
+          <button class="sys-buy-btn codex" onclick="if (!window.__cfRLUnblockHandlers) return false; openEarlyAccess('codex')" data-cf-modified-430dcd4918c6fc66c8be1a89-="">Get Early Access</button>
+          <div class="sys-buy-note">Download imediat dupa plata</div>
+        </div>
+      </div>
+    </div>
+
+    <!-- POST-FRAUD PDF -->
+    <div class="sys-product">
+      <div class="sys-product-left">
+        <div class="sys-prod-cat pf">Post-Fraud Framework &middot; PDF</div>
+        <div class="sys-prod-title">Protocol Complet de Recuperare</div>
+        <div class="sys-prod-body">Protocol pas-cu-pas pentru actiunile de urgenta post-frauda. Checklist 72h, template-uri de reclamatii pentru IGPR/ANPC/banca, ghid chargeback, protocol psihologic anti re-victimizare si proceduri de investigare a traseului fondurilor.</div>
+        <div class="sys-prod-includes">
+          <span class="sys-prod-tag">Checklist 72h</span>
+          <span class="sys-prod-tag">Template-uri oficiale</span>
+          <span class="sys-prod-tag">Chargeback ghid</span>
+          <span class="sys-prod-tag">7 banci RO</span>
+          <span class="sys-prod-tag">Offline</span>
+          <span class="sys-prod-tag">Plata unica</span>
+        </div>
+      </div>
+      <div class="sys-product-right">
+        <div>
+          <div class="sys-price-type">Plata unica</div>
+          <div class="sys-price pf">69</div>
+          <div class="sys-price-note">RON &middot; plata unica &middot; acces permanent</div>
+        </div>
+        <div>
+          <button class="sys-buy-btn pf" onclick="if (!window.__cfRLUnblockHandlers) return false; openEarlyAccess('postfraud')" data-cf-modified-430dcd4918c6fc66c8be1a89-="">Get Early Access</button>
+          <div class="sys-buy-note">Download imediat dupa plata</div>
+        </div>
+      </div>
+    </div>
+
+  </div>
+
+
+    <!-- SIGNALS SUBSCRIPTION -->
+    <div class="sys-product" style="border-top:2px solid rgba(192,57,43,.3)">
+      <div class="sys-product-left">
+        <div class="sys-prod-cat" style="color:var(--red)">Signals&trade; &middot; Intelligence</div>
+        <div class="sys-prod-title">Signals — Intelligence Lunar</div>
+        <div class="sys-prod-body">Raport lunar de intelligence activ: tactici de frauda in uz curent in Romania, alerte urgente, tipologii emergente si cazuri documentate recente. Continut generat si verificat lunar. Primul raport disponibil imediat dupa abonare.</div>
+        <div class="sys-prod-includes">
+          <span class="sys-prod-tag">Raport lunar</span>
+          <span class="sys-prod-tag">Tactici active RO</span>
+          <span class="sys-prod-tag">Alerte urgente</span>
+          <span class="sys-prod-tag">Cazuri documentate</span>
+          <span class="sys-prod-tag">Anulabil oricand</span>
+        </div>
+      </div>
+      <div class="sys-product-right">
+        <div>
+          <div class="sys-price-type">Subscriptie lunara</div>
+          <div class="sys-price" style="color:var(--red)">49</div>
+          <div class="sys-price-note">RON / luna &middot; anulabil oricand</div>
+        </div>
+        <div>
+          <button class="sys-buy-btn" style="background:var(--red);color:#fff" onclick="if (!window.__cfRLUnblockHandlers) return false; openEarlyAccess('signals')" data-cf-modified-430dcd4918c6fc66c8be1a89-="">Get Early Access</button>
+          <div class="sys-buy-note">Primul raport imediat dupa plata</div>
+        </div>
+      </div>
+    </div>
+
+  <!-- PLANS — COMING SOON -->
+  <div class="sys-plans-section">
+    <div class="sys-plans-overlay">
+      <div class="sys-plans-badge">
+        <span style="width:6px;height:6px;background:var(--red);border-radius:50%;animation:blink 1.5s ease infinite;flex-shrink:0;display:block"></span>
+        In pregatire
+      </div>
+      <h2 class="sys-plans-title">Planuri online.<em>Curand.</em></h2>
+      <p class="sys-plans-body">Planurile SBR — Essential, Professional, Premium, Business — vor fi disponibile dupa integrarea platformei de plata. Lasa emailul pentru a fi notificat la lansare.</p>
+
+      <div class="sys-plans-grid">
+        <div class="sys-plan-preview">
+          <div class="sys-plan-preview-name">Essential</div>
+          <div class="sys-plan-preview-price">99</div>
+          <div class="sys-plan-preview-note">RON &middot; plata unica</div>
+        </div>
+        <div class="sys-plan-preview">
+          <div class="sys-plan-preview-name">Professional</div>
+          <div class="sys-plan-preview-price">250</div>
+          <div class="sys-plan-preview-note">RON &middot; plata unica</div>
+        </div>
+        <div class="sys-plan-preview">
+          <div class="sys-plan-preview-name">Premium</div>
+          <div class="sys-plan-preview-price">449</div>
+          <div class="sys-plan-preview-note">RON &middot; plata unica</div>
+        </div>
+      </div>
+
+      <div class="sys-notify-row">
+        <input type="email" id="notify-email" class="sys-notify-inp" placeholder="emailul tau@domain.com">
+        <button class="sys-notify-btn" onclick="if (!window.__cfRLUnblockHandlers) return false; notifyMe()" data-cf-modified-430dcd4918c6fc66c8be1a89-="">Notifica-ma &rarr;</button>
+      </div>
+      <div class="sys-notify-note" id="notify-msg">Fara spam. Doar notificarea de lansare.</div>
+    </div>
+  </div>
+
+</div>
+
+<!-- TERMS NOTE -->
+<div style="max-width:1100px;margin:0 auto;padding:0 var(--page-px) 60px">
+  <p style="font-family:var(--f-mono);font-size:9px;letter-spacing:1px;color:var(--text-5);line-height:1.8;border-top:1px solid var(--border);padding-top:20px">
+    Produsele SBR Systems sunt <strong style="color:var(--text-4)">produse digitale cu livrare imediata</strong> — descarcate imediat dupa confirmarea platii. 
+    Conform art. 16 lit. m) din OUG 34/2014, dreptul de retractare de 14 zile nu se aplica continutului digital livrat imediat cu acordul expres al cumparatorului. 
+    <strong style="color:var(--text-4)">Nu se acorda rambursari</strong> dupa accesarea fisierului. 
+    Prin finalizarea platii confirmi acceptarea acestor conditii si a 
+    <a href="terms.html" style="color:var(--red)">Termenilor si Conditiilor SBR</a>.
+  </p>
+</div>
+
+<footer class="sbr-footer">
+  <div style="display:flex;align-items:center"><div class="footer-logo">SBR<span>.</span></div></div>
+  <div class="footer-copy">&copy; 2026 Structura Brevis Rector&trade;</div>
+  <nav class="footer-links">
+    <a href="am-fost-inselat.html" class="footer-link" data-en="Been scammed?">Am fost înșelat</a>
+    <a href="unde-raportezi-frauda.html" class="footer-link" data-en="Report fraud">Raportează frauda</a>
+    <a href="phishing-cum-recunosti.html" class="footer-link">Phishing</a>
+    <a href="codex.html" class="footer-link">Codex</a>
+    <a href="terms.html" class="footer-link">Termeni</a>
+    <a href="privacy.html" class="footer-link">Privacy &amp; Cookies</a>
+    <a href="gdpr.html" class="footer-link">GDPR</a>
+  </nav>
+</footer>
+<script src="js/nav-auth.js"></script>
+<script>
+/* Buy product — until a Stripe Payment Link is set here, the "payment coming soon" modal is shown */
+var STRIPE_LINKS = {
+  afis:      null,
+  codex:     null,
+  postfraud: null
+};
+
+function buyProduct(product) {
+  var stripeUrl = STRIPE_LINKS[product];
+  if (stripeUrl && !stripeUrl.includes('REPLACE')) {
+    window.location.href = stripeUrl;
+    return;
+  }
+  /* Stripe not configured yet — show info modal */
+  showBuyModal(product);
+}
+
+function showBuyModal(product) {
+  var names = { afis:'AFIS Framework PDF', codex:'CODEX PDF', postfraud:'Post-Fraud Framework PDF', signals:'Signals — Intelligence Lunar' };
+  var prices = { afis:'449 RON', codex:'449 RON', postfraud:'250 RON', signals:'49 RON/luna' };
+  document.getElementById('modal-prod-name').textContent = names[product] || product;
+  document.getElementById('modal-prod-price').textContent = prices[product] || '';
+  document.getElementById('buy-modal').style.display = 'flex';
+  document.body.style.overflow = 'hidden';
+}
+
+function closeBuyModal() {
+  document.getElementById('buy-modal').style.display = 'none';
+  document.body.style.overflow = '';
+}
+
+/* Leads are written ONLY through the secured database function submit_lead (no direct table access) */
+function sbrLead(email, source, o){
+  o = o || {};
+  return fetch('https://zxonzzojynrkzaiaacte.supabase.co/rest/v1/rpc/submit_lead', {
+    method: 'POST',
+    headers: {'Content-Type':'application/json','apikey':'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6Inp4b256em9qeW5ya3phaWFhY3RlIiwicm9sZSI6ImFub24iLCJpYXQiOjE3NzQ4MTYyMzMsImV4cCI6MjA5MDM5MjIzM30.85AqP2qLdG_4Iufz4nqkrZNQ4E38VavEc1kiNE9XhH0','Authorization':'Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6Inp4b256em9qeW5ya3phaWFhY3RlIiwicm9sZSI6ImFub24iLCJpYXQiOjE3NzQ4MTYyMzMsImV4cCI6MjA5MDM5MjIzM30.85AqP2qLdG_4Iufz4nqkrZNQ4E38VavEc1kiNE9XhH0'},
+    body: JSON.stringify({
+      p_email: email,
+      p_quiz_tag: o.tag || null,
+      p_lang: o.lang || null,
+      p_source: source,
+      p_referrer: document.referrer || null,
+      p_consent: o.consent === true ? true : null
+    })
+  }).then(function(r){ return r.ok; }).catch(function(){ return false; });
+}
+
+function notifyMe() {
+  var email = document.getElementById('notify-email').value.trim().toLowerCase();
+  var msg = document.getElementById('notify-msg');
+  if (!/^[^@\s]+@[^@\s]+\.[^@\s]+$/.test(email)) { msg.textContent = 'Introdu un email valid.'; msg.style.color = '#e74c3c'; return; }
+  sbrLead(email, 'systems-waitlist', {tag:'waitlist'}).then(function(ok){
+    if (ok) {
+      msg.textContent = '✓ Inregistrat! Vei fi notificat la lansare.';
+      msg.style.color = '#2ecc71';
+      document.getElementById('notify-email').value = '';
+    } else {
+      msg.textContent = 'Nu am putut salva adresa. Incearca din nou in cateva secunde.';
+      msg.style.color = '#e74c3c';
+    }
+  });
+}
+
+window.addEventListener('scroll',function(){var h=document.documentElement.scrollHeight-window.innerHeight;var sp=document.getElementById('scroll-progress');if(sp&&h>0)sp.style.width=Math.round(window.scrollY/h*100)+'%';},{passive:true});
+</script>
+
+<!-- BUY MODAL -->
+<div id="buy-modal" style="display:none;position:fixed;inset:0;z-index:9000;background:rgba(0,0,0,.9);backdrop-filter:blur(8px);align-items:center;justify-content:center;padding:20px">
+  <div style="background:#0f0f0f;border:1px solid rgba(192,57,43,.25);max-width:480px;width:100%;padding:36px">
+    <div style="font-family:'IBM Plex Mono',monospace;font-size:8px;letter-spacing:4px;color:rgba(192,57,43,.6);text-transform:uppercase;margin-bottom:14px">Plata in curand disponibila</div>
+    <h3 style="font-family:'Bebas Neue',sans-serif;font-size:32px;letter-spacing:1px;color:#e2e2e2;margin-bottom:6px" id="modal-prod-name">Produs</h3>
+    <div style="font-family:'Bebas Neue',sans-serif;font-size:24px;color:var(--red);margin-bottom:16px" id="modal-prod-price"></div>
+    <p style="font-size:13px;color:#777;line-height:1.75;margin-bottom:24px">Integrarea cu procesatorul de plati este in pregatire. Lasa emailul tau si te notificam imediat ce plata este disponibila.</p>
+    <div style="display:flex;gap:8px;margin-bottom:14px">
+      <input type="email" id="modal-email" style="flex:1;background:#0d0d0d;border:1px solid rgba(255,255,255,.08);border-right:none;color:#e2e2e2;font-family:'IBM Plex Mono',monospace;font-size:13px;padding:13px 16px;outline:none" placeholder="emailul tau@domain.com">
+      <button onclick="if (!window.__cfRLUnblockHandlers) return false; modalNotify()" style="background:var(--red);color:#fff;font-family:'IBM Plex Mono',monospace;font-size:9px;letter-spacing:2px;text-transform:uppercase;padding:13px 18px;border:none;cursor:pointer;flex-shrink:0" data-cf-modified-430dcd4918c6fc66c8be1a89-="">Notifica-ma</button>
+    </div>
+    <div id="modal-msg" style="font-family:'IBM Plex Mono',monospace;font-size:9px;letter-spacing:1px;color:#444;text-transform:uppercase;margin-bottom:16px">Vei fi primul notificat.</div>
+    <button onclick="if (!window.__cfRLUnblockHandlers) return false; closeBuyModal()" style="font-family:'IBM Plex Mono',monospace;font-size:9px;letter-spacing:2px;color:#444;text-transform:uppercase;background:none;border:1px solid rgba(255,255,255,.07);padding:10px 18px;cursor:pointer;width:100%;transition:all .18s" data-cf-modified-430dcd4918c6fc66c8be1a89-="">Inchide</button>
+  </div>
+</div>
+<script>
+function modalNotify(){
+  var email=document.getElementById('modal-email').value.trim().toLowerCase();
+  var msg=document.getElementById('modal-msg');
+  if(!/^[^@\s]+@[^@\s]+\.[^@\s]+$/.test(email)){msg.textContent='Email invalid.';msg.style.color='#e74c3c';return;}
+  sbrLead(email,'systems-buy-modal',{tag:'waitlist'}).then(function(ok){
+    if(ok){
+      msg.textContent='✓ Inregistrat! Te notificam la lansare.';
+      msg.style.color='#2ecc71';
+      document.getElementById('modal-email').value='';
+    }else{
+      msg.textContent='Nu am putut salva adresa. Incearca din nou.';
+      msg.style.color='#e74c3c';
+    }
+  });
+}
+document.getElementById('buy-modal').addEventListener('click',function(e){if(e.target===this)closeBuyModal();});
+</script>
+<script src="js/early-access.js"></script>
+
+<script id="sbr-color-fix">
+(function(){
+  function fix(){
+    var r=document.documentElement;
+    r.style.setProperty('--text','#EEEEEE');
+    r.style.setProperty('--t1','#EEEEEE');
+    r.style.setProperty('--t2','#CCCCCC');
+    r.style.setProperty('--t3','#AAAAAA');
+    r.style.setProperty('--t4','#888888');
+    r.style.setProperty('--t5','#555555');
+    r.style.setProperty('--T2','#CCCCCC');
+    r.style.setProperty('--T3','#AAAAAA');
+  }
+  fix();
+  document.addEventListener('DOMContentLoaded',fix);
+  setTimeout(fix,100);
+})();
+</script>
+<div id="sbr-sw" aria-label="Social Media">
+  <a class="sbr-sw-a" href="https://instagram.com/sbr_antifraud" target="_blank" rel="noopener" title="Instagram @sbr_antifraud">&#128248;</a>
+  <a class="sbr-sw-a" href="https://tiktok.com/@structurabrevisrector" target="_blank" rel="noopener" title="TikTok @structurabrevisrector">&#127925;</a>
+  <a class="sbr-sw-a" href="https://t.me/sbrorator" target="_blank" rel="noopener" title="Telegram t.me/sbrorator">&#9992;&#65039;</a>
+  <a class="sbr-sw-a" href="https://pin.it/7yO6KnjsW" target="_blank" rel="noopener" title="Pinterest">&#128204;</a>
+</div>
+<script src="js/cookie-consent.js"></script>
+
+</body>
+</html>

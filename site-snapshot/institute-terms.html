@@ -1,0 +1,797 @@
+<!DOCTYPE html>
+<html lang="ro">
+<head>
+<meta charset="UTF-8">
+<!-- Google Analytics 4 (Consent Mode v2) — nu colecteaza pana la consimtamant -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-9WT1GRKEGB"></script>
+<script>
+window.dataLayer=window.dataLayer||[];function gtag(){dataLayer.push(arguments);}
+gtag('js',new Date());
+gtag('consent','default',{'ad_storage':'denied','ad_user_data':'denied','ad_personalization':'denied','analytics_storage':'denied'});
+try{var _c=JSON.parse(localStorage.getItem('sbr_cookie_consent')||'null');if(_c&&_c.type==='all'){gtag('consent','update',{'analytics_storage':'granted'});}}catch(e){}
+gtag('config','G-9WT1GRKEGB',{anonymize_ip:true});
+</script>
+<!-- End GA4 -->
+<script src="js/nav-universal.js?v=13"></script>
+<script src="/js/i18n.js?v=5"></script>
+
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>SBR Institute — Termeni și Condiții</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Playfair+Display:ital,wght@0,400;1,400&family=IBM+Plex+Mono:wght@400;500&family=Lato:wght@300;400;700&display=swap" rel="stylesheet" media="print" onload="this.media='all'">
+  <noscript><link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Playfair+Display:ital,wght@0,400;1,400&family=IBM+Plex+Mono:wght@400;500&family=Lato:wght@300;400;700&display=swap" rel="stylesheet"></noscript>
+<style>
+/* ── SBR Universal Nav ── */
+.sbr-nav{position:fixed;top:0;left:0;right:0;z-index:1000;height:58px;display:flex;align-items:center;justify-content:space-between;padding:0 clamp(18px,4vw,56px);background:rgba(8,8,8,.97);backdrop-filter:blur(20px);-webkit-backdrop-filter:blur(20px);border-bottom:1px solid rgba(192,57,43,.12)}
+.nav-logo{font-family:'Bebas Neue',sans-serif;font-size:22px;letter-spacing:5px;color:#e2e2e2;cursor:pointer;display:flex;align-items:center;gap:4px;text-decoration:none;flex-shrink:0}
+.nav-logo .dot{color:#C0392B}
+.nav-logo-sub{font-family:'IBM Plex Mono',monospace;font-size:7px;letter-spacing:2px;color:#333;text-transform:uppercase;margin-left:6px;margin-top:2px}
+.nav-links{display:flex;align-items:center;gap:20px}
+.nav-link{font-family:'IBM Plex Mono',monospace;font-size:9px;letter-spacing:2px;color:#444;text-transform:uppercase;text-decoration:none;transition:color .15s}
+.nav-link:hover,.nav-link.active{color:#aaa}
+.nav-right{display:flex;align-items:center;gap:8px;margin-left:auto}
+.btn-nav-ghost{font-family:'IBM Plex Mono',monospace;font-size:9px;letter-spacing:2px;text-transform:uppercase;background:transparent;border:1px solid rgba(255,255,255,.08);color:#444;padding:8px 14px;cursor:pointer;text-decoration:none;transition:all .18s;white-space:nowrap;display:inline-flex;align-items:center}
+.btn-nav-ghost:hover{border-color:rgba(192,57,43,.4);color:#aaa}
+.btn-nav-solid{font-family:'IBM Plex Mono',monospace;font-size:9px;letter-spacing:2px;text-transform:uppercase;background:#C0392B;color:#fff;border:none;padding:9px 18px;cursor:pointer;text-decoration:none;transition:background .18s;white-space:nowrap;display:inline-flex;align-items:center}
+.btn-nav-solid:hover{background:#E74C3C}
+#scroll-progress{position:fixed;top:0;left:0;height:2px;background:#C0392B;width:0%;z-index:9999;pointer-events:none}
+@media(max-width:700px){.nav-links{display:none}}
+@media(max-width:480px){.btn-nav-ghost:not(:last-of-type){display:none}}
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+html{scroll-behavior:smooth}
+body{font-family:'Lato',sans-serif;background:#0A0A0A;color:#fff;overflow-x:hidden}
+:root{--red:#C0392B;--redL:#E74C3C;--dark:#111111;--dark2:#1A1A1A;--dark3:#222222}
+::-webkit-scrollbar{width:4px}::-webkit-scrollbar-track{background:#111}::-webkit-scrollbar-thumb{background:var(--red)}
+a{text-decoration:none;color:inherit}button{cursor:pointer;font-family:'IBM Plex Mono',monospace}
+@keyframes fadeUp{from{opacity:0;transform:translateY(22px)}to{opacity:1;transform:translateY(0)}}
+@keyframes ticker{from{transform:translateX(0)}to{transform:translateX(-50%)}}
+
+#scroll-progress{position:fixed;top:0;left:0;height:2px;background:var(--red);z-index:2000;width:0;pointer-events:none;transition:width .1s linear}
+#nav{position:fixed;top:0;left:0;right:0;z-index:1000;height:60px;display:flex;align-items:center;justify-content:space-between;padding:0 36px;background:rgba(10,10,10,.97);backdrop-filter:blur(20px);border-bottom:1px solid rgba(192,57,43,.2)}
+.nav-logo{font-family:'Bebas Neue',sans-serif;font-size:26px;letter-spacing:4px;cursor:pointer;display:flex;align-items:center}
+.nav-logo span{color:var(--red)}.nav-logo-sub{font-family:'IBM Plex Mono',monospace;font-size:8px;letter-spacing:2px;color:#888;text-transform:uppercase;margin-left:10px;margin-top:2px}
+#nav-right{display:flex;align-items:center;gap:18px}
+.nb{background:none;border:none;font-size:10px;letter-spacing:2px;text-transform:uppercase;color:#bbb;padding:4px 0;transition:color .2s;display:inline-block}.nb:hover,.nb.on{color:var(--red)}
+.nb-ghost{background:transparent;border:1px solid rgba(255,255,255,.12);color:#bbb;font-size:10px;letter-spacing:2px;text-transform:uppercase;padding:8px 16px;transition:all .2s}.nb-ghost:hover{border-color:var(--red);color:var(--red)}
+#nav-hamburger{display:none;flex-direction:column;gap:5px;cursor:pointer;padding:6px;z-index:1100}
+.hb-line{display:block;width:22px;height:2px;background:#bbb;transition:all .3s}
+#nav-hamburger.open .hb-line:nth-child(1){transform:rotate(45deg) translate(5px,5px)}
+#nav-hamburger.open .hb-line:nth-child(2){opacity:0}
+#nav-hamburger.open .hb-line:nth-child(3){transform:rotate(-45deg) translate(5px,-5px)}
+#mobile-menu{display:none;position:fixed;top:60px;left:0;right:0;background:rgba(10,10,10,.98);backdrop-filter:blur(20px);z-index:999;border-bottom:1px solid rgba(192,57,43,.2);padding:16px 24px}
+#mobile-menu .nb{display:block;padding:12px 0;font-size:13px;border-bottom:1px solid rgba(255,255,255,.05);width:100%;background:none;text-align:left}
+
+.ticker{background:var(--red);padding:11px 0;overflow:hidden;white-space:nowrap;margin-top:60px}
+.ticker-inner{display:inline-block;animation:ticker 40s linear infinite}
+.ti{display:inline-block;font-family:'IBM Plex Mono',monospace;font-size:10px;letter-spacing:3px;color:rgba(255,255,255,.9);text-transform:uppercase;padding:0 28px}
+.ti::after{content:'◆';margin-left:28px;opacity:.35}
+
+/* HERO */
+.doc-hero{padding:100px 60px 60px;background:radial-gradient(ellipse 60% 50% at 50% 50%,rgba(192,57,43,.06) 0%,transparent 70%);border-bottom:1px solid rgba(192,57,43,.1);position:relative;overflow:hidden}
+.doc-hero-grid{position:absolute;inset:0;background-image:linear-gradient(rgba(192,57,43,.03) 1px,transparent 1px),linear-gradient(90deg,rgba(192,57,43,.03) 1px,transparent 1px);background-size:60px 60px;mask-image:radial-gradient(ellipse 80% 80% at 50% 50%,black 20%,transparent 100%)}
+.doc-hero-inner{position:relative;max-width:900px;margin:0 auto}
+.breadcrumb{font-family:'IBM Plex Mono',monospace;font-size:9px;letter-spacing:2px;color:#555;text-transform:uppercase;margin-bottom:18px;display:flex;align-items:center;gap:8px;animation:fadeUp .6s ease both}
+.breadcrumb a{color:#555;transition:color .2s}.breadcrumb a:hover{color:var(--red)}
+.doc-eyebrow{font-family:'IBM Plex Mono',monospace;font-size:10px;letter-spacing:4px;color:var(--red);text-transform:uppercase;display:flex;align-items:center;gap:12px;margin-bottom:16px;animation:fadeUp .6s .05s ease both}
+.doc-eyebrow::before{content:'';display:block;width:28px;height:1px;background:var(--red)}
+.doc-title{font-family:'Bebas Neue',sans-serif;font-size:clamp(44px,8vw,96px);line-height:.9;margin-bottom:16px;animation:fadeUp .6s .1s ease both}
+.doc-title em{color:var(--red);font-style:normal}
+.doc-meta{display:flex;gap:28px;margin-top:24px;flex-wrap:wrap;animation:fadeUp .6s .15s ease both}
+.doc-meta-item{font-family:'IBM Plex Mono',monospace;font-size:10px;color:#555;letter-spacing:1px;display:flex;align-items:center;gap:8px}
+.doc-meta-item::before{content:'—';color:var(--red)}
+
+/* LAYOUT */
+.doc-layout{max-width:1160px;margin:0 auto;padding:60px 60px 100px;display:grid;grid-template-columns:220px 1fr;gap:70px;align-items:start}
+.doc-toc{position:sticky;top:90px}
+.doc-toc-label{font-family:'IBM Plex Mono',monospace;font-size:9px;letter-spacing:3px;color:var(--red);text-transform:uppercase;margin-bottom:16px;display:flex;align-items:center;gap:10px}
+.doc-toc-label::before{content:'';display:block;width:16px;height:1px;background:var(--red)}
+.toc-item{display:block;font-family:'IBM Plex Mono',monospace;font-size:9px;letter-spacing:1px;color:#555;padding:7px 0 7px 14px;border-left:2px solid transparent;cursor:pointer;transition:all .15s;line-height:1.4}
+.toc-item:hover{color:#bbb;border-left-color:rgba(192,57,43,.3)}.toc-item.active{color:var(--red);border-left-color:var(--red)}
+.doc-other-link{margin-top:32px;padding:16px;background:rgba(192,57,43,.05);border:1px solid rgba(192,57,43,.12)}
+.doc-other-link-label{font-family:'IBM Plex Mono',monospace;font-size:8px;letter-spacing:2px;color:#555;text-transform:uppercase;margin-bottom:8px}
+.doc-other-link a{display:block;font-family:'IBM Plex Mono',monospace;font-size:10px;color:var(--red);letter-spacing:1px;margin-bottom:6px;transition:opacity .2s}
+.doc-other-link a:hover{opacity:.7}
+
+/* CONTENT */
+.doc-section{margin-bottom:56px;scroll-margin-top:90px}
+.doc-section-num{font-family:'IBM Plex Mono',monospace;font-size:9px;letter-spacing:3px;color:var(--red);text-transform:uppercase;margin-bottom:8px;display:flex;align-items:center;gap:10px}
+.doc-section-num::before{content:'';display:block;width:20px;height:1px;background:var(--red)}
+.doc-section-title{font-family:'Bebas Neue',sans-serif;font-size:32px;margin-bottom:20px;line-height:1;color:#fff}
+.doc-section-title em{color:var(--red);font-style:normal}
+.doc-body{font-size:14px;color:#888;line-height:2}
+.doc-body p{margin-bottom:16px}.doc-body p:last-child{margin-bottom:0}
+.doc-body strong{color:#ccc;font-weight:600}
+.doc-body a{color:var(--red);text-decoration:underline;text-underline-offset:3px}
+.doc-body ul{margin:14px 0;list-style:none;display:flex;flex-direction:column;gap:8px}
+.doc-body ul li{display:flex;align-items:flex-start;gap:12px;font-size:13px;color:#888;line-height:1.8}
+.doc-body ul li::before{content:'—';color:var(--red);flex-shrink:0;font-family:'IBM Plex Mono',monospace;margin-top:2px}
+.doc-highlight{background:rgba(192,57,43,.05);border-left:2px solid var(--red);padding:16px 20px;margin:18px 0;font-family:'Playfair Display',serif;font-style:italic;font-size:14px;color:#888;line-height:1.8}
+.doc-highlight.warn{background:rgba(243,156,18,.05);border-left-color:#F39C12}
+.doc-table{width:100%;border-collapse:collapse;margin:18px 0;font-size:12px}
+.doc-table th{font-family:'IBM Plex Mono',monospace;font-size:8px;letter-spacing:2px;text-transform:uppercase;color:var(--red);padding:10px 14px;border-bottom:1px solid rgba(192,57,43,.2);text-align:left;background:rgba(192,57,43,.04)}
+.doc-table td{padding:11px 14px;border-bottom:1px solid rgba(255,255,255,.05);color:#888;line-height:1.6;vertical-align:top}
+.doc-table tr:last-child td{border-bottom:none}
+.doc-divider{height:1px;background:rgba(255,255,255,.05);margin:56px 0}
+.doc-badge{font-family:'IBM Plex Mono',monospace;font-size:8px;letter-spacing:1px;text-transform:uppercase;padding:2px 8px;background:rgba(192,57,43,.1);color:var(--red);display:inline-block;margin-bottom:10px}
+
+/* FOOTER */
+footer{padding:48px 60px 26px;background:var(--dark);border-top:1px solid rgba(192,57,43,.15)}
+.ft-grid{display:grid;grid-template-columns:2fr 1fr 1fr 1fr;gap:44px;margin-bottom:36px}
+.ft-brand{font-family:'Bebas Neue',sans-serif;font-size:28px;letter-spacing:4px;margin-bottom:12px}
+.ft-brand span{color:var(--red)}.ft-desc{font-size:12px;color:#888;line-height:1.7;max-width:240px}
+.ft-col-t{font-family:'IBM Plex Mono',monospace;font-size:9px;letter-spacing:3px;color:var(--red);text-transform:uppercase;margin-bottom:14px}
+.ft-link{font-size:12px;color:#888;margin-bottom:9px;transition:color .2s;display:block}.ft-link:hover{color:var(--red)}
+.ft-btm{padding-top:22px;border-top:1px solid rgba(255,255,255,.05);display:flex;justify-content:space-between;flex-wrap:wrap;gap:8px}
+.ft-copy{font-family:'IBM Plex Mono',monospace;font-size:10px;color:#888}
+#back-to-top{position:fixed;bottom:28px;left:28px;width:38px;height:38px;background:var(--dark2);border:1px solid rgba(192,57,43,.3);color:var(--red);font-size:16px;display:flex;align-items:center;justify-content:center;cursor:pointer;transition:all .3s;opacity:0;transform:translateY(10px);z-index:500}
+#back-to-top.show{opacity:1;transform:translateY(0)}
+#back-to-top:hover{background:rgba(192,57,43,.15)}
+
+@media(max-width:1000px){.doc-layout{grid-template-columns:1fr}.doc-toc{display:none}}
+@media(max-width:900px){#nav-right{display:none!important}#nav-hamburger{display:flex!important}#nav{padding:0 20px}.doc-hero,.doc-layout{padding-left:24px;padding-right:24px}footer{padding:40px 24px 22px}.ft-grid{grid-template-columns:1fr 1fr;gap:28px}}
+@media(max-width:600px){.ft-grid{grid-template-columns:1fr}}
+/* ── LANG SWITCHER ── */
+#lang-switcher{position:relative;margin-left:6px}
+.lang-btn{display:flex;align-items:center;gap:5px;cursor:pointer;padding:5px 10px;border:1px solid rgba(255,255,255,.07);background:transparent;transition:all .2s;font-family:'IBM Plex Mono',monospace;font-size:9px;letter-spacing:2px;color:#555;user-select:none}
+.lang-btn:hover{border-color:var(--red);color:var(--red)}
+.lang-flag{font-size:13px;line-height:1}.lang-code{font-size:9px;letter-spacing:2px;text-transform:uppercase}.lang-arrow{font-size:8px;opacity:.5;margin-left:1px}
+.lang-dropdown{display:none;position:absolute;top:calc(100% + 6px);right:0;background:#111;border:1px solid rgba(255,255,255,.07);min-width:78px;z-index:9999;box-shadow:0 8px 24px rgba(0,0,0,.7)}
+.lang-dropdown.open{display:block}
+.lang-opt{display:flex;align-items:center;gap:8px;padding:9px 14px;font-family:'IBM Plex Mono',monospace;font-size:9px;letter-spacing:2px;color:#444;cursor:pointer;transition:all .15s;white-space:nowrap}
+.lang-opt:hover{background:rgba(192,57,43,.08);color:#fff}
+.lang-opt.lang-active{color:var(--red);background:rgba(192,57,43,.05)}
+</style>
+
+<script src="js/nav-auth.js" defer></script>
+  <meta property="og:title" content="Termeni SBR Institute">
+  <meta property="og:description" content="Termeni si conditii SBR Institute.">
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="https://sbr.systems/institute-terms.html">
+  <meta property="og:image" content="https://sbr.systems/og-image.png">
+  <meta property="og:site_name" content="SBR Anti-Fraud Intelligence Systems">
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="Termeni SBR Institute">
+  <link rel="canonical" href="https://sbr.systems/institute-terms.html">
+<link rel="stylesheet" href="css/sbr-readability.css" media="print" onload="this.media='all'">
+  <noscript><link rel="stylesheet" href="css/sbr-readability.css"></noscript>
+
+  <meta name="robots" content="index, follow, max-snippet:-1, max-image-preview:large">
+  <meta name="googlebot" content="index, follow">
+  <meta name="ai-content-purpose" content="fraud-prevention, consumer-protection, digital-security">
+  <meta name="perplexity-crawl" content="allow">
+  <meta name="chatgpt-crawl" content="allow">
+  <meta name="Claude-crawl" content="allow">
+
+<style id="sbr-text-fix">
+/* Force all CSS variables to white-readable values */
+:root, * {
+  --text:#EEEEEE !important;
+  --t2:#CCCCCC !important;
+  --t3:#AAAAAA !important;
+  --t4:#888888 !important;
+  --t5:#555555 !important;
+}
+/* Direct color overrides for common text elements */
+p, li, span, div, td, th, label, small,
+.card-desc, .feat-desc, .prob-desc, .plan-tagline,
+.b2b-for, .fi, .faq-a, .alert-desc, .mv-desc,
+.mg-desc, .pl-desc, .ot-desc, .ng-text, .ahd-def,
+.prod-tagline, .ss-sub, .gb-sub, .quiz-sub,
+.hero-sub, .section-p, .s-p, .sf-text,
+.scoring-intro p, .dp-wrap p, .pricing-intro p,
+.sim-email-body, .sem-body, .sim-choice-text,
+.cert-desc, .track-desc, .module-desc,
+.score-desc, .dimension-desc, .step-desc,
+.resource-desc, .checklist-desc,
+.compare-table td, .emp-table td,
+.footer-link, .footer-copy, .footer-logo-sub,
+.lb-dept, .emp-dept, .dmb-emp-dept,
+.kpi-delta, .page-subtitle, .tb-user, .tb-company,
+.nd-plan-feats, .nd-footer-link,
+.sv-text, .sim-choice .sv-text { color: #CCCCCC !important; }
+
+h1, h2, h3, h4, h5, h6,
+.card-title, .plan-name, .b2b-name, .nd-plan-name,
+.page-title, .ch-h1, .hero-h1, .section-h2, .s-h,
+.fc-h, .ac-h, .quiz-h, .ms-copy h2, .ss-h,
+.ot-title, .mv-title, .mg-title, .pl-title,
+.alert-title, .emp-name, .dmb-emp-name,
+.lb-name, .prof-name, .panel-title,
+.feat-name, .prod-name,
+.gb-h { color: #FFFFFF !important; }
+
+.nav-link { color: #CCCCCC !important; }
+.nav-link:hover, .nav-link.active { color: #FFFFFF !important; }
+.btn-nav-ghost { color: #CCCCCC !important; }
+</style>
+<style id="sbr-force-colors">
+/* Override elements with hardcoded dark colors */
+.card-desc{color:#CCCCCC !important}
+.plan-tagline,.b2b-for,.fi{color:#CCCCCC !important}
+.faq-a,.faq-answer{color:#CCCCCC !important}
+.alert-desc,.sim-email-body,.sem-body{color:#CCCCCC !important}
+.mv-desc,.mg-desc,.pl-desc,.ot-desc,.ng-text,.ahd-def{color:#CCCCCC !important}
+.prod-tagline,.ss-sub,.gb-sub,.quiz-sub{color:#CCCCCC !important}
+.hero-sub,.s-p,.section-p,.fc-sub,.ac-sub{color:#CCCCCC !important}
+.prob-desc,.prob-a{color:#CCCCCC !important}
+.feat-desc,.nd-plan-feats{color:#CCCCCC !important}
+.scoring-intro p,.dp-wrap p,.pricing-intro p{color:#CCCCCC !important}
+p,li,td:not([class*="risk"]):not([class*="rc"]):not([class*="rh"]){color:#CCCCCC !important}
+h1,h2,h3,h4,h5,h6,.card-title,.plan-name,.b2b-name,.page-title{color:#FFFFFF !important}
+.nav-link{color:#CCCCCC !important}
+.nav-link:hover,.nav-link.active{color:#FFFFFF !important}
+.btn-nav-ghost{color:#CCCCCC !important}
+.compare-table td{color:#CCCCCC !important}
+.compare-table td.feature-name,.compare-table .feat-name{color:#DDDDDD !important}
+.emp-name,.lb-name,.dmb-emp-name{color:#EEEEEE !important}
+.emp-dept,.lb-dept,.dmb-emp-dept{color:#AAAAAA !important}
+.alert-title,.panel-title{color:#FFFFFF !important}
+</style>
+<script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+<style id="sbr-footer-final">
+.sbr-footer{
+  background:#060606 !important;border-top:1px solid rgba(255,255,255,.04) !important;
+  padding:16px clamp(16px,4vw,48px) !important;display:flex !important;
+  align-items:center !important;justify-content:space-between !important;
+  gap:14px !important;flex-wrap:wrap !important;
+}
+.footer-logo{font-family:'Bebas Neue',sans-serif;font-size:16px !important;letter-spacing:4px !important;color:#fff !important}
+.footer-logo span{color:#C0392B !important}
+.footer-links{display:flex !important;align-items:center !important;gap:20px !important}
+.footer-link{font-family:'IBM Plex Mono',monospace !important;font-size:8px !important;letter-spacing:1px !important;color:#3a3a3a !important;text-transform:uppercase !important;text-decoration:none !important;transition:color .15s !important;white-space:nowrap !important}
+.footer-link:hover{color:#888 !important}
+.footer-copy{font-family:'IBM Plex Mono',monospace !important;font-size:7px !important;color:#222 !important;white-space:nowrap !important}
+@media(max-width:560px){
+  .sbr-footer{flex-direction:column !important;align-items:flex-start !important;gap:8px !important;padding:12px 16px !important}
+  .footer-links{gap:12px !important}
+  .footer-copy{font-size:6px !important}
+}
+</style>
+<style id="sbr-social-icons">
+/* Hide old text-based social bar */
+#sbr-social-bar, .sbr-social-bar { display: none !important; }
+/* Floating icon-only social pill */
+#sbr-sw {
+  position: fixed; right: 14px; top: 50%; transform: translateY(-50%);
+  z-index: 800; display: flex; flex-direction: column; gap: 6px;
+}
+.sbr-sw-a {
+  display: flex; align-items: center; justify-content: center;
+  width: 36px; height: 36px; border-radius: 50%;
+  background: rgba(255,255,255,.04); border: 1px solid rgba(255,255,255,.08);
+  text-decoration: none; cursor: pointer;
+  transition: background .2s, border-color .2s, transform .2s;
+  backdrop-filter: blur(10px); -webkit-backdrop-filter: blur(10px);
+  font-size: 14px; line-height: 1;
+}
+.sbr-sw-a:hover {
+  background: rgba(192,57,43,.15); border-color: rgba(192,57,43,.3);
+  transform: scale(1.12);
+}
+/* Mobile — bottom strip icon only */
+@media(max-width: 680px) {
+  #sbr-sw {
+    position: fixed; bottom: 0; left: 0; right: 0; top: auto; transform: none;
+    flex-direction: row; gap: 0; border-radius: 0;
+    background: rgba(6,6,6,.97); border-top: 1px solid rgba(255,255,255,.05);
+    backdrop-filter: blur(20px); -webkit-backdrop-filter: blur(20px);
+    padding-bottom: env(safe-area-inset-bottom, 0); height: 50px;
+  }
+  .sbr-sw-a {
+    flex: 1; width: auto; height: 50px; border-radius: 0; border: none;
+    border-right: 1px solid rgba(255,255,255,.04); background: transparent;
+    font-size: 16px;
+  }
+  .sbr-sw-a:last-child { border-right: none; }
+  .sbr-sw-a:hover { transform: none; background: rgba(192,57,43,.07); }
+  body { padding-bottom: 50px !important; }
+}
+/* Kill any text labels */
+.sbr-sw-l { display: none !important; }
+</style>
+<style id="sbr-fc">
+/* Force all common text elements to white-ish */
+p,li,td,th,label,small,figcaption,dd,dt,
+.card-desc,.plan-tagline,.b2b-for,.fi,.faq-a,.faq-answer,
+.alert-desc,.mv-desc,.mg-desc,.pl-desc,.ot-desc,.ng-text,
+.prod-tagline,.ss-sub,.gb-sub,.quiz-sub,.hero-sub,
+.s-p,.section-p,.fc-sub,.ac-sub,.feat-desc,
+.sim-email-body,.sem-body,.sf-text,
+.nd-plan-feats,.prob-desc,.prob-a,
+.pf-lead,.pf-desc,.pf-text,
+.score-desc,.dimension-desc,
+.cert-desc,.track-desc,.module-desc,
+.checklist-desc,.step-desc,.resource-desc,
+[class*="-desc"],[class*="-sub"],[class*="-text"],[class*="-body"],
+[class*="-copy"],[class*="-content"],[class*="-lead"]{
+  color:#CCCCCC!important;
+}
+h1,h2,h3,h4,h5,h6,
+.card-title,.plan-name,.b2b-name,.page-title,
+.section-h2,.s-h,.ch-h1,.hero-h1,.fc-h,.ac-h,.quiz-h,
+.ot-title,.mv-title,.mg-title,.pl-title,.alert-title,
+.panel-title,.emp-name,.lb-name,.feat-name,.prod-name,
+[class*="-title"]:not(.lock-title):not(.sn-dd-section):not(.sm-label){
+  color:#FFFFFF!important;
+}
+.nav-link,.sn-link,.sn-dd-link{color:#CCCCCC!important;}
+.nav-link:hover,.nav-link.active,.sn-link:hover,.sn-dd-link:hover{color:#FFFFFF!important;}
+.footer-link{color:#3a3a3a!important;}
+.footer-link:hover{color:#888!important;}
+.footer-copy{color:#222!important;}
+/* Mobile menu links — RED, not blue/inherit */
+.sm-link{color:#EEEEEE!important;}
+.sm-link:hover{color:#C0392B!important;}
+.sm-link > span:first-child{color:#EEEEEE!important;}
+.sm-link-sub{color:#444!important;}
+.sm-small-link{color:#666!important;}
+.sm-small-link:hover{color:#EEEEEE!important;}
+/* Kill any blue link inheritance in mobile menu */
+#sbr-menu a{color:#EEEEEE!important;}
+#sbr-menu a:hover{color:#C0392B!important;}
+/* Desktop nav links */
+.sn-link{color:#AAAAAA!important;}
+.sn-link:hover{color:#EEEEEE!important;}
+.sn-dd-link{color:#888!important;}
+.sn-dd-link:hover{color:#EEEEEE!important;background:rgba(192,57,43,.06)!important;}
+/* sbrN nav elements — white, never blue */
+#sbrN a,#sbrN button,.sbrN-btn{color:#aaa!important;text-decoration:none!important}
+#sbrN a:hover,#sbrN button:hover,.sbrN-btn:hover{color:#eee!important}
+.sbrN-cta,.sbrN-cta:hover{color:#fff!important}
+.dd-link{color:inherit!important;text-decoration:none!important}
+.dd-link-title{color:#eee!important}
+.dd-link-sub{color:#555!important}
+.mob-link{color:#eee!important;text-decoration:none!important}
+.mob-link:hover{color:#C0392B!important}
+.mob-small-link{color:#555!important;text-decoration:none!important}
+.snl-btn,.snl-btn *{color:#aaa!important}
+
+</style>
+<style id="sbr-font-nuclear">
+/* ═══ NUCLEAR WHITE TEXT OVERRIDE ═══════════════════════════════
+   Targets every element that could have dark gray text.
+   Does NOT touch: buttons, badges, risk labels, nav CTAs
+═══════════════════════════════════════════════════════════════ */
+
+/* Base: all body text → white-ish */
+body, body *:not(button):not(.sn-cta):not(.cta-primary):not(.btn-nav-solid)
+  :not(.card-risk):not(.rb-c):not(.rb-h):not(.rb-m):not(.rb-l)
+  :not(.chk):not(.cross):not(.lock-plan):not(.gb-plan-badge)
+  :not([class*="badge"]) {
+  -webkit-font-smoothing: antialiased !important;
+}
+
+/* Paragraph text, list items, descriptions */
+p { color: #DDDDDD !important; font-size: max(14px, 1em) !important; line-height: 1.85 !important; }
+li { color: #DDDDDD !important; font-size: max(13px, 0.9em) !important; line-height: 1.75 !important; }
+span:not([class*="risk"]):not([class*="badge"]):not(.dot):not(.sn-sbr):not(.sn-af):not(.sn-dot) { color: inherit !important; }
+td, th { color: #CCCCCC !important; }
+label { color: #CCCCCC !important; }
+small { color: #AAAAAA !important; }
+
+/* Specific content classes - all the variants we've seen */
+.card-desc, .plan-tagline, .b2b-for, .b2b-feat,
+.fi, .fi.yes, .feat-desc, .nd-plan-feats,
+.faq-a, .faq-answer, .faq-body,
+.alert-desc, .dmb-alert-text,
+.mv-desc, .mg-desc, .pl-desc, .ot-desc, .ng-text,
+.prob-desc, .prob-a, .prob-q,
+.ahd-def, .dc-desc, .dim-desc,
+.prod-tagline, .hero-sub, .s-p, .section-p,
+.fc-sub, .ac-sub, .quiz-sub, .ah-tagline,
+.gb-sub, .pq-text, .ss-sub, .scoring-intro p,
+.sim-email-body, .sem-body, .sf-text,
+.feat-desc, .step-desc, .checklist-desc, .resource-desc,
+.cert-desc, .track-desc, .module-desc,
+.pf-lead, .pf-desc, .pf-text, .pf-body,
+.score-desc, .dimension-desc,
+.dp-wrap p, .pricing-intro p,
+.rec-desc, .sg-sub, .sh-sub,
+.about-text, .team-bio, .mission-text,
+.sbi-fill + *, [class*="-desc"],
+[class*="-sub"]:not([class*="hero-sub"]),
+[class*="-body"]:not(#sbr-menu):not(#sbr-nav):not(.card-body) { color: #CCCCCC !important; }
+
+/* Headings - full white */
+h1, h2, h3, h4, h5, h6 { color: #FFFFFF !important; }
+.card-title, .plan-name, .b2b-name, .nd-plan-name,
+.page-title, .section-h2, .s-h, .ch-h1, .hero-h1,
+.fc-h, .ac-h, .quiz-h, .ss-h, .sh-h1,
+.ot-title, .mv-title, .mg-title, .pl-title,
+.alert-title, .panel-title, .emp-name, .lb-name,
+.feat-name, .prod-name, .gb-h,
+.dc-name, .rec-title, .fe-title, .sg-h,
+.sm-link > span:first-child { color: #FFFFFF !important; }
+
+/* Nav */
+.sn-link { color: #BBBBBB !important; }
+.sn-link:hover { color: #FFFFFF !important; }
+.sn-dd-link { color: #AAAAAA !important; }
+.sn-dd-link:hover { color: #EEEEEE !important; }
+.sn-af { color: #DDDDDD !important; }
+
+/* Footer */
+.footer-link { color: #444 !important; }
+.footer-link:hover { color: #999 !important; }
+.footer-copy { color: #2a2a2a !important; }
+.footer-logo { color: #FFFFFF !important; }
+
+/* Secondary labels */
+.card-cat, .prod-code, .cs-code, .kpi-label, .hs-l, .hstat-l,
+.section-eyebrow, .s-eyebrow, .ah-eyebrow, .hero-eyebrow,
+.cf-label, .sm-link-sub, .sm-small-link,
+.sm-label, .nd-plan-price, .b2b-period, .plan-period,
+.dc-sub, .sbi-name, .dc-indicators .dc-indicator,
+.sh-pill-word, .stl-name, .fe-desc, .cc-label { color: #AAAAAA !important; }
+
+/* Dashboard */
+.emp-name, .lb-name, .dmb-emp-name { color: #EEEEEE !important; }
+.emp-dept, .lb-dept, .dmb-emp-dept, .cs-name { color: #BBBBBB !important; }
+
+/* Monospace elements */
+.card-id, .sim-from, .sem-row-val, .sim-cat-label { color: #BBBBBB !important; }
+
+/* Tag entry / pattern */
+.tag-entry { color: #CCCCCC !important; font-size: 9px !important; }
+
+/* Sidebar count */
+.cs-count { color: #777 !important; }
+
+/* Compare table */
+.compare-table td { color: #CCCCCC !important; }
+.compare-table .feat-name { color: #EEEEEE !important; font-weight: 700 !important; }
+
+/* Input fields */
+input:not([type="submit"]):not([type="button"]):not([type="reset"]),
+textarea, select { color: #EEEEEE !important; }
+input::placeholder, textarea::placeholder { color: #555 !important; }
+</style>
+
+<style id="sbr-red-override">
+/* Replace all blue nav/UI accents with red */
+.nd-plan-badge.blue{background:rgba(192,57,43,.1)!important;color:var(--red)!important}
+.nd-plan-tier.blue{color:var(--red)!important}
+.sh-plan-badge:nth-child(1){color:var(--red)!important}
+.sh-plan-badge:nth-child(1) .spb-dot{background:var(--red)!important}
+.pb-name.professional,.pb-name.premium{background:rgba(192,57,43,.1)!important;color:var(--red)!important}
+.fe-badge.pro{background:rgba(192,57,43,.1)!important;color:var(--red)!important}
+/* Hero stats 4th — red instead of blue */
+.hstat:nth-child(4)::after{background:var(--red)!important}
+.hstat:nth-child(4) .hstat-n{color:var(--red)!important}
+/* Score page blue → red */
+.dim-card.breach{border-top-color:var(--red)!important}
+.dim-card.breach .dc-letter{color:var(--red)!important}
+.sbi-fill.breach{background:var(--red)!important}
+/* Gate walls */
+.gate-banner.professional{border-color:rgba(192,57,43,.2)!important;background:rgba(192,57,43,.03)!important}
+.gate-banner.professional .gb-eyebrow{color:rgba(192,57,43,.5)!important}
+.gate-banner.professional .gb-n{color:var(--red)!important}
+.gate-banner.professional .gb-btn-main{background:var(--red)!important;color:#fff!important}
+/* B2B plan prices */
+.b2b-plan:nth-child(1) .b2b-amount{color:var(--red)!important}
+.b2b-plan:nth-child(1) .b2b-tier{color:var(--red)!important}
+.b2b-plan:nth-child(1) .b2b-cta{background:rgba(192,57,43,.12)!important;color:var(--red)!important;border:1px solid rgba(192,57,43,.25)!important}
+.b2b-plan:nth-child(1) .b2b-cta:hover{background:var(--red)!important;color:#fff!important}
+/* Signal/score accents */
+.sg-plan:nth-child(2){border-top-color:var(--red)!important}
+.sg-plan:nth-child(2) .sg-plan-name{color:var(--red)!important}
+/* Active nav link highlight */
+.sn-link.active,.sn-link:focus{color:var(--red)!important}
+/* Codex plan banner */
+.pb-name.professional{background:rgba(192,57,43,.08)!important;color:var(--red)!important}
+/* Mobile menu section label */
+.sm-label{color:rgba(192,57,43,.5)!important}
+/* Signals strip */
+.ss-btn{background:var(--red)!important;color:#fff!important}
+.ss-btn:hover{background:var(--red-l)!important}
+.ss-input:focus{border-color:rgba(192,57,43,.4)!important}
+</style></head>
+<body>
+<div id="scroll-progress"></div>
+</div>
+<button id="back-to-top">↑</button>
+
+<div id="mobile-menu"></div>
+
+<div class="ticker">
+  <div class="ticker-inner">
+    <span class="ti">SBR Institute</span><span class="ti">Termeni & Condiții</span><span class="ti">Document legal</span><span class="ti">Versiunea 1.0 &middot; 2026</span>
+    <span class="ti">SBR Institute</span><span class="ti">Termeni & Condiții</span><span class="ti">Document legal</span><span class="ti">Versiunea 1.0 &middot; 2026</span>
+  </div>
+</div>
+
+<div class="doc-hero">
+  <div class="doc-hero-grid"></div>
+  <div class="doc-hero-inner">
+    <div class="breadcrumb"><a href="institute.html">SBR Institute</a><span>›</span><span style="color:#888">Termeni & Condiții</span></div>
+    <div class="doc-eyebrow">Document legal &middot; Institute</div>
+    <h1 class="doc-title">Termeni &amp;<br><em>Condiții</em></h1>
+    <div class="doc-meta">
+      <span class="doc-meta-item">Versiunea 1.0</span>
+      <span class="doc-meta-item">Intrare în vigoare: 1 Ianuarie 2026</span>
+      <span class="doc-meta-item">Aplicabil: SBR Institute</span>
+    </div>
+  </div>
+</div>
+
+<div class="doc-layout">
+  <div class="doc-toc">
+    <div class="doc-toc-label">Cuprins</div>
+    <a class="toc-item active" onclick="if (!window.__cfRLUnblockHandlers) return false; goTo('s1')" data-cf-modified-287bf832ab541fa1de38f3b1-="">01. Definiții</a>
+    <a class="toc-item" onclick="if (!window.__cfRLUnblockHandlers) return false; goTo('s2')" data-cf-modified-287bf832ab541fa1de38f3b1-="">02. Acceptare</a>
+    <a class="toc-item" onclick="if (!window.__cfRLUnblockHandlers) return false; goTo('s3')" data-cf-modified-287bf832ab541fa1de38f3b1-="">03. Programe & Titulaturi</a>
+    <a class="toc-item" onclick="if (!window.__cfRLUnblockHandlers) return false; goTo('s4')" data-cf-modified-287bf832ab541fa1de38f3b1-="">04. Înscrierea</a>
+    <a class="toc-item" onclick="if (!window.__cfRLUnblockHandlers) return false; goTo('s5')" data-cf-modified-287bf832ab541fa1de38f3b1-="">05. Plăți</a>
+    <a class="toc-item" onclick="if (!window.__cfRLUnblockHandlers) return false; goTo('s6')" data-cf-modified-287bf832ab541fa1de38f3b1-="">06. Rambursări</a>
+    <a class="toc-item" onclick="if (!window.__cfRLUnblockHandlers) return false; goTo('s7')" data-cf-modified-287bf832ab541fa1de38f3b1-="">07. Certificarea & Diploma</a>
+    <a class="toc-item" onclick="if (!window.__cfRLUnblockHandlers) return false; goTo('s8')" data-cf-modified-287bf832ab541fa1de38f3b1-="">08. Proprietate intelectuală</a>
+    <a class="toc-item" onclick="if (!window.__cfRLUnblockHandlers) return false; goTo('s9')" data-cf-modified-287bf832ab541fa1de38f3b1-="">09. Obligații cursant</a>
+    <a class="toc-item" onclick="if (!window.__cfRLUnblockHandlers) return false; goTo('s10')" data-cf-modified-287bf832ab541fa1de38f3b1-="">10. Limitarea răspunderii</a>
+    <a class="toc-item" onclick="if (!window.__cfRLUnblockHandlers) return false; goTo('s11')" data-cf-modified-287bf832ab541fa1de38f3b1-="">11. Modificări</a>
+    <a class="toc-item" onclick="if (!window.__cfRLUnblockHandlers) return false; goTo('s12')" data-cf-modified-287bf832ab541fa1de38f3b1-="">12. Legea aplicabilă</a>
+    <a class="toc-item" onclick="if (!window.__cfRLUnblockHandlers) return false; goTo('s13')" data-cf-modified-287bf832ab541fa1de38f3b1-="">13. Contact</a>
+    <div class="doc-other-link">
+      <div class="doc-other-link-label">Documente conexe</div>
+      <a href="terms.html">&rarr; T&C SBR General</a>
+      <a href="privacy.html">&rarr; Politică Confidențialitate</a>
+      <a href="institute-faq.html">&rarr; FAQ Institute</a>
+    </div>
+  </div>
+
+  <div class="doc-content">
+    <div class="doc-highlight">
+      Acești termeni guvernează exclusiv programele de certificare SBR Institute. Completează, nu înlocuiesc, Termenii și Condițiile generale SBR disponibili la <a href="terms.html">terms.html</a>. În caz de conflict, termenii specifici Institute prevalează pentru serviciile de certificare.
+    </div>
+
+    <div class="doc-section" id="s1">
+      <div class="doc-section-num">01</div>
+      <div class="doc-section-title"><em>Definiții</em></div>
+      <div class="doc-body">
+        <table class="doc-table">
+          <thead><tr><th>Termen</th><th>Înțeles</th></tr></thead>
+          <tbody>
+            <tr><td><strong>„SBR Institute"</strong></td><td>Programul de certificare profesională al SBR Anti-Fraud Systems, disponibil la sbr.systems</td></tr>
+            <tr><td><strong>„Cursant"</strong></td><td>Persoana fizică sau juridică înscrisă într-un program SBR Institute</td></tr>
+            <tr><td><strong>„Program"</strong></td><td>Un nivel de certificare (Nivel 1, 2 sau 3) sau un Micro-Credential</td></tr>
+            <tr><td><strong>„Titulatura"</strong></td><td>Denumirea oficială a certificării obținute, din lista celor 15 titulaturi SBR Institute</td></tr>
+            <tr><td><strong>„Diplomă"</strong></td><td>Documentul digital emis de SBR Institute după absolvirea cu succes a unui program</td></tr>
+            <tr><td><strong>„Cod de verificare"</strong></td><td>Codul alfanumeric unic de pe fiecare diplomă, folosit pentru verificarea autenticității</td></tr>
+            <tr><td><strong>„Examen final"</strong></td><td>Evaluarea practică care condiționează emiterea diplomei</td></tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+
+    <div class="doc-divider"></div>
+
+    <div class="doc-section" id="s2">
+      <div class="doc-section-num">02</div>
+      <div class="doc-section-title">Acceptarea <em>termenilor</em></div>
+      <div class="doc-body">
+        <p>Prin completarea formularului de aplicație, efectuarea plății sau accesarea oricărei părți a programului, confirmi că ai citit, înțeles și ești de acord cu prezentii termeni în totalitate.</p>
+        <div class="doc-highlight warn">Dacă nu ești de acord cu oricare dintre acești termeni, nu te poți înscrie în niciun program SBR Institute.</div>
+        <p>Confirmi de asemenea că ai minimum <strong>18 ani</strong>, capacitate juridică de a contracta, și că informațiile furnizate în aplicație sunt corecte și complete.</p>
+      </div>
+    </div>
+
+    <div class="doc-divider"></div>
+
+    <div class="doc-section" id="s3">
+      <div class="doc-section-num">03</div>
+      <div class="doc-section-title">Programe &amp; <em>Titulaturi</em></div>
+      <div class="doc-body">
+        <p>SBR Institute oferă programe structurate pe trei niveluri, fiecare cu câte 5 titulaturi profesionale distincte, plus 6 Micro-Credentials specializate.</p>
+        <div class="doc-badge">Nivelul 1 — Individual</div>
+        <p>5 titulaturi: Specialist în Protecția Digitală, Expert în Siguranță Online, Consultant în Prevenția Fraudelor Personale, Specialist în Securitatea Identității Digitale, Expert în Protecția Financiară Personală. Durată: 4 săptămâni. Fără condiții de intrare.</p>
+        <div class="doc-badge" style="margin-top:12px">Nivelul 2 — Business</div>
+        <p>5 titulaturi: Consultant Anti-Fraudă pentru IMM-uri, Manager de Risc și Prevenție a Fraudelor, Expert în Sisteme Interne Anti-Fraudă, Analist de Risc și Integritate Financiară, Consultant în Protecția Tranzacțiilor și Furnizorilor. Durată: 8 săptămâni. Condiție: experiență profesională sau Nivelul 1.</p>
+        <div class="doc-badge" style="margin-top:12px">Nivelul 3 — Avansat</div>
+        <p>5 titulaturi: Analist de Intelligence Anti-Fraudă, Specialist în Investigarea Fraudelor Digitale, Expert în Detectarea și Prevenirea Fraudelor, Analist de Risc și Inteligență Financiară, Cercetător în Fraudă și Securitate Digitală. Durată: 12 săptămâni. Condiție: interviu de selecție.</p>
+        <p>SBR Institute își rezervă dreptul de a modifica structura programelor, conținutul modulelor și lista titulaturilor, cu notificarea cursanților activi cu minimum 30 de zile înainte de modificările semnificative.</p>
+      </div>
+    </div>
+
+    <div class="doc-divider"></div>
+
+    <div class="doc-section" id="s4">
+      <div class="doc-section-num">04</div>
+      <div class="doc-section-title"><em>Înscrierea</em></div>
+      <div class="doc-body">
+        <p><strong>Procesul de aplicație.</strong> Înscrierea se face prin formularul de pe platforma SBR Institute sau prin contact direct. SBR Institute îți confirmă înscrierea și comunică prețul în maximum 48 de ore.</p>
+        <p><strong>Condiții de admitere.</strong> Nivelul 1 nu impune condiții de intrare. Nivelul 2 necesită experiență profesională demonstrabilă sau absolvirea Nivelului 1. Nivelul 3 necesită un interviu de selecție — SBR Institute își rezervă dreptul de a refuza admiterea dacă profilul candidatului nu corespunde cerințelor programului.</p>
+        <p><strong>Cont individual.</strong> Fiecare cursant primește un cont individual pe platforma SBR Institute. Contul este personal și netransferabil. Partajarea accesului este interzisă și poate duce la suspendarea imediată fără rambursare.</p>
+        <p><strong>Furnizarea de informații false.</strong> Dacă se descoperă că ai furnizat informații false la înregistrare sau la examen, diploma poate fi anulată, iar codul de verificare dezactivat public, indiferent de momentul descoperirii.</p>
+      </div>
+    </div>
+
+    <div class="doc-divider"></div>
+
+    <div class="doc-section" id="s5">
+      <div class="doc-section-num">05</div>
+      <div class="doc-section-title"><em>Plăți</em></div>
+      <div class="doc-body">
+        <p><strong>Plata accesului.</strong> Prețul programului este comunicat individual în urma aplicației și confirmării înscrierii. Plata se efectuează integral sau în rate (acolo unde e disponibil) prin Lemon Squeezy.</p>
+        <p><strong>Module gratuite.</strong> Primele 3 module din programele de Nivel 1 sunt accesibile gratuit, fără date de card. Accesul la modulele 4+ și la examenul final necesită plata programului.</p>
+        <p><strong>Pachete corporate.</strong> Companiile care înscriu mai mulți angajați beneficiază de prețuri adaptate, stabilite prin contract separat. Fiecare angajat primește cont și diplomă individuală.</p>
+        <p><strong>Prețurile.</strong> SBR Institute poate modifica prețurile pentru noi înregistrări. Prețul convenit la momentul înscrierii nu se modifică pentru cursantul activ.</p>
+      </div>
+    </div>
+
+    <div class="doc-divider"></div>
+
+    <div class="doc-section" id="s6">
+      <div class="doc-section-num">06</div>
+      <div class="doc-section-title"><em>Rambursări</em></div>
+      <div class="doc-body">
+        <p>Oferim rambursare completă în primele <strong>14 zile calendaristice</strong> de la plată, dacă nu ai accesat mai mult de 3 module plătite (cu excepția celor 3 module gratuite incluse).</p>
+        <p><strong>Excepții fără rambursare:</strong></p>
+        <ul>
+          <li>Ai accesat mai mult de 3 module plătite din program</li>
+          <li>Ai susținut examenul final (indiferent de rezultat)</li>
+          <li>Diploma a fost deja emisă</li>
+          <li>Se constată utilizare abuzivă sau partajare de acces</li>
+        </ul>
+        <p><strong>Cum soliciți rambursarea:</strong> Email la <a href="mailto:email@sbr.systems">email@sbr.systems</a> cu subiectul „Rambursare Institute" și numărul comenzii. Procesarea durează 5–10 zile lucrătoare.</p>
+        <div class="doc-highlight">Întrucât primele 3 module sunt gratuite, ai posibilitatea să evaluezi programul înainte de orice plată — politica de rambursare este un filet de siguranță suplimentar, nu soluția principală.</div>
+      </div>
+    </div>
+
+    <div class="doc-divider"></div>
+
+    <div class="doc-section" id="s7">
+      <div class="doc-section-num">07</div>
+      <div class="doc-section-title">Certificarea &amp; <em>Diploma</em></div>
+      <div class="doc-body">
+        <p><strong>Condiția de emitere.</strong> Diploma se emite exclusiv după trecerea examenului final cu nota minimă de promovare. Nu certificăm participarea — certificăm competența dobândită.</p>
+        <p><strong>Examenul final.</strong> Fiecare cursant beneficiază de <strong>3 încercări incluse</strong> în prețul programului. Dacă nu trece în 3 încercări, se poate solicita o perioadă suplimentară de pregătire și o a 4-a tentativă fără cost suplimentar. Ulterior, retentativele suplimentare pot fi taxate.</p>
+        <p><strong>Titulatura.</strong> Titulatura înscrisă pe diplomă corespunde programului specific absolvit, din lista oficială a celor 15 titulaturi SBR Institute. Nu se pot emite diplome cu titulaturi modificate sau personalizate față de lista oficială.</p>
+        <p><strong>Verificarea diplomei.</strong> Fiecare diplomă are un cod unic de verificare. SBR Institute menține o bază de date publică de verificare accesibilă la institute.sbr.systems/verify. Codul rămâne activ pe termen nelimitat, cu excepția cazurilor de anulare documentată.</p>
+        <p><strong>Anularea diplomei.</strong> SBR Institute poate anula o diplomă și dezactiva codul de verificare în cazul în care se descoperă: fraudă la examen, date false furnizate la înregistrare, sau utilizarea diplomei în scopuri care aduc prejudicii reputației SBR Institute.</p>
+        <p><strong>Re-certificarea.</strong> SBR Institute recomandă re-certificarea la fiecare 3 ani. Re-certificarea se face printr-un examen actualizat, la tarif redus față de programul inițial.</p>
+      </div>
+    </div>
+
+    <div class="doc-divider"></div>
+
+    <div class="doc-section" id="s8">
+      <div class="doc-section-num">08</div>
+      <div class="doc-section-title">Proprietate <em>intelectuală</em></div>
+      <div class="doc-body">
+        <p>Tot conținutul SBR Institute — module, studii de caz, exerciții, template-uri, metodologia de evaluare, structura curriculei, listele de titulaturi și toate materialele de curs — este proprietatea exclusivă a SBR Anti-Fraud Systems și este protejat de legislația privind dreptul de autor.</p>
+        <div class="doc-badge">Ce ai voie să faci</div>
+        <ul>
+          <li>Să accesezi și să studiezi conținutul pentru uzul propriu</li>
+          <li>Să aplici competențele dobândite în activitatea ta profesională</li>
+          <li>Să menționezi titulatura obținută pe CV, LinkedIn și în activitate profesională</li>
+          <li>Să prezinți diploma cu codul de verificare angajatorilor și partenerilor</li>
+        </ul>
+        <div class="doc-badge" style="margin-top:14px">Ce NU ai voie să faci</div>
+        <ul>
+          <li>Să reproduci, copiezi sau distribuii materialele de curs</li>
+          <li>Să creezi cursuri, programe sau produse derivate bazate pe conținutul SBR Institute</li>
+          <li>Să partajezi accesul la cont cu alte persoane</li>
+          <li>Să extragi sistematic conținut prin mijloace automate</li>
+          <li>Să pretinzi că ești SBR Institute sau că ești afiliat fără acord scris</li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="doc-divider"></div>
+
+    <div class="doc-section" id="s9">
+      <div class="doc-section-num">09</div>
+      <div class="doc-section-title">Obligațiile <em>cursantului</em></div>
+      <div class="doc-body">
+        <p>Ca cursant SBR Institute, te angajezi să:</p>
+        <ul>
+          <li>Susții examenele individual, fără ajutor extern neautorizat</li>
+          <li>Furnizezi informații corecte și complete la înregistrare și pe toată durata programului</li>
+          <li>Folosești diploma și titulatura SBR Institute în mod corect și profesional</li>
+          <li>Nu denaturezi sau exagerezi competențele certificate prin diploma SBR Institute</li>
+          <li>Notifici SBR Institute dacă afli de utilizare frauduloasă a certificărilor Institute</li>
+          <li>Respecți standardele etice ale domeniului anti-fraudă în activitatea ta profesională</li>
+        </ul>
+        <div class="doc-highlight warn">Utilizarea diplomei SBR Institute în activități frauduloase sau ilegale atrage anularea imediată a diplomei și poate genera răspundere legală.</div>
+      </div>
+    </div>
+
+    <div class="doc-divider"></div>
+
+    <div class="doc-section" id="s10">
+      <div class="doc-section-num">10</div>
+      <div class="doc-section-title">Limitarea <em>răspunderii</em></div>
+      <div class="doc-body">
+        <p>SBR Institute furnizează programe educaționale bazate pe cazuri documentate și bune practici actualizate. Totuși:</p>
+        <ul>
+          <li>Certificarea SBR Institute nu garantează angajarea, promovarea sau niciun beneficiu profesional specific</li>
+          <li>Competențele certificate nu elimină posibilitatea de a cădea victimă unei fraude — reduc riscul, nu îl anulează</li>
+          <li>SBR Institute nu răspunde pentru deciziile profesionale luate pe baza competențelor certificate</li>
+          <li>Răspunderea maximă a SBR Institute față de un cursant este limitată la suma plătită de acel cursant</li>
+        </ul>
+        <p>Recunoașterea certificărilor de către angajatori sau parteneri este un beneficiu suplimentar, nu o garanție contractuală a SBR Institute.</p>
+      </div>
+    </div>
+
+    <div class="doc-divider"></div>
+
+    <div class="doc-section" id="s11">
+      <div class="doc-section-num">11</div>
+      <div class="doc-section-title"><em>Modificări</em></div>
+      <div class="doc-body">
+        <p>SBR Institute poate actualiza acești termeni pentru a reflecta modificări ale programelor, legislației sau practicilor. Modificările semnificative sunt comunicate cu minimum <strong>14 zile înainte</strong> prin email.</p>
+        <p>Continuarea utilizării platformei după data intrării în vigoare constituie acceptarea noilor termeni. Poți solicita rambursarea (în limita politicii) dacă nu ești de acord cu modificările, cu condiția să notifici SBR Institute înainte de data intrării în vigoare.</p>
+      </div>
+    </div>
+
+    <div class="doc-divider"></div>
+
+    <div class="doc-section" id="s12">
+      <div class="doc-section-num">12</div>
+      <div class="doc-section-title">Legea <em>aplicabilă</em></div>
+      <div class="doc-body">
+        <p>Prezentii termeni sunt guvernați de <strong>legislația română</strong>. Disputele se soluționează în primă instanță pe cale amiabilă (termen 30 de zile), iar în lipsa acordului, de instanțele judecătorești competente din România.</p>
+        <p>Consumatorii din UE pot utiliza platforma ODR a Comisiei Europene: <a href="https://ec.europa.eu/consumers/odr" target="_blank" rel="noopener">ec.europa.eu/consumers/odr</a>.</p>
+      </div>
+    </div>
+
+    <div class="doc-divider"></div>
+
+    <div class="doc-section" id="s13">
+      <div class="doc-section-num">13</div>
+      <div class="doc-section-title">Contact <em>legal</em></div>
+      <div class="doc-body">
+        <ul>
+          <li><strong>Email:</strong> <a href="mailto:email@sbr.systems">email@sbr.systems</a></li>
+          <li><strong>Subiect recomandat:</strong> LEGAL INSTITUTE — [tipul solicitării]</li>
+          <li><strong>Timp răspuns:</strong> Maximum 30 de zile calendaristice</li>
+        </ul>
+        <p>Pentru întrebări non-legale despre programe și certificări: <a href="institute-contact.html">formularul de contact Institute</a> sau <a href="institute-faq.html">pagina FAQ</a>.</p>
+      </div>
+    </div>
+
+  </div>
+</div>
+
+<footer class="sbr-footer">
+  <div style="display:flex;align-items:center"><div class="footer-logo">SBR<span>.</span></div></div>
+  <div class="footer-copy">&copy; 2026 Structura Brevis Rector&trade;</div>
+  <nav class="footer-links">
+    <a href="am-fost-inselat.html" class="footer-link" data-en="Been scammed?">Am fost înșelat</a>
+    <a href="unde-raportezi-frauda.html" class="footer-link" data-en="Report fraud">Raportează frauda</a>
+    <a href="phishing-cum-recunosti.html" class="footer-link">Phishing</a>
+    <a href="codex.html" class="footer-link">Codex</a>
+    <a href="terms.html" class="footer-link">Termeni</a>
+    <a href="privacy.html" class="footer-link">Privacy &amp; Cookies</a>
+    <a href="gdpr.html" class="footer-link">GDPR</a>
+  </nav>
+</footer>
+
+<script>
+window.addEventListener('scroll',function(){
+  var h=document.documentElement.scrollHeight-window.innerHeight;
+  document.getElementById('scroll-progress').style.width=(h>0?Math.round(window.scrollY/h*100):0)+'%';
+  document.getElementById('back-to-top').classList.toggle('show',window.scrollY>400);
+  var secs=document.querySelectorAll('.doc-section[id]');var active=null;
+  secs.forEach(function(s){if(s.getBoundingClientRect().top<150)active=s.id;});
+  document.querySelectorAll('.toc-item').forEach(function(t){var target=t.getAttribute('onclick').replace("goTo('","").replace("')","");t.classList.toggle('active',target===active);});
+},{passive:true});
+document.getElementById('back-to-top').onclick=function(){window.scrollTo({top:0,behavior:'smooth'});};
+function goTo(id){var el=document.getElementById(id);if(el)el.scrollIntoView({behavior:'smooth',block:'start'});}
+function toggleMenu(){
+  var m=document.getElementById('mobile-menu'),h=document.getElementById('nav-hamburger');
+  var open=m.style.display==='block';
+  m.style.display=open?'none':'block';
+  h.classList.toggle('open',!open);
+  if(!open){
+    m.innerHTML='';
+    [['index.html','Home'],['personal.html','Personal'],['signals.html','Signals'],['institute.html','Institute'],['faq.html','FAQ'],['contact.html','Contact']].forEach(function(l){
+      var a=document.createElement('a');a.className='nb';a.href=l[0];a.textContent=l[1];m.appendChild(a);
+    });
+  }
+}
+</script>
+<script src="js/cookie-consent.js"></script>
+
+</html>
+</html>

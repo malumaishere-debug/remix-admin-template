@@ -1,0 +1,169 @@
+<!DOCTYPE html>
+<html lang="ro">
+<head>
+<meta charset="UTF-8">
+<!-- Google Analytics 4 (Consent Mode v2) — nu colecteaza pana la consimtamant -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-9WT1GRKEGB"></script>
+<script>
+window.dataLayer=window.dataLayer||[];function gtag(){dataLayer.push(arguments);}
+gtag('js',new Date());
+gtag('consent','default',{'ad_storage':'denied','ad_user_data':'denied','ad_personalization':'denied','analytics_storage':'denied'});
+try{var _c=JSON.parse(localStorage.getItem('sbr_cookie_consent')||'null');if(_c&&_c.type==='all'){gtag('consent','update',{'analytics_storage':'granted'});}}catch(e){}
+gtag('config','G-9WT1GRKEGB',{anonymize_ip:true});
+</script>
+<!-- End GA4 -->
+<script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+<script src="js/i18n.js?v=5"></script>
+<script src="js/nav-universal.js?v=13"></script>
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Link &amp; Website Checker | Verifică un link înainte să dai click | SBR</title>
+<meta name="description" content="Analizează structura unui link și o compară cu surse publice de reputație. Nu deschide pagina, nu cere cont și nu declară niciodată un site „sigur”.">
+<meta name="robots" content="index, follow, max-image-preview:large">
+<link rel="canonical" href="https://sbr.systems/verificare-link.html">
+<meta property="og:title" content="Link &amp; Website Checker | Verifică un link înainte să dai click | SBR">
+<meta property="og:description" content="Analizează structura unui link și o compară cu surse publice de reputație. Nu deschide pagina, nu cere cont și nu declară niciodată un site „sigur”.">
+<meta property="og:url" content="https://sbr.systems/verificare-link.html">
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="SBR Systems">
+<meta property="og:image" content="https://sbr.systems/og-image.jpg">
+<meta property="og:locale" content="ro_RO">
+<meta name="twitter:card" content="summary_large_image">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Lato:wght@400;700;900&family=IBM+Plex+Mono:wght@400;500&family=Playfair+Display:ital,wght@1,400&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="css/risk.css?v=3">
+<script type="application/ld+json">
+{
+ "@context": "https://schema.org",
+ "@type": "WebPage",
+ "name": "Link & Website Checker",
+ "description": "Analizează structura unui link și o compară cu surse publice de reputație. Nu deschide pagina, nu cere cont și nu declară niciodată un site „sigur”.",
+ "url": "https://sbr.systems/verificare-link.html",
+ "inLanguage": "ro",
+ "isPartOf": {
+  "@id": "https://sbr.systems/#website"
+ },
+ "publisher": {
+  "@id": "https://sbr.systems/#organization"
+ },
+ "mainEntity": {
+  "@type": "WebApplication",
+  "name": "SBR Link & Website Checker",
+  "applicationCategory": "SecurityApplication",
+  "operatingSystem": "Any",
+  "offers": {
+   "@type": "Offer",
+   "price": "0",
+   "priceCurrency": "RON"
+  }
+ }
+}
+</script>
+
+</head>
+<body class="rk">
+<a class="rk-skip" href="#main" data-en="Skip to content">Sari la conținut</a>
+
+<main id="main">
+<section class="rk-toolhead">
+  <div class="rk-wrap">
+    <nav class="rk-crumbs" aria-label="Breadcrumb"><a href="index.html" data-en="SBR">SBR</a> / <a href="verificare.html" data-en="Verification">Verificare</a> / <span aria-current="page" data-en="Link &amp; Website Checker">Link &amp; Website Checker</span></nav>
+    <h1 data-en="Link &amp; Website Checker">Link &amp; Website Checker</h1>
+    <p data-en="Analyses the technical indicators and signals available for a link or a website. The page itself is never opened." class="rk-lead">Analizează indicatorii tehnici și semnalele disponibile pentru un link sau un site. Pagina nu este deschisă niciodată.</p>
+  </div>
+</section>
+<section class="rk-sec rk-sec--deep" style="border-top:0">
+  <div class="rk-wrap">
+    <div class="rk-panel">
+      <form class="rk-form" id="link-form" method="post" action="verificare-link.html" novalidate autocomplete="off">
+        <label for="link-input" data-en="The link to check">Linkul de verificat</label>
+        <div class="rk-form__row">
+          <input class="rk-input" id="link-input" name="link" type="text" inputmode="url" spellcheck="false" autocapitalize="off" autocomplete="off" aria-describedby="link-hint" placeholder="https://" data-en-placeholder="https://">
+          <button class="rk-btn rk-btn--solid" id="link-go" type="submit" data-en="Check the link">Verifică linkul</button>
+        </div>
+        <p class="rk-hint" id="link-hint" data-en="Paste the whole address. Do not paste passwords, IBANs or card numbers: they are rejected. Query parameters are not sent to the sources.">Lipește adresa completă. Nu lipi parole, IBAN-uri sau numere de card: sunt respinse. Parametrii din adresă nu sunt trimiși către surse.</p>
+        <p class="rk-hint"><span data-en="Try an example (fictional address):">Încearcă un exemplu (adresă fictivă):</span> <button type="button" class="rk-link" style="background:none;border:0;padding:6px 2px;cursor:pointer;font:inherit" data-example="https://bancatransilvania-login.example.com/verify">bancatransilvania-login.example.com</button> &middot; <button type="button" class="rk-link" style="background:none;border:0;padding:6px 2px;cursor:pointer;font:inherit" data-example="https://curier-ramburs.example.net/plata-colet">curier-ramburs.example.net</button></p>
+      </form>
+      <div class="rk-result" id="link-result" hidden aria-live="polite"></div>
+      <noscript><p class="rk-notice" data-en="This tool needs JavaScript. Without it, nothing is checked or sent.">Instrumentul are nevoie de JavaScript. Fără el, nu se verifică și nu se trimite nimic.</p></noscript>
+    </div>
+    <div class="rk-cols" style="margin-top:44px">
+      <div class="rk-card">
+        <h2 data-en="What we check" style="font-size:1.35rem">Ce verificăm</h2>
+        <ul class="rk-steps-nxt" style="padding-left:1.1em;margin:0"><li data-en="The address structure: the real domain, subdomains, look-alike characters, shorteners, IP addresses.">Structura adresei: domeniul real, subdomeniile, caractere care imită alte litere, scurtători, adrese IP.</li><li data-en="Imitation of brands often used in scams, compared with their official domains.">Imitarea unor branduri frecvent folosite în fraude, față de domeniile lor oficiale.</li><li data-en="The age of the domain registration (RDAP) and whether it exists in DNS.">Vechimea înregistrării domeniului (RDAP) și existența lui în DNS.</li><li data-en="Public reputation lists, when they are enabled on the SBR server.">Liste publice de reputație, atunci când sunt active pe serverul SBR.</li></ul>
+      </div>
+      <div class="rk-card">
+        <h2 data-en="What it cannot do" style="font-size:1.35rem">Ce nu poate face</h2>
+        <ul class="rk-steps-nxt" style="padding-left:1.1em;margin:0"><li data-en="It does not open the page or see its content.">Nu deschide pagina și nu îi vede conținutul.</li><li data-en="It cannot prove a site is safe; a new site may not be on any list yet.">Nu poate dovedi că un site este sigur; un site nou poate să nu fie încă în nicio listă.</li><li data-en="Statistical clues: a legitimate site can trigger some, and a malicious one can trigger none.">Indicii statistice: un site legitim poate declanșa unele, iar unul rău intenționat poate să nu declanșeze niciunul.</li><li data-en="It does not replace confirmation through another channel, such as your bank’s official number.">Nu înlocuiește confirmarea pe un alt canal, cum ar fi numărul oficial al băncii.</li></ul>
+      </div>
+    </div>
+  </div>
+</section>
+<section class="rk-sec rk-sec--ox" aria-labelledby="h-next">
+  <div class="rk-wrap rk-final">
+    <h2 data-en="After the check: understand the pattern" id="h-next">După verificare: înțelege tiparul</h2>
+    <p data-en="A result shows you one clue. Codex, AFIS and Signals help you recognise the pattern behind it, and the Post-Fraud guide walks you through the next steps." class="rk-lead">Un rezultat îți arată un indiciu. Codex, AFIS și Signals te ajută să recunoști tiparul din spatele lui, iar ghidul Post-Fraud te duce prin pașii următori.</p>
+    <div class="rk-actions">
+      <a class="rk-btn rk-btn--solid" href="index.html#preturi" data-upgrade-cta="choose_level" data-placement="tool_footer" data-en="Choose your protection level">Alege nivelul de protecție</a>
+      <a class="rk-btn" href="verificare.html" data-en="All free tools">Toate instrumentele gratuite</a>
+    </div>
+    
+  </div>
+</section>
+</main>
+
+<footer class="rk-foot">
+  <div class="rk-wrap">
+    <div class="rk-foot__grid">
+      <div>
+        <h4>SBR Systems</h4>
+        <p class="rk-muted" data-en="Anti-fraud intelligence system. Independent: not a public authority and not legal advice.">Sistem de intelligence anti-fraudă. Independent: nu este o autoritate publică și nu oferă consultanță juridică.</p>
+        <p class="rk-muted" style="margin-top:10px">SBR SYSTEMS GS S.R.L, Brașov, România<br><a href="mailto:contact@sbr.systems">contact@sbr.systems</a></p>
+      </div>
+      <div>
+        <h4 data-en="Free tools">Instrumente gratuite</h4>
+        <ul>
+          <li><a href="verificare-link.html" data-en="Link &amp; Website Checker">Link &amp; Website Checker</a></li>
+          <li><a href="verificare-iban.html">IBAN Checker</a></li>
+          <li><a href="verificare-media.html">Deepfake Checker</a></li>
+          <li><a href="metodologie.html" data-en="Methodology">Metodologie</a></li>
+        </ul>
+      </div>
+      <div>
+        <h4 data-en="Products">Produse</h4>
+        <ul>
+          <li><a href="codex.html">Codex</a></li>
+          <li><a href="afis.html">AFIS</a></li>
+          <li><a href="quiz.html">SBR Score</a></li>
+          <li><a href="signals.html">Signals</a></li>
+          <li><a href="postfraud.html">Post-Fraud</a></li>
+          <li><a href="index.html#preturi" data-en="Pricing">Prețuri</a></li>
+        </ul>
+      </div>
+      <div>
+        <h4 data-en="Help and legal">Ajutor și legal</h4>
+        <ul>
+          <li><a href="am-fost-inselat.html" data-en="Been scammed?">Am fost înșelat</a></li>
+          <li><a href="unde-raportezi-frauda.html" data-en="Report fraud">Unde raportezi frauda</a></li>
+          <li><a href="terms.html" data-en="Terms">Termeni</a></li>
+          <li><a href="privacy.html" data-en="Privacy &amp; cookies">Confidențialitate și cookies</a></li>
+          <li><a href="gdpr.html">GDPR</a></li>
+          <li><a href="politica-returnare.html" data-en="Refund policy">Politica de returnare</a></li>
+          <li><a href="contact.html">Contact</a></li>
+        </ul>
+      </div>
+    </div>
+    <div class="rk-foot__legal">
+      <span>&copy; 2026 SBR SYSTEMS GS S.R.L</span>
+      <span><a href="https://instagram.com/sbr_antifraud" rel="noopener">Instagram</a> &nbsp; <a href="https://tiktok.com/@structurabrevisrector" rel="noopener">TikTok</a> &nbsp; <a href="https://t.me/sbrorator" rel="noopener">Telegram</a></span>
+    </div>
+  </div>
+</footer>
+<script src="js/risk/ui.js?v=3"></script>
+<script src="js/risk/analytics.js?v=1"></script>
+<script src="js/risk/sbr-risk-url.js?v=1"></script>
+<script src="js/risk/link-page.js?v=2"></script>
+<script src="js/cookie-consent.js"></script>
+
+</body>
+</html>

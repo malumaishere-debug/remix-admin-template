@@ -8,7 +8,7 @@
     "**/.client/**/*.tsx"
   ],
   // sbr/ holds Deno (Supabase Edge Functions) and standalone Node scripts, checked separately.
-  "exclude": ["node_modules", "build", "sbr"],
+  "exclude": ["node_modules", "build", "sbr", "site-snapshot"],
   "compilerOptions": {
     "lib": ["DOM", "DOM.Iterable", "ES2022"],
     "types": ["@remix-run/node", "vite/client"],

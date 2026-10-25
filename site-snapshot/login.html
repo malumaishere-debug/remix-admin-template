@@ -1,0 +1,634 @@
+<!DOCTYPE html>
+<html lang="ro">
+<head>
+<meta charset="UTF-8">
+<!-- Google Analytics 4 (Consent Mode v2) — nu colecteaza pana la consimtamant -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-9WT1GRKEGB"></script>
+<script>
+window.dataLayer=window.dataLayer||[];function gtag(){dataLayer.push(arguments);}
+gtag('js',new Date());
+gtag('consent','default',{'ad_storage':'denied','ad_user_data':'denied','ad_personalization':'denied','analytics_storage':'denied'});
+try{var _c=JSON.parse(localStorage.getItem('sbr_cookie_consent')||'null');if(_c&&_c.type==='all'){gtag('consent','update',{'analytics_storage':'granted'});}}catch(e){}
+gtag('config','G-9WT1GRKEGB',{anonymize_ip:true});
+</script>
+<!-- End GA4 -->
+<script src="js/nav-universal.js?v=13"></script>
+<script src="/js/i18n.js?v=5"></script>
+
+<meta name="description" content="Autentifică-te în contul tău SBR Anti-Fraud Systems — acces la Codex, AFIS, Signals și dashboard-ul tău de protecție anti-fraudă. Login securizat cu 2FA disponibil.">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>SBR — Login</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=IBM+Plex+Mono:wght@300;400;500&family=Lato:wght@300;400;700&display=swap" rel="stylesheet" media="print" onload="this.media='all'">
+  <noscript><link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=IBM+Plex+Mono:wght@300;400;500&family=Lato:wght@300;400;700&display=swap" rel="stylesheet"></noscript>
+<style>
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+html{scroll-behavior:smooth}
+body{font-family:'Lato',sans-serif;background:#0A0A0A;color:#e0e0e0;min-height:100vh;overflow-x:hidden}
+:root{--red:#C0392B;--redL:#E74C3C;--dark:#111;--dark2:#1A1A1A}
+a{text-decoration:none;color:inherit}
+
+#nav{position:fixed;top:0;left:0;right:0;z-index:1000;height:60px;display:flex;align-items:center;justify-content:space-between;padding:0 36px;background:rgba(10,10,10,.97);backdrop-filter:blur(20px);border-bottom:1px solid rgba(192,57,43,.15)}
+.nav-logo{font-family:'Bebas Neue',sans-serif;font-size:26px;letter-spacing:4px;cursor:pointer;display:flex;align-items:center}
+.nav-logo span{color:var(--red)}
+.nav-logo-sub{font-family:'IBM Plex Mono',monospace;font-size:8px;letter-spacing:2px;color:#aaa;text-transform:uppercase;margin-left:10px;margin-top:2px}
+#nav-right{display:flex;align-items:center;gap:16px}
+.nb{font-size:10px;letter-spacing:2px;text-transform:uppercase;color:#aaa;padding:4px 0;transition:color .2s;font-family:'IBM Plex Mono',monospace}
+.nb:hover{color:var(--red)}
+.nb-ghost{background:transparent;border:1px solid rgba(255,255,255,.1);color:#aaa;font-family:'IBM Plex Mono',monospace;font-size:10px;letter-spacing:2px;text-transform:uppercase;padding:7px 14px;transition:all .2s;display:inline-block}
+.nb-ghost:hover{border-color:var(--red);color:var(--red)}
+.nb-solid{background:var(--red);border:none;color:#fff;font-family:'IBM Plex Mono',monospace;font-size:10px;letter-spacing:2px;text-transform:uppercase;padding:8px 16px;cursor:pointer;transition:background .2s;display:inline-block}
+.nb-solid:hover{background:var(--redL)}
+
+/* ── AUTH LAYOUT ── */
+.auth-bg{min-height:100vh;display:flex;align-items:center;justify-content:center;padding:80px 20px 40px;background:radial-gradient(ellipse 60% 50% at 50% 40%,rgba(192,57,43,.05) 0%,transparent 70%);position:relative}
+.auth-bg-grid{position:absolute;inset:0;background-image:linear-gradient(rgba(192,57,43,.025) 1px,transparent 1px),linear-gradient(90deg,rgba(192,57,43,.025) 1px,transparent 1px);background-size:60px 60px;mask-image:radial-gradient(ellipse 80% 80% at 50% 50%,black 20%,transparent 100%)}
+.auth-card{position:relative;width:100%;max-width:400px;background:var(--dark);border:1px solid rgba(255,255,255,.06);border-top:2px solid var(--red);padding:44px 40px}
+
+.auth-logo{font-family:'Bebas Neue',sans-serif;font-size:30px;letter-spacing:4px;margin-bottom:6px}
+.auth-logo span{color:var(--red)}
+.auth-eyebrow{font-family:'IBM Plex Mono',monospace;font-size:8px;letter-spacing:3px;color:#666;text-transform:uppercase;margin-bottom:28px;display:flex;align-items:center;gap:8px}
+.auth-eyebrow::before{content:'';display:block;width:12px;height:1px;background:var(--red)}
+.auth-title{font-family:'Bebas Neue',sans-serif;font-size:36px;color:#fff;line-height:1;margin-bottom:6px}
+.auth-sub{font-size:12px;color:#777;margin-bottom:32px;line-height:1.6}
+
+.field{margin-bottom:14px}
+.field label{display:block;font-family:'IBM Plex Mono',monospace;font-size:8px;letter-spacing:2px;color:#777;text-transform:uppercase;margin-bottom:6px}
+.field input{width:100%;background:#0A0A0A;border:1px solid rgba(255,255,255,.07);color:#ddd;font-family:'Lato',sans-serif;font-size:14px;padding:11px 14px;transition:border-color .2s;outline:none}
+.field input:focus{border-color:rgba(192,57,43,.4)}
+.field input::placeholder{color:#555}
+
+.forgot-row{display:flex;justify-content:flex-end;margin-top:-6px;margin-bottom:20px}
+.forgot-link{font-family:'IBM Plex Mono',monospace;font-size:9px;color:#666;letter-spacing:1px;cursor:pointer;transition:color .2s;background:none;border:none;padding:0}
+.forgot-link:hover{color:var(--red)}
+
+.auth-btn{width:100%;background:var(--red);border:none;color:#fff;font-family:'IBM Plex Mono',monospace;font-size:10px;letter-spacing:3px;text-transform:uppercase;padding:14px;cursor:pointer;transition:background .2s;margin-bottom:18px}
+.auth-btn:hover{background:var(--redL)}
+.auth-btn:disabled{opacity:.5;cursor:not-allowed}
+
+.auth-err{background:rgba(192,57,43,.1);border:1px solid rgba(192,57,43,.3);color:#e74c3c;font-family:'IBM Plex Mono',monospace;font-size:10px;padding:10px 14px;margin-bottom:14px;display:none;letter-spacing:.5px;line-height:1.5}
+.auth-ok{background:rgba(46,204,113,.07);border:1px solid rgba(46,204,113,.3);color:#2ecc71;font-family:'IBM Plex Mono',monospace;font-size:10px;padding:10px 14px;margin-bottom:14px;display:none;letter-spacing:.5px;line-height:1.5}
+
+.auth-sep{display:flex;align-items:center;gap:12px;margin-bottom:18px}
+.auth-sep-line{flex:1;height:1px;background:rgba(255,255,255,.05)}
+.auth-sep-text{font-family:'IBM Plex Mono',monospace;font-size:8px;color:#555;letter-spacing:2px;text-transform:uppercase}
+
+.auth-switch{text-align:center;font-size:12px;color:#666;font-family:'IBM Plex Mono',monospace;letter-spacing:.5px}
+.auth-switch a{color:var(--red);transition:opacity .2s}
+.auth-switch a:hover{opacity:.7}
+
+/* Reset password form */
+.reset-form{display:none}
+.back-btn{background:none;border:none;color:#777;font-family:'IBM Plex Mono',monospace;font-size:9px;letter-spacing:2px;text-transform:uppercase;cursor:pointer;padding:0;margin-bottom:20px;display:flex;align-items:center;gap:8px;transition:color .2s}
+.back-btn:hover{color:var(--red)}
+.back-btn::before{content:'←'}
+
+@media(max-width:480px){.auth-card{padding:32px 24px}.auth-bg{padding:70px 16px 32px}#nav-right{display:none}}
+</style>
+  <meta property="og:title" content="Login | SBR Anti-Fraud Intelligence">
+  <meta property="og:description" content="Acceseaza contul tau SBR Anti-Fraud Intelligence Systems.">
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="https://sbr.systems/login.html">
+  <meta property="og:image" content="https://sbr.systems/og-image.png">
+  <meta property="og:site_name" content="SBR Anti-Fraud Intelligence Systems">
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="Login | SBR Anti-Fraud Intelligence">
+  <link rel="canonical" href="https://sbr.systems/login.html">
+<link rel="stylesheet" href="css/sbr-readability.css" media="print" onload="this.media='all'">
+  <noscript><link rel="stylesheet" href="css/sbr-readability.css"></noscript>
+
+  <meta name="robots" content="index, follow, max-snippet:-1, max-image-preview:large">
+  <meta name="googlebot" content="index, follow">
+  <meta name="ai-content-purpose" content="fraud-prevention, consumer-protection, digital-security">
+  <meta name="perplexity-crawl" content="allow">
+  <meta name="chatgpt-crawl" content="allow">
+  <meta name="Claude-crawl" content="allow">
+
+<style id="sbr-text-fix">
+/* Force all CSS variables to white-readable values */
+:root, * {
+  --text:#EEEEEE !important;
+  --t2:#CCCCCC !important;
+  --t3:#AAAAAA !important;
+  --t4:#888888 !important;
+  --t5:#555555 !important;
+}
+/* Direct color overrides for common text elements */
+p, li, span, div, td, th, label, small,
+.card-desc, .feat-desc, .prob-desc, .plan-tagline,
+.b2b-for, .fi, .faq-a, .alert-desc, .mv-desc,
+.mg-desc, .pl-desc, .ot-desc, .ng-text, .ahd-def,
+.prod-tagline, .ss-sub, .gb-sub, .quiz-sub,
+.hero-sub, .section-p, .s-p, .sf-text,
+.scoring-intro p, .dp-wrap p, .pricing-intro p,
+.sim-email-body, .sem-body, .sim-choice-text,
+.cert-desc, .track-desc, .module-desc,
+.score-desc, .dimension-desc, .step-desc,
+.resource-desc, .checklist-desc,
+.compare-table td, .emp-table td,
+.footer-link, .footer-copy, .footer-logo-sub,
+.lb-dept, .emp-dept, .dmb-emp-dept,
+.kpi-delta, .page-subtitle, .tb-user, .tb-company,
+.nd-plan-feats, .nd-footer-link,
+.sv-text, .sim-choice .sv-text { color: #CCCCCC !important; }
+
+h1, h2, h3, h4, h5, h6,
+.card-title, .plan-name, .b2b-name, .nd-plan-name,
+.page-title, .ch-h1, .hero-h1, .section-h2, .s-h,
+.fc-h, .ac-h, .quiz-h, .ms-copy h2, .ss-h,
+.ot-title, .mv-title, .mg-title, .pl-title,
+.alert-title, .emp-name, .dmb-emp-name,
+.lb-name, .prof-name, .panel-title,
+.feat-name, .prod-name,
+.gb-h { color: #FFFFFF !important; }
+
+.nav-link { color: #CCCCCC !important; }
+.nav-link:hover, .nav-link.active { color: #FFFFFF !important; }
+.btn-nav-ghost { color: #CCCCCC !important; }
+</style>
+<style id="sbr-force-colors">
+/* Override elements with hardcoded dark colors */
+.card-desc{color:#CCCCCC !important}
+.plan-tagline,.b2b-for,.fi{color:#CCCCCC !important}
+.faq-a,.faq-answer{color:#CCCCCC !important}
+.alert-desc,.sim-email-body,.sem-body{color:#CCCCCC !important}
+.mv-desc,.mg-desc,.pl-desc,.ot-desc,.ng-text,.ahd-def{color:#CCCCCC !important}
+.prod-tagline,.ss-sub,.gb-sub,.quiz-sub{color:#CCCCCC !important}
+.hero-sub,.s-p,.section-p,.fc-sub,.ac-sub{color:#CCCCCC !important}
+.prob-desc,.prob-a{color:#CCCCCC !important}
+.feat-desc,.nd-plan-feats{color:#CCCCCC !important}
+.scoring-intro p,.dp-wrap p,.pricing-intro p{color:#CCCCCC !important}
+p,li,td:not([class*="risk"]):not([class*="rc"]):not([class*="rh"]){color:#CCCCCC !important}
+h1,h2,h3,h4,h5,h6,.card-title,.plan-name,.b2b-name,.page-title{color:#FFFFFF !important}
+.nav-link{color:#CCCCCC !important}
+.nav-link:hover,.nav-link.active{color:#FFFFFF !important}
+.btn-nav-ghost{color:#CCCCCC !important}
+.compare-table td{color:#CCCCCC !important}
+.compare-table td.feature-name,.compare-table .feat-name{color:#DDDDDD !important}
+.emp-name,.lb-name,.dmb-emp-name{color:#EEEEEE !important}
+.emp-dept,.lb-dept,.dmb-emp-dept{color:#AAAAAA !important}
+.alert-title,.panel-title{color:#FFFFFF !important}
+</style>
+<style id="sbr-footer-final">
+.sbr-footer{
+  background:#060606 !important;border-top:1px solid rgba(255,255,255,.04) !important;
+  padding:16px clamp(16px,4vw,48px) !important;display:flex !important;
+  align-items:center !important;justify-content:space-between !important;
+  gap:14px !important;flex-wrap:wrap !important;
+}
+.footer-logo{font-family:'Bebas Neue',sans-serif;font-size:16px !important;letter-spacing:4px !important;color:#fff !important}
+.footer-logo span{color:#C0392B !important}
+.footer-links{display:flex !important;align-items:center !important;gap:20px !important}
+.footer-link{font-family:'IBM Plex Mono',monospace !important;font-size:8px !important;letter-spacing:1px !important;color:#3a3a3a !important;text-transform:uppercase !important;text-decoration:none !important;transition:color .15s !important;white-space:nowrap !important}
+.footer-link:hover{color:#888 !important}
+.footer-copy{font-family:'IBM Plex Mono',monospace !important;font-size:7px !important;color:#222 !important;white-space:nowrap !important}
+@media(max-width:560px){
+  .sbr-footer{flex-direction:column !important;align-items:flex-start !important;gap:8px !important;padding:12px 16px !important}
+  .footer-links{gap:12px !important}
+  .footer-copy{font-size:6px !important}
+}
+</style>
+<style id="sbr-social-icons">
+/* Hide old text-based social bar */
+#sbr-social-bar, .sbr-social-bar { display: none !important; }
+/* Floating icon-only social pill */
+#sbr-sw {
+  position: fixed; right: 14px; top: 50%; transform: translateY(-50%);
+  z-index: 800; display: flex; flex-direction: column; gap: 6px;
+}
+.sbr-sw-a {
+  display: flex; align-items: center; justify-content: center;
+  width: 36px; height: 36px; border-radius: 50%;
+  background: rgba(255,255,255,.04); border: 1px solid rgba(255,255,255,.08);
+  text-decoration: none; cursor: pointer;
+  transition: background .2s, border-color .2s, transform .2s;
+  backdrop-filter: blur(10px); -webkit-backdrop-filter: blur(10px);
+  font-size: 14px; line-height: 1;
+}
+.sbr-sw-a:hover {
+  background: rgba(192,57,43,.15); border-color: rgba(192,57,43,.3);
+  transform: scale(1.12);
+}
+/* Mobile — bottom strip icon only */
+@media(max-width: 680px) {
+  #sbr-sw {
+    position: fixed; bottom: 0; left: 0; right: 0; top: auto; transform: none;
+    flex-direction: row; gap: 0; border-radius: 0;
+    background: rgba(6,6,6,.97); border-top: 1px solid rgba(255,255,255,.05);
+    backdrop-filter: blur(20px); -webkit-backdrop-filter: blur(20px);
+    padding-bottom: env(safe-area-inset-bottom, 0); height: 50px;
+  }
+  .sbr-sw-a {
+    flex: 1; width: auto; height: 50px; border-radius: 0; border: none;
+    border-right: 1px solid rgba(255,255,255,.04); background: transparent;
+    font-size: 16px;
+  }
+  .sbr-sw-a:last-child { border-right: none; }
+  .sbr-sw-a:hover { transform: none; background: rgba(192,57,43,.07); }
+  body { padding-bottom: 50px !important; }
+}
+/* Kill any text labels */
+.sbr-sw-l { display: none !important; }
+</style>
+<style id="sbr-fc">
+/* Force all common text elements to white-ish */
+p,li,td,th,label,small,figcaption,dd,dt,
+.card-desc,.plan-tagline,.b2b-for,.fi,.faq-a,.faq-answer,
+.alert-desc,.mv-desc,.mg-desc,.pl-desc,.ot-desc,.ng-text,
+.prod-tagline,.ss-sub,.gb-sub,.quiz-sub,.hero-sub,
+.s-p,.section-p,.fc-sub,.ac-sub,.feat-desc,
+.sim-email-body,.sem-body,.sf-text,
+.nd-plan-feats,.prob-desc,.prob-a,
+.pf-lead,.pf-desc,.pf-text,
+.score-desc,.dimension-desc,
+.cert-desc,.track-desc,.module-desc,
+.checklist-desc,.step-desc,.resource-desc,
+[class*="-desc"],[class*="-sub"],[class*="-text"],[class*="-body"],
+[class*="-copy"],[class*="-content"],[class*="-lead"]{
+  color:#CCCCCC!important;
+}
+h1,h2,h3,h4,h5,h6,
+.card-title,.plan-name,.b2b-name,.page-title,
+.section-h2,.s-h,.ch-h1,.hero-h1,.fc-h,.ac-h,.quiz-h,
+.ot-title,.mv-title,.mg-title,.pl-title,.alert-title,
+.panel-title,.emp-name,.lb-name,.feat-name,.prod-name,
+[class*="-title"]:not(.lock-title):not(.sn-dd-section):not(.sm-label){
+  color:#FFFFFF!important;
+}
+.nav-link,.sn-link,.sn-dd-link{color:#CCCCCC!important;}
+.nav-link:hover,.nav-link.active,.sn-link:hover,.sn-dd-link:hover{color:#FFFFFF!important;}
+.footer-link{color:#3a3a3a!important;}
+.footer-link:hover{color:#888!important;}
+.footer-copy{color:#222!important;}
+/* Mobile menu links — RED, not blue/inherit */
+.sm-link{color:#EEEEEE!important;}
+.sm-link:hover{color:#C0392B!important;}
+.sm-link > span:first-child{color:#EEEEEE!important;}
+.sm-link-sub{color:#444!important;}
+.sm-small-link{color:#666!important;}
+.sm-small-link:hover{color:#EEEEEE!important;}
+/* Kill any blue link inheritance in mobile menu */
+#sbr-menu a{color:#EEEEEE!important;}
+#sbr-menu a:hover{color:#C0392B!important;}
+/* Desktop nav links */
+.sn-link{color:#AAAAAA!important;}
+.sn-link:hover{color:#EEEEEE!important;}
+.sn-dd-link{color:#888!important;}
+.sn-dd-link:hover{color:#EEEEEE!important;background:rgba(192,57,43,.06)!important;}
+/* sbrN nav elements — white, never blue */
+#sbrN a,#sbrN button,.sbrN-btn{color:#aaa!important;text-decoration:none!important}
+#sbrN a:hover,#sbrN button:hover,.sbrN-btn:hover{color:#eee!important}
+.sbrN-cta,.sbrN-cta:hover{color:#fff!important}
+.dd-link{color:inherit!important;text-decoration:none!important}
+.dd-link-title{color:#eee!important}
+.dd-link-sub{color:#555!important}
+.mob-link{color:#eee!important;text-decoration:none!important}
+.mob-link:hover{color:#C0392B!important}
+.mob-small-link{color:#555!important;text-decoration:none!important}
+.snl-btn,.snl-btn *{color:#aaa!important}
+
+</style>
+<style id="sbr-font-nuclear">
+/* ═══ NUCLEAR WHITE TEXT OVERRIDE ═══════════════════════════════
+   Targets every element that could have dark gray text.
+   Does NOT touch: buttons, badges, risk labels, nav CTAs
+═══════════════════════════════════════════════════════════════ */
+
+/* Base: all body text → white-ish */
+body, body *:not(button):not(.sn-cta):not(.cta-primary):not(.btn-nav-solid)
+  :not(.card-risk):not(.rb-c):not(.rb-h):not(.rb-m):not(.rb-l)
+  :not(.chk):not(.cross):not(.lock-plan):not(.gb-plan-badge)
+  :not([class*="badge"]) {
+  -webkit-font-smoothing: antialiased !important;
+}
+
+/* Paragraph text, list items, descriptions */
+p { color: #DDDDDD !important; font-size: max(14px, 1em) !important; line-height: 1.85 !important; }
+li { color: #DDDDDD !important; font-size: max(13px, 0.9em) !important; line-height: 1.75 !important; }
+span:not([class*="risk"]):not([class*="badge"]):not(.dot):not(.sn-sbr):not(.sn-af):not(.sn-dot) { color: inherit !important; }
+td, th { color: #CCCCCC !important; }
+label { color: #CCCCCC !important; }
+small { color: #AAAAAA !important; }
+
+/* Specific content classes - all the variants we've seen */
+.card-desc, .plan-tagline, .b2b-for, .b2b-feat,
+.fi, .fi.yes, .feat-desc, .nd-plan-feats,
+.faq-a, .faq-answer, .faq-body,
+.alert-desc, .dmb-alert-text,
+.mv-desc, .mg-desc, .pl-desc, .ot-desc, .ng-text,
+.prob-desc, .prob-a, .prob-q,
+.ahd-def, .dc-desc, .dim-desc,
+.prod-tagline, .hero-sub, .s-p, .section-p,
+.fc-sub, .ac-sub, .quiz-sub, .ah-tagline,
+.gb-sub, .pq-text, .ss-sub, .scoring-intro p,
+.sim-email-body, .sem-body, .sf-text,
+.feat-desc, .step-desc, .checklist-desc, .resource-desc,
+.cert-desc, .track-desc, .module-desc,
+.pf-lead, .pf-desc, .pf-text, .pf-body,
+.score-desc, .dimension-desc,
+.dp-wrap p, .pricing-intro p,
+.rec-desc, .sg-sub, .sh-sub,
+.about-text, .team-bio, .mission-text,
+.sbi-fill + *, [class*="-desc"],
+[class*="-sub"]:not([class*="hero-sub"]),
+[class*="-body"]:not(#sbr-menu):not(#sbr-nav):not(.card-body) { color: #CCCCCC !important; }
+
+/* Headings - full white */
+h1, h2, h3, h4, h5, h6 { color: #FFFFFF !important; }
+.card-title, .plan-name, .b2b-name, .nd-plan-name,
+.page-title, .section-h2, .s-h, .ch-h1, .hero-h1,
+.fc-h, .ac-h, .quiz-h, .ss-h, .sh-h1,
+.ot-title, .mv-title, .mg-title, .pl-title,
+.alert-title, .panel-title, .emp-name, .lb-name,
+.feat-name, .prod-name, .gb-h,
+.dc-name, .rec-title, .fe-title, .sg-h,
+.sm-link > span:first-child { color: #FFFFFF !important; }
+
+/* Nav */
+.sn-link { color: #BBBBBB !important; }
+.sn-link:hover { color: #FFFFFF !important; }
+.sn-dd-link { color: #AAAAAA !important; }
+.sn-dd-link:hover { color: #EEEEEE !important; }
+.sn-af { color: #DDDDDD !important; }
+
+/* Footer */
+.footer-link { color: #444 !important; }
+.footer-link:hover { color: #999 !important; }
+.footer-copy { color: #2a2a2a !important; }
+.footer-logo { color: #FFFFFF !important; }
+
+/* Secondary labels */
+.card-cat, .prod-code, .cs-code, .kpi-label, .hs-l, .hstat-l,
+.section-eyebrow, .s-eyebrow, .ah-eyebrow, .hero-eyebrow,
+.cf-label, .sm-link-sub, .sm-small-link,
+.sm-label, .nd-plan-price, .b2b-period, .plan-period,
+.dc-sub, .sbi-name, .dc-indicators .dc-indicator,
+.sh-pill-word, .stl-name, .fe-desc, .cc-label { color: #AAAAAA !important; }
+
+/* Dashboard */
+.emp-name, .lb-name, .dmb-emp-name { color: #EEEEEE !important; }
+.emp-dept, .lb-dept, .dmb-emp-dept, .cs-name { color: #BBBBBB !important; }
+
+/* Monospace elements */
+.card-id, .sim-from, .sem-row-val, .sim-cat-label { color: #BBBBBB !important; }
+
+/* Tag entry / pattern */
+.tag-entry { color: #CCCCCC !important; font-size: 9px !important; }
+
+/* Sidebar count */
+.cs-count { color: #777 !important; }
+
+/* Compare table */
+.compare-table td { color: #CCCCCC !important; }
+.compare-table .feat-name { color: #EEEEEE !important; font-weight: 700 !important; }
+
+/* Input fields */
+input:not([type="submit"]):not([type="button"]):not([type="reset"]),
+textarea, select { color: #EEEEEE !important; }
+input::placeholder, textarea::placeholder { color: #555 !important; }
+</style>
+
+<style id="sbr-red-override">
+/* Replace all blue nav/UI accents with red */
+.nd-plan-badge.blue{background:rgba(192,57,43,.1)!important;color:var(--red)!important}
+.nd-plan-tier.blue{color:var(--red)!important}
+.sh-plan-badge:nth-child(1){color:var(--red)!important}
+.sh-plan-badge:nth-child(1) .spb-dot{background:var(--red)!important}
+.pb-name.professional,.pb-name.premium{background:rgba(192,57,43,.1)!important;color:var(--red)!important}
+.fe-badge.pro{background:rgba(192,57,43,.1)!important;color:var(--red)!important}
+/* Hero stats 4th — red instead of blue */
+.hstat:nth-child(4)::after{background:var(--red)!important}
+.hstat:nth-child(4) .hstat-n{color:var(--red)!important}
+/* Score page blue → red */
+.dim-card.breach{border-top-color:var(--red)!important}
+.dim-card.breach .dc-letter{color:var(--red)!important}
+.sbi-fill.breach{background:var(--red)!important}
+/* Gate walls */
+.gate-banner.professional{border-color:rgba(192,57,43,.2)!important;background:rgba(192,57,43,.03)!important}
+.gate-banner.professional .gb-eyebrow{color:rgba(192,57,43,.5)!important}
+.gate-banner.professional .gb-n{color:var(--red)!important}
+.gate-banner.professional .gb-btn-main{background:var(--red)!important;color:#fff!important}
+/* B2B plan prices */
+.b2b-plan:nth-child(1) .b2b-amount{color:var(--red)!important}
+.b2b-plan:nth-child(1) .b2b-tier{color:var(--red)!important}
+.b2b-plan:nth-child(1) .b2b-cta{background:rgba(192,57,43,.12)!important;color:var(--red)!important;border:1px solid rgba(192,57,43,.25)!important}
+.b2b-plan:nth-child(1) .b2b-cta:hover{background:var(--red)!important;color:#fff!important}
+/* Signal/score accents */
+.sg-plan:nth-child(2){border-top-color:var(--red)!important}
+.sg-plan:nth-child(2) .sg-plan-name{color:var(--red)!important}
+/* Active nav link highlight */
+.sn-link.active,.sn-link:focus{color:var(--red)!important}
+/* Codex plan banner */
+.pb-name.professional{background:rgba(192,57,43,.08)!important;color:var(--red)!important}
+/* Mobile menu section label */
+.sm-label{color:rgba(192,57,43,.5)!important}
+/* Signals strip */
+.ss-btn{background:var(--red)!important;color:#fff!important}
+.ss-btn:hover{background:var(--red-l)!important}
+.ss-input:focus{border-color:rgba(192,57,43,.4)!important}
+</style></head>
+<body>
+<div id="scroll-progress"></div>
+</div>
+<nav id="nav">
+  <div class="nav-logo" onclick="if (!window.__cfRLUnblockHandlers) return false; location.href='index.html'" data-cf-modified-ae499e948db0d2abbbb05e7f-="">SBR<span>.</span><span class="nav-logo-sub">Anti-Fraud</span></div>
+  <div id="nav-right">
+    <a href="afis.html" class="nb">AFIS</a>
+    <a href="personal.html" class="nb">Personal</a>
+    <a href="business.html" class="nb">Business</a>
+    <a href="register.html" class="nb-ghost">Creează cont</a>
+  </div>
+</nav>
+
+<div class="auth-bg">
+  <div class="auth-bg-grid"></div>
+  <div class="auth-card">
+
+    <div class="auth-logo">SBR<span>.</span></div>
+    <div class="auth-eyebrow">Ecosistem Anti-Fraudă</div>
+
+    <!-- ── LOGIN FORM ── -->
+    <div id="login-form">
+      <h1 class="auth-title" style="margin:0;font-size:inherit;font-weight:inherit;font-family:inherit;line-height:inherit">Bun revenit</h1>
+      <div class="auth-sub">Accesează contul tău SBR</div>
+
+      <div class="field">
+        <label>Email</label>
+        <input type="email" id="l-email" placeholder="adresa@email.com" autocomplete="email">
+      </div>
+      <div class="field">
+        <label>Parolă</label>
+        <input type="password" id="l-pass" placeholder="Parola ta" autocomplete="current-password">
+      </div>
+
+      <div class="forgot-row">
+        <button class="forgot-link" onclick="if (!window.__cfRLUnblockHandlers) return false; showReset()" data-cf-modified-ae499e948db0d2abbbb05e7f-="">Ai uitat parola?</button>
+      </div>
+
+      <div id="l-err" class="auth-err"></div>
+
+      <button class="auth-btn" id="l-btn" onclick="if (!window.__cfRLUnblockHandlers) return false; doLogin()" data-cf-modified-ae499e948db0d2abbbb05e7f-="">Accesează &rarr;</button>
+
+      <div class="auth-sep">
+        <div class="auth-sep-line"></div>
+        <div class="auth-sep-text">sau</div>
+        <div class="auth-sep-line"></div>
+      </div>
+
+      <div class="auth-switch">Nu ai cont? <a href="register.html">Înregistrează-te gratuit</a></div>
+    </div>
+
+    <!-- ── RESET PASSWORD FORM ── -->
+    <div id="reset-form" class="reset-form">
+      <button class="back-btn" onclick="if (!window.__cfRLUnblockHandlers) return false; showLogin()" data-cf-modified-ae499e948db0d2abbbb05e7f-="">Înapoi la Login</button>
+      <div class="auth-title">Resetează Parola</div>
+      <div class="auth-sub">Îți trimitem un email cu link de resetare</div>
+
+      <div class="field">
+        <label>Email cont</label>
+        <input type="email" id="r-email" placeholder="adresa@email.com">
+      </div>
+
+      <div id="r-err" class="auth-err"></div>
+      <div id="r-ok" class="auth-ok"></div>
+
+      <button class="auth-btn" id="r-btn" onclick="if (!window.__cfRLUnblockHandlers) return false; doReset()" data-cf-modified-ae499e948db0d2abbbb05e7f-="">Trimite link de resetare &rarr;</button>
+    </div>
+
+  </div>
+</div>
+
+<!-- ── SUPABASE ── -->
+<script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+<script>
+/* SBR client — inline, no external file dependency */
+var sbr_db = window.supabase.createClient('https://zxonzzojynrkzaiaacte.supabase.co','eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6Inp4b256em9qeW5ya3phaWFhY3RlIiwicm9sZSI6ImFub24iLCJpYXQiOjE3NzQ4MTYyMzMsImV4cCI6MjA5MDM5MjIzM30.85AqP2qLdG_4Iufz4nqkrZNQ4E38VavEc1kiNE9XhH0',
+  {auth:{persistSession:true,detectSessionInUrl:true,storageKey:'sbr-auth'}});
+</script>
+<script>
+
+/* ── LOGIN ── */
+async function doLogin() {
+  var email = document.getElementById('l-email').value.trim();
+  var pass  = document.getElementById('l-pass').value;
+  var err   = document.getElementById('l-err');
+  var btn   = document.getElementById('l-btn');
+  err.style.display = 'none';
+
+  if (!email || !pass) { showErr(err, 'Completează email și parolă.'); return; }
+  if (!email.includes('@')) { showErr(err, 'Adresă de email invalidă.'); return; }
+
+  btn.textContent = 'Se conectează…';
+  btn.disabled = true;
+
+  try {
+    var result = await sbr_db.auth.signInWithPassword({ email: email, password: pass });
+    if (result.error) throw result.error;
+
+    /* Redirect: back to original page or dashboard */
+    var params = new URLSearchParams(window.location.search);
+    var redirect = params.get('redirect') || 'dashboard.html';
+    window.location.href = decodeURIComponent(redirect);
+
+  } catch (e) {
+    btn.textContent = 'Accesează →';
+    btn.disabled = false;
+    var msg = e.message || 'Email sau parolă incorectă.';
+    if (msg.includes('Invalid login') || msg.includes('credentials')) {
+      msg = 'Email sau parolă incorectă.';
+    } else if (msg.includes('Email not confirmed')) {
+      msg = 'Confirmă emailul înainte de a te autentifica. Verifică inbox-ul.';
+    }
+    showErr(err, msg);
+  }
+}
+
+/* ── RESET PASSWORD ── */
+async function doReset() {
+  var email = document.getElementById('r-email').value.trim();
+  var err   = document.getElementById('r-err');
+  var ok    = document.getElementById('r-ok');
+  var btn   = document.getElementById('r-btn');
+  err.style.display = 'none';
+  ok.style.display  = 'none';
+
+  if (!email || !email.includes('@')) { showErr(err, 'Introdu o adresă de email validă.'); return; }
+
+  btn.textContent = 'Se trimite…';
+  btn.disabled = true;
+
+  try {
+    var result = await sbr_db.auth.resetPasswordForEmail(email, {
+      redirectTo: 'https://sbr.systems/set-password.html'
+    });
+    if (result.error) throw result.error;
+    ok.textContent = 'Link de resetare trimis la ' + email + '. Verifică inbox și folderul Spam. Dă click pe link — te duce direct la setarea parolei noi.';
+    ok.style.display = 'block';
+    btn.textContent = 'Trimis ✓';
+  } catch (e) {
+    btn.textContent = 'Trimite link de resetare →';
+    btn.disabled = false;
+    showErr(err, e.message || 'Eroare la trimiterea emailului.');
+  }
+}
+
+function showReset() {
+  document.getElementById('login-form').style.display = 'none';
+  document.getElementById('reset-form').style.display = 'block';
+}
+function showLogin() {
+  document.getElementById('reset-form').style.display = 'none';
+  document.getElementById('login-form').style.display = 'block';
+}
+function showErr(el, msg) {
+  el.textContent = msg;
+  el.style.display = 'block';
+}
+
+/* ── Enter key ── */
+document.addEventListener('DOMContentLoaded', function() {
+  ['l-email','l-pass'].forEach(function(id) {
+    var el = document.getElementById(id);
+    if (el) el.addEventListener('keydown', function(e) { if (e.key === 'Enter') doLogin(); });
+  });
+
+  /* Redirect if already logged in */
+  sbr_db.auth.getSession().then(function(res) {
+    if (res.data && res.data.session) {
+      var params = new URLSearchParams(window.location.search);
+      window.location.href = params.get('redirect') || 'dashboard.html';
+    }
+  });
+});
+</script>
+<script src="js/nav-auth.js"></script>
+
+<script id="sbr-color-fix">
+(function(){
+  function fix(){
+    var r=document.documentElement;
+    r.style.setProperty('--text','#EEEEEE');
+    r.style.setProperty('--t1','#EEEEEE');
+    r.style.setProperty('--t2','#CCCCCC');
+    r.style.setProperty('--t3','#AAAAAA');
+    r.style.setProperty('--t4','#888888');
+    r.style.setProperty('--t5','#555555');
+    r.style.setProperty('--T2','#CCCCCC');
+    r.style.setProperty('--T3','#AAAAAA');
+  }
+  fix();
+  document.addEventListener('DOMContentLoaded',fix);
+  setTimeout(fix,100);
+})();
+</script>
+<div id="sbr-sw" aria-label="Social Media">
+  <a class="sbr-sw-a" href="https://instagram.com/sbr_antifraud" target="_blank" rel="noopener" title="Instagram @sbr_antifraud">&#128248;</a>
+  <a class="sbr-sw-a" href="https://tiktok.com/@structurabrevisrector" target="_blank" rel="noopener" title="TikTok @structurabrevisrector">&#127925;</a>
+  <a class="sbr-sw-a" href="https://t.me/sbrorator" target="_blank" rel="noopener" title="Telegram t.me/sbrorator">&#9992;&#65039;</a>
+  <a class="sbr-sw-a" href="https://pin.it/7yO6KnjsW" target="_blank" rel="noopener" title="Pinterest">&#128204;</a>
+</div>
+<script src="js/cookie-consent.js"></script>
+
+</body>
+</html>

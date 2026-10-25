@@ -1,0 +1,942 @@
+<!DOCTYPE html>
+<html lang="ro">
+<head>
+<meta charset="UTF-8">
+<!-- Google Analytics 4 (Consent Mode v2) — nu colecteaza pana la consimtamant -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-9WT1GRKEGB"></script>
+<script>
+window.dataLayer=window.dataLayer||[];function gtag(){dataLayer.push(arguments);}
+gtag('js',new Date());
+gtag('consent','default',{'ad_storage':'denied','ad_user_data':'denied','ad_personalization':'denied','analytics_storage':'denied'});
+try{var _c=JSON.parse(localStorage.getItem('sbr_cookie_consent')||'null');if(_c&&_c.type==='all'){gtag('consent','update',{'analytics_storage':'granted'});}}catch(e){}
+gtag('config','G-9WT1GRKEGB',{anonymize_ip:true});
+</script>
+<!-- End GA4 -->
+<script src="js/nav-universal.js?v=13"></script>
+<script src="/js/i18n.js?v=5"></script>
+
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>SBR - Quiz V3 - Bani si Investitii</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=IBM+Plex+Mono:wght@400;500&family=Lato:wght@300;400;700&display=swap" rel="stylesheet" media="print" onload="this.media='all'">
+  <noscript><link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=IBM+Plex+Mono:wght@400;500&family=Lato:wght@300;400;700&display=swap" rel="stylesheet"></noscript>
+<style>
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+html{-webkit-font-smoothing:antialiased}
+body{font-family:"Lato",sans-serif;background:#080808;color:#e2e2e2;min-height:100vh}
+:root{--red:#C0392B;--redL:#E74C3C;--bg1:#111;--bg2:#1a1a1a;--border:rgba(255,255,255,.08);--brd-red:rgba(192,57,43,.22);--text:#E2E2E2;--t2:#AAAAAA;--t3:#888;--t4:#555;--t5:#333;--fm:"IBM Plex Mono",monospace;--fd:"Bebas Neue",sans-serif}
+::-webkit-scrollbar{width:2px}::-webkit-scrollbar-thumb{background:var(--red)}
+button{cursor:pointer;font-family:inherit;border:none;background:none}
+a{text-decoration:none;color:inherit}
+@keyframes fadeIn{from{opacity:0;transform:translateY(12px)}to{opacity:1;transform:translateY(0)}}
+#hdr{position:fixed;top:0;left:0;right:0;height:56px;z-index:100;display:flex;align-items:center;justify-content:space-between;padding:0 28px;background:rgba(8,8,8,.97);backdrop-filter:blur(16px);border-bottom:1px solid var(--brd-red)}
+.logo{font-family:var(--fd);font-size:20px;letter-spacing:5px;cursor:pointer}
+.logo span{color:var(--red)}
+#step{font-family:var(--fm);font-size:10px;letter-spacing:2px;color:var(--t4);text-transform:uppercase}
+#main{min-height:100vh;display:flex;align-items:center;justify-content:center;padding:80px 24px 56px}
+.wrap{width:100%;max-width:640px}
+.scr{display:none}
+.scr.on{display:block;animation:fadeIn .4s ease both}
+.prog{margin-bottom:28px}
+.prog-top{display:flex;justify-content:space-between;margin-bottom:8px}
+.prog-lbl{font-family:var(--fm);font-size:10px;letter-spacing:2px;color:var(--t4);text-transform:uppercase}
+.prog-pct{font-family:var(--fm);font-size:11px;color:var(--red)}
+.prog-track{height:2px;background:rgba(255,255,255,.08)}
+.prog-fill{height:100%;background:var(--red);transition:width .4s ease}
+#q-text{font-family:var(--fd);font-size:clamp(26px,4.5vw,40px);line-height:1.08;letter-spacing:1px;color:var(--text);margin-bottom:24px;min-height:48px}
+#q-opts{display:flex;flex-direction:column;gap:10px;margin-bottom:22px}
+.q-opt{display:flex;align-items:flex-start;gap:14px;padding:16px 18px;background:var(--bg1);border:1px solid var(--border);text-align:left;transition:all .18s;width:100%;font-size:16px;color:var(--t3);line-height:1.55}
+.q-opt:hover{border-color:var(--brd-red);background:var(--bg2);color:var(--t2)}
+.q-opt.picked{border-color:var(--red);background:rgba(192,57,43,.06);color:var(--text)}
+.q-key{font-family:var(--fm);font-size:11px;letter-spacing:2px;color:var(--t4);flex-shrink:0;margin-top:2px;width:18px}
+.q-opt.picked .q-key{color:var(--red)}
+#q-next{width:100%;padding:18px;background:rgba(192,57,43,.12);color:rgba(255,255,255,.3);font-family:var(--fm);font-size:12px;letter-spacing:3px;text-transform:uppercase;transition:all .2s}
+#q-next.on{background:var(--red);color:#fff}
+#q-next.on:hover{background:var(--redL)}
+.gate-tag{font-family:var(--fm);font-size:9px;letter-spacing:4px;color:rgba(192,57,43,.7);text-transform:uppercase;margin-bottom:16px}
+.gate-h{font-family:var(--fd);font-size:clamp(34px,6vw,54px);line-height:.9;margin-bottom:12px}
+.gate-h em{color:var(--red);font-style:normal;display:block}
+.gate-body{font-size:17px;color:var(--t3);line-height:1.75;border-left:2px solid var(--red);padding-left:16px;margin-bottom:24px}
+.inp-row{display:flex;margin-bottom:10px}
+.inp{flex:1;background:#0f0f0f;border:1px solid var(--border);border-right:none;color:var(--text);font-family:var(--fm);font-size:15px;padding:16px 18px;outline:none;transition:border-color .2s}
+.inp:focus{border-color:var(--brd-red)}
+.inp-btn{background:var(--red);color:#fff;font-family:var(--fm);font-size:11px;letter-spacing:3px;text-transform:uppercase;padding:16px 22px;flex-shrink:0;transition:background .18s}
+.inp-btn:hover{background:var(--redL)}
+.note{font-family:var(--fm);font-size:10px;letter-spacing:1px;color:var(--t5);text-transform:uppercase}
+.err{font-family:var(--fm);font-size:11px;color:#e74c3c;margin-top:8px;display:none}
+.ph-badge{display:inline-block;font-family:var(--fm);font-size:9px;letter-spacing:3px;text-transform:uppercase;color:rgba(192,57,43,.65);padding:6px 14px;border:1px solid var(--brd-red);margin-bottom:18px}
+.ph-h{font-family:var(--fd);font-size:clamp(30px,5.5vw,48px);line-height:.9;margin-bottom:12px}
+.ph-h em{color:var(--red);font-style:normal;display:block}
+.ph-body{font-size:16px;color:var(--t3);line-height:1.8;margin-bottom:24px}
+.ph-body strong{color:var(--t2);font-weight:400}
+.ph-row{display:flex;gap:8px;margin-bottom:10px}
+.ph-sel{background:#0f0f0f;border:1px solid var(--border);color:var(--t3);font-family:var(--fm);font-size:12px;padding:15px 10px;width:90px;outline:none}
+.ph-inp{flex:1;background:#0f0f0f;border:1px solid var(--border);color:var(--text);font-family:var(--fm);font-size:16px;padding:15px 16px;outline:none;transition:border-color .2s}
+.ph-inp:focus{border-color:var(--brd-red)}
+.full-btn{width:100%;padding:17px;background:var(--red);color:#fff;font-family:var(--fm);font-size:12px;letter-spacing:3px;text-transform:uppercase;transition:background .18s}
+.full-btn:hover{background:var(--redL)}
+.full-btn:disabled{opacity:.5;cursor:wait}
+.otp-info{font-family:var(--fm);font-size:13px;color:var(--t3);padding:13px 16px;border:1px solid rgba(39,174,96,.2);background:rgba(39,174,96,.04);margin-bottom:20px}
+.otp-grid{display:flex;gap:8px;justify-content:center;margin-bottom:16px}
+.otp-d{width:52px;height:64px;background:#0f0f0f;border:1px solid var(--border);color:var(--text);font-family:var(--fm);font-size:26px;text-align:center;outline:none;transition:border-color .2s}
+.otp-d:focus{border-color:var(--brd-red)}
+.otp-d.ok{border-color:rgba(192,57,43,.4);color:var(--red)}
+.otp-links{display:flex;gap:20px;justify-content:center;margin-top:12px}
+.otp-link{font-family:var(--fm);font-size:10px;letter-spacing:1px;color:var(--t4);text-transform:uppercase;transition:color .15s}
+.otp-link:hover{color:var(--t3)}
+.sent-icon{font-size:44px;margin-bottom:14px;text-align:center}
+.sent-h{font-family:var(--fd);font-size:clamp(30px,5vw,48px);margin-bottom:12px;text-align:center}
+.sent-h em{color:var(--red);font-style:normal}
+.sent-body{font-size:16px;color:var(--t3);line-height:1.8;text-align:center;margin-bottom:20px}
+.sent-box{font-family:var(--fm);font-size:13px;color:var(--t2);padding:13px 20px;background:var(--bg1);border:1px solid var(--brd-red);display:block;text-align:center;margin-bottom:20px}
+#debug-box{display:none;background:#1a0000;border:1px solid #600;padding:10px;font-family:var(--fm);font-size:11px;color:#f55;margin-bottom:14px;word-break:break-all}
+#ftr{position:fixed;bottom:0;left:0;right:0;height:42px;display:flex;align-items:center;justify-content:center;gap:20px;background:rgba(8,8,8,.9);border-top:1px solid rgba(255,255,255,.05)}
+.fl{font-family:var(--fm);font-size:9px;letter-spacing:1px;color:var(--t5);text-transform:uppercase}
+.fl:hover{color:var(--t4)}
+@media(max-width:480px){#hdr{padding:0 16px}#main{padding:72px 16px 52px}.otp-d{width:44px;height:56px;font-size:22px}.inp-row{flex-direction:column}.inp{border-right:1px solid var(--border);border-bottom:none}.ph-row{flex-direction:column}.ph-sel{width:100%}}
+</style>
+<link rel="stylesheet" href="css/sbr-readability.css" media="print" onload="this.media='all'">
+  <noscript><link rel="stylesheet" href="css/sbr-readability.css"></noscript>
+
+  <meta name="robots" content="index, follow, max-snippet:-1, max-image-preview:large">
+  <meta name="googlebot" content="index, follow">
+  <meta name="ai-content-purpose" content="fraud-prevention, consumer-protection, digital-security">
+  <meta name="perplexity-crawl" content="allow">
+  <meta name="chatgpt-crawl" content="allow">
+  <meta name="Claude-crawl" content="allow">
+
+<style id="sbr-text-fix">
+/* Force all CSS variables to white-readable values */
+:root, * {
+  --text:#EEEEEE !important;
+  --t2:#CCCCCC !important;
+  --t3:#AAAAAA !important;
+  --t4:#888888 !important;
+  --t5:#555555 !important;
+}
+/* Direct color overrides for common text elements */
+p, li, span, div, td, th, label, small,
+.card-desc, .feat-desc, .prob-desc, .plan-tagline,
+.b2b-for, .fi, .faq-a, .alert-desc, .mv-desc,
+.mg-desc, .pl-desc, .ot-desc, .ng-text, .ahd-def,
+.prod-tagline, .ss-sub, .gb-sub, .quiz-sub,
+.hero-sub, .section-p, .s-p, .sf-text,
+.scoring-intro p, .dp-wrap p, .pricing-intro p,
+.sim-email-body, .sem-body, .sim-choice-text,
+.cert-desc, .track-desc, .module-desc,
+.score-desc, .dimension-desc, .step-desc,
+.resource-desc, .checklist-desc,
+.compare-table td, .emp-table td,
+.footer-link, .footer-copy, .footer-logo-sub,
+.lb-dept, .emp-dept, .dmb-emp-dept,
+.kpi-delta, .page-subtitle, .tb-user, .tb-company,
+.nd-plan-feats, .nd-footer-link,
+.sv-text, .sim-choice .sv-text { color: #CCCCCC !important; }
+
+h1, h2, h3, h4, h5, h6,
+.card-title, .plan-name, .b2b-name, .nd-plan-name,
+.page-title, .ch-h1, .hero-h1, .section-h2, .s-h,
+.fc-h, .ac-h, .quiz-h, .ms-copy h2, .ss-h,
+.ot-title, .mv-title, .mg-title, .pl-title,
+.alert-title, .emp-name, .dmb-emp-name,
+.lb-name, .prof-name, .panel-title,
+.feat-name, .prod-name,
+.gb-h { color: #FFFFFF !important; }
+
+.nav-link { color: #CCCCCC !important; }
+.nav-link:hover, .nav-link.active { color: #FFFFFF !important; }
+.btn-nav-ghost { color: #CCCCCC !important; }
+</style>
+<style id="sbr-force-colors">
+/* Override elements with hardcoded dark colors */
+.card-desc{color:#CCCCCC !important}
+.plan-tagline,.b2b-for,.fi{color:#CCCCCC !important}
+.faq-a,.faq-answer{color:#CCCCCC !important}
+.alert-desc,.sim-email-body,.sem-body{color:#CCCCCC !important}
+.mv-desc,.mg-desc,.pl-desc,.ot-desc,.ng-text,.ahd-def{color:#CCCCCC !important}
+.prod-tagline,.ss-sub,.gb-sub,.quiz-sub{color:#CCCCCC !important}
+.hero-sub,.s-p,.section-p,.fc-sub,.ac-sub{color:#CCCCCC !important}
+.prob-desc,.prob-a{color:#CCCCCC !important}
+.feat-desc,.nd-plan-feats{color:#CCCCCC !important}
+.scoring-intro p,.dp-wrap p,.pricing-intro p{color:#CCCCCC !important}
+p,li,td:not([class*="risk"]):not([class*="rc"]):not([class*="rh"]){color:#CCCCCC !important}
+h1,h2,h3,h4,h5,h6,.card-title,.plan-name,.b2b-name,.page-title{color:#FFFFFF !important}
+.nav-link{color:#CCCCCC !important}
+.nav-link:hover,.nav-link.active{color:#FFFFFF !important}
+.btn-nav-ghost{color:#CCCCCC !important}
+.compare-table td{color:#CCCCCC !important}
+.compare-table td.feature-name,.compare-table .feat-name{color:#DDDDDD !important}
+.emp-name,.lb-name,.dmb-emp-name{color:#EEEEEE !important}
+.emp-dept,.lb-dept,.dmb-emp-dept{color:#AAAAAA !important}
+.alert-title,.panel-title{color:#FFFFFF !important}
+</style>
+<style id="sbr-footer-final">
+.sbr-footer{
+  background:#060606 !important;border-top:1px solid rgba(255,255,255,.04) !important;
+  padding:16px clamp(16px,4vw,48px) !important;display:flex !important;
+  align-items:center !important;justify-content:space-between !important;
+  gap:14px !important;flex-wrap:wrap !important;
+}
+.footer-logo{font-family:'Bebas Neue',sans-serif;font-size:16px !important;letter-spacing:4px !important;color:#fff !important}
+.footer-logo span{color:#C0392B !important}
+.footer-links{display:flex !important;align-items:center !important;gap:20px !important}
+.footer-link{font-family:'IBM Plex Mono',monospace !important;font-size:8px !important;letter-spacing:1px !important;color:#3a3a3a !important;text-transform:uppercase !important;text-decoration:none !important;transition:color .15s !important;white-space:nowrap !important}
+.footer-link:hover{color:#888 !important}
+.footer-copy{font-family:'IBM Plex Mono',monospace !important;font-size:7px !important;color:#222 !important;white-space:nowrap !important}
+@media(max-width:560px){
+  .sbr-footer{flex-direction:column !important;align-items:flex-start !important;gap:8px !important;padding:12px 16px !important}
+  .footer-links{gap:12px !important}
+  .footer-copy{font-size:6px !important}
+}
+</style>
+<style id="sbr-social-icons">
+/* Hide old text-based social bar */
+#sbr-social-bar, .sbr-social-bar { display: none !important; }
+/* Floating icon-only social pill */
+#sbr-sw {
+  position: fixed; right: 14px; top: 50%; transform: translateY(-50%);
+  z-index: 800; display: flex; flex-direction: column; gap: 6px;
+}
+.sbr-sw-a {
+  display: flex; align-items: center; justify-content: center;
+  width: 36px; height: 36px; border-radius: 50%;
+  background: rgba(255,255,255,.04); border: 1px solid rgba(255,255,255,.08);
+  text-decoration: none; cursor: pointer;
+  transition: background .2s, border-color .2s, transform .2s;
+  backdrop-filter: blur(10px); -webkit-backdrop-filter: blur(10px);
+  font-size: 14px; line-height: 1;
+}
+.sbr-sw-a:hover {
+  background: rgba(192,57,43,.15); border-color: rgba(192,57,43,.3);
+  transform: scale(1.12);
+}
+/* Mobile — bottom strip icon only */
+@media(max-width: 680px) {
+  #sbr-sw {
+    position: fixed; bottom: 0; left: 0; right: 0; top: auto; transform: none;
+    flex-direction: row; gap: 0; border-radius: 0;
+    background: rgba(6,6,6,.97); border-top: 1px solid rgba(255,255,255,.05);
+    backdrop-filter: blur(20px); -webkit-backdrop-filter: blur(20px);
+    padding-bottom: env(safe-area-inset-bottom, 0); height: 50px;
+  }
+  .sbr-sw-a {
+    flex: 1; width: auto; height: 50px; border-radius: 0; border: none;
+    border-right: 1px solid rgba(255,255,255,.04); background: transparent;
+    font-size: 16px;
+  }
+  .sbr-sw-a:last-child { border-right: none; }
+  .sbr-sw-a:hover { transform: none; background: rgba(192,57,43,.07); }
+  body { padding-bottom: 50px !important; }
+}
+/* Kill any text labels */
+.sbr-sw-l { display: none !important; }
+</style>
+<style id="sbr-fc">
+/* Force all common text elements to white-ish */
+p,li,td,th,label,small,figcaption,dd,dt,
+.card-desc,.plan-tagline,.b2b-for,.fi,.faq-a,.faq-answer,
+.alert-desc,.mv-desc,.mg-desc,.pl-desc,.ot-desc,.ng-text,
+.prod-tagline,.ss-sub,.gb-sub,.quiz-sub,.hero-sub,
+.s-p,.section-p,.fc-sub,.ac-sub,.feat-desc,
+.sim-email-body,.sem-body,.sf-text,
+.nd-plan-feats,.prob-desc,.prob-a,
+.pf-lead,.pf-desc,.pf-text,
+.score-desc,.dimension-desc,
+.cert-desc,.track-desc,.module-desc,
+.checklist-desc,.step-desc,.resource-desc,
+[class*="-desc"],[class*="-sub"],[class*="-text"],[class*="-body"],
+[class*="-copy"],[class*="-content"],[class*="-lead"]{
+  color:#CCCCCC!important;
+}
+h1,h2,h3,h4,h5,h6,
+.card-title,.plan-name,.b2b-name,.page-title,
+.section-h2,.s-h,.ch-h1,.hero-h1,.fc-h,.ac-h,.quiz-h,
+.ot-title,.mv-title,.mg-title,.pl-title,.alert-title,
+.panel-title,.emp-name,.lb-name,.feat-name,.prod-name,
+[class*="-title"]:not(.lock-title):not(.sn-dd-section):not(.sm-label){
+  color:#FFFFFF!important;
+}
+.nav-link,.sn-link,.sn-dd-link{color:#CCCCCC!important;}
+.nav-link:hover,.nav-link.active,.sn-link:hover,.sn-dd-link:hover{color:#FFFFFF!important;}
+.footer-link{color:#3a3a3a!important;}
+.footer-link:hover{color:#888!important;}
+.footer-copy{color:#222!important;}
+/* Mobile menu links — RED, not blue/inherit */
+.sm-link{color:#EEEEEE!important;}
+.sm-link:hover{color:#C0392B!important;}
+.sm-link > span:first-child{color:#EEEEEE!important;}
+.sm-link-sub{color:#444!important;}
+.sm-small-link{color:#666!important;}
+.sm-small-link:hover{color:#EEEEEE!important;}
+/* Kill any blue link inheritance in mobile menu */
+#sbr-menu a{color:#EEEEEE!important;}
+#sbr-menu a:hover{color:#C0392B!important;}
+/* Desktop nav links */
+.sn-link{color:#AAAAAA!important;}
+.sn-link:hover{color:#EEEEEE!important;}
+.sn-dd-link{color:#888!important;}
+.sn-dd-link:hover{color:#EEEEEE!important;background:rgba(192,57,43,.06)!important;}
+/* sbrN nav elements — white, never blue */
+#sbrN a,#sbrN button,.sbrN-btn{color:#aaa!important;text-decoration:none!important}
+#sbrN a:hover,#sbrN button:hover,.sbrN-btn:hover{color:#eee!important}
+.sbrN-cta,.sbrN-cta:hover{color:#fff!important}
+.dd-link{color:inherit!important;text-decoration:none!important}
+.dd-link-title{color:#eee!important}
+.dd-link-sub{color:#555!important}
+.mob-link{color:#eee!important;text-decoration:none!important}
+.mob-link:hover{color:#C0392B!important}
+.mob-small-link{color:#555!important;text-decoration:none!important}
+.snl-btn,.snl-btn *{color:#aaa!important}
+
+</style>
+<style id="sbr-font-nuclear">
+/* ═══ NUCLEAR WHITE TEXT OVERRIDE ═══════════════════════════════
+   Targets every element that could have dark gray text.
+   Does NOT touch: buttons, badges, risk labels, nav CTAs
+═══════════════════════════════════════════════════════════════ */
+
+/* Base: all body text → white-ish */
+body, body *:not(button):not(.sn-cta):not(.cta-primary):not(.btn-nav-solid)
+  :not(.card-risk):not(.rb-c):not(.rb-h):not(.rb-m):not(.rb-l)
+  :not(.chk):not(.cross):not(.lock-plan):not(.gb-plan-badge)
+  :not([class*="badge"]) {
+  -webkit-font-smoothing: antialiased !important;
+}
+
+/* Paragraph text, list items, descriptions */
+p { color: #DDDDDD !important; font-size: max(14px, 1em) !important; line-height: 1.85 !important; }
+li { color: #DDDDDD !important; font-size: max(13px, 0.9em) !important; line-height: 1.75 !important; }
+span:not([class*="risk"]):not([class*="badge"]):not(.dot):not(.sn-sbr):not(.sn-af):not(.sn-dot) { color: inherit !important; }
+td, th { color: #CCCCCC !important; }
+label { color: #CCCCCC !important; }
+small { color: #AAAAAA !important; }
+
+/* Specific content classes - all the variants we've seen */
+.card-desc, .plan-tagline, .b2b-for, .b2b-feat,
+.fi, .fi.yes, .feat-desc, .nd-plan-feats,
+.faq-a, .faq-answer, .faq-body,
+.alert-desc, .dmb-alert-text,
+.mv-desc, .mg-desc, .pl-desc, .ot-desc, .ng-text,
+.prob-desc, .prob-a, .prob-q,
+.ahd-def, .dc-desc, .dim-desc,
+.prod-tagline, .hero-sub, .s-p, .section-p,
+.fc-sub, .ac-sub, .quiz-sub, .ah-tagline,
+.gb-sub, .pq-text, .ss-sub, .scoring-intro p,
+.sim-email-body, .sem-body, .sf-text,
+.feat-desc, .step-desc, .checklist-desc, .resource-desc,
+.cert-desc, .track-desc, .module-desc,
+.pf-lead, .pf-desc, .pf-text, .pf-body,
+.score-desc, .dimension-desc,
+.dp-wrap p, .pricing-intro p,
+.rec-desc, .sg-sub, .sh-sub,
+.about-text, .team-bio, .mission-text,
+.sbi-fill + *, [class*="-desc"],
+[class*="-sub"]:not([class*="hero-sub"]),
+[class*="-body"]:not(#sbr-menu):not(#sbr-nav):not(.card-body) { color: #CCCCCC !important; }
+
+/* Headings - full white */
+h1, h2, h3, h4, h5, h6 { color: #FFFFFF !important; }
+.card-title, .plan-name, .b2b-name, .nd-plan-name,
+.page-title, .section-h2, .s-h, .ch-h1, .hero-h1,
+.fc-h, .ac-h, .quiz-h, .ss-h, .sh-h1,
+.ot-title, .mv-title, .mg-title, .pl-title,
+.alert-title, .panel-title, .emp-name, .lb-name,
+.feat-name, .prod-name, .gb-h,
+.dc-name, .rec-title, .fe-title, .sg-h,
+.sm-link > span:first-child { color: #FFFFFF !important; }
+
+/* Nav */
+.sn-link { color: #BBBBBB !important; }
+.sn-link:hover { color: #FFFFFF !important; }
+.sn-dd-link { color: #AAAAAA !important; }
+.sn-dd-link:hover { color: #EEEEEE !important; }
+.sn-af { color: #DDDDDD !important; }
+
+/* Footer */
+.footer-link { color: #444 !important; }
+.footer-link:hover { color: #999 !important; }
+.footer-copy { color: #2a2a2a !important; }
+.footer-logo { color: #FFFFFF !important; }
+
+/* Secondary labels */
+.card-cat, .prod-code, .cs-code, .kpi-label, .hs-l, .hstat-l,
+.section-eyebrow, .s-eyebrow, .ah-eyebrow, .hero-eyebrow,
+.cf-label, .sm-link-sub, .sm-small-link,
+.sm-label, .nd-plan-price, .b2b-period, .plan-period,
+.dc-sub, .sbi-name, .dc-indicators .dc-indicator,
+.sh-pill-word, .stl-name, .fe-desc, .cc-label { color: #AAAAAA !important; }
+
+/* Dashboard */
+.emp-name, .lb-name, .dmb-emp-name { color: #EEEEEE !important; }
+.emp-dept, .lb-dept, .dmb-emp-dept, .cs-name { color: #BBBBBB !important; }
+
+/* Monospace elements */
+.card-id, .sim-from, .sem-row-val, .sim-cat-label { color: #BBBBBB !important; }
+
+/* Tag entry / pattern */
+.tag-entry { color: #CCCCCC !important; font-size: 9px !important; }
+
+/* Sidebar count */
+.cs-count { color: #777 !important; }
+
+/* Compare table */
+.compare-table td { color: #CCCCCC !important; }
+.compare-table .feat-name { color: #EEEEEE !important; font-weight: 700 !important; }
+
+/* Input fields */
+input:not([type="submit"]):not([type="button"]):not([type="reset"]),
+textarea, select { color: #EEEEEE !important; }
+input::placeholder, textarea::placeholder { color: #555 !important; }
+</style>
+
+<style id="sbr-red-override">
+/* Replace all blue nav/UI accents with red */
+.nd-plan-badge.blue{background:rgba(192,57,43,.1)!important;color:var(--red)!important}
+.nd-plan-tier.blue{color:var(--red)!important}
+.sh-plan-badge:nth-child(1){color:var(--red)!important}
+.sh-plan-badge:nth-child(1) .spb-dot{background:var(--red)!important}
+.pb-name.professional,.pb-name.premium{background:rgba(192,57,43,.1)!important;color:var(--red)!important}
+.fe-badge.pro{background:rgba(192,57,43,.1)!important;color:var(--red)!important}
+/* Hero stats 4th — red instead of blue */
+.hstat:nth-child(4)::after{background:var(--red)!important}
+.hstat:nth-child(4) .hstat-n{color:var(--red)!important}
+/* Score page blue → red */
+.dim-card.breach{border-top-color:var(--red)!important}
+.dim-card.breach .dc-letter{color:var(--red)!important}
+.sbi-fill.breach{background:var(--red)!important}
+/* Gate walls */
+.gate-banner.professional{border-color:rgba(192,57,43,.2)!important;background:rgba(192,57,43,.03)!important}
+.gate-banner.professional .gb-eyebrow{color:rgba(192,57,43,.5)!important}
+.gate-banner.professional .gb-n{color:var(--red)!important}
+.gate-banner.professional .gb-btn-main{background:var(--red)!important;color:#fff!important}
+/* B2B plan prices */
+.b2b-plan:nth-child(1) .b2b-amount{color:var(--red)!important}
+.b2b-plan:nth-child(1) .b2b-tier{color:var(--red)!important}
+.b2b-plan:nth-child(1) .b2b-cta{background:rgba(192,57,43,.12)!important;color:var(--red)!important;border:1px solid rgba(192,57,43,.25)!important}
+.b2b-plan:nth-child(1) .b2b-cta:hover{background:var(--red)!important;color:#fff!important}
+/* Signal/score accents */
+.sg-plan:nth-child(2){border-top-color:var(--red)!important}
+.sg-plan:nth-child(2) .sg-plan-name{color:var(--red)!important}
+/* Active nav link highlight */
+.sn-link.active,.sn-link:focus{color:var(--red)!important}
+/* Codex plan banner */
+.pb-name.professional{background:rgba(192,57,43,.08)!important;color:var(--red)!important}
+/* Mobile menu section label */
+.sm-label{color:rgba(192,57,43,.5)!important}
+/* Signals strip */
+.ss-btn{background:var(--red)!important;color:#fff!important}
+.ss-btn:hover{background:var(--red-l)!important}
+.ss-input:focus{border-color:rgba(192,57,43,.4)!important}
+</style></head>
+<body>
+<div id="scroll-progress"></div>
+</div>
+<header id="hdr">
+  <div class="logo" onclick="if (!window.__cfRLUnblockHandlers) return false; location.href='index.html'" data-cf-modified-64f76b0eecfe040422370d08-="">SBR<span>.</span></div>
+  <div id="step">Diagnostic &middot; Pasul 1 din 3</div>
+</header>
+
+<div id="main">
+<div class="wrap">
+  <div id="debug-box"></div>
+
+  <div id="s-quiz" class="scr on">
+    <div class="prog">
+      <div class="prog-top">
+        <span class="prog-lbl" id="q-lbl">Intrebarea 1 din 6</span>
+        <span class="prog-pct" id="q-pct">0%</span>
+      </div>
+      <div class="prog-track"><div class="prog-fill" id="q-fill" style="width:0%"></div></div>
+    </div>
+    <div id="q-text"></div>
+    <div id="q-opts"></div>
+    <button id="q-next" onclick="if (!window.__cfRLUnblockHandlers) return false; nextQ()" data-cf-modified-64f76b0eecfe040422370d08-="">Continua &rarr;</button>
+  </div>
+
+  <div id="s-email" class="scr">
+    <div class="gate-tag">Analiza finalizata</div>
+    <h2 class="gate-h">Profilul tau<em>este gata.</em></h2>
+    <p class="gate-body">Introdu emailul pentru acces la raportul complet si la platforma.</p>
+    <div class="inp-row">
+      <input type="email" id="inp-email" class="inp" placeholder="adresa@email.com" autocomplete="email">
+      <button class="inp-btn" onclick="if (!window.__cfRLUnblockHandlers) return false; goPhone()" data-cf-modified-64f76b0eecfe040422370d08-="">Continua &rarr;</button>
+    </div>
+    <div class="note">Confidential &middot; Fara spam</div>
+    <div class="err" id="err-email"></div>
+  </div>
+
+  <div id="s-phone" class="scr">
+    <div class="ph-badge">Verificare Anti-Frauda</div>
+    <h2 class="ph-h">Verificam fiecare<em>diagnostic.</em></h2>
+    <p class="ph-body">Verificam fiecare utilizator pentru a preveni manipularea scorurilor. <strong>Trimitem un cod SMS.</strong></p>
+    <div class="ph-row">
+      <select id="inp-cc" class="ph-sel">
+        <option value="+40">RO +40</option>
+        <option value="+44">UK +44</option>
+        <option value="+1">US +1</option>
+        <option value="+49">DE +49</option>
+        <option value="+33">FR +33</option>
+        <option value="+34">ES +34</option>
+      </select>
+      <input type="tel" id="inp-phone" class="ph-inp" placeholder="7XX XXX XXX" autocomplete="tel" inputmode="tel">
+    </div>
+    <button class="full-btn" id="btn-phone" onclick="if (!window.__cfRLUnblockHandlers) return false; sendOTP()" data-cf-modified-64f76b0eecfe040422370d08-="">Trimite codul SMS &rarr;</button>
+    <div class="err" id="err-phone"></div>
+    <div class="note" style="margin-top:10px">Codul expira in 10 minute</div>
+  </div>
+
+  <div id="s-otp" class="scr">
+    <div class="ph-badge">Cod trimis</div>
+    <h2 class="ph-h">Introdu codul<em>primit pe SMS.</em></h2>
+    <div class="otp-info" id="otp-info">Verifica SMS-ul.</div>
+    <div class="otp-grid">
+      <input type="tel" class="otp-d" maxlength="1" inputmode="numeric">
+      <input type="tel" class="otp-d" maxlength="1" inputmode="numeric">
+      <input type="tel" class="otp-d" maxlength="1" inputmode="numeric">
+      <input type="tel" class="otp-d" maxlength="1" inputmode="numeric">
+      <input type="tel" class="otp-d" maxlength="1" inputmode="numeric">
+      <input type="tel" class="otp-d" maxlength="1" inputmode="numeric">
+    </div>
+    <button class="full-btn" id="btn-otp" onclick="if (!window.__cfRLUnblockHandlers) return false; verifyOTP()" data-cf-modified-64f76b0eecfe040422370d08-="">Verifica si deblocheaza &rarr;</button>
+    <div class="err" id="err-otp"></div>
+    <div class="otp-links">
+      <button class="otp-link" onclick="if (!window.__cfRLUnblockHandlers) return false; goScr('s-phone')" data-cf-modified-64f76b0eecfe040422370d08-="">Schimba numarul</button>
+      <button class="otp-link" onclick="if (!window.__cfRLUnblockHandlers) return false; sendOTP()" data-cf-modified-64f76b0eecfe040422370d08-="">Retrimite codul</button>
+    </div>
+  </div>
+
+  <div id="s-sent" class="scr">
+    <div class="sent-icon">&#9993;</div>
+    <h2 class="sent-h">Verifica-ti<em>inbox-ul.</em></h2>
+    <p class="sent-body">Ti-am trimis un link de acces. Da click pe el pentru a activa contul si a accesa AFIS gratuit.</p>
+    <div class="sent-box" id="sent-box"></div>
+    <div class="note" style="text-align:center;margin-bottom:20px">Link valid 24h &middot; Verifica si Spam</div>
+    <button class="full-btn" style="max-width:320px;margin:0 auto;display:block" onclick="if (!window.__cfRLUnblockHandlers) return false; location.href='afis.html'" data-cf-modified-64f76b0eecfe040422370d08-="">Acceseaza AFIS &rarr;</button>
+  </div>
+
+</div>
+</div>
+
+<footer class="sbr-footer">
+  <div style="display:flex;align-items:center"><div class="footer-logo">SBR<span>.</span></div></div>
+  <div class="footer-copy">&copy; 2026 Structura Brevis Rector&trade;</div>
+  <nav class="footer-links">
+    <a href="am-fost-inselat.html" class="footer-link" data-en="Been scammed?">Am fost înșelat</a>
+    <a href="unde-raportezi-frauda.html" class="footer-link" data-en="Report fraud">Raportează frauda</a>
+    <a href="phishing-cum-recunosti.html" class="footer-link">Phishing</a>
+    <a href="codex.html" class="footer-link">Codex</a>
+    <a href="terms.html" class="footer-link">Termeni</a>
+    <a href="privacy.html" class="footer-link">Privacy &amp; Cookies</a>
+    <a href="gdpr.html" class="footer-link">GDPR</a>
+  </nav>
+</footer>
+
+<script>
+var SBR_URL='https://zxonzzojynrkzaiaacte.supabase.co';
+var SBR_KEY='eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6Inp4b256em9qeW5ya3phaWFhY3RlIiwicm9sZSI6ImFub24iLCJpYXQiOjE3NzQ4MTYyMzMsImV4cCI6MjA5MDM5MjIzM30.85AqP2qLdG_4Iufz4nqkrZNQ4E38VavEc1kiNE9XhH0';
+function dbg(m){var e=document.getElementById('debug-box');e.style.display='block';e.textContent='ERROR: '+m;}
+var lang='RO',qdata=[],curQ=0,total=0,_email='',_phone='',_tag='',_pct=0;
+var QD = {
+  RO:[
+    {q:"Esti contactat pe Instagram de cineva cu care ai vorbit cateva saptamani. Va intelegeti bine. Acum iti propune sa investiti impreuna intr-o platforma crypto 'exclusiva'. Primesti un link. Ce faci?",
+     opts:[
+      {t:"Ma uit pe platforma - daca arata serios, investesc o suma mica sa testez.",s:3},
+      {t:"Caut platforma pe Google si verific recenzii independente.",s:2},
+      {t:"Nu investesc nimic prin retele sociale indiferent de context.",s:0},
+      {t:"Cer mai multe informatii dar sunt interesat.",s:2}
+    ]},
+    {q:"Primesti un email: 'Felicitari! Ai castigat 15.000 EUR la o loterie europeana. Pentru a ridica premiul, achita taxa administrativa de 500 EUR.' Ce faci?",
+     opts:[
+      {t:"Verific daca loteria exista si daca am participat la ea.",s:1},
+      {t:"Sterg imediat - nu am participat la nicio loterie.",s:0},
+      {t:"Platesc taxa - 500 EUR pentru 15.000 EUR e o afacere buna.",s:3},
+      {t:"Ma gandesc - poate cineva m-a inscris fara sa stiu.",s:2}
+    ]},
+    {q:"Un 'consultant financiar' iti promite 15-25% profit lunar garantat pe investitia ta. Iti arata capturi de ecran cu profituri ale altor clienti. Ce gandesti?",
+     opts:[
+      {t:"E posibil - exista experti care stiu ce fac.",s:3},
+      {t:"Nicio investitie legitima nu garanteaza 15-25% lunar.",s:0},
+      {t:"Investesc o suma mica sa vad daca chiar functioneaza.",s:3},
+      {t:"Captura de ecran nu e dovada - cer documente oficiale.",s:1}
+    ]},
+    {q:"Vine un mesaj pe WhatsApp: 'Buna ziua, va sun de la ANAF. Aveti o datorie de 2.340 lei. Daca nu platiti in 24h, se blocheaza conturile. Faceti plata acum la aceasta adresa de card.' Ce faci?",
+     opts:[
+      {t:"Platesc - ANAF e institutie serioasa si nu vreau probleme.",s:3},
+      {t:"Sun la ANAF pe numarul oficial de pe site sa verific.",s:0},
+      {t:"Cer mai multe informatii in scris inainte de orice.",s:1},
+      {t:"Rog un contabil sau avocat sa verifice situatia.",s:1}
+    ]},
+    {q:"Un prieten real iti recomanda o schema de referinta: investesti 1000 lei, aduci 3 prieteni care investesc la randul lor si recuperezi 3000 lei in 30 de zile. El a primit deja banii. Ce faci?",
+     opts:[
+      {t:"Investesc - prietenul meu e de incredere si a primit banii.",s:3},
+      {t:"Recunosc schema Ponzi si il avertizez pe prieten.",s:0},
+      {t:"Intreb mai multi oameni care au investit inainte sa decid.",s:2},
+      {t:"Investesc jumatate sa reduc riscul.",s:3}
+    ]},
+    {q:"Cauti o slujba online si gasesti o oferta: 'Lucru de acasa, 5-6 ore/zi, 4000-6000 RON/luna. Nu e nevoie de experienta.' Pentru a incepe, trebuie sa platesti un 'kit de initiere' de 300 lei. Ce faci?",
+     opts:[
+      {t:"Platesc - suma e mica si oferta pare buna.",s:3},
+      {t:"Un angajator legitim nu cere bani inainte de angajare.",s:0},
+      {t:"Caut recenzii ale firmei inainte sa platesc ceva.",s:1},
+      {t:"Ii trimit CV-ul mai intai sa vad daca ma accepta.",s:2}
+    ]}
+  ],
+  EN:[
+    {q:"Someone you've chatted with for weeks on Instagram proposes investing together on an exclusive crypto platform. They send a link. What do you do?",
+     opts:[
+      {t:"I look at the platform - if it looks serious, I invest a small amount to test.",s:3},
+      {t:"I search the platform on Google and check independent reviews.",s:2},
+      {t:"I never invest through social media regardless of context.",s:0},
+      {t:"I ask for more information but I'm interested.",s:2}
+    ]},
+    {q:"Email: Congratulations! You've won EUR 15,000 in a European lottery. To claim, pay EUR 500 administrative fee. What do you do?",
+     opts:[
+      {t:"Check if the lottery exists and if I entered.",s:1},
+      {t:"Delete immediately - I never entered any lottery.",s:0},
+      {t:"Pay the fee - EUR 500 for EUR 15,000 is a good deal.",s:3},
+      {t:"Think about it - maybe someone entered me without me knowing.",s:2}
+    ]},
+    {q:"A financial consultant promises 15-25% monthly guaranteed profit. Shows screenshots of other clients' returns. What do you think?",
+     opts:[
+      {t:"It's possible - some experts really know what they're doing.",s:3},
+      {t:"No legitimate investment guarantees 15-25% monthly.",s:0},
+      {t:"I invest a small amount to see if it really works.",s:3},
+      {t:"Screenshots aren't proof - I ask for official documents.",s:1}
+    ]},
+    {q:"WhatsApp message from tax authority: you owe EUR 2,340, accounts will be frozen in 24h if you don't pay now via card link. What do you do?",
+     opts:[
+      {t:"I pay - the tax authority is a serious institution.",s:3},
+      {t:"I call the official number on the tax authority's website.",s:0},
+      {t:"I ask for written documentation before anything.",s:1},
+      {t:"I ask an accountant or lawyer to check.",s:1}
+    ]},
+    {q:"A real friend recommends a referral scheme: invest 1000, bring 3 friends who invest, get back 3000 in 30 days. He already received his money. What do you do?",
+     opts:[
+      {t:"I invest - my friend is trustworthy and got paid.",s:3},
+      {t:"I recognize the Ponzi scheme and warn my friend.",s:0},
+      {t:"I ask others who invested before deciding.",s:2},
+      {t:"I invest half to reduce risk.",s:3}
+    ]},
+    {q:"You find a job offer: work from home, 5-6h/day, GBP 3,000-5,000/month, no experience needed. To start, pay a GBP 250 starter kit fee. What do you do?",
+     opts:[
+      {t:"I pay - small amount and the offer sounds good.",s:3},
+      {t:"A legitimate employer never asks for money upfront.",s:0},
+      {t:"I search for company reviews before paying anything.",s:1},
+      {t:"I send my CV first to see if they accept me.",s:2}
+    ]}
+  ],
+  ES:[
+    {q:"Alguien con quien llevas semanas hablando en Instagram propone invertir juntos en una plataforma crypto exclusiva. Que haces?",
+     opts:[
+      {t:"Miro la plataforma - si parece seria, invierto poco para probar.",s:3},
+      {t:"Busco la plataforma en Google y verifico resenas independientes.",s:2},
+      {t:"Nunca invierto a traves de redes sociales.",s:0},
+      {t:"Pido mas informacion pero estoy interesado.",s:2}
+    ]},
+    {q:"Email: felicitaciones, ganaste EUR 15.000 en loteria europea, paga EUR 500 de tasa administrativa. Que haces?",
+     opts:[
+      {t:"Verifico si la loteria existe y si participe.",s:1},
+      {t:"Lo elimino inmediatamente - nunca participe en ninguna loteria.",s:0},
+      {t:"Pago la tasa - EUR 500 por EUR 15.000 es buen negocio.",s:3},
+      {t:"Lo pienso - quizas alguien me inscribio sin saberlo.",s:2}
+    ]},
+    {q:"Consultor financiero promete 15-25% de ganancia mensual garantizada. Muestra capturas de pantalla de ganancias. Que piensas?",
+     opts:[
+      {t:"Es posible - algunos expertos realmente saben lo que hacen.",s:3},
+      {t:"Ninguna inversion legitima garantiza 15-25% mensual.",s:0},
+      {t:"Invierto una cantidad pequena para ver si funciona.",s:3},
+      {t:"Las capturas no son prueba - pido documentos oficiales.",s:1}
+    ]},
+    {q:"WhatsApp de la agencia tributaria: debes EUR 2.340, cuentas bloqueadas en 24h si no pagas ahora. Que haces?",
+     opts:[
+      {t:"Pago - la agencia tributaria es una institucion seria.",s:3},
+      {t:"Llamo al numero oficial de la agencia tributaria.",s:0},
+      {t:"Pido documentacion por escrito antes de nada.",s:1},
+      {t:"Consulto con un contable o abogado.",s:1}
+    ]},
+    {q:"Amigo real recomienda esquema: invierte 1000, trae 3 amigos que inviertan, recuperas 3000 en 30 dias. El ya recibio su dinero. Que haces?",
+     opts:[
+      {t:"Invierto - mi amigo es de confianza y cobro.",s:3},
+      {t:"Reconozco el esquema Ponzi y aviso a mi amigo.",s:0},
+      {t:"Pregunto a otros que invirtieron antes de decidir.",s:2},
+      {t:"Invierto la mitad para reducir el riesgo.",s:3}
+    ]},
+    {q:"Oferta de trabajo: teletrabajo 5-6h/dia, EUR 4.000-6.000/mes, sin experiencia. Para empezar, paga EUR 300 de kit de inicio. Que haces?",
+     opts:[
+      {t:"Pago - cantidad pequena y la oferta parece buena.",s:3},
+      {t:"Un empleador legitimo nunca pide dinero por adelantado.",s:0},
+      {t:"Busco resenas de la empresa antes de pagar.",s:1},
+      {t:"Envio mi CV primero para ver si me aceptan.",s:2}
+    ]}
+  ],
+  FR:[
+    {q:"Quelqu un avec qui vous parlez depuis des semaines sur Instagram propose d investir ensemble sur une plateforme crypto exclusive. Que faites-vous ?",
+     opts:[
+      {t:"Je regarde la plateforme - si ca semble serieux, j investis peu pour tester.",s:3},
+      {t:"Je cherche la plateforme sur Google et verifie les avis independants.",s:2},
+      {t:"Je n investis jamais via les reseaux sociaux.",s:0},
+      {t:"Je demande plus d infos mais je suis interesse.",s:2}
+    ]},
+    {q:"Email : vous avez gagne EUR 15 000 a une loterie europeenne, payez EUR 500 de frais. Que faites-vous ?",
+     opts:[
+      {t:"Je verifie si la loterie existe et si j y ai participe.",s:1},
+      {t:"Je supprime immediatement - je n ai participe a aucune loterie.",s:0},
+      {t:"Je paie - EUR 500 pour EUR 15 000, c est une bonne affaire.",s:3},
+      {t:"J y reflechis - peut-etre quelqu un m a inscrit.",s:2}
+    ]},
+    {q:"Consultant financier promet 15-25% de profit mensuel garanti, montre des captures d ecran. Qu en pensez-vous ?",
+     opts:[
+      {t:"C est possible - certains experts savent vraiment.",s:3},
+      {t:"Aucun investissement legitime ne garantit 15-25% mensuel.",s:0},
+      {t:"J investis peu pour voir si ca marche vraiment.",s:3},
+      {t:"Les captures ne sont pas une preuve - je demande des documents officiels.",s:1}
+    ]},
+    {q:"WhatsApp des impots : vous devez EUR 2 340, comptes bloques en 24h si vous ne payez pas maintenant. Que faites-vous ?",
+     opts:[
+      {t:"Je paie - les impots sont une institution serieuse.",s:3},
+      {t:"J appelle le numero officiel des impots.",s:0},
+      {t:"Je demande une documentation ecrite avant tout.",s:1},
+      {t:"Je consulte un comptable ou avocat.",s:1}
+    ]},
+    {q:"Ami reel recommande un schema : investissez 1000, amenez 3 amis qui investissent, recevez 3000 en 30 jours. Il a deja recu l argent. Que faites-vous ?",
+     opts:[
+      {t:"J investis - mon ami est digne de confiance.",s:3},
+      {t:"Je reconnais le schema de Ponzi et avertis mon ami.",s:0},
+      {t:"Je demande a d autres qui ont investi avant de decider.",s:2},
+      {t:"J investis la moitie pour reduire le risque.",s:3}
+    ]},
+    {q:"Offre d emploi : teletravail 5-6h/jour, EUR 4 000-6 000/mois, sans experience. Pour commencer, payez EUR 300 de kit de demarrage. Que faites-vous ?",
+     opts:[
+      {t:"Je paie - petite somme et l offre semble bonne.",s:3},
+      {t:"Un employeur legitime ne demande jamais d argent avant.",s:0},
+      {t:"Je cherche des avis sur l entreprise avant de payer.",s:1},
+      {t:"J envoie mon CV d abord.",s:2}
+    ]}
+  ],
+  DE:[
+    {q:"Jemand mit dem Sie seit Wochen auf Instagram chatten schlaegt vor, gemeinsam in eine exklusive Krypto-Plattform zu investieren. Was tun Sie?",
+     opts:[
+      {t:"Ich schaue mir die Plattform an - wenn sie serioesaus sieht, investiere ich wenig zum Testen.",s:3},
+      {t:"Ich suche die Plattform bei Google und pruefe unabhaengige Bewertungen.",s:2},
+      {t:"Ich investiere nie ueber soziale Medien.",s:0},
+      {t:"Ich frage nach mehr Informationen, bin aber interessiert.",s:2}
+    ]},
+    {q:"E-Mail: Herzlichen Glueckwunsch, Sie haben EUR 15.000 bei einer europaeischen Lotterie gewonnen. Zahlen Sie EUR 500 Verwaltungsgebuehr. Was tun Sie?",
+     opts:[
+      {t:"Ich pruefe ob die Lotterie existiert und ob ich teilgenommen habe.",s:1},
+      {t:"Sofort loeschen - ich habe an keiner Lotterie teilgenommen.",s:0},
+      {t:"Ich zahle - EUR 500 fuer EUR 15.000 ist ein gutes Geschaeft.",s:3},
+      {t:"Ich denke nach - vielleicht hat mich jemand angemeldet.",s:2}
+    ]},
+    {q:"Finanzberater verspricht 15-25% monatlichen Garantiegewinn, zeigt Screenshots. Was denken Sie?",
+     opts:[
+      {t:"Moeglich - manche Experten wissen wirklich was sie tun.",s:3},
+      {t:"Keine legitime Investition garantiert 15-25% monatlich.",s:0},
+      {t:"Ich investiere wenig um zu sehen ob es wirklich funktioniert.",s:3},
+      {t:"Screenshots sind kein Beweis - ich fordere offizielle Dokumente.",s:1}
+    ]},
+    {q:"WhatsApp vom Finanzamt: Sie schulden EUR 2.340, Konten werden in 24h gesperrt wenn Sie nicht sofort zahlen. Was tun Sie?",
+     opts:[
+      {t:"Ich zahle - das Finanzamt ist eine ernsthafte Institution.",s:3},
+      {t:"Ich rufe die offizielle Nummer des Finanzamts an.",s:0},
+      {t:"Ich bitte um schriftliche Dokumentation zuerst.",s:1},
+      {t:"Ich frage einen Buchhalter oder Anwalt.",s:1}
+    ]},
+    {q:"Echter Freund empfiehlt Schema: 1000 investieren, 3 Freunde mitbringen, 3000 in 30 Tagen zurueckbekommen. Er hat bereits Geld erhalten. Was tun Sie?",
+     opts:[
+      {t:"Ich investiere - mein Freund ist vertrauenswuerdig.",s:3},
+      {t:"Ich erkenne das Ponzi-Schema und warne meinen Freund.",s:0},
+      {t:"Ich frage andere die investiert haben bevor ich entscheide.",s:2},
+      {t:"Ich investiere die Haelfte um Risiko zu reduzieren.",s:3}
+    ]},
+    {q:"Stellenangebot: Heimarbeit 5-6h/Tag, EUR 4.000-6.000/Monat, keine Erfahrung noetig. Zum Starten zahlen Sie EUR 300 Starterpaket. Was tun Sie?",
+     opts:[
+      {t:"Ich zahle - kleiner Betrag und Angebot klingt gut.",s:3},
+      {t:"Ein legitimer Arbeitgeber verlangt nie Geld im Voraus.",s:0},
+      {t:"Ich suche Unternehmensbewertungen bevor ich zahle.",s:1},
+      {t:"Ich schicke erst meinen Lebenslauf.",s:2}
+    ]}
+  ]
+};
+/* ==== RESULTS ==== */
+var RES = {
+  RO:[
+    {l1:"Profilul tău:",l2:"Țintă Activă.",rec:"Răspunsurile tale corespund exact comportamentelor pe care atacatorii le documentează înainte să acționeze. Nu e o coincidență. E un tipar construit în timp.",dis:"<strong>Ce înseamnă asta pentru tine:</strong> La nivelul tău de expunere, probabilitatea unui incident financiar digital nu e dacă  -  e când. Și în momentul în care se întâmplă, fiecare secundă contează.",ten:"Ai cedat control fără să îți dai seama. Câte o decizie la rând. Fiecare mai mică decât precedenta. Exact cum funcționează.",trans:"Profilul tău necesită protecție imediată. SBR Premium îți dă accesul complet la 300+ mecanisme de atac documentate, sistemul de gândire AFIS și protocolul Post-Fraud  -  tot ce ai nevoie ca să nu mai fii o țintă ușoară."},
+    {l1:"Profilul tău:",l2:"Control Fals.",rec:"Crezi că ești suficient de atent. Exact asta te face vulnerabil. Atacatorii nu vizează pe cei care nu știu nimic  -  îi vizează pe cei care știu puțin și cred că știu tot.",dis:"<strong>Ce înseamnă asta pentru tine:</strong> Falsa siguranță e cel mai periculos punct din profilul de risc. Înseamnă că în momentul atacului, vei raționaliza  -  nu vei reacționa.",ten:"Scorul tău arată că ai cunoaștere, dar nu sistem. Și un sistem improvizat se sparge exact când ai nevoie de el.",trans:"SBR Professional îți oferă tocmai ce lipsește: un sistem real, nu intuiție. 300+ tipologii complete, inclusiv cele care exploatează profilul tău specific."},
+    {l1:"Profilul tău:",l2:"Conștient. Neprotejat.",rec:"Știi că există riscuri. Dar conștiința riscului fără un protocol nu e protecție  -  e anxietate. Și anxietatea, paradoxal, crește vulnerabilitatea.",dis:"<strong>Ce înseamnă asta pentru tine:</strong> Fraudele sofisticate nu atacă în momente de vigilență. Atacă în rutină. Când ești grăbit, obosit, distras. Exact atunci când sistemul tău improvizat se dezintegrează.",ten:"Ai baza. Îți lipsește structura. Fără protocol definit, fiecare nouă tactică de atac e o vulnerabilitate nouă.",trans:"SBR Essential îți oferă primul nivel real de protecție: 50 tipologii complete, AFIS și SBR Score. Transformi anxietatea în sistem."},
+    {l1:"Profilul tău:",l2:"Vigilent. Incomplet.",rec:"Ești mai atent decât 80% din cei care fac acest test. Dar tocmai asta te face o țintă pentru atacuri de nivel superior  -  cel care se pricepe puțin e mai previzibil, nu mai puțin vulnerabil.",dis:"<strong>Ce înseamnă asta pentru tine:</strong> Atacurile pe care nu le recunoști sunt exact cele sofisticate. Cele care arată ca interacțiuni normale. Și cu cât ești mai sigur, cu atât mai puțin le verifici.",ten:"Zonele tale oarbe sunt specifice și exploatabile. SBR Signals îți aduce intelligence în timp real despre exact ce se întâmplă acum.",trans:"SBR Signals te ține la curent cu tacticile active lunar. Intelligence real, nu statistici generale. 49 RON/lună, anulabil oricând."}
+  ],
+  EN:[
+    {l1:"Your profile:",l2:"Active Target.",rec:"Your answers match exactly the behaviors attackers document before acting. It's not coincidence. It's a pattern built over time.",dis:"<strong>What this means for you:</strong> At your exposure level, the probability of a digital financial incident is not if  -  it's when. And when it happens, every second counts.",ten:"You've surrendered control without realizing it. One decision at a time. Each smaller than the last. Exactly how it works.",trans:"Your profile requires immediate protection. SBR Premium gives you full access to 300+ documented attack mechanisms, the AFIS thinking system and the Post-Fraud protocol  -  everything you need to stop being an easy target."},
+    {l1:"Your profile:",l2:"False Control.",rec:"You think you're careful enough. That's exactly what makes you vulnerable. Attackers don't target those who know nothing  -  they target those who know a little and think they know everything.",dis:"<strong>What this means for you:</strong> False security is the most dangerous point in a risk profile. It means that when an attack happens, you'll rationalize  -  not react. And by the time you realize, it's too late.",ten:"Your score shows knowledge, but no system. And an improvised system breaks exactly when you need it.",trans:"SBR Professional gives you exactly what's missing: a real system, not intuition. 300+ complete typologies, including those that exploit your specific profile."},
+    {l1:"Your profile:",l2:"Aware. Unprotected.",rec:"You know risks exist. But risk awareness without a protocol isn't protection  -  it's anxiety. And anxiety, paradoxically, increases vulnerability.",dis:"<strong>What this means for you:</strong> Sophisticated frauds don't attack during moments of vigilance. They attack in routine. When you're rushed, tired, distracted. Exactly when your improvised system disintegrates.",ten:"You have the base. You're missing the structure. Without a defined protocol, every new attack tactic is a new vulnerability.",trans:"SBR Essential gives you the first real level of protection: 50 complete typologies, AFIS and SBR Score. Transform anxiety into a system."},
+    {l1:"Your profile:",l2:"Vigilant. Incomplete.",rec:"You're more careful than 80% of those who take this test. But that's exactly what makes you a target for higher-level attacks  -  someone who knows a little is more predictable, not less vulnerable.",dis:"<strong>What this means for you:</strong> The attacks you don't recognize are exactly the sophisticated ones. The ones that look like normal interactions. And the more confident you are, the less you check them.",ten:"Your blind spots are specific and exploitable. SBR Signals brings you real-time intelligence about exactly what's happening right now.",trans:"SBR Signals keeps you updated with active tactics monthly. Real intelligence, not general statistics. Cancelable anytime."}
+  ],
+  ES:[
+    {l1:"Tu perfil:",l2:"Objetivo Activo.",rec:"Tus respuestas coinciden exactamente con los comportamientos que los atacantes documentan antes de actuar. No es coincidencia. Es un patrón construido con el tiempo.",dis:"<strong>Lo que esto significa para ti:</strong> En tu nivel de exposición, la probabilidad de un incidente financiero digital no es si  -  es cuándo. Y cuando ocurre, cada segundo cuenta.",ten:"Has cedido control sin darte cuenta. Una decisión a la vez.",trans:"Tu perfil requiere protección inmediata. SBR Premium te da acceso completo a 300+ mecanismos de ataque documentados y el sistema de pensamiento AFIS."},
+    {l1:"Tu perfil:",l2:"Control Falso.",rec:"Crees que eres suficientemente cuidadoso. Eso es exactamente lo que te hace vulnerable.",dis:"<strong>Lo que esto significa para ti:</strong> La falsa seguridad es el punto más peligroso en un perfil de riesgo. Significa que cuando ocurra un ataque, racionalizarás  -  no reaccionarás.",ten:"Tu puntuación muestra conocimiento, pero no sistema.",trans:"SBR Professional te da exactamente lo que falta: un sistema real, no intuición."},
+    {l1:"Tu perfil:",l2:"Consciente. Desprotegido.",rec:"Sabes que existen riesgos. Pero la conciencia del riesgo sin un protocolo no es protección  -  es ansiedad.",dis:"<strong>Lo que esto significa para ti:</strong> Los fraudes sofisticados no atacan en momentos de vigilancia. Atacan en la rutina.",ten:"Tienes la base. Te falta la estructura.",trans:"SBR Essential te da el primer nivel real de protección: 50 tipologías completas, AFIS y SBR Score."},
+    {l1:"Tu perfil:",l2:"Vigilante. Incompleto.",rec:"Eres más cuidadoso que el 80% de los que hacen este test. Pero eso es exactamente lo que te convierte en objetivo para ataques de nivel superior.",dis:"<strong>Lo que esto significa para ti:</strong> Los ataques que no reconoces son exactamente los sofisticados.",ten:"Tus puntos ciegos son específicos y explotables.",trans:"SBR Signals te mantiene actualizado con tácticas activas mensualmente."}
+  ],
+  FR:[
+    {l1:"Votre profil:",l2:"Cible Active.",rec:"Vos réponses correspondent exactement aux comportements que les attaquants documentent avant d'agir.",dis:"<strong>Ce que cela signifie pour vous:</strong> À votre niveau d'exposition, la probabilité d'un incident financier numérique n'est pas si  -  c'est quand.",ten:"Vous avez cédé le contrôle sans vous en rendre compte.",trans:"Votre profil nécessite une protection immédiate. SBR Premium vous donne un accès complet à 300+ mécanismes d'attaque documentés."},
+    {l1:"Votre profil:",l2:"Faux Contrôle.",rec:"Vous pensez être suffisamment prudent. C'est exactement ce qui vous rend vulnérable.",dis:"<strong>Ce que cela signifie pour vous:</strong> La fausse sécurité est le point le plus dangereux dans un profil de risque.",ten:"Votre score montre des connaissances, mais pas de système.",trans:"SBR Professional vous donne exactement ce qui manque: un vrai système, pas de l'intuition."},
+    {l1:"Votre profil:",l2:"Conscient. Non protégé.",rec:"Vous savez que des risques existent. Mais la conscience du risque sans protocole n'est pas une protection.",dis:"<strong>Ce que cela signifie pour vous:</strong> Les fraudes sophistiquées n'attaquent pas en période de vigilance. Elles attaquent dans la routine.",ten:"Vous avez la base. Il vous manque la structure.",trans:"SBR Essential vous donne le premier niveau réel de protection: 50 typologies complètes, AFIS et SBR Score."},
+    {l1:"Votre profil:",l2:"Vigilant. Incomplet.",rec:"Vous êtes plus prudent que 80% de ceux qui passent ce test. Mais c'est exactement ce qui fait de vous une cible pour des attaques de niveau supérieur.",dis:"<strong>Ce que cela signifie pour vous:</strong> Les attaques que vous ne reconnaissez pas sont exactement les sophistiquées.",ten:"Vos angles morts sont spécifiques et exploitables.",trans:"SBR Signals vous tient informé des tactiques actives mensuellement."}
+  ],
+  DE:[
+    {l1:"Ihr Profil:",l2:"Aktives Ziel.",rec:"Ihre Antworten stimmen genau mit den Verhaltensweisen überein, die Angreifer dokumentieren, bevor sie handeln.",dis:"<strong>Was das für Sie bedeutet:</strong> Bei Ihrem Expositionsniveau ist die Wahrscheinlichkeit eines digitalen Finanzvorfalls nicht ob  -  sondern wann.",ten:"Sie haben die Kontrolle abgegeben, ohne es zu merken.",trans:"Ihr Profil erfordert sofortigen Schutz. SBR Premium gibt Ihnen vollen Zugang zu 300+ dokumentierten Angriffsmechanismen."},
+    {l1:"Ihr Profil:",l2:"Falsche Kontrolle.",rec:"Sie denken, Sie sind vorsichtig genug. Das ist genau das, was Sie verletzlich macht.",dis:"<strong>Was das für Sie bedeutet:</strong> Falsche Sicherheit ist der gefährlichste Punkt in einem Risikoprofil.",ten:"Ihr Score zeigt Wissen, aber kein System.",trans:"SBR Professional gibt Ihnen genau das, was fehlt: ein echtes System, nicht Intuition."},
+    {l1:"Ihr Profil:",l2:"Bewusst. Ungeschützt.",rec:"Sie wissen, dass Risiken existieren. Aber Risikobewusstsein ohne Protokoll ist kein Schutz  -  es ist Angst.",dis:"<strong>Was das für Sie bedeutet:</strong> Ausgefeilte Betrügereien greifen nicht in Momenten der Wachsamkeit an.",ten:"Sie haben die Basis. Ihnen fehlt die Struktur.",trans:"SBR Essential gibt Ihnen das erste echte Schutzniveau: 50 vollständige Typologien, AFIS und SBR Score."},
+    {l1:"Ihr Profil:",l2:"Wachsam. Unvollständig.",rec:"Sie sind vorsichtiger als 80% derjenigen, die diesen Test machen.",dis:"<strong>Was das für Sie bedeutet:</strong> Die Angriffe, die Sie nicht erkennen, sind genau die ausgefeilten.",ten:"Ihre blinden Flecken sind spezifisch und ausnutzbar.",trans:"SBR Signals hält Sie mit aktiven Taktiken monatlich auf dem Laufenden."}
+  ]
+};
+
+/* ==== REDIRECT ==== */
+var RMAP = [
+  { url:'register.html?plan=premium&from=quiz&tag=critically_exposed',   sec:'afis.html' },
+  { url:'register.html?plan=professional&from=quiz&tag=vulnerable',       sec:'codex-page.html' },
+  { url:'register.html?plan=essential&from=quiz&tag=moderately_aware',    sec:'afis.html' },
+  { url:'register.html?plan=signals&from=quiz&tag=aware_incomplete',      sec:'afis.html' }
+];
+
+
+var TAG_PLAN={critically_exposed:'premium',vulnerable:'professional',moderately_aware:'essential',aware_incomplete:'signals'};
+function goScr(id){document.querySelectorAll('.scr').forEach(function(s){s.classList.remove('on');});var el=document.getElementById(id);if(el){el.classList.add('on');window.scrollTo({top:0,behavior:'smooth'});}else{dbg('Screen not found: '+id);}}
+function initQuiz(){
+  try{
+    qdata=QD[lang]||QD.RO;
+    if(!qdata||!qdata.length){dbg('QD empty');return;}
+    curQ=0;total=0;
+    renderQ();
+  }catch(e){dbg('initQuiz: '+e.message);}
+}
+function renderQ(){
+  try{
+    var q=qdata[curQ];
+    if(!q){dbg('No q at '+curQ);return;}
+    var pct=Math.round((curQ/qdata.length)*100);
+    var keys=['A','B','C','D'];
+    document.getElementById('q-lbl').textContent='Intrebarea '+(curQ+1)+' din '+qdata.length;
+    document.getElementById('q-pct').textContent=pct+'%';
+    document.getElementById('q-fill').style.width=pct+'%';
+    document.getElementById('q-text').textContent=q.q;
+    var html='';
+    q.opts.forEach(function(opt,i){
+      html+='<button class="q-opt" data-score="'+opt.s+'" onclick="pick(this)"><span class="q-key">'+keys[i]+'</span><span>'+opt.t+'</span></button>';
+    });
+    document.getElementById('q-opts').innerHTML=html;
+    document.getElementById('q-next').className='q-next';
+  }catch(e){dbg('renderQ: '+e.message);}
+}
+function pick(el){document.querySelectorAll('.q-opt').forEach(function(o){o.classList.remove('picked');});el.classList.add('picked');document.getElementById('q-next').classList.add('on');}
+function nextQ(){
+  var sel=document.querySelector('.q-opt.picked');
+  if(!sel)return;
+  total+=parseInt(sel.dataset.score)||0;
+  curQ++;
+  if(curQ<qdata.length){renderQ();}
+  else{
+    var max=qdata.length*3;
+    _pct=Math.round((total/max)*100);
+    var tags=['critically_exposed','vulnerable','moderately_aware','aware_incomplete'];
+    _tag=tags[_pct>=77?0:_pct>=50?1:_pct>=25?2:3];
+    document.getElementById('step').textContent='Diagnostic - Pasul 2 din 3';
+    goScr('s-email');
+    setTimeout(function(){document.getElementById('inp-email').focus();},200);
+  }
+}
+document.addEventListener('keydown',function(e){
+  if(!document.getElementById('s-quiz').classList.contains('on'))return;
+  var map={KeyA:0,KeyB:1,KeyC:2,KeyD:3};
+  if(e.code in map){var opts=document.querySelectorAll('.q-opt');if(opts[map[e.code]])pick(opts[map[e.code]]);}
+  if((e.code==='Enter'||e.code==='Space')&&document.getElementById('q-next').classList.contains('on'))nextQ();
+});
+function goPhone(){
+  var email=document.getElementById('inp-email').value.trim().toLowerCase();
+  var err=document.getElementById('err-email');err.style.display='none';
+  if(!email||!email.includes('@')||!email.includes('.')){err.textContent='Email invalid.';err.style.display='block';return;}
+  _email=email;
+  document.getElementById('step').textContent='Diagnostic - Pasul 3 din 3';
+  goScr('s-phone');
+  setTimeout(function(){document.getElementById('inp-phone').focus();},200);
+}
+async function sendOTP(){
+  var cc=document.getElementById('inp-cc').value;
+  var num=document.getElementById('inp-phone').value.trim().replace(/ /g,'');
+  var err=document.getElementById('err-phone'),btn=document.getElementById('btn-phone');
+  err.style.display='none';
+  if(!num||num.length<6){err.textContent='Numar invalid.';err.style.display='block';return;}
+  if(num[0]==='0')num=num.slice(1);
+  _phone=cc+num;btn.disabled=true;btn.textContent='Se trimite...';
+  try{
+    var r=await fetch(SBR_URL+'/functions/v1/send-otp',{method:'POST',headers:{'Content-Type':'application/json','Authorization':'Bearer '+SBR_KEY,'apikey':SBR_KEY},body:JSON.stringify({phone:_phone})});
+    var d=await r.json();
+    if(!r.ok||d.error){err.textContent=d.error||'Eroare SMS.';err.style.display='block';btn.disabled=false;btn.textContent='Trimite codul SMS';return;}
+    document.getElementById('otp-info').textContent='Cod trimis la '+_phone;
+    goScr('s-otp');initOTP();
+  }catch(e){err.textContent='Eroare retea.';err.style.display='block';btn.disabled=false;btn.textContent='Trimite codul SMS';}
+}
+function initOTP(){
+  var ds=document.querySelectorAll('.otp-d');
+  ds.forEach(function(d,i){
+    d.value='';d.classList.remove('ok');
+    d.oninput=function(){this.value=this.value.replace(/[^0-9]/g,'').slice(-1);this.classList.toggle('ok',!!this.value);if(this.value&&i<ds.length-1)ds[i+1].focus();if(i===ds.length-1&&this.value)verifyOTP();};
+    d.onkeydown=function(e){if(e.key==='Backspace'&&!this.value&&i>0)ds[i-1].focus();};
+  });
+  ds[0].focus();
+}
+function getCode(){return Array.from(document.querySelectorAll('.otp-d')).map(function(d){return d.value;}).join('');}
+async function verifyOTP(){
+  var code=getCode(),err=document.getElementById('err-otp'),btn=document.getElementById('btn-otp');
+  err.style.display='none';
+  if(code.length<6){err.textContent='Introdu 6 cifre.';err.style.display='block';return;}
+  btn.disabled=true;btn.textContent='Se verifica...';
+  try{
+    var r=await fetch(SBR_URL+'/functions/v1/verify-otp',{method:'POST',headers:{'Content-Type':'application/json','Authorization':'Bearer '+SBR_KEY,'apikey':SBR_KEY},body:JSON.stringify({phone:_phone,code:code,email:_email,quiz_tag:_tag,score_pct:_pct,lang:lang})});
+    var d=await r.json();
+    if(!r.ok||d.error){err.textContent=d.error==='Invalid code'?'Cod incorect.':(d.error||'Eroare.');err.style.display='block';btn.disabled=false;btn.textContent='Verifica si deblocheaza';document.querySelectorAll('.otp-d').forEach(function(x){x.value='';x.classList.remove('ok');});document.querySelector('.otp-d').focus();return;}
+    await fetch(SBR_URL+'/auth/v1/magiclink',{method:'POST',headers:{'Content-Type':'application/json','apikey':SBR_KEY,'Authorization':'Bearer '+SBR_KEY},body:JSON.stringify({email:_email,options:{emailRedirectTo:'https://sbr.systems/afis.html'}})}).catch(function(){});
+    document.getElementById('sent-box').textContent=_email;
+    goScr('s-sent');
+  }catch(e){err.textContent='Eroare retea.';err.style.display='block';btn.disabled=false;btn.textContent='Verifica si deblocheaza';}
+}
+document.addEventListener('DOMContentLoaded', function() {
+  try { initQuiz(); } catch(e) { dbg('STARTUP: '+e.message); }
+});
+// Also try immediately in case DOM already ready
+if(document.readyState !== 'loading') {
+  try { initQuiz(); } catch(e) {}
+}
+</script>
+
+<script id="sbr-color-fix">
+(function(){
+  function fix(){
+    var r=document.documentElement;
+    r.style.setProperty('--text','#EEEEEE');
+    r.style.setProperty('--t1','#EEEEEE');
+    r.style.setProperty('--t2','#CCCCCC');
+    r.style.setProperty('--t3','#AAAAAA');
+    r.style.setProperty('--t4','#888888');
+    r.style.setProperty('--t5','#555555');
+    r.style.setProperty('--T2','#CCCCCC');
+    r.style.setProperty('--T3','#AAAAAA');
+  }
+  fix();
+  document.addEventListener('DOMContentLoaded',fix);
+  setTimeout(fix,100);
+})();
+</script>
+<script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+<div id="sbr-sw" aria-label="Social Media">
+  <a class="sbr-sw-a" href="https://instagram.com/sbr_antifraud" target="_blank" rel="noopener" title="Instagram @sbr_antifraud">&#128248;</a>
+  <a class="sbr-sw-a" href="https://tiktok.com/@structurabrevisrector" target="_blank" rel="noopener" title="TikTok @structurabrevisrector">&#127925;</a>
+  <a class="sbr-sw-a" href="https://t.me/sbrorator" target="_blank" rel="noopener" title="Telegram t.me/sbrorator">&#9992;&#65039;</a>
+  <a class="sbr-sw-a" href="https://pin.it/7yO6KnjsW" target="_blank" rel="noopener" title="Pinterest">&#128204;</a>
+</div>
+<script src="js/cookie-consent.js"></script>
+
+</body>
+</html>

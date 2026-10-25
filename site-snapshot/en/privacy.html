@@ -1,0 +1,836 @@
+<!DOCTYPE html>
+<html lang="ro">
+<head>
+<meta charset="UTF-8">
+<!-- Google Analytics 4 (Consent Mode v2) — nu colecteaza pana la consimtamant -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-9WT1GRKEGB"></script>
+<script>
+window.dataLayer=window.dataLayer||[];function gtag(){dataLayer.push(arguments);}
+gtag('js',new Date());
+gtag('consent','default',{'ad_storage':'denied','ad_user_data':'denied','ad_personalization':'denied','analytics_storage':'denied'});
+try{var _c=JSON.parse(localStorage.getItem('sbr_cookie_consent')||'null');if(_c&&_c.type==='all'){gtag('consent','update',{'analytics_storage':'granted'});}}catch(e){}
+gtag('config','G-9WT1GRKEGB',{anonymize_ip:true});
+</script>
+<!-- End GA4 -->
+<script src="js/nav-universal.js?v=13"></script>
+<script src="/js/i18n.js?v=5"></script>
+
+  <meta name="description" content="Politica de confidențialitate SBR Anti-Fraud Intelligence Systems — ce date colectăm, de ce, cât timp le păstrăm și drepturile tale GDPR. Fără tracking publicitar, fără vânzare de date.">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>SBR — Politică de Confidențialitate</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Playfair+Display:ital,wght@0,400;1,400&family=IBM+Plex+Mono:wght@400;500&family=Lato:wght@300;400;700&display=swap" rel="stylesheet" media="print" onload="this.media='all'">
+  <noscript><link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Playfair+Display:ital,wght@0,400;1,400&family=IBM+Plex+Mono:wght@400;500&family=Lato:wght@300;400;700&display=swap" rel="stylesheet"></noscript>
+<style>
+/* ── SBR Universal Nav ── */
+.sbr-nav{position:fixed;top:0;left:0;right:0;z-index:1000;height:58px;display:flex;align-items:center;justify-content:space-between;padding:0 clamp(18px,4vw,56px);background:rgba(8,8,8,.97);backdrop-filter:blur(20px);-webkit-backdrop-filter:blur(20px);border-bottom:1px solid rgba(192,57,43,.12)}
+.nav-logo{font-family:'Bebas Neue',sans-serif;font-size:22px;letter-spacing:5px;color:#e2e2e2;cursor:pointer;display:flex;align-items:center;gap:4px;text-decoration:none;flex-shrink:0}
+.nav-logo .dot{color:#C0392B}
+.nav-logo-sub{font-family:'IBM Plex Mono',monospace;font-size:7px;letter-spacing:2px;color:#333;text-transform:uppercase;margin-left:6px;margin-top:2px}
+.nav-links{display:flex;align-items:center;gap:20px}
+.nav-link{font-family:'IBM Plex Mono',monospace;font-size:9px;letter-spacing:2px;color:#444;text-transform:uppercase;text-decoration:none;transition:color .15s}
+.nav-link:hover,.nav-link.active{color:#aaa}
+.nav-right{display:flex;align-items:center;gap:8px;margin-left:auto}
+.btn-nav-ghost{font-family:'IBM Plex Mono',monospace;font-size:9px;letter-spacing:2px;text-transform:uppercase;background:transparent;border:1px solid rgba(255,255,255,.08);color:#444;padding:8px 14px;cursor:pointer;text-decoration:none;transition:all .18s;white-space:nowrap;display:inline-flex;align-items:center}
+.btn-nav-ghost:hover{border-color:rgba(192,57,43,.4);color:#aaa}
+.btn-nav-solid{font-family:'IBM Plex Mono',monospace;font-size:9px;letter-spacing:2px;text-transform:uppercase;background:#C0392B;color:#fff;border:none;padding:9px 18px;cursor:pointer;text-decoration:none;transition:background .18s;white-space:nowrap;display:inline-flex;align-items:center}
+.btn-nav-solid:hover{background:#E74C3C}
+#scroll-progress{position:fixed;top:0;left:0;height:2px;background:#C0392B;width:0%;z-index:9999;pointer-events:none}
+@media(max-width:700px){.nav-links{display:none}}
+@media(max-width:480px){.btn-nav-ghost:not(:last-of-type){display:none}}
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+html{scroll-behavior:smooth}
+body{font-family:'Lato',sans-serif;background:#0A0A0A;color:#fff;overflow-x:hidden}
+:root{--red:#C0392B;--redL:#E74C3C;--dark:#111111;--dark2:#1A1A1A;--dark3:#222222}
+::-webkit-scrollbar{width:4px}::-webkit-scrollbar-track{background:#111}::-webkit-scrollbar-thumb{background:var(--red)}
+a{text-decoration:none;color:inherit}
+button{cursor:pointer;font-family:'IBM Plex Mono',monospace}
+
+#scroll-progress{position:fixed;top:0;left:0;height:2px;background:var(--red);z-index:2000;width:0;pointer-events:none;transition:width .1s linear}
+
+/* NAV */
+#nav{position:fixed;top:0;left:0;right:0;z-index:1000;height:60px;display:flex;align-items:center;justify-content:space-between;padding:0 36px;background:rgba(10,10,10,.97);backdrop-filter:blur(20px);border-bottom:1px solid rgba(192,57,43,.2)}
+.nav-logo{font-family:'Bebas Neue',sans-serif;font-size:26px;letter-spacing:4px;cursor:pointer;display:flex;align-items:center}
+.nav-logo span{color:var(--red)}
+.nav-logo-sub{font-family:'IBM Plex Mono',monospace;font-size:8px;letter-spacing:2px;color:#aaa;text-transform:uppercase;margin-left:10px;margin-top:2px}
+#nav-right{display:flex;align-items:center;gap:18px}
+.nb{background:none;border:none;font-size:10px;letter-spacing:2px;text-transform:uppercase;color:#bbb;padding:4px 0;transition:color .2s;display:inline-block}
+.nb:hover{color:var(--red)}
+.nb-ghost{background:transparent;border:1px solid rgba(255,255,255,.12);color:#bbb;font-size:10px;letter-spacing:2px;text-transform:uppercase;padding:8px 16px;transition:all .2s}
+.nb-ghost:hover{border-color:var(--red);color:var(--red)}
+#nav-hamburger{display:none;flex-direction:column;gap:5px;cursor:pointer;padding:6px;z-index:1100}
+.hb-line{display:block;width:22px;height:2px;background:#bbb;transition:all .3s}
+#nav-hamburger.open .hb-line:nth-child(1){transform:rotate(45deg) translate(5px,5px)}
+#nav-hamburger.open .hb-line:nth-child(2){opacity:0}
+#nav-hamburger.open .hb-line:nth-child(3){transform:rotate(-45deg) translate(5px,-5px)}
+#mobile-menu{display:none;position:fixed;top:60px;left:0;right:0;background:rgba(10,10,10,.98);backdrop-filter:blur(20px);z-index:999;border-bottom:1px solid rgba(192,57,43,.2);padding:16px 24px}
+#mobile-menu .nb{display:block;padding:12px 0;font-size:13px;border-bottom:1px solid rgba(255,255,255,.05);width:100%;background:none;text-align:left}
+
+/* HERO */
+.doc-hero{padding:100px 60px 60px;background:radial-gradient(ellipse 60% 50% at 50% 50%,rgba(192,57,43,.06) 0%,transparent 70%);border-bottom:1px solid rgba(192,57,43,.1);position:relative;overflow:hidden}
+.doc-hero-grid{position:absolute;inset:0;background-image:linear-gradient(rgba(192,57,43,.03) 1px,transparent 1px),linear-gradient(90deg,rgba(192,57,43,.03) 1px,transparent 1px);background-size:60px 60px;mask-image:radial-gradient(ellipse 80% 80% at 50% 50%,black 20%,transparent 100%)}
+.doc-hero-inner{position:relative;max-width:900px;margin:0 auto}
+.doc-eyebrow{font-family:'IBM Plex Mono',monospace;font-size:10px;letter-spacing:4px;color:var(--red);text-transform:uppercase;display:flex;align-items:center;gap:12px;margin-bottom:16px}
+.doc-eyebrow::before{content:'';display:block;width:28px;height:1px;background:var(--red)}
+.doc-title{font-family:'Bebas Neue',sans-serif;font-size:clamp(44px,8vw,96px);line-height:.9;margin-bottom:16px}
+.doc-title em{color:var(--red);font-style:normal}
+.doc-meta{display:flex;gap:28px;margin-top:24px;flex-wrap:wrap}
+.doc-meta-item{font-family:'IBM Plex Mono',monospace;font-size:10px;color:#aaa;letter-spacing:1px;display:flex;align-items:center;gap:8px}
+.doc-meta-item::before{content:'—';color:var(--red)}
+
+/* LAYOUT */
+.doc-layout{max-width:1160px;margin:0 auto;padding:60px 60px 100px;display:grid;grid-template-columns:220px 1fr;gap:70px;align-items:start}
+
+/* SIDEBAR TOC */
+.doc-toc{position:sticky;top:90px}
+.doc-toc-label{font-family:'IBM Plex Mono',monospace;font-size:9px;letter-spacing:3px;color:var(--red);text-transform:uppercase;margin-bottom:16px;display:flex;align-items:center;gap:10px}
+.doc-toc-label::before{content:'';display:block;width:16px;height:1px;background:var(--red)}
+.toc-item{display:block;font-family:'IBM Plex Mono',monospace;font-size:9px;letter-spacing:1px;color:#aaa;padding:7px 0 7px 14px;border-left:2px solid transparent;cursor:pointer;transition:all .15s;line-height:1.4}
+.toc-item:hover{color:#bbb;border-left-color:rgba(192,57,43,.3)}
+.toc-item.active{color:var(--red);border-left-color:var(--red)}
+.doc-other-link{margin-top:32px;padding:16px;background:rgba(192,57,43,.05);border:1px solid rgba(192,57,43,.12)}
+.doc-other-link-label{font-family:'IBM Plex Mono',monospace;font-size:8px;letter-spacing:2px;color:#aaa;text-transform:uppercase;margin-bottom:8px}
+.doc-other-link a{display:block;font-family:'IBM Plex Mono',monospace;font-size:10px;color:var(--red);letter-spacing:1px;margin-bottom:6px;transition:opacity .2s}
+.doc-other-link a:hover{opacity:.7}
+
+/* CONTENT */
+.doc-content{}
+.doc-section{margin-bottom:56px;scroll-margin-top:90px}
+.doc-section-num{font-family:'IBM Plex Mono',monospace;font-size:9px;letter-spacing:3px;color:var(--red);text-transform:uppercase;margin-bottom:8px;display:flex;align-items:center;gap:10px}
+.doc-section-num::before{content:'';display:block;width:20px;height:1px;background:var(--red)}
+.doc-section-title{font-family:'Bebas Neue',sans-serif;font-size:32px;margin-bottom:20px;line-height:1;color:#fff}
+.doc-section-title em{color:var(--red);font-style:normal}
+.doc-body{font-size:14px;color:#aaa;line-height:2}
+.doc-body p{margin-bottom:16px}
+.doc-body p:last-child{margin-bottom:0}
+.doc-body strong{color:#ccc;font-weight:600}
+.doc-body a{color:var(--red);text-decoration:underline;text-underline-offset:3px;transition:opacity .2s}
+.doc-body a:hover{opacity:.75}
+.doc-body ul,.doc-body ol{margin:14px 0 14px 0;padding:0;list-style:none;display:flex;flex-direction:column;gap:8px}
+.doc-body ul li,.doc-body ol li{display:flex;align-items:flex-start;gap:12px;font-size:13px;color:#aaa;line-height:1.8}
+.doc-body ul li::before{content:'—';color:var(--red);flex-shrink:0;font-family:'IBM Plex Mono',monospace;margin-top:2px}
+.doc-body ol{counter-reset:ol-counter}
+.doc-body ol li{counter-increment:ol-counter}
+.doc-body ol li::before{content:counter(ol-counter,decimal-leading-zero);color:var(--red);flex-shrink:0;font-family:'IBM Plex Mono',monospace;font-size:10px;margin-top:4px}
+.doc-highlight{background:rgba(192,57,43,.05);border-left:2px solid var(--red);padding:16px 20px;margin:18px 0;font-family:'Playfair Display',serif;font-style:italic;font-size:14px;color:#aaa;line-height:1.8}
+.doc-table{width:100%;border-collapse:collapse;margin:18px 0;font-size:12px}
+.doc-table th{font-family:'IBM Plex Mono',monospace;font-size:8px;letter-spacing:2px;text-transform:uppercase;color:var(--red);padding:10px 14px;border-bottom:1px solid rgba(192,57,43,.2);text-align:left;background:rgba(192,57,43,.04)}
+.doc-table td{padding:11px 14px;border-bottom:1px solid rgba(255,255,255,.05);color:#aaa;line-height:1.6;vertical-align:top}
+.doc-table tr:last-child td{border-bottom:none}
+.doc-table tr:hover td{background:rgba(255,255,255,.02)}
+.doc-divider{height:1px;background:rgba(255,255,255,.05);margin:56px 0}
+.doc-badge{font-family:'IBM Plex Mono',monospace;font-size:8px;letter-spacing:1px;text-transform:uppercase;padding:2px 8px;background:rgba(192,57,43,.1);color:var(--red);display:inline-block;margin-bottom:10px}
+
+/* FOOTER */
+footer{padding:48px 60px 26px;background:var(--dark);border-top:1px solid rgba(192,57,43,.15)}
+.ft-grid{display:grid;grid-template-columns:2fr 1fr 1fr 1fr;gap:44px;margin-bottom:36px}
+.ft-brand{font-family:'Bebas Neue',sans-serif;font-size:28px;letter-spacing:4px;margin-bottom:12px}
+.ft-brand span{color:var(--red)}
+.ft-desc{font-size:12px;color:#aaa;line-height:1.7;max-width:240px}
+.ft-col-t{font-family:'IBM Plex Mono',monospace;font-size:9px;letter-spacing:3px;color:var(--red);text-transform:uppercase;margin-bottom:14px}
+.ft-link{font-size:12px;color:#aaa;margin-bottom:9px;cursor:pointer;transition:color .2s;display:block}
+.ft-link:hover{color:var(--red)}
+.ft-btm{padding-top:22px;border-top:1px solid rgba(255,255,255,.05);display:flex;justify-content:space-between;flex-wrap:wrap;gap:8px}
+.ft-copy{font-family:'IBM Plex Mono',monospace;font-size:10px;color:#888}
+
+#back-to-top{position:fixed;bottom:28px;left:28px;width:38px;height:38px;background:var(--dark2);border:1px solid rgba(192,57,43,.3);color:var(--red);font-size:16px;display:flex;align-items:center;justify-content:center;cursor:pointer;transition:all .3s;opacity:0;transform:translateY(10px);z-index:500}
+#back-to-top.show{opacity:1;transform:translateY(0)}
+#back-to-top:hover{background:rgba(192,57,43,.15);border-color:var(--red)}
+
+@media(max-width:1000px){.doc-layout{grid-template-columns:1fr}.doc-toc{display:none}}
+@media(max-width:900px){#nav-right{display:none!important}#nav-hamburger{display:flex!important}#nav{padding:0 20px}.doc-hero{padding:80px 24px 50px}.doc-layout{padding:40px 24px 80px}footer{padding:40px 24px 22px}.ft-grid{grid-template-columns:1fr 1fr;gap:28px}}
+@media(max-width:600px){.ft-grid{grid-template-columns:1fr}}
+/* ── LANG SWITCHER ── */
+#lang-switcher{position:relative;margin-left:6px}
+.lang-btn{display:flex;align-items:center;gap:5px;cursor:pointer;padding:5px 10px;border:1px solid rgba(255,255,255,.07);background:transparent;transition:all .2s;font-family:'IBM Plex Mono',monospace;font-size:9px;letter-spacing:2px;color:#aaa;user-select:none}
+.lang-btn:hover{border-color:var(--red);color:var(--red)}
+.lang-flag{font-size:13px;line-height:1}.lang-code{font-size:9px;letter-spacing:2px;text-transform:uppercase}.lang-arrow{font-size:8px;opacity:.5;margin-left:1px}
+.lang-dropdown{display:none;position:absolute;top:calc(100% + 6px);right:0;background:#111;border:1px solid rgba(255,255,255,.07);min-width:78px;z-index:9999;box-shadow:0 8px 24px rgba(0,0,0,.7)}
+.lang-dropdown.open{display:block}
+.lang-opt{display:flex;align-items:center;gap:8px;padding:9px 14px;font-family:'IBM Plex Mono',monospace;font-size:9px;letter-spacing:2px;color:#777;cursor:pointer;transition:all .15s;white-space:nowrap}
+.lang-opt:hover{background:rgba(192,57,43,.08);color:#fff}
+.lang-opt.lang-active{color:var(--red);background:rgba(192,57,43,.05)}
+</style>
+<script src="js/nav-auth.js"></script>
+  <meta name="robots" content="index, follow">
+  <meta property="og:title" content="Politica de Confidentialitate | SBR Anti-Fraud">
+  <meta property="og:description" content="Politica de confidentialitate SBR Anti-Fraud Intelligence Systems. GDPR, date personale, cookies.">
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="https://sbr.systems/privacy.html">
+  <meta property="og:image" content="https://sbr.systems/og-image.png">
+  <meta property="og:site_name" content="SBR Anti-Fraud Intelligence Systems">
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="Politica de Confidentialitate | SBR Anti-Fraud">
+  <meta name="twitter:description" content="Politica de confidentialitate SBR Anti-Fraud Intelligence Systems. GDPR, date personale, cookies.">
+  <link rel="canonical" href="https://sbr.systems/privacy.html">
+<link rel="stylesheet" href="css/sbr-readability.css" media="print" onload="this.media='all'">
+  <noscript><link rel="stylesheet" href="css/sbr-readability.css"></noscript>
+
+<style id="sbr-text-fix">
+/* Force all CSS variables to white-readable values */
+:root, * {
+  --text:#EEEEEE !important;
+  --t2:#CCCCCC !important;
+  --t3:#AAAAAA !important;
+  --t4:#888888 !important;
+  --t5:#555555 !important;
+}
+/* Direct color overrides for common text elements */
+p, li, span, div, td, th, label, small,
+.card-desc, .feat-desc, .prob-desc, .plan-tagline,
+.b2b-for, .fi, .faq-a, .alert-desc, .mv-desc,
+.mg-desc, .pl-desc, .ot-desc, .ng-text, .ahd-def,
+.prod-tagline, .ss-sub, .gb-sub, .quiz-sub,
+.hero-sub, .section-p, .s-p, .sf-text,
+.scoring-intro p, .dp-wrap p, .pricing-intro p,
+.sim-email-body, .sem-body, .sim-choice-text,
+.cert-desc, .track-desc, .module-desc,
+.score-desc, .dimension-desc, .step-desc,
+.resource-desc, .checklist-desc,
+.compare-table td, .emp-table td,
+.footer-link, .footer-copy, .footer-logo-sub,
+.lb-dept, .emp-dept, .dmb-emp-dept,
+.kpi-delta, .page-subtitle, .tb-user, .tb-company,
+.nd-plan-feats, .nd-footer-link,
+.sv-text, .sim-choice .sv-text { color: #CCCCCC !important; }
+
+h1, h2, h3, h4, h5, h6,
+.card-title, .plan-name, .b2b-name, .nd-plan-name,
+.page-title, .ch-h1, .hero-h1, .section-h2, .s-h,
+.fc-h, .ac-h, .quiz-h, .ms-copy h2, .ss-h,
+.ot-title, .mv-title, .mg-title, .pl-title,
+.alert-title, .emp-name, .dmb-emp-name,
+.lb-name, .prof-name, .panel-title,
+.feat-name, .prod-name,
+.gb-h { color: #FFFFFF !important; }
+
+.nav-link { color: #CCCCCC !important; }
+.nav-link:hover, .nav-link.active { color: #FFFFFF !important; }
+.btn-nav-ghost { color: #CCCCCC !important; }
+</style>
+<style id="sbr-force-colors">
+/* Override elements with hardcoded dark colors */
+.card-desc{color:#CCCCCC !important}
+.plan-tagline,.b2b-for,.fi{color:#CCCCCC !important}
+.faq-a,.faq-answer{color:#CCCCCC !important}
+.alert-desc,.sim-email-body,.sem-body{color:#CCCCCC !important}
+.mv-desc,.mg-desc,.pl-desc,.ot-desc,.ng-text,.ahd-def{color:#CCCCCC !important}
+.prod-tagline,.ss-sub,.gb-sub,.quiz-sub{color:#CCCCCC !important}
+.hero-sub,.s-p,.section-p,.fc-sub,.ac-sub{color:#CCCCCC !important}
+.prob-desc,.prob-a{color:#CCCCCC !important}
+.feat-desc,.nd-plan-feats{color:#CCCCCC !important}
+.scoring-intro p,.dp-wrap p,.pricing-intro p{color:#CCCCCC !important}
+p,li,td:not([class*="risk"]):not([class*="rc"]):not([class*="rh"]){color:#CCCCCC !important}
+h1,h2,h3,h4,h5,h6,.card-title,.plan-name,.b2b-name,.page-title{color:#FFFFFF !important}
+.nav-link{color:#CCCCCC !important}
+.nav-link:hover,.nav-link.active{color:#FFFFFF !important}
+.btn-nav-ghost{color:#CCCCCC !important}
+.compare-table td{color:#CCCCCC !important}
+.compare-table td.feature-name,.compare-table .feat-name{color:#DDDDDD !important}
+.emp-name,.lb-name,.dmb-emp-name{color:#EEEEEE !important}
+.emp-dept,.lb-dept,.dmb-emp-dept{color:#AAAAAA !important}
+.alert-title,.panel-title{color:#FFFFFF !important}
+</style>
+<script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+<style id="sbr-footer-final">
+.sbr-footer{
+  background:#060606 !important;border-top:1px solid rgba(255,255,255,.04) !important;
+  padding:16px clamp(16px,4vw,48px) !important;display:flex !important;
+  align-items:center !important;justify-content:space-between !important;
+  gap:14px !important;flex-wrap:wrap !important;
+}
+.footer-logo{font-family:'Bebas Neue',sans-serif;font-size:16px !important;letter-spacing:4px !important;color:#fff !important}
+.footer-logo span{color:#C0392B !important}
+.footer-links{display:flex !important;align-items:center !important;gap:20px !important}
+.footer-link{font-family:'IBM Plex Mono',monospace !important;font-size:8px !important;letter-spacing:1px !important;color:#3a3a3a !important;text-transform:uppercase !important;text-decoration:none !important;transition:color .15s !important;white-space:nowrap !important}
+.footer-link:hover{color:#888 !important}
+.footer-copy{font-family:'IBM Plex Mono',monospace !important;font-size:7px !important;color:#222 !important;white-space:nowrap !important}
+@media(max-width:560px){
+  .sbr-footer{flex-direction:column !important;align-items:flex-start !important;gap:8px !important;padding:12px 16px !important}
+  .footer-links{gap:12px !important}
+  .footer-copy{font-size:6px !important}
+}
+</style>
+<style id="sbr-social-icons">
+/* Hide old text-based social bar */
+#sbr-social-bar, .sbr-social-bar { display: none !important; }
+/* Floating icon-only social pill */
+#sbr-sw {
+  position: fixed; right: 14px; top: 50%; transform: translateY(-50%);
+  z-index: 800; display: flex; flex-direction: column; gap: 6px;
+}
+.sbr-sw-a {
+  display: flex; align-items: center; justify-content: center;
+  width: 36px; height: 36px; border-radius: 50%;
+  background: rgba(255,255,255,.04); border: 1px solid rgba(255,255,255,.08);
+  text-decoration: none; cursor: pointer;
+  transition: background .2s, border-color .2s, transform .2s;
+  backdrop-filter: blur(10px); -webkit-backdrop-filter: blur(10px);
+  font-size: 14px; line-height: 1;
+}
+.sbr-sw-a:hover {
+  background: rgba(192,57,43,.15); border-color: rgba(192,57,43,.3);
+  transform: scale(1.12);
+}
+/* Mobile — bottom strip icon only */
+@media(max-width: 680px) {
+  #sbr-sw {
+    position: fixed; bottom: 0; left: 0; right: 0; top: auto; transform: none;
+    flex-direction: row; gap: 0; border-radius: 0;
+    background: rgba(6,6,6,.97); border-top: 1px solid rgba(255,255,255,.05);
+    backdrop-filter: blur(20px); -webkit-backdrop-filter: blur(20px);
+    padding-bottom: env(safe-area-inset-bottom, 0); height: 50px;
+  }
+  .sbr-sw-a {
+    flex: 1; width: auto; height: 50px; border-radius: 0; border: none;
+    border-right: 1px solid rgba(255,255,255,.04); background: transparent;
+    font-size: 16px;
+  }
+  .sbr-sw-a:last-child { border-right: none; }
+  .sbr-sw-a:hover { transform: none; background: rgba(192,57,43,.07); }
+  body { padding-bottom: 50px !important; }
+}
+/* Kill any text labels */
+.sbr-sw-l { display: none !important; }
+</style>
+<style id="sbr-fc">
+/* Force all common text elements to white-ish */
+p,li,td,th,label,small,figcaption,dd,dt,
+.card-desc,.plan-tagline,.b2b-for,.fi,.faq-a,.faq-answer,
+.alert-desc,.mv-desc,.mg-desc,.pl-desc,.ot-desc,.ng-text,
+.prod-tagline,.ss-sub,.gb-sub,.quiz-sub,.hero-sub,
+.s-p,.section-p,.fc-sub,.ac-sub,.feat-desc,
+.sim-email-body,.sem-body,.sf-text,
+.nd-plan-feats,.prob-desc,.prob-a,
+.pf-lead,.pf-desc,.pf-text,
+.score-desc,.dimension-desc,
+.cert-desc,.track-desc,.module-desc,
+.checklist-desc,.step-desc,.resource-desc,
+[class*="-desc"],[class*="-sub"],[class*="-text"],[class*="-body"],
+[class*="-copy"],[class*="-content"],[class*="-lead"]{
+  color:#CCCCCC!important;
+}
+h1,h2,h3,h4,h5,h6,
+.card-title,.plan-name,.b2b-name,.page-title,
+.section-h2,.s-h,.ch-h1,.hero-h1,.fc-h,.ac-h,.quiz-h,
+.ot-title,.mv-title,.mg-title,.pl-title,.alert-title,
+.panel-title,.emp-name,.lb-name,.feat-name,.prod-name,
+[class*="-title"]:not(.lock-title):not(.sn-dd-section):not(.sm-label){
+  color:#FFFFFF!important;
+}
+.nav-link,.sn-link,.sn-dd-link{color:#CCCCCC!important;}
+.nav-link:hover,.nav-link.active,.sn-link:hover,.sn-dd-link:hover{color:#FFFFFF!important;}
+.footer-link{color:#3a3a3a!important;}
+.footer-link:hover{color:#888!important;}
+.footer-copy{color:#222!important;}
+/* Mobile menu links — RED, not blue/inherit */
+.sm-link{color:#EEEEEE!important;}
+.sm-link:hover{color:#C0392B!important;}
+.sm-link > span:first-child{color:#EEEEEE!important;}
+.sm-link-sub{color:#444!important;}
+.sm-small-link{color:#666!important;}
+.sm-small-link:hover{color:#EEEEEE!important;}
+/* Kill any blue link inheritance in mobile menu */
+#sbr-menu a{color:#EEEEEE!important;}
+#sbr-menu a:hover{color:#C0392B!important;}
+/* Desktop nav links */
+.sn-link{color:#AAAAAA!important;}
+.sn-link:hover{color:#EEEEEE!important;}
+.sn-dd-link{color:#888!important;}
+.sn-dd-link:hover{color:#EEEEEE!important;background:rgba(192,57,43,.06)!important;}
+/* sbrN nav elements — white, never blue */
+#sbrN a,#sbrN button,.sbrN-btn{color:#aaa!important;text-decoration:none!important}
+#sbrN a:hover,#sbrN button:hover,.sbrN-btn:hover{color:#eee!important}
+.sbrN-cta,.sbrN-cta:hover{color:#fff!important}
+.dd-link{color:inherit!important;text-decoration:none!important}
+.dd-link-title{color:#eee!important}
+.dd-link-sub{color:#555!important}
+.mob-link{color:#eee!important;text-decoration:none!important}
+.mob-link:hover{color:#C0392B!important}
+.mob-small-link{color:#555!important;text-decoration:none!important}
+.snl-btn,.snl-btn *{color:#aaa!important}
+
+</style>
+<style id="sbr-font-nuclear">
+/* ═══ NUCLEAR WHITE TEXT OVERRIDE ═══════════════════════════════
+   Targets every element that could have dark gray text.
+   Does NOT touch: buttons, badges, risk labels, nav CTAs
+═══════════════════════════════════════════════════════════════ */
+
+/* Base: all body text → white-ish */
+body, body *:not(button):not(.sn-cta):not(.cta-primary):not(.btn-nav-solid)
+  :not(.card-risk):not(.rb-c):not(.rb-h):not(.rb-m):not(.rb-l)
+  :not(.chk):not(.cross):not(.lock-plan):not(.gb-plan-badge)
+  :not([class*="badge"]) {
+  -webkit-font-smoothing: antialiased !important;
+}
+
+/* Paragraph text, list items, descriptions */
+p { color: #DDDDDD !important; font-size: max(14px, 1em) !important; line-height: 1.85 !important; }
+li { color: #DDDDDD !important; font-size: max(13px, 0.9em) !important; line-height: 1.75 !important; }
+span:not([class*="risk"]):not([class*="badge"]):not(.dot):not(.sn-sbr):not(.sn-af):not(.sn-dot) { color: inherit !important; }
+td, th { color: #CCCCCC !important; }
+label { color: #CCCCCC !important; }
+small { color: #AAAAAA !important; }
+
+/* Specific content classes - all the variants we've seen */
+.card-desc, .plan-tagline, .b2b-for, .b2b-feat,
+.fi, .fi.yes, .feat-desc, .nd-plan-feats,
+.faq-a, .faq-answer, .faq-body,
+.alert-desc, .dmb-alert-text,
+.mv-desc, .mg-desc, .pl-desc, .ot-desc, .ng-text,
+.prob-desc, .prob-a, .prob-q,
+.ahd-def, .dc-desc, .dim-desc,
+.prod-tagline, .hero-sub, .s-p, .section-p,
+.fc-sub, .ac-sub, .quiz-sub, .ah-tagline,
+.gb-sub, .pq-text, .ss-sub, .scoring-intro p,
+.sim-email-body, .sem-body, .sf-text,
+.feat-desc, .step-desc, .checklist-desc, .resource-desc,
+.cert-desc, .track-desc, .module-desc,
+.pf-lead, .pf-desc, .pf-text, .pf-body,
+.score-desc, .dimension-desc,
+.dp-wrap p, .pricing-intro p,
+.rec-desc, .sg-sub, .sh-sub,
+.about-text, .team-bio, .mission-text,
+.sbi-fill + *, [class*="-desc"],
+[class*="-sub"]:not([class*="hero-sub"]),
+[class*="-body"]:not(#sbr-menu):not(#sbr-nav):not(.card-body) { color: #CCCCCC !important; }
+
+/* Headings - full white */
+h1, h2, h3, h4, h5, h6 { color: #FFFFFF !important; }
+.card-title, .plan-name, .b2b-name, .nd-plan-name,
+.page-title, .section-h2, .s-h, .ch-h1, .hero-h1,
+.fc-h, .ac-h, .quiz-h, .ss-h, .sh-h1,
+.ot-title, .mv-title, .mg-title, .pl-title,
+.alert-title, .panel-title, .emp-name, .lb-name,
+.feat-name, .prod-name, .gb-h,
+.dc-name, .rec-title, .fe-title, .sg-h,
+.sm-link > span:first-child { color: #FFFFFF !important; }
+
+/* Nav */
+.sn-link { color: #BBBBBB !important; }
+.sn-link:hover { color: #FFFFFF !important; }
+.sn-dd-link { color: #AAAAAA !important; }
+.sn-dd-link:hover { color: #EEEEEE !important; }
+.sn-af { color: #DDDDDD !important; }
+
+/* Footer */
+.footer-link { color: #444 !important; }
+.footer-link:hover { color: #999 !important; }
+.footer-copy { color: #2a2a2a !important; }
+.footer-logo { color: #FFFFFF !important; }
+
+/* Secondary labels */
+.card-cat, .prod-code, .cs-code, .kpi-label, .hs-l, .hstat-l,
+.section-eyebrow, .s-eyebrow, .ah-eyebrow, .hero-eyebrow,
+.cf-label, .sm-link-sub, .sm-small-link,
+.sm-label, .nd-plan-price, .b2b-period, .plan-period,
+.dc-sub, .sbi-name, .dc-indicators .dc-indicator,
+.sh-pill-word, .stl-name, .fe-desc, .cc-label { color: #AAAAAA !important; }
+
+/* Dashboard */
+.emp-name, .lb-name, .dmb-emp-name { color: #EEEEEE !important; }
+.emp-dept, .lb-dept, .dmb-emp-dept, .cs-name { color: #BBBBBB !important; }
+
+/* Monospace elements */
+.card-id, .sim-from, .sem-row-val, .sim-cat-label { color: #BBBBBB !important; }
+
+/* Tag entry / pattern */
+.tag-entry { color: #CCCCCC !important; font-size: 9px !important; }
+
+/* Sidebar count */
+.cs-count { color: #777 !important; }
+
+/* Compare table */
+.compare-table td { color: #CCCCCC !important; }
+.compare-table .feat-name { color: #EEEEEE !important; font-weight: 700 !important; }
+
+/* Input fields */
+input:not([type="submit"]):not([type="button"]):not([type="reset"]),
+textarea, select { color: #EEEEEE !important; }
+input::placeholder, textarea::placeholder { color: #555 !important; }
+</style>
+
+<style id="sbr-red-override">
+/* Replace all blue nav/UI accents with red */
+.nd-plan-badge.blue{background:rgba(192,57,43,.1)!important;color:var(--red)!important}
+.nd-plan-tier.blue{color:var(--red)!important}
+.sh-plan-badge:nth-child(1){color:var(--red)!important}
+.sh-plan-badge:nth-child(1) .spb-dot{background:var(--red)!important}
+.pb-name.professional,.pb-name.premium{background:rgba(192,57,43,.1)!important;color:var(--red)!important}
+.fe-badge.pro{background:rgba(192,57,43,.1)!important;color:var(--red)!important}
+/* Hero stats 4th — red instead of blue */
+.hstat:nth-child(4)::after{background:var(--red)!important}
+.hstat:nth-child(4) .hstat-n{color:var(--red)!important}
+/* Score page blue → red */
+.dim-card.breach{border-top-color:var(--red)!important}
+.dim-card.breach .dc-letter{color:var(--red)!important}
+.sbi-fill.breach{background:var(--red)!important}
+/* Gate walls */
+.gate-banner.professional{border-color:rgba(192,57,43,.2)!important;background:rgba(192,57,43,.03)!important}
+.gate-banner.professional .gb-eyebrow{color:rgba(192,57,43,.5)!important}
+.gate-banner.professional .gb-n{color:var(--red)!important}
+.gate-banner.professional .gb-btn-main{background:var(--red)!important;color:#fff!important}
+/* B2B plan prices */
+.b2b-plan:nth-child(1) .b2b-amount{color:var(--red)!important}
+.b2b-plan:nth-child(1) .b2b-tier{color:var(--red)!important}
+.b2b-plan:nth-child(1) .b2b-cta{background:rgba(192,57,43,.12)!important;color:var(--red)!important;border:1px solid rgba(192,57,43,.25)!important}
+.b2b-plan:nth-child(1) .b2b-cta:hover{background:var(--red)!important;color:#fff!important}
+/* Signal/score accents */
+.sg-plan:nth-child(2){border-top-color:var(--red)!important}
+.sg-plan:nth-child(2) .sg-plan-name{color:var(--red)!important}
+/* Active nav link highlight */
+.sn-link.active,.sn-link:focus{color:var(--red)!important}
+/* Codex plan banner */
+.pb-name.professional{background:rgba(192,57,43,.08)!important;color:var(--red)!important}
+/* Mobile menu section label */
+.sm-label{color:rgba(192,57,43,.5)!important}
+/* Signals strip */
+.ss-btn{background:var(--red)!important;color:#fff!important}
+.ss-btn:hover{background:var(--red-l)!important}
+.ss-input:focus{border-color:rgba(192,57,43,.4)!important}
+</style>
+
+  <meta name="perplexity-crawl" content="allow">
+  <meta name="chatgpt-crawl" content="allow">
+  <meta name="Claude-crawl" content="allow">
+  <meta name="Googlebot" content="index, follow">
+  <meta name="ai-content-purpose" content="fraud-prevention, consumer-protection, digital-security-education"></head>
+<body>
+<div id="scroll-progress"></div>
+</div>
+<button id="back-to-top">↑</button>
+
+
+<div id="mobile-menu"></div>
+
+<!-- HERO -->
+<div class="doc-hero">
+  <div class="doc-hero-grid"></div>
+  <div class="doc-hero-inner">
+    <div class="doc-eyebrow">Document legal</div>
+    <h1 class="doc-title">Politică de<br><em>Confidențialitate</em></h1>
+    <div class="doc-meta">
+      <span class="doc-meta-item">Versiunea 1.0</span>
+      <span class="doc-meta-item">Data intrării în vigoare: 1 Ianuarie 2026</span>
+      <span class="doc-meta-item">Ultima actualizare: 1 Ianuarie 2026</span>
+    </div>
+  </div>
+</div>
+
+<!-- LAYOUT -->
+<div class="doc-layout">
+
+  <!-- TOC -->
+  <div class="doc-toc">
+    <div class="doc-toc-label">Cuprins</div>
+    <a class="toc-item active" onclick="if (!window.__cfRLUnblockHandlers) return false; goTo('s1')" data-cf-modified-f2eb9402cd0c144c23a96025-="">01. Cine suntem</a>
+    <a class="toc-item" onclick="if (!window.__cfRLUnblockHandlers) return false; goTo('s2')" data-cf-modified-f2eb9402cd0c144c23a96025-="">02. Date colectate</a>
+    <a class="toc-item" onclick="if (!window.__cfRLUnblockHandlers) return false; goTo('s3')" data-cf-modified-f2eb9402cd0c144c23a96025-="">03. Cum folosim datele</a>
+    <a class="toc-item" onclick="if (!window.__cfRLUnblockHandlers) return false; goTo('s4')" data-cf-modified-f2eb9402cd0c144c23a96025-="">04. Temeiul legal</a>
+    <a class="toc-item" onclick="if (!window.__cfRLUnblockHandlers) return false; goTo('s5')" data-cf-modified-f2eb9402cd0c144c23a96025-="">05. Stocare & Securitate</a>
+    <a class="toc-item" onclick="if (!window.__cfRLUnblockHandlers) return false; goTo('s6')" data-cf-modified-f2eb9402cd0c144c23a96025-="">06. Terți & Procesatori</a>
+    <a class="toc-item" onclick="if (!window.__cfRLUnblockHandlers) return false; goTo('s7')" data-cf-modified-f2eb9402cd0c144c23a96025-="">07. Drepturile tale</a>
+    <a class="toc-item" onclick="if (!window.__cfRLUnblockHandlers) return false; goTo('s8')" data-cf-modified-f2eb9402cd0c144c23a96025-="">08. Cookie-uri</a>
+    <a class="toc-item" onclick="if (!window.__cfRLUnblockHandlers) return false; goTo('s9')" data-cf-modified-f2eb9402cd0c144c23a96025-="">09. Minori</a>
+    <a class="toc-item" onclick="if (!window.__cfRLUnblockHandlers) return false; goTo('s10')" data-cf-modified-f2eb9402cd0c144c23a96025-="">10. Modificări</a>
+    <a class="toc-item" onclick="if (!window.__cfRLUnblockHandlers) return false; goTo('s11')" data-cf-modified-f2eb9402cd0c144c23a96025-="">11. Contact</a>
+    <div class="doc-other-link">
+      <div class="doc-other-link-label">Document conex</div>
+      <a href="terms.html">&rarr; Termeni & Condiții</a>
+      <a href="contact.html">&rarr; Contact GDPR</a>
+    </div>
+  </div>
+
+  <!-- CONTENT -->
+  <div class="doc-content">
+
+    <div class="doc-highlight">
+      Confidențialitatea ta este o prioritate reală, nu o formalitate. Această politică explică clar ce date colectăm, de ce le colectăm și ce drepturi ai asupra lor. Versiunea curentă respectă prevederile Regulamentului (UE) 2016/679 (GDPR).
+    </div>
+
+    <!-- 1 -->
+    <div class="doc-section" id="s1">
+      <div class="doc-section-num">01</div>
+      <div class="doc-section-title">Cine <em>suntem</em></div>
+      <div class="doc-body">
+        <p><strong>Operatorul de date</strong> este SBR Anti-Fraud Systems, denumit în continuare „SBR", „noi" sau „platforma". SBR este o platformă română de intelligence anti-fraudă care oferă produse educaționale, analitice și de certificare profesională.</p>
+        <p>Pentru orice întrebare legată de prelucrarea datelor personale, poți contacta responsabilul nostru pentru date la:</p>
+        <ul>
+          <li><strong>Email:</strong> <a href="mailto:email@sbr.systems">email@sbr.systems</a></li>
+          <li><strong>Subiect recomandat:</strong> GDPR — [tipul solicitării]</li>
+        </ul>
+        <p>SBR nu are obligația legală de a desemna un DPO (Data Protection Officer) conform Art. 37 GDPR, dar tratăm orice solicitare privind datele personale cu prioritate și răspundem în termen de maximum 30 de zile calendaristice.</p>
+      </div>
+    </div>
+
+    <div class="doc-divider"></div>
+
+    <!-- 2 -->
+    <div class="doc-section" id="s2">
+      <div class="doc-section-num">02</div>
+      <div class="doc-section-title">Date <em>colectate</em></div>
+      <div class="doc-body">
+        <p>Colectăm exclusiv datele necesare pentru funcționarea platformei și furnizarea serviciilor. Nu colectăm date în exces față de scopul declarat.</p>
+
+        <div class="doc-badge">Date furnizate direct de tine</div>
+        <table class="doc-table">
+          <thead><tr><th>Tipul datei</th><th>Când se colectează</th><th>De ce</th></tr></thead>
+          <tbody>
+            <tr><td><strong>Nume și prenume</strong></td><td>La înregistrare</td><td>Identificarea contului, personalizarea</td></tr>
+            <tr><td><strong>Adresă email</strong></td><td>La înregistrare</td><td>Autentificare, comunicări de serviciu</td></tr>
+            <tr><td><strong>Parolă (criptată)</strong></td><td>La înregistrare</td><td>Securitatea contului — nu o vedem în clar</td></tr>
+            <tr><td><strong>Organizație / Companie</strong></td><td>Opțional, la înregistrare</td><td>Personalizarea experienței Business</td></tr>
+            <tr><td><strong>Conținut mesaje</strong></td><td>Când folosești formularul de contact</td><td>Răspuns la solicitare</td></tr>
+          </tbody>
+        </table>
+
+        <div class="doc-badge">Date colectate automat</div>
+        <table class="doc-table">
+          <thead><tr><th>Tipul datei</th><th>Sursa</th><th>De ce</th></tr></thead>
+          <tbody>
+            <tr><td><strong>Adresă IP</strong></td><td>Server / browser</td><td>Securitate, prevenire abuz</td></tr>
+            <tr><td><strong>Tipul browserului și dispozitivului</strong></td><td>Browser</td><td>Compatibilitate tehnică</td></tr>
+            <tr><td><strong>Paginile accesate</strong></td><td>Platforma SBR</td><td>Îmbunătățirea serviciului</td></tr>
+            <tr><td><strong>Data și ora accesului</strong></td><td>Server</td><td>Securitate, log-uri tehnice</td></tr>
+            <tr><td><strong>Cookie-uri tehnice</strong></td><td>Browser</td><td>Funcționarea platformei</td></tr>
+          </tbody>
+        </table>
+
+        <p><strong>Ce NU colectăm:</strong> CNP, documente de identitate, date de card sau de cont bancar (acestea sunt gestionate exclusiv de Stripe, procesatorul nostru de plăți), date biometrice, date despre locație GPS sau date despre starea de sănătate.</p>
+      </div>
+    </div>
+
+    <div class="doc-divider"></div>
+
+    <!-- 3 -->
+    <div class="doc-section" id="s3">
+      <div class="doc-section-num">03</div>
+      <div class="doc-section-title">Cum <em>folosim</em> datele</div>
+      <div class="doc-body">
+        <p>Datele colectate sunt folosite exclusiv în următoarele scopuri:</p>
+        <ul>
+          <li><strong>Furnizarea serviciilor</strong> — crearea și gestionarea contului tău, accesul la planul plătit, funcționarea dashboard-ului</li>
+          <li><strong>Comunicări de serviciu</strong> — confirmarea plății, notificări despre cont, răspunsuri la solicitări de suport</li>
+          <li><strong>Securitate</strong> — prevenirea accesului neautorizat, detectarea abuzurilor, protecția integrității platformei</li>
+          <li><strong>Îmbunătățirea platformei</strong> — analiza anonimizată a modului în care este utilizată platforma, fără a urmări utilizatori individuali</li>
+          <li><strong>Obligații legale</strong> — dacă legea română sau europeană impune prelucrarea sau divulgarea unor date</li>
+        </ul>
+        <div class="doc-highlight">Nu folosim datele tale pentru publicitate comportamentală, nu le vindem, nu le închiriem și nu le partajăm cu terți în scopuri comerciale.</div>
+        <p>Comunicările de marketing (dacă optezi pentru ele) sunt trimise doar cu consimțământul tău explicit și poți revoca oricând acest consimțământ, prin link-ul de dezabonare din orice email sau printr-o solicitare la <a href="mailto:email@sbr.systems">email@sbr.systems</a>.</p>
+      </div>
+    </div>
+
+    <div class="doc-divider"></div>
+
+    <!-- 4 -->
+    <div class="doc-section" id="s4">
+      <div class="doc-section-num">04</div>
+      <div class="doc-section-title">Temeiul <em>legal</em></div>
+      <div class="doc-body">
+        <p>Conform Art. 6 GDPR, prelucrăm datele tale pe baza unuia sau mai multor temeiuri legale:</p>
+        <table class="doc-table">
+          <thead><tr><th>Temei legal</th><th>Situații aplicabile</th></tr></thead>
+          <tbody>
+            <tr><td><strong>Executarea contractului</strong><br><span style="font-size:11px;color:#888">(Art. 6(1)(b))</span></td><td>Crearea contului, furnizarea accesului la planul plătit, suport tehnic. Fără aceste date nu putem presta serviciul.</td></tr>
+            <tr><td><strong>Interesul legitim</strong><br><span style="font-size:11px;color:#888">(Art. 6(1)(f))</span></td><td>Securitatea platformei, prevenirea fraudei, îmbunătățirea serviciului pe baza datelor anonimizate de utilizare.</td></tr>
+            <tr><td><strong>Obligație legală</strong><br><span style="font-size:11px;color:#888">(Art. 6(1)(c))</span></td><td>Păstrarea documentelor contabile, răspuns la solicitări ale autorităților competente conform legii române.</td></tr>
+            <tr><td><strong>Consimțământ</strong><br><span style="font-size:11px;color:#888">(Art. 6(1)(a))</span></td><td>Comunicări de marketing, cookie-uri non-esențiale. Retragerea consimțământului nu afectează legalitatea prelucrărilor anterioare.</td></tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+
+    <div class="doc-divider"></div>
+
+    <!-- 5 -->
+    <div class="doc-section" id="s5">
+      <div class="doc-section-num">05</div>
+      <div class="doc-section-title">Stocare &amp; <em>Securitate</em></div>
+      <div class="doc-body">
+        <p><strong>Perioada de stocare:</strong> Datele contului tău sunt păstrate pe durata existenței contului activ și pentru o perioadă de maximum 12 luni după ștergerea acestuia, în scopuri de audit și obligații legale. Datele din loguri tehnice sunt păstrate maximum 90 de zile.</p>
+        <p><strong>Unde sunt stocate datele:</strong> Datele sunt procesate și stocate pe servere situate în Uniunea Europeană sau în țări care beneficiază de decizii de adecvare emise de Comisia Europeană.</p>
+        <p><strong>Măsuri de securitate implementate:</strong></p>
+        <ul>
+          <li>Criptarea parolelor cu algoritmi unidirecționali (bcrypt) — nu putem vedea parola ta în clar</li>
+          <li>Comunicații HTTPS/TLS pe toată platforma</li>
+          <li>Acces restricționat la date — doar personalul autorizat, pe baza principiului need-to-know</li>
+          <li>Monitorizare continuă a accesurilor suspecte</li>
+          <li>Backup-uri regulate criptate</li>
+        </ul>
+        <div class="doc-highlight">În cazul unui incident de securitate care îți afectează datele, te vom notifica în termen de 72 de ore de la descoperire, conform Art. 33-34 GDPR.</div>
+      </div>
+    </div>
+
+    <div class="doc-divider"></div>
+
+    <!-- 6 -->
+    <div class="doc-section" id="s6">
+      <div class="doc-section-num">06</div>
+      <div class="doc-section-title">Terți &amp; <em>Procesatori</em></div>
+      <div class="doc-body">
+        <p>Colaborăm cu un număr limitat de terți, strict necesari pentru funcționarea platformei. Toți procesatorii sunt legați contractual de obligații GDPR și nu au voie să folosească datele tale în alt scop decât cel pentru care au fost angajați.</p>
+        <table class="doc-table">
+          <thead><tr><th>Procesator</th><th>Rol</th><th>Date partajate</th><th>Sediu</th></tr></thead>
+          <tbody>
+            <tr><td><strong>Stripe</strong></td><td>Procesare plăți</td><td>Email, datele de plată (gestionate exclusiv de ei)</td><td>SUA — clauze contractuale standard UE</td></tr>
+            <tr><td><strong>Hostinger</strong></td><td>Hosting website</td><td>Date tehnice server (IP, loguri)</td><td>UE / LT</td></tr>
+            <tr><td><strong>Outseta</strong></td><td>Gestionare membership & autentificare</td><td>Email, plan activ, date cont</td><td>SUA — clauze contractuale standard UE</td></tr>
+            <tr><td><strong>FormSubmit</strong></td><td>Procesare formulare contact</td><td>Datele introduse în formular</td><td>SUA — clauze contractuale standard UE</td></tr>
+            <tr><td><strong>Google Analytics 4</strong></td><td>Statistici agregate de audiență (doar cu consimțământ)</td><td>Adresă IP anonimizată, date de utilizare agregate</td><td>SUA/UE — clauze contractuale standard UE</td></tr>
+          </tbody>
+        </table>
+        <p>Nu transferăm date personale în scopuri publicitare, de profilare sau de marketing terț. Nu vindem date. Nu.</p>
+      </div>
+    </div>
+
+    <div class="doc-divider"></div>
+
+    <!-- 7 -->
+    <div class="doc-section" id="s7">
+      <div class="doc-section-num">07</div>
+      <div class="doc-section-title">Drepturile <em>tale</em></div>
+      <div class="doc-body">
+        <p>Conform GDPR, ai următoarele drepturi pe care le poți exercita oricând, gratuit, contactând <a href="mailto:email@sbr.systems">email@sbr.systems</a>:</p>
+        <table class="doc-table">
+          <thead><tr><th>Dreptul</th><th>Ce înseamnă practic</th><th>Termen răspuns</th></tr></thead>
+          <tbody>
+            <tr><td><strong>Dreptul de acces</strong><br><span style="font-size:11px;color:#888">(Art. 15)</span></td><td>Poți cere o copie a tuturor datelor pe care le deținem despre tine</td><td>30 zile</td></tr>
+            <tr><td><strong>Dreptul la rectificare</strong><br><span style="font-size:11px;color:#888">(Art. 16)</span></td><td>Poți cere corectarea datelor inexacte sau incomplete</td><td>30 zile</td></tr>
+            <tr><td><strong>Dreptul la ștergere</strong><br><span style="font-size:11px;color:#888">(Art. 17)</span></td><td>Poți cere ștergerea datelor tale („dreptul de a fi uitat"), cu excepțiile legale aplicabile</td><td>30 zile</td></tr>
+            <tr><td><strong>Dreptul la portabilitate</strong><br><span style="font-size:11px;color:#888">(Art. 20)</span></td><td>Poți primi datele tale într-un format structurat, uzual, lizibil automat</td><td>30 zile</td></tr>
+            <tr><td><strong>Dreptul la opoziție</strong><br><span style="font-size:11px;color:#888">(Art. 21)</span></td><td>Poți obiecta la prelucrarea bazată pe interes legitim sau marketing direct</td><td>Imediat pentru marketing</td></tr>
+            <tr><td><strong>Retragerea consimțământului</strong><br><span style="font-size:11px;color:#888">(Art. 7(3))</span></td><td>Poți retrage oricând consimțământul dat (ex. pentru marketing). Retragerea nu afectează prelucrările anterioare.</td><td>Imediat</td></tr>
+            <tr><td><strong>Dreptul la restricționare</strong><br><span style="font-size:11px;color:#888">(Art. 18)</span></td><td>Poți cere limitarea prelucrării în anumite circumstanțe (ex. în timp ce verificăm o contestație)</td><td>30 zile</td></tr>
+          </tbody>
+        </table>
+        <div class="doc-highlight">Dacă consideri că drepturile tale nu sunt respectate, ai dreptul să depui o plângere la <strong>Autoritatea Națională de Supraveghere a Prelucrării Datelor cu Caracter Personal (ANSPDCP)</strong> — <a href="https://www.dataprotection.ro" target="_blank" rel="noopener">dataprotection.ro</a>.</div>
+      </div>
+    </div>
+
+    <div class="doc-divider"></div>
+
+    <!-- 8 -->
+    <div class="doc-section" id="s8">
+      <div class="doc-section-num">08</div>
+      <div class="doc-section-title"><em>Cookie-uri</em></div>
+      <div class="doc-body">
+        <p>Folosim un număr minim de cookie-uri, strict necesare pentru funcționarea platformei.</p>
+        <table class="doc-table">
+          <thead><tr><th>Tip cookie</th><th>Scop</th><th>Durată</th><th>Poate fi refuzat?</th></tr></thead>
+          <tbody>
+            <tr><td><strong>Sesiune (autentificare)</strong></td><td>Menținerea stării de login</td><td>Sesiune / 30 zile</td><td>Nu — necesar funcțional</td></tr>
+            <tr><td><strong>Preferințe</strong></td><td>Memorarea setărilor de interfață</td><td>1 an</td><td>Nu — necesar funcțional</td></tr>
+            <tr><td><strong>Analitice (Google Analytics 4)</strong></td><td>Statistici agregate de audiență, cu IP anonimizat — activate doar după „Accept toate"</td><td>Până la 2 ani</td><td>Da — implicit dezactivate</td></tr>
+          </tbody>
+        </table>
+        <p>Nu folosim cookie-uri de publicitate sau remarketing terț. Folosim Google Analytics 4 doar pentru statistici agregate de audiență, activat exclusiv după consimțământul tău (butonul „Accept toate"); dacă alegi „Doar esențiale", niciun cookie analitic nu este setat. Poți retrage consimțământul oricând ștergând cookie-urile din browser sau scriindu-ne la <a href="mailto:email@sbr.systems">email@sbr.systems</a>.</p>
+      </div>
+    </div>
+
+    <div class="doc-divider"></div>
+
+    <!-- 9 -->
+    <div class="doc-section" id="s9">
+      <div class="doc-section-num">09</div>
+      <div class="doc-section-title"><em>Minori</em></div>
+      <div class="doc-body">
+        <p>Platforma SBR este destinată persoanelor cu vârsta de minimum <strong>18 ani</strong>. Nu colectăm în mod intenționat date personale de la minori.</p>
+        <p>Dacă ești părinte sau tutore legal și ai motive să crezi că un minor și-a creat un cont pe platforma noastră fără acordul tău, te rugăm să ne contactezi imediat la <a href="mailto:email@sbr.systems">email@sbr.systems</a>. Vom șterge datele respective fără întârziere nejustificată.</p>
+      </div>
+    </div>
+
+    <div class="doc-divider"></div>
+
+    <!-- 10 -->
+    <div class="doc-section" id="s10">
+      <div class="doc-section-num">10</div>
+      <div class="doc-section-title"><em>Modificări</em> ale politicii</div>
+      <div class="doc-body">
+        <p>Ne rezervăm dreptul de a actualiza această politică pentru a reflecta modificări ale serviciilor, ale legislației aplicabile sau ale practicilor noastre de prelucrare a datelor.</p>
+        <p>În cazul modificărilor semnificative, vei fi notificat prin email la adresa înregistrată în cont cu minimum <strong>14 zile înainte</strong> de intrarea în vigoare a noii versiuni. Continuarea utilizării platformei după data intrării în vigoare constituie acceptarea modificărilor.</p>
+        <p>Versiunile anterioare ale acestei politici pot fi solicitate oricând la <a href="mailto:email@sbr.systems">email@sbr.systems</a>.</p>
+      </div>
+    </div>
+
+    <div class="doc-divider"></div>
+
+    <!-- 11 -->
+    <div class="doc-section" id="s11">
+      <div class="doc-section-num">11</div>
+      <div class="doc-section-title">Contact &amp; <em>GDPR</em></div>
+      <div class="doc-body">
+        <p>Pentru orice solicitare legată de datele tale personale, drepturile tale GDPR sau această politică:</p>
+        <ul>
+          <li><strong>Email:</strong> <a href="mailto:email@sbr.systems">email@sbr.systems</a></li>
+          <li><strong>Subiect recomandat:</strong> GDPR — [Drept solicitat, ex: Acces / Ștergere / Portabilitate]</li>
+          <li><strong>Timp de răspuns:</strong> Maximum 30 de zile calendaristice (standard GDPR)</li>
+        </ul>
+        <p>Pentru plângeri nesoluționat, autoritatea competentă este <strong>ANSPDCP</strong>: <a href="https://www.dataprotection.ro" target="_blank" rel="noopener">dataprotection.ro</a>, Bulevardul General Gheorghe Magheru 28–30, Sector 1, București.</p>
+      </div>
+    </div>
+
+  </div>
+</div>
+
+<footer class="sbr-footer">
+  <div style="display:flex;align-items:center"><div class="footer-logo">SBR<span>.</span></div></div>
+  <div class="footer-copy">&copy; 2026 Structura Brevis Rector&trade;</div>
+  <nav class="footer-links">
+    <a href="am-fost-inselat.html" class="footer-link" data-en="Been scammed?">Am fost înșelat</a>
+    <a href="unde-raportezi-frauda.html" class="footer-link" data-en="Report fraud">Raportează frauda</a>
+    <a href="phishing-cum-recunosti.html" class="footer-link">Phishing</a>
+    <a href="codex.html" class="footer-link">Codex</a>
+    <a href="terms.html" class="footer-link">Termeni</a>
+    <a href="privacy.html" class="footer-link">Privacy &amp; Cookies</a>
+    <a href="gdpr.html" class="footer-link">GDPR</a>
+  </nav>
+</footer>
+
+<script>
+window.addEventListener('scroll',function(){
+  var h=document.documentElement.scrollHeight-window.innerHeight;
+  document.getElementById('scroll-progress').style.width=(h>0?Math.round(window.scrollY/h*100):0)+'%';
+  document.getElementById('back-to-top').classList.toggle('show',window.scrollY>400);
+  // TOC active
+  var sections=document.querySelectorAll('.doc-section[id]');
+  var active=null;
+  sections.forEach(function(s){if(s.getBoundingClientRect().top<150)active=s.id;});
+  document.querySelectorAll('.toc-item').forEach(function(t){
+    var target=(t.getAttribute('onclick')||'').replace("goTo('","").replace("')","");
+    t.classList.toggle('active',target===active);
+  });
+},{passive:true});
+document.getElementById('back-to-top').onclick=function(){window.scrollTo({top:0,behavior:'smooth'});};
+function goTo(id){var el=document.getElementById(id);if(el)el.scrollIntoView({behavior:'smooth',block:'start'});}
+</script>
+
+<script id="sbr-color-fix">
+(function(){
+  function fix(){
+    var r=document.documentElement;
+    r.style.setProperty('--text','#EEEEEE');
+    r.style.setProperty('--t1','#EEEEEE');
+    r.style.setProperty('--t2','#CCCCCC');
+    r.style.setProperty('--t3','#AAAAAA');
+    r.style.setProperty('--t4','#888888');
+    r.style.setProperty('--t5','#555555');
+    r.style.setProperty('--T2','#CCCCCC');
+    r.style.setProperty('--T3','#AAAAAA');
+  }
+  fix();
+  document.addEventListener('DOMContentLoaded',fix);
+  setTimeout(fix,100);
+})();
+</script>
+<div id="sbr-sw" aria-label="Social Media">
+  <a class="sbr-sw-a" href="https://instagram.com/sbr_antifraud" target="_blank" rel="noopener" title="Instagram @sbr_antifraud">&#128248;</a>
+  <a class="sbr-sw-a" href="https://tiktok.com/@structurabrevisrector" target="_blank" rel="noopener" title="TikTok @structurabrevisrector">&#127925;</a>
+  <a class="sbr-sw-a" href="https://t.me/sbrorator" target="_blank" rel="noopener" title="Telegram t.me/sbrorator">&#9992;&#65039;</a>
+  <a class="sbr-sw-a" href="https://pin.it/7yO6KnjsW" target="_blank" rel="noopener" title="Pinterest">&#128204;</a>
+</div>
+<script src="js/cookie-consent.js"></script>
+
+</body>
+</html>

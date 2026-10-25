@@ -30,6 +30,14 @@ async function get(url) {
   }
 }
 
+// One retry after 3 s: Cloudflare can briefly answer 403/429 to many quick requests.
+async function getWithRetry(url) {
+  const first = await get(url);
+  if (first.status === 200) return first;
+  await new Promise((r) => setTimeout(r, 3000));
+  return get(url);
+}
+
 async function pool(items, fn) {
   const out = new Array(items.length);
   let i = 0;
@@ -50,7 +58,7 @@ export async function run() {
   const urls = [...sm.body.matchAll(/<loc>([^<]+)<\/loc>/g)].map((m) => m[1].trim());
   const all = [...new Set([...urls, ...CRITICAL_PAGES.map((p) => SITE + p)])];
 
-  const pages = await pool(all, get);
+  const pages = await pool(all, getWithRetry);
   const stripe = new Set();
   const seo = [];
   for (const p of pages) {
@@ -71,7 +79,23 @@ export async function run() {
     if (miss.length) seo.push(`${path}: ${miss.join(', ')}`);
   }
 
-  const stripeResults = await pool([...stripe], get);
+  // Share images and stylesheets: the server answers 200 with its 404 page for missing files, so check the body.
+  const assets = new Set();
+  for (const p of pages) {
+    if (p.status !== 200) continue;
+    for (const m of p.body.matchAll(/<meta[^>]+property=["']og:image["'][^>]+content=["']([^"']+)["']/gi)) assets.add(new URL(m[1], p.url).href);
+    for (const m of p.body.matchAll(/<link[^>]+rel=["']stylesheet["'][^>]+href=["']([^"']+)["']/gi)) assets.add(new URL(m[1], p.url).href);
+  }
+  const ownAssets = [...assets].filter((u) => u.startsWith(SITE + '/'));
+  const assetResults = await pool(ownAssets, getWithRetry);
+  for (const a of assetResults) {
+    if (a.status !== 200 || /^\s*<!doctype html/i.test(a.body.slice(0, 50))) {
+      const users = pages.filter((p) => p.body.includes(a.url.replace(SITE + '/', ''))).length;
+      findings.push({ level: 'warning', text: `missing file ${a.url.replace(SITE, '')} (used by ~${users} pages; server returns its 404 page)` });
+    }
+  }
+
+  const stripeResults = await pool([...stripe], getWithRetry);
   for (const s of stripeResults) if (s.status !== 200) findings.push({ level: 'critical', text: `Stripe link ${s.url} → ${s.status || s.error}` });
 
   const ok = pages.filter((p) => p.status === 200 && !isSoft404(p.body)).length;
@@ -85,6 +109,7 @@ export async function run() {
     `Generated ${now}. Source: public website only. **Revenue and analytics were not measured** (no Stripe/GA4 access in this check).`,
     '',
     `- Pages checked: ${pages.length} (${ok} OK)`,
+    `- Share images and stylesheets checked: ${ownAssets.length}`,
     `- Stripe payment links found: ${stripe.size} (${stripeResults.filter((s) => s.status === 200).length} reachable)`,
     `- Critical problems: ${critical.length}`,
     `- Warnings: ${warnings.length}`,

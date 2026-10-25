@@ -4,11 +4,11 @@
 
 | ID | Ce lipsește | De ce contează | Ce trebuie să faci |
 |---|---|---|---|
-| B1 | Codul site-ului nu e în Git | Nu pot publica nimic; fiecare modificare trebuie copiată manual pe Hostinger | Creezi un repository GitHub nou (ex. `sbr-website`), urci fișierele din `public_html` și conectezi Hostinger → Git (îți dau ghid pas cu pas când decizi) |
+| B1 | Publicarea pe Hostinger e manuală | Am o copie publică a codului (`site-snapshot/`), dar fără fișierele de pe server, iar publicarea o faci tu | 1) Îmi trimiți arhiva originală din Hostinger (File Manager → `public_html` → Compress → Download), ca s-o compar cu copia. 2) Mai târziu conectăm Hostinger → Git Deploy, cu ghid pas cu pas. |
 | B2 | Nu știu cum se activează planul după plată | Risc de clienți plătitori fără acces | Îmi spui cum se întâmplă acum (manual? un flux n8n? altceva?) |
-| B3 | Acces la date: Stripe (cheie restricționată, doar citire) și GA4 (rol Viewer) | Fără ele nu pot măsura venitul și conversia | Ghidurile vin când ești gata; **nu-mi trimite niciodată cheia secretă Stripe (`sk_live_…`) în chat** |
+| B3 | Acces la date: Stripe și GA4 | Fără ele nu pot măsura venitul și conversia | Nu pot să-mi dau singur acces: ambele cer autentificarea ta. Stripe: creezi o cheie restricționată, doar citire, și o salvezi în setările mediului Claude (meniul mediului din bara de titlu a sesiunii → Edit → Network secrets / API credentials sau variabilă de mediu) cu numele `STRIPE_READ_KEY`; o sesiune nouă o preia. Niciodată în chat. GA4: nu există încă o conexiune Claude pentru GA4; varianta practică e un export programat sau un flux n8n care citește GA4 și salvează rezultatele. |
 | B4 | Acces Google Search Console | Măsurarea SEO | Adaugi utilizator cu permisiune „Restricted” |
-| B5 | Serverul n8n nu s-a conectat la această sesiune (eroare 404 la conectare) | Nu pot inspecta fluxurile existente | Reconectezi n8n în setările Claude (Connectors) |
+| B5 | Conectorul n8n eșuează la pornirea sesiunii (eroare 404 a serverului MCP) | Nu pot inspecta fluxurile existente | Eu nu-l pot reconecta din sesiune. Din claude.ai → Settings → Connectors: n8n → Disconnect → Connect, apoi pornești o sesiune nouă. |
 
 ## Decizii care îți cer aprobarea
 
@@ -24,6 +24,7 @@
 |---|---|---|
 | 2026-10-25 | Am construit remedierea R1 ca funcție Supabase separată, fără să modific tabelele existente (risc minim, ușor de anulat) | Claude |
 | 2026-10-25 | Post-Fraud PDF rămâne disponibil pentru orice cont logat, ca acum. Dacă vrei să ceară Essential, se schimbă un singur număr (`minRank`) în funcție | Claude; de confirmat de tine |
+| 2026-10-25 | Copia codului s-a făcut doar prin citire de pe site-ul public; nimic nu a fost modificat pe site sau pe Hostinger | Claude |
 | 2026-10-25 | Nu am creat cont de test și nu am încercat să modific date în Supabase-ul de producție; am verificat doar că datele nu se pot citi anonim | Claude |
 
 ## De verificat de tine în Supabase (2 minute)
