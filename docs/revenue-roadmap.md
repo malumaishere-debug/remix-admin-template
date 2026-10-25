@@ -1,0 +1,24 @@
+# Plan de venituri (backlog prioritizat)
+
+Ordine: impact comercial estimat × încredere ÷ efort, ajustat la risc. Impactul e o **estimare**, nu o măsurătoare.
+Stări: `gata de publicat` · `de făcut` · `blocat` · `așteaptă decizie` · `publicat` · `măsurat`.
+
+| # | Problemă | Soluție | Impact | Încredere | Efort | Cost | Risc | Metrică de succes | Stare |
+|---|---|---|---|---|---|---|---|---|---|
+| R1 | PDF-urile plătite sunt descărcabile gratuit din codul paginii | Bucket Supabase privat + funcția `paid-download` (verifică planul pe server, link valabil 2 min) + dezactivarea linkurilor MEGA | Mare: oprește pierderea directă de vânzări | Mare (verificat) | 30–45 min pentru tine | 0 | Mic, reversibil (backup la `dashboard.html`) | `daily-check` nu mai găsește linkuri MEGA; clienții plătitori descarcă fără tichete | gata de publicat |
+| R2 | Nu știm dacă plata activează automat contul | Verifici cum se activează acum. Apoi: Stripe webhook → funcție Supabase care setează `profiles.plan`, cu protecție la duplicate (idempotență) și potrivire după `client_reference_id` | Mare: fiecare plată neactivată înseamnă rambursare sau contestație | Medie | 1 sesiune după acces | 0 | Mediu (atinge plățile; se testează în Stripe test mode) | 100% din plățile reușite au plan activ în < 1 min | blocat (B2) |
+| R3 | Nu putem măsura ce pagină vinde | `analytics.js` pe toate paginile cu prețuri, `data-checkout` pe toate butoanele Stripe, redirecționare Stripe spre `/dashboard.html?checkout=success&plan=…` | Mare (indirect: fără date nu putem optimiza) | Mare | 1 oră | 0 | Mic | Raport GA4: `checkout_started` și `purchase_completed` pe pagini și planuri | blocat (B1, B3) |
+| R4 | Mesaje contradictorii la cumpărare | Scoatem textul „Plăți automate în curând”; „Contact Enterprise” → `contact.html?tip=enterprise`; eticheta corectă de plan (făcut în patch-ul R1) | Mediu | Mare | 20 min | 0 | Mic | Clicuri pe „Obține…” / vizualizări `personal.html` | de făcut (B1) |
+| R5 | Premium „pe viață” canibalizează Signals (singurul venit lunar) | Variante: Premium include 12 luni de Signals, apoi 49 RON/lună sau o reînnoire anuală redusă. Se aplică doar clienților noi; cei existenți își păstrează ce au cumpărat | Mare pe termen lung (venit recurent) | Medie | 1–2 ore | 0 | Mediu (comercial și legal; termenii trebuie actualizați) | Abonamente Signals active, venit lunar recurent | așteaptă decizie (D1) |
+| R6 | Instrumentele gratuite sunt fundături | După fiecare rezultat: recomandare onestă și contextuală (ex. IBAN suspect → ghidul Post-Fraud / planul care îl conține), plus abonare opțională la alerte | Mediu | Medie | 2–3 ore | 0 | Mic (fără scoruri umflate) | `upgrade_cta_clicked` / `scan_completed` | de făcut (B1) |
+| R7 | Lipsuri SEO pe 18 pagini | Completăm `canonical`, `description` și un singur `h1`; adăugăm `sbr-ai` și `verified` în sitemap | Mic–mediu | Mare | 1 oră | 0 | Mic | Afișări și clicuri în Search Console | de făcut (B1, B4) |
+| R8 | Lipsește recuperarea clienților care nu finalizează plata | Stripe: activezi colectarea e-mailului și a consimțământului promoțional la plată, apoi recuperare prin e-mail **doar** pentru cei care au fost de acord | Mediu | Medie | 1 oră | 0 | Mediu (GDPR) | Plăți recuperate / plăți abandonate | așteaptă decizie (D3) |
+| R9 | Venit B2B: firmele cumpără printr-un link de plată, fără discuție | Pagina Business: evaluare gratuită → apel → ofertă. Parteneriate cu firme de contabilitate (comision per vânzare) | Mare (bilet mare) | Medie | continuu | 0 | Mic | Lead-uri B2B calificate pe lună, contracte semnate | de făcut |
+| R10 | Codul site-ului nu e în Git | Repository nou `sbr-website` + Git Deploy din Hostinger | Mare (deblochează R3, R4, R6, R7 și lucrul autonom) | Mare | 30 min pentru tine | 0 | Mic | Fiecare modificare devine un PR revizuibil | așteaptă decizie (B1) |
+
+## Ordinea recomandată
+
+1. **R1** (acum: pierdere de venit verificată).
+2. **R10**, ca să pot face eu direct R3, R4, R6 și R7.
+3. **R2**, imediat ce primesc acces la Stripe (în modul test).
+4. **R5**, după ce iei decizia D1.
